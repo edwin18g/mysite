@@ -6,6 +6,7 @@
 	include('config.php');
 	date_default_timezone_set('Asia/Jakarta');
 	define('SALT', '@AbyDahana is Awesome!');
+	ini_set('max_execution_time', 60);
 /**
  * CodeIgniter
  *
