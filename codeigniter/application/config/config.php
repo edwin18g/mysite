@@ -25,7 +25,7 @@
 $base_url				= (empty($_SERVER['HTTPS']) OR strtolower($_SERVER['HTTPS']) === 'off') ? 'http' : 'https';
 $base_url				.= '://'. $_SERVER['HTTP_HOST'];
 $base_url				.= str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT_NAME']);
-$config['base_url']		= $base_url;
+$config['base_url']		= 'http://kuzhithuraidiocese.com/new/';//$base_url;
 
 /*
 |--------------------------------------------------------------------------
