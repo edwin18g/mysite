@@ -181,10 +181,10 @@
 								</div>
 							</form>
 						</div>
-						<b><?php echo phrase('latest_quiries'); ?>:</b>
+						<!-- <b><?php echo phrase('latest_quiries'); ?>:</b>
 						<br />
 						
-						<?php echo widget_hashTags(false, 20); ?>
+						<?php echo widget_hashTags(false, 20); ?> -->
 						
 						<br />
 					</div>
