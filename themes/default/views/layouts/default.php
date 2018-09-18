@@ -150,7 +150,7 @@
 				</div>
 			</div><!-- /.container -->
 		</nav><!-- /.navbar -->
-		<div class="content-wrapper" id="page-content">
+		<div class="content-wrapper" id="">
 		
 		<?php echo $template['body']; ?>
 		

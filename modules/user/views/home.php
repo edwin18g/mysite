@@ -1,5 +1,5 @@
 
-	<div class="jumbotron">
+	<?php /*<div class="jumbotron hidden">
 		<div class="container first-child">
 			<div class="row">
 				<div class="col-md-2 hidden-xs hidden-sm">
@@ -26,7 +26,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> */ ?>
 	<div class="container">
 		<div class="row visible-xs visible-sm">
 			<div class="col-md-2">
