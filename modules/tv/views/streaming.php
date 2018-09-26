@@ -5,7 +5,7 @@
 }
 .flowplayer .fp-color-play {
   fill: #eee;
-}
+} 
 </style>
 	<?php foreach($post as $page): ?>
 	<!-- Flowplayer library -->
