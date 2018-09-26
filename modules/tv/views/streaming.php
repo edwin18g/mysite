@@ -1,18 +1,37 @@
 
+	<style>
+.flowplayer {
+  background-color: #00abcd;
+}
+.flowplayer .fp-color-play {
+  fill: #eee;
+}
+</style>
 	<?php foreach($post as $page): ?>
-	
-	<script src="<?php echo base_url('themes/' . $this->settings['theme'] . '/js/mediaplayer/mediaelement-and-player.min.js'); ?>"></script>
-	<link rel="stylesheet" href="<?php echo base_url('themes/' . $this->settings['theme'] . '/js/mediaplayer/mediaelementplayer.min.css'); ?>" />
+	<!-- Flowplayer library -->
+<script src="//releases.flowplayer.org/7.2.4/flowplayer.min.js"></script>
+<!-- Flowplayer hlsjs engine (light) -->
+<script src="//releases.flowplayer.org/hlsjs/flowplayer.hlsjs.light.min.js"></script>
+	<!-- <script src="<?php echo base_url('themes/' . $this->settings['theme'] . '/js/mediaplayer/mediaelement-and-player.min.js'); ?>"></script>
+	<link rel="stylesheet" href="<?php echo base_url('themes/' . $this->settings['theme'] . '/js/mediaplayer/mediaelementplayer.min.css'); ?>" /> -->
 	
 	<?php if(!isset($modal)){ ?>
 		<div class="jumbotron bg-dark text-center first-child">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-10 h-600px col-sm-offset-1 nomargin-xs nopadding-xs ocdc2475">
+					<!-- <div class="col-md-10 h-600px col-sm-offset-1 nomargin-xs nopadding-xs ocdc2475">
 						<video id="player">
 							<source type="application/x-mpegURL" src="<?php echo $page['tvURL']; ?>" />
 						</video>
-					</div>
+					</div> -->
+					<div data-live="true" data-ratio="0.5625" data-share="false" class="flowplayer col-md-10 h-600px col-sm-offset-1 nomargin-xs nopadding-xs ocdc2475">
+ 
+   <video data-title="Live stream">
+<source type="application/x-mpegurl"
+        src="http://wms.shared.streamshow.it/carinatv/carinatv/playlist.m3u8">
+   </video>
+ 
+</div>
 				</div>
 			</div>
 		</div>
@@ -97,9 +116,13 @@
 					<div class="row bg-dark preloader">
 						<div class="middle ocdc2475">
 							<span class="img text-center">
-								<video id="player">
+								<!-- <video id="player">
 									<source type="application/x-mpegURL" src="<?php echo $page['tvURL']; ?>" />
-								</video>
+								</video> -->
+								<video data-title="Live stream">
+<source type="application/x-mpegurl"
+        src="http://wms.shared.streamshow.it/carinatv/carinatv/playlist.m3u8">
+   </video>
 							</span>
 						</div>
 					</div>
