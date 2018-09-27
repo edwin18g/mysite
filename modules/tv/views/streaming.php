@@ -6,6 +6,7 @@
 .flowplayer .fp-color-play {
   fill: #eee;
 }
+  
 </style>
 	<?php foreach($post as $page): ?>
 	<!-- Flowplayer library -->
@@ -19,11 +20,11 @@
 		<div class="jumbotron bg-dark text-center first-child">
 			<div class="container">
 				<div class="row">
-					<!-- <div class="col-md-10 h-600px col-sm-offset-1 nomargin-xs nopadding-xs ocdc2475">
+					<div class="col-md-10 h-600px col-sm-offset-1 nomargin-xs nopadding-xs ocdc2475">
 						<video id="player">
 							<source type="application/x-mpegURL" src="<?php echo $page['tvURL']; ?>" />
 						</video>
-					</div> -->
+					</div>
 					<div data-live="true" data-ratio="0.5625" data-share="false" class="flowplayer col-md-10 h-600px col-sm-offset-1 nomargin-xs nopadding-xs ocdc2475">
  
    <video data-title="Live stream">
@@ -116,13 +117,9 @@
 					<div class="row bg-dark preloader">
 						<div class="middle ocdc2475">
 							<span class="img text-center">
-								<!-- <video id="player">
+								<video id="player">
 									<source type="application/x-mpegURL" src="<?php echo $page['tvURL']; ?>" />
-								</video> -->
-								<video data-title="Live stream">
-<source type="application/x-mpegurl"
-        src="http://wms.shared.streamshow.it/carinatv/carinatv/playlist.m3u8">
-   </video>
+								</video>
 							</span>
 						</div>
 					</div>
