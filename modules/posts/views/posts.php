@@ -77,6 +77,8 @@
 						
 						$fetch 		= getCategoryNews($cat['categoryID'], 4, 0);
 						$i 			= 1;
+						if(isset($fetch))
+						{
 						foreach($fetch as $c)
 						{
 							$post_tag	= '';
@@ -154,11 +156,12 @@
 							}
 							
 							$i++;
-						}
+						}}
 						echo '<a href="' . base_url('posts/' . $cat['categorySlug']) . '" class="ajaxLoad btn btn-default btn-block"><i class="fa fa-arrow-circle-right"></i> &nbsp; ' . phrase('see_all') . ' <span class="badge">' . countCategoryNews($cat['categoryID']) . '</span></a></div><br />';
 						
 						$n++;
 					}
+					
 				?>
 				
 				</div>
