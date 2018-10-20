@@ -1,36 +1,22 @@
 
-	<style>
-.flowplayer {
-  background-color: #00abcd;
-}
-.flowplayer .fp-color-play {
-  fill: #eee;
-}
-  
-</style>
 	<?php foreach($post as $page): ?>
 	<!-- Flowplayer library -->
-<script src="//releases.flowplayer.org/7.2.4/flowplayer.min.js"></script>
-<!-- Flowplayer hlsjs engine (light) -->
-<script src="//releases.flowplayer.org/hlsjs/flowplayer.hlsjs.light.min.js"></script>
-	<!-- <script src="<?php echo base_url('themes/' . $this->settings['theme'] . '/js/mediaplayer/mediaelement-and-player.min.js'); ?>"></script>
-	<link rel="stylesheet" href="<?php echo base_url('themes/' . $this->settings['theme'] . '/js/mediaplayer/mediaelementplayer.min.css'); ?>" /> -->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
 	
 	<?php if(!isset($modal)){ ?>
 		<div class="jumbotron bg-dark text-center first-child">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-10 h-600px col-sm-offset-1 nomargin-xs nopadding-xs ocdc2475">
-						<video id="player">
-							<source type="application/x-mpegURL" src="<?php echo $page['tvURL']; ?>" />
-						</video>
+						
+						<div id="player"></div>
+  <script>
+    var player = new Clappr.Player({source: "<?php echo $page['tvURL']; ?>", parentId: "#player"});
+  </script>
 					</div>
 					<div data-live="true" data-ratio="0.5625" data-share="false" class="flowplayer col-md-10 h-600px col-sm-offset-1 nomargin-xs nopadding-xs ocdc2475">
  
-   <video data-title="Live stream">
-<source type="application/x-mpegurl"
-        src="http://wms.shared.streamshow.it/carinatv/carinatv/playlist.m3u8">
-   </video>
+   
  
 </div>
 				</div>
