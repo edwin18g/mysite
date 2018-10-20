@@ -676,7 +676,7 @@ if(!function_exists('getHeadlineNews'))
 							<p class="text-shadow">' . ($c['postExcerpt'] != '' ? truncate($c['postExcerpt'], 80) : phrase('no_content')) . '</p>
 							<div class="clearfix"></div>
 							<br />
-							<a href="' . base_url('posts/' . $c['postSlug']) . '" class="ajaxLoad btn btn-primary"><i class="fa fa-search"></i> &nbsp; '.phrase('read_more').'</a>
+							<a href="' . base_url('posts/' . $c['postSlug']) . '" class="ajaxloads btn btn-primary"><i class="fa fa-search"></i> &nbsp; '.phrase('read_more').'</a>
 						</div>
 					</div>
 				'."\r\n";
@@ -1021,7 +1021,7 @@ if(!function_exists('getComments'))
 						</div>
 						<div class="col-xs-10 col-sm-11">
 							<p class="comment-text relative">
-								<a href="' . base_url(getUsernameByID($row['userID'])) . '" class="ajaxLoad hoverCard">
+								<a href="' . base_url(getUsernameByID($row['userID'])) . '" class="ajaxloads hoverCard">
 									<b>' . getFullnameByID($row['userID']) . '</b> &nbsp; 
 								</a>
 								<span id="rcomment' . $row['commentID'] . '">' . nl2br(special_parse($row['comments'])) . '</span>

@@ -64,14 +64,14 @@
 							$tags = explode(',', $c['tags']);
 							foreach($tags as $tag)
 							{
-								$post_tag = '<a href="' . base_url('search/' . $tag) . '" class="ajaxLoad"><span class="badge"><i class="fa fa-tag"></i> ' . truncate($tag, 12) . '</span></a>';
+								$post_tag = '<a href="' . base_url('search/' . $tag) . '" class="ajaxloads"><span class="badge"><i class="fa fa-tag"></i> ' . truncate($tag, 12) . '</span></a>';
 							}
 						}
 						else
 						{
 							foreach(json_decode($c['categoryID']) as $key => $val)
 							{
-								$post_tag = '<a href="' . base_url('posts/' . getCategorySlugByID($val)) . '" class="ajaxLoad"><span class="badge"><i class="fa fa-tag"></i> ' . truncate(getCategoryByID($val), 12) . '</span></a> ';
+								$post_tag = '<a href="' . base_url('posts/' . getCategorySlugByID($val)) . '" class="ajaxloads"><span class="badge"><i class="fa fa-tag"></i> ' . truncate(getCategoryByID($val), 12) . '</span></a> ';
 							}
 						}
 						if($n == 7)
@@ -93,13 +93,13 @@
 										<div class="row article_cover" style="background:' . $hex . ' url(' . getFeaturedImage($c['postID'], 1) . ') center center no-repeat;background-size:cover;-webkit-background-size:cover">
 											<div class="col-sm-12 nomargin absolute text-shadow" style="width:100%">
 												<div class="col-xs-2">
-													<a href="' . base_url(getUsernameByID($c['contributor'])) . '" class="ajaxLoad hoverCard">
+													<a href="' . base_url(getUsernameByID($c['contributor'])) . '" class="ajaxloads hoverCard">
 														<img src="' . base_url('uploads/users/thumbs/' . imageCheck('users', getUserPhoto($c['contributor']), 1)) . '" style="height:40px;width:40px" class="img-rounded img-bordered" alt="" />
 													</a>
 												</div>
 												<div class="col-xs-10 relative">
 													<h2 class="pull-right">#' . $c['visits_count'] . '</h2>
-													<a href="' . base_url(getUsernameByID($c['contributor'])) . '" class="ajaxLoad hoverCard">
+													<a href="' . base_url(getUsernameByID($c['contributor'])) . '" class="ajaxloads hoverCard">
 														<b>' . getFullnameByID($c['contributor']) . '</b> 
 													</a>
 													<br />
@@ -109,7 +109,7 @@
 										</div>
 									</div>
 									<div class="col-sm-12">
-										<a href="' . base_url('posts/' . $c['postSlug']) . '" class="ajaxLoad">
+										<a href="' . base_url('posts/' . $c['postSlug']) . '" class="ajaxloads">
 											<h4 class="nomargin"><b>'.truncate($c['postTitle'], 30) . '</b></h4>
 										</a>
 										<p class="meta">

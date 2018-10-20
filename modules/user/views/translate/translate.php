@@ -93,7 +93,7 @@
 							<td><?php echo ucwords($field);?></td>
 							<td class="text-right col-xs-4">
 								<div class="btn-group">
-									<a href="<?php echo base_url('user/translate/' . $field);?>" class="btn btn-default btn-sm ajaxLoad" data-push="tooltip" data-placement="top" title="<?php echo phrase('edit_phrase'); ?>"><i class="btn-icon-only fa fa-edit"> </i></a><?php if($this->session->userdata('user_level') == 1) { ?><a href="javascript:void(0)" class="btn btn-default btn-sm" onclick="return confirm_modal('<?php echo base_url('user/translate/delete_language/' . $field);?>', 'translate<?php echo $field; ?>');" data-push="tooltip" data-placement="top" title="<?php echo phrase('delete_translation'); ?>"><i class="btn-icon-only fa fa-trash"> </i></a><?php } ?>
+									<a href="<?php echo base_url('user/translate/' . $field);?>" class="btn btn-default btn-sm ajaxloads" data-push="tooltip" data-placement="top" title="<?php echo phrase('edit_phrase'); ?>"><i class="btn-icon-only fa fa-edit"> </i></a><?php if($this->session->userdata('user_level') == 1) { ?><a href="javascript:void(0)" class="btn btn-default btn-sm" onclick="return confirm_modal('<?php echo base_url('user/translate/delete_language/' . $field);?>', 'translate<?php echo $field; ?>');" data-push="tooltip" data-placement="top" title="<?php echo phrase('delete_translation'); ?>"><i class="btn-icon-only fa fa-trash"> </i></a><?php } ?>
 								</div>
 							</td>
 						</tr>

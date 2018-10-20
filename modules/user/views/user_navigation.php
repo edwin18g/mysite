@@ -87,13 +87,13 @@
 				<div class="col-sm-10 col-sm-offset-2" style="position:relative">
 					
 					<div class="btn-group btn-group-justified">
-						<a class="ajaxLoad btn btn-default btn-lg<?php echo (!$this->uri->segment(2) || $this->uri->segment(2) == 'timeline' ? ' active' : ''); ?>" href="<?php echo base_url($page['userName']); ?>" style="border-right:none"><i class="fa fa-newspaper-o"></i><span class="hidden-xs"> &nbsp; <?php echo phrase('wall'); ?></span></a>
+						<a class="ajaxloads btn btn-default btn-lg<?php echo (!$this->uri->segment(2) || $this->uri->segment(2) == 'timeline' ? ' active' : ''); ?>" href="<?php echo base_url($page['userName']); ?>" style="border-right:none"><i class="fa fa-newspaper-o"></i><span class="hidden-xs"> &nbsp; <?php echo phrase('wall'); ?></span></a>
 						
-						<a class="ajaxLoad btn btn-default btn-lg<?php echo ($this->uri->segment(2) == 'friends' ? ' active' : ''); ?>" href="<?php echo base_url($page['userName'] . '/friends'); ?>" style="border-right:none"><i class="fa fa-users"></i><span class="hidden-xs"> &nbsp; <?php echo phrase('friends'); ?></span> <?php echo '<small class="badge" id="friends-count">' . getUserFriends('active', $page['userID']) . '</small>'; ?></a>
+						<a class="ajaxloads btn btn-default btn-lg<?php echo ($this->uri->segment(2) == 'friends' ? ' active' : ''); ?>" href="<?php echo base_url($page['userName'] . '/friends'); ?>" style="border-right:none"><i class="fa fa-users"></i><span class="hidden-xs"> &nbsp; <?php echo phrase('friends'); ?></span> <?php echo '<small class="badge" id="friends-count">' . getUserFriends('active', $page['userID']) . '</small>'; ?></a>
 						
-						<a class="ajaxLoad btn btn-default btn-lg<?php echo ($this->uri->segment(2) == 'followers' ? ' active' : ''); ?>" href="<?php echo base_url($page['userName'] . '/followers'); ?>" style="border-right:none"><i class="fa fa-retweet"></i><span class="hidden-xs"> &nbsp; <?php echo phrase('followers'); ?></span> <?php echo '<small class="badge" id="followers-count">' . getUserFollowers('followers', $page['userID']) . '</small>'; ?></a>
+						<a class="ajaxloads btn btn-default btn-lg<?php echo ($this->uri->segment(2) == 'followers' ? ' active' : ''); ?>" href="<?php echo base_url($page['userName'] . '/followers'); ?>" style="border-right:none"><i class="fa fa-retweet"></i><span class="hidden-xs"> &nbsp; <?php echo phrase('followers'); ?></span> <?php echo '<small class="badge" id="followers-count">' . getUserFollowers('followers', $page['userID']) . '</small>'; ?></a>
 						
-						<a class="ajaxLoad btn btn-default btn-lg<?php echo ($this->uri->segment(2) == 'following' ? ' active' : ''); ?>" href="<?php echo base_url($page['userName'] . '/following'); ?>"><i class="fa fa-random"></i><span class="hidden-xs"> &nbsp; <?php echo phrase('following'); ?></span> <?php echo '<small class="badge" id="following-count">' . getUserFollowers('following', $page['userID']) . '</small>'; ?></a>
+						<a class="ajaxloads btn btn-default btn-lg<?php echo ($this->uri->segment(2) == 'following' ? ' active' : ''); ?>" href="<?php echo base_url($page['userName'] . '/following'); ?>"><i class="fa fa-random"></i><span class="hidden-xs"> &nbsp; <?php echo phrase('following'); ?></span> <?php echo '<small class="badge" id="following-count">' . getUserFollowers('following', $page['userID']) . '</small>'; ?></a>
 					</div>
 				</div>
 			</div>

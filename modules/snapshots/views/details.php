@@ -23,7 +23,7 @@
 											<img src="<?php echo base_url('uploads/users/thumbs/' . imageCheck('users', getUserPhoto($page['contributor']), 1)); ?>" width="40" height="40" alt="" class="rounded" />
 										</div>
 										<div class="col-xs-10">
-											<a href="<?php echo base_url(getUsernameByID($page['contributor'])); ?>" class="ajaxLoad hoverCard"><b><?php echo getFullNameByID($page['contributor']); ?></b> <small class="text-muted">@<?php echo getUsernameByID($page['contributor']); ?></small></a>
+											<a href="<?php echo base_url(getUsernameByID($page['contributor'])); ?>" class="ajaxloads hoverCard"><b><?php echo getFullNameByID($page['contributor']); ?></b> <small class="text-muted">@<?php echo getUsernameByID($page['contributor']); ?></small></a>
 											<p class="text-muted">
 												<i class="fa fa-newspaper-o"></i> <?php echo (countPosts('posts', $page['contributor']) + countPosts('snapshots', $page['contributor'])); ?>
 												/ <i class="fa fa-users"></i> <?php echo getUserFollowers('followers', $page['contributor']); ?>
@@ -116,7 +116,7 @@
 								<img src="<?php echo base_url('uploads/users/thumbs/' . imageCheck('users', getUserPhoto($page['contributor']), 1)); ?>" width="40" height="40" alt="" class="rounded" data-dismiss="modal" aria-hidden="true" />
 							</div>
 							<div class="col-xs-10 nomargin">
-								<a href="<?php echo base_url(getUsernameByID($page['contributor'])); ?>" class="ajaxLoad hoverCard" data-dismiss="modal" aria-hidden="true"><b><?php echo getFullNameByID($page['contributor']); ?></b> <small class="text-muted">@<?php echo getUsernameByID($page['contributor']); ?></small></a>
+								<a href="<?php echo base_url(getUsernameByID($page['contributor'])); ?>" class="ajaxloads hoverCard" data-dismiss="modal" aria-hidden="true"><b><?php echo getFullNameByID($page['contributor']); ?></b> <small class="text-muted">@<?php echo getUsernameByID($page['contributor']); ?></small></a>
 								<br />
 								<small class="text-muted">
 									<i class="fa fa-newspaper-o"></i> <?php echo (countPosts('posts', $page['contributor']) + countPosts('snapshots', $page['contributor'])); ?>

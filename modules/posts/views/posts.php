@@ -72,7 +72,7 @@
 						
 						echo '
 							<div class="col-sm-6 grid-item">
-								<a href="' . base_url('posts/' . $cat['categorySlug']) . '" class="ajaxLoad"><h3><i class="fa fa-bookmark-o"></i> ' . $cat['categoryTitle'] . '</h3></a>
+								<a href="' . base_url('posts/' . $cat['categorySlug']) . '" class="ajaxloads"><h3><i class="fa fa-bookmark-o"></i> ' . $cat['categoryTitle'] . '</h3></a>
 						';
 						
 						$fetch 		= getCategoryNews($cat['categoryID'], 4, 0);
@@ -87,14 +87,14 @@
 								$tags = explode(',', $c['tags']);
 								foreach($tags as $tag)
 								{
-									$post_tag = '<a href="' . base_url('search/' . $tag) . '" class="ajaxLoad"><span class="badge"><i class="fa fa-tag"></i> ' . truncate($tag, 12) . '</span></a> ';
+									$post_tag = '<a href="' . base_url('search/' . $tag) . '" class="ajaxloads"><span class="badge"><i class="fa fa-tag"></i> ' . truncate($tag, 12) . '</span></a> ';
 								}
 							}
 							else
 							{
 								foreach(json_decode($c['categoryID']) as $key => $val)
 								{
-									$post_tag = '<a href="' . base_url('posts/' . getCategorySlugByID($val)) . '" class="ajaxLoad"><span class="badge"><i class="fa fa-tag"></i> ' . truncate(getCategoryByID($val), 12) . '</span></a> ';
+									$post_tag = '<a href="' . base_url('posts/' . getCategorySlugByID($val)) . '" class="ajaxloads"><span class="badge"><i class="fa fa-tag"></i> ' . truncate(getCategoryByID($val), 12) . '</span></a> ';
 								}
 							}
 							if($i == 1)
@@ -105,13 +105,13 @@
 											<div class="row article_cover" style="background:' . $hex . ' url(' . getFeaturedImage($c['postID'], 1) . ') center center no-repeat;background-size:cover;-webkit-background-size:cover">
 												<div class="col-sm-12 nomargin absolute text-shadow" style="width:100%">
 													<div class="col-xs-2">
-														<a href="' . base_url(getUsernameByID($c['contributor'])) . '" class="ajaxLoad hoverCard">
+														<a href="' . base_url(getUsernameByID($c['contributor'])) . '" class="ajaxloads hoverCard">
 															<img src="' . base_url('uploads/users/thumbs/' . imageCheck('users', getUserPhoto($c['contributor']), 1)) . '" style="height:40px;width:40px" class="img-rounded img-bordered" alt="" />
 														</a>
 													</div>
 													<div class="col-xs-10 relative">
 														<h2 class="pull-right">#' . $c['visits_count'] . '</h2>
-														<a href="' . base_url(getUsernameByID($c['contributor'])) . '" class="ajaxLoad hoverCard">
+														<a href="' . base_url(getUsernameByID($c['contributor'])) . '" class="ajaxloads hoverCard">
 															<b>' . getFullnameByID($c['contributor']) . '</b> 
 														</a>
 														<br />
@@ -121,7 +121,7 @@
 											</div>
 										</div>
 										<div class="col-sm-12">
-											<a href="' . base_url('posts/' . $c['postSlug']) . '" class="ajaxLoad">
+											<a href="' . base_url('posts/' . $c['postSlug']) . '" class="ajaxloads">
 												<h4 class="nomargin"><b>'.truncate($c['postTitle'], 30) . '</b></h4>
 											</a>
 											<p class="meta">
@@ -138,12 +138,12 @@
 								echo '
 									<div class="image-placeholder">
 										<div class="col-xs-3">
-											<a href="' . base_url('posts/' . $c['postSlug']) . '" class="ajaxLoad">
+											<a href="' . base_url('posts/' . $c['postSlug']) . '" class="ajaxloads">
 												<img width="100%" class="img-responsive img-rounded" src="' . getFeaturedImage($c['postID'], 1) . '" alt="..."/>
 											</a>
 										</div>
 										<div class="col-xs-9">
-											<a href="' . base_url('posts/' . $c['postSlug']) . '" class="ajaxLoad">
+											<a href="' . base_url('posts/' . $c['postSlug']) . '" class="ajaxloads">
 												'.truncate($c['postTitle'], 80).'
 											</a>
 											<p class="meta">
@@ -157,7 +157,7 @@
 							
 							$i++;
 						}}
-						echo '<a href="' . base_url('posts/' . $cat['categorySlug']) . '" class="ajaxLoad btn btn-default btn-block"><i class="fa fa-arrow-circle-right"></i> &nbsp; ' . phrase('see_all') . ' <span class="badge">' . countCategoryNews($cat['categoryID']) . '</span></a></div><br />';
+						echo '<a href="' . base_url('posts/' . $cat['categorySlug']) . '" class="ajaxloads btn btn-default btn-block"><i class="fa fa-arrow-circle-right"></i> &nbsp; ' . phrase('see_all') . ' <span class="badge">' . countCategoryNews($cat['categoryID']) . '</span></a></div><br />';
 						
 						$n++;
 					}

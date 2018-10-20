@@ -614,7 +614,7 @@ class User extends CI_Controller
 				}
 					
 				$html .= '
-					<a href="' . $row['targetURL'] . '" class="ajaxLoad">
+					<a href="' . $row['targetURL'] . '" class="ajaxloads">
 						<div class="row" style="' . ($n++ != 0 ? 'border-top:1px solid #ddd;' : '') . 'margin-right:0;margin-left:0;' . ($row['status'] == 0 ? 'color:#000' : 'color:#aaa') . '">
 							<div class="col-xs-2 nomargin">
 								<img src="' . base_url('uploads/users/thumbs/' . imageCheck('users', getUserPhoto($row['fromID']), 1)) . '" width="30" height="30" style="margin-top:6px" class="img-rounded img-bordered alt="..." />
@@ -1247,7 +1247,7 @@ class User extends CI_Controller
 				</div>
 				<div class="col-xs-10 col-sm-11">
 					<p class="comment-text relative">
-						<a href="' . base_url(getUsernameByID($this->session->userdata('userID'))) . '" class="ajaxLoad hoverCard">
+						<a href="' . base_url(getUsernameByID($this->session->userdata('userID'))) . '" class="ajaxloads hoverCard">
 							<b>' . getFullnameByID($this->session->userdata('userID')) . '</b> &nbsp; 
 						</a>
 						<span id="rcomment' . $commentID . '">' . nl2br(special_parse($content)) . '</span>

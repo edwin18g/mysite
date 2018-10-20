@@ -5,9 +5,9 @@
 	<div class="container first-child">
 		<div class="row">
 			<div class="col-md-12 text-center">
-				<a href="<?php echo base_url(getUsernameByID($page['contributor'])); ?>" class="ajaxLoad hoverCard"><img src="<?php echo base_url('uploads/users/thumbs/' . imageCheck('users', getUserPhoto($page['contributor']), 1)); ?>" alt="" class="img-circle" style="width:100px;height:100px" /></a>
+				<a href="<?php echo base_url(getUsernameByID($page['contributor'])); ?>" class="ajaxloads hoverCard"><img src="<?php echo base_url('uploads/users/thumbs/' . imageCheck('users', getUserPhoto($page['contributor']), 1)); ?>" alt="" class="img-circle" style="width:100px;height:100px" /></a>
 				<br />
-				<a href="<?php echo base_url(getUsernameByID($page['contributor'])); ?>" class="ajaxLoad hoverCard"><b><?php echo getFullNameByID($page['contributor']); ?></b> - <small>@<?php echo getUsernameByID($page['contributor']); ?></small></a>
+				<a href="<?php echo base_url(getUsernameByID($page['contributor'])); ?>" class="ajaxloads hoverCard"><b><?php echo getFullNameByID($page['contributor']); ?></b> - <small>@<?php echo getUsernameByID($page['contributor']); ?></small></a>
 				<br />
 				<small><i class="fa fa-newspaper-o"></i> <?php echo (countPosts('posts', $page['contributor']) + countPosts('snapshots', $page['contributor'])); ?> / <i class="fa fa-users"></i> <?php echo getUserFollowers('followers', $page['contributor']); ?></small>
 				<h3 class="nomargin"><?php echo $meta['title']; ?></h3>
@@ -49,14 +49,14 @@
 								$tags = explode(',', $page['tags']);
 								foreach($tags as $tag)
 								{
-									echo '<a href="' . base_url('search/' . $tag) . '" class="ajaxLoad"><span class="badge"><i class="fa fa-tag"></i> ' . $tag . '</span></a> ';
+									echo '<a href="' . base_url('search/' . $tag) . '" class="ajaxloads"><span class="badge"><i class="fa fa-tag"></i> ' . $tag . '</span></a> ';
 								}
 							}
 							else
 							{
 								foreach(json_decode($page['categoryID']) as $key => $val)
 								{
-									echo '<a href="' . base_url('category/' . getCategorySlugByID($val)) . '" class="ajaxLoad"><span class="badge"><i class="fa fa-tag"></i> ' . getCategoryByID($val) . '</span></a> ';
+									echo '<a href="' . base_url('category/' . getCategorySlugByID($val)) . '" class="ajaxloads"><span class="badge"><i class="fa fa-tag"></i> ' . getCategoryByID($val) . '</span></a> ';
 								}
 							}
 						?>
@@ -68,7 +68,7 @@
 					<div class="col-sm-12">
 						<div class="row">
 							<div class="col-xs-2">
-								<a href="<?php echo base_url(getUsernameByID($page['contributor'])); ?>" class="ajaxLoad hoverCard"><img src="<?php echo base_url('uploads/users/thumbs/' . imageCheck('users', getUserPhoto($page['contributor']), 1)); ?>" alt="" class="rounded img-responsive" /></a>
+								<a href="<?php echo base_url(getUsernameByID($page['contributor'])); ?>" class="ajaxloads hoverCard"><img src="<?php echo base_url('uploads/users/thumbs/' . imageCheck('users', getUserPhoto($page['contributor']), 1)); ?>" alt="" class="rounded img-responsive" /></a>
 							</div>
 							<div class="col-xs-10">
 								<b><i><?php echo getUserBio($page['contributor']); ?></i></b>

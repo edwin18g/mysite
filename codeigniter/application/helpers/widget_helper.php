@@ -38,7 +38,7 @@ if ( ! function_exists('widget_sidebarNews'))
 		
 		foreach($query->result_array() as $c)
 		{
-			$posts .= '<li><h5><a href="' . base_url('posts/' . $c['postSlug']) . '" class="ajaxLoad">'.truncate($c['postTitle'], 60).'</a></h5></li>';
+			$posts .= '<li><h5><a href="' . base_url('posts/' . $c['postSlug']) . '" class="ajaxloads">'.truncate($c['postTitle'], 60).'</a></h5></li>';
 		};
 		
 		$posts .= '</ul>';
@@ -63,7 +63,7 @@ if ( ! function_exists('widget_mostViewNews'))
 			$posts .= '
 				<li>
 					<hr />
-					<a href="' . base_url('posts/' . $c['postSlug']) . '" class="ajaxLoad">'.truncate($c['postTitle'], 60).'</a>
+					<a href="' . base_url('posts/' . $c['postSlug']) . '" class="ajaxloads">'.truncate($c['postTitle'], 60).'</a>
 					<div class="row nopadding nomargin">
 						<div class="col-xs-4 nopadding nomargin text-center">
 							<span class="badge"><i class="fa fa-eye"></i> &nbsp; ' . $c['visits_count'] . '</span>
@@ -100,7 +100,7 @@ if ( ! function_exists('widget_topCommentNews'))
 		
 		foreach($query->result_array() as $c)
 		{
-			$posts .= '<li><h5><a href="' . base_url('posts/' . $c['postSlug']) . '" class="ajaxLoad">'.truncate($c['postTitle'], 60).'</a></h5></li>';
+			$posts .= '<li><h5><a href="' . base_url('posts/' . $c['postSlug']) . '" class="ajaxloads">'.truncate($c['postTitle'], 60).'</a></h5></li>';
 		};
 		
 		$posts .= '</ul>';
@@ -129,7 +129,7 @@ if ( ! function_exists('widget_mostCommentNews'))
 			$posts .= '
 				<li>
 					<hr />
-					<a href="' . base_url('posts/' . $c['postSlug']) . '" class="ajaxLoad">'.truncate($c['postTitle'], 60).'</a>
+					<a href="' . base_url('posts/' . $c['postSlug']) . '" class="ajaxloads">'.truncate($c['postTitle'], 60).'</a>
 					<div class="row nopadding nomargin">
 						<div class="col-xs-4 nopadding nomargin text-center">
 							<span class="badge"><i class="fa fa-comments"></i> &nbsp; ' . countComments('posts', $c['itemID']) . '</span>
@@ -169,15 +169,15 @@ if ( ! function_exists('widget_newOpenletters'))
 					<hr />
 					<div class="row">
 						<div class="col-xs-3 col-sm-2 nomargin">
-							<a href="' . base_url(getUsernameByID($c['contributor'])) . '" class="ajaxLoad hoverCard">
+							<a href="' . base_url(getUsernameByID($c['contributor'])) . '" class="ajaxloads hoverCard">
 								<img src="' . base_url('uploads/users/thumbs/' . imageCheck('users', getUserPhoto($c['contributor']), 1)) . '" class="img-responsive img-rounded img-bordered" alt="" style="max-height:80px" />
 							</a>
 						</div>
 						<div class="col-xs-9 col-sm-10 nomargin">
-							<a href="' . base_url('openletters/' . $c['slug']) . '" title="' . $c['title'] . '" class="ajaxLoad"><b>'.truncate($c['title'], 32).'</b></a>
+							<a href="' . base_url('openletters/' . $c['slug']) . '" title="' . $c['title'] . '" class="ajaxloads"><b>'.truncate($c['title'], 32).'</b></a>
 							<br />
 							<small>
-								' . phrase('by') . ' <a href="' . base_url(getUsernameByID($c['contributor'])) . '" class="ajaxLoad hoverCard">' . getFullnameByID($c['contributor']) . '</a>
+								' . phrase('by') . ' <a href="' . base_url(getUsernameByID($c['contributor'])) . '" class="ajaxloads hoverCard">' . getFullnameByID($c['contributor']) . '</a>
 								<span class="hidden-xs">
 									&nbsp; / &nbsp; 
 									<i class="fa fa-eye"></i> ' . $c['visits_count'] . ' - <i class="fa fa-comments"></i> ' . countComments('openletters', $c['letterID']) . ' - <i class="fa fa-thumbs-up"></i> ' . countLikes('openletters', $c['letterID']) . '
@@ -211,7 +211,7 @@ if ( ! function_exists('widget_activePosts'))
 		
 		foreach($query->result_array() as $c)
 		{
-			$posts .= '<li><h5><a href="' . base_url('posts/' . $c['postSlug']) . '" class="ajaxLoad">'.truncate($c['postTitle'], 60).'</a></h5></li>';
+			$posts .= '<li><h5><a href="' . base_url('posts/' . $c['postSlug']) . '" class="ajaxloads">'.truncate($c['postTitle'], 60).'</a></h5></li>';
 		};
 		
 		$posts .= '</ul>';
@@ -269,7 +269,7 @@ if ( ! function_exists('widget_activeOpenletters'))
 		
 		foreach($query->result_array() as $c)
 		{
-			$posts .= '<li><h5><a href="' . base_url('openletters/' . $c['slug']) . '" class="ajaxLoad">'.truncate($c['title'], 60).'</a></h5></li>';
+			$posts .= '<li><h5><a href="' . base_url('openletters/' . $c['slug']) . '" class="ajaxloads">'.truncate($c['title'], 60).'</a></h5></li>';
 		};
 		
 		$posts .= '</ul>';
@@ -329,12 +329,12 @@ if ( ! function_exists('widget_updateStream'))
 					<div class="item' . ($s == 0 ? ' active' : '') . '">
 						<div class="row carousel-content">
 							<div class="col-xs-3 col-sm-2">
-								<a href="' . base_url('/' . getUsernameByID($c['userID'])) . '" class="ajaxLoad">
+								<a href="' . base_url('/' . getUsernameByID($c['userID'])) . '" class="ajaxloads">
 									<img src="' . base_url('uploads/users/thumbs/' . imageCheck('users', getUserPhoto($c['userID']), 1)) . '" class="img-responsive img-rounded img-bordered" alt="" style="max-height:80px" />
 								</a>
 							</div>
 							<div class="col-xs-9 col-sm-10">
-								<a href="' . base_url('/' . getUsernameByID($c['userID'])) . '" class="ajaxLoad"><b>' . getFullnameByID($c['userID']) . '</b></a>
+								<a href="' . base_url('/' . getUsernameByID($c['userID'])) . '" class="ajaxloads"><b>' . getFullnameByID($c['userID']) . '</b></a>
 								<br />
 								<small class="text-muted">@' . getUsernameByID($c['userID']) . '</small>
 								<small class="pull-right">' . time_since($c['timestamp']) . '</small>
@@ -383,12 +383,12 @@ if ( ! function_exists('widget_topContributors'))
 			$posts .= '
 				<div class="row">
 					<div class="col-xs-3 nomargin">
-						<a href="' . base_url('/' . getUsernameByID($c['userID'])) . '" class="ajaxLoad">
+						<a href="' . base_url('/' . getUsernameByID($c['userID'])) . '" class="ajaxloads">
 							<img src="' . base_url('uploads/users/thumbs/' . imageCheck('users', getUserPhoto($c['userID']), 1)) . '" class="img-responsive img-rounded img-bordered" alt="" style="max-height:80px" />
 						</a>
 					</div>
 					<div class="col-xs-9 nomargin">
-						<a href="' . base_url($c['userName']).'" class="ajaxLoad hoverCard"><b>'.truncate($c['full_name'], 12).'</b></a>
+						<a href="' . base_url($c['userName']).'" class="ajaxloads hoverCard"><b>'.truncate($c['full_name'], 12).'</b></a>
 						<br />
 						<small><i class="fa fa-newspaper-o"></i> ' . (countPosts('posts', $c['userID']) + countPosts('snapshots', $c['userID'])) . ' / <i class="fa fa-users"></i> ' . getUserFollowers('followers', $c['userID']) . '</small>
 					</div>
@@ -420,12 +420,12 @@ if ( ! function_exists('widget_lastUsers'))
 				<hr />
 				<div class="row">
 					<div class="col-xs-3 col-sm-2 nomargin">
-						<a href="' . base_url('/' . getUsernameByID($c['userID'])) . '" class="ajaxLoad">
+						<a href="' . base_url('/' . getUsernameByID($c['userID'])) . '" class="ajaxloads">
 							<img src="' . base_url('uploads/users/thumbs/' . imageCheck('users', getUserPhoto($c['userID']), 1)) . '" class="img-responsive img-rounded img-bordered" alt="" style="max-height:80px" />
 						</a>
 					</div>
 					<div class="col-xs-9 col-sm-10 nomargin">
-						<a href="' . base_url($c['userName']).'" class="ajaxLoad hoverCard"><b>'.truncate($c['full_name'], 60).'</b></a>
+						<a href="' . base_url($c['userName']).'" class="ajaxloads hoverCard"><b>'.truncate($c['full_name'], 60).'</b></a>
 						<br />
 						<small><i class="fa fa-newspaper-o"></i> ' . (countPosts('posts', $c['userID']) + countPosts('snapshots', $c['userID'])) . ' / <i class="fa fa-users"></i> ' . getUserFollowers('followers', $c['userID']) . '</small>
 					</div>
@@ -455,7 +455,7 @@ if ( ! function_exists('widget_sidebarCategory'))
 			$totPosts = $query->num_rows();
 			if ($totPosts > 0)
 			{
-				$categories .= '<a href="' . base_url('posts/' . $c['categorySlug']) . '" class="ajaxLoad list-group-item' . (($CI->uri->segment(2) == $c['categorySlug']) ? ' active' : '') . '">' . truncate(htmlspecialchars($c['categoryTitle']), 18) . ' &nbsp; <span class="badge">' . $totPosts . '</span></a>';
+				$categories .= '<a href="' . base_url('posts/' . $c['categorySlug']) . '" class="ajaxloads list-group-item' . (($CI->uri->segment(2) == $c['categorySlug']) ? ' active' : '') . '">' . truncate(htmlspecialchars($c['categoryTitle']), 18) . ' &nbsp; <span class="badge">' . $totPosts . '</span></a>';
 			}
 		}
 		
@@ -482,7 +482,7 @@ if ( ! function_exists('widget_categoryNav'))
 			$totPosts = $query->num_rows();
 			if ($totPosts > 0)
 			{
-				$categories .= '<li><a href="' . base_url('posts/' . $c['categorySlug']) . '"' . (($CI->uri->segment(2) == $c['categorySlug']) ? ' class="active ajaxLoad"' : 'class="ajaxLoad"') . '><span class="badge pull-right">'.$totPosts.'</span> &nbsp; '.htmlspecialchars($c['categoryTitle']).'</a></li>';
+				$categories .= '<li><a href="' . base_url('posts/' . $c['categorySlug']) . '"' . (($CI->uri->segment(2) == $c['categorySlug']) ? ' class="active ajaxloads"' : 'class="ajaxloads"') . '><span class="badge pull-right">'.$totPosts.'</span> &nbsp; '.htmlspecialchars($c['categoryTitle']).'</a></li>';
 			}
 		}
 		return $categories;
@@ -505,10 +505,10 @@ if ( ! function_exists('widget_LatestNews'))
 				<hr />
 				<div class="row">
 					<div class="col-xs-2">
-						<a href="' . base_url('posts/' . $c['postSlug']) . '" class="ajaxLoad"><img class="img-responsive" src="' . base_url() . 'uploads/'.getFeaturedImage($c['postID']).'" alt="'.truncate($c['postTitle']).'"/></a>
+						<a href="' . base_url('posts/' . $c['postSlug']) . '" class="ajaxloads"><img class="img-responsive" src="' . base_url() . 'uploads/'.getFeaturedImage($c['postID']).'" alt="'.truncate($c['postTitle']).'"/></a>
 					</div>
 					<div class="col-xs-10">
-						<b style="margin-bottom:0"><a href="' . base_url('posts/' . $c['postSlug']) . '" class="ajaxLoad">'.truncate($c['postTitle'], 40).'</a></b>
+						<b style="margin-bottom:0"><a href="' . base_url('posts/' . $c['postSlug']) . '" class="ajaxloads">'.truncate($c['postTitle'], 40).'</a></b>
 						<p class="meta">'.time_since($c['timestamp']).'</p>
 						<p>'.truncate($c['postExcerpt'], 80).'</p>
 					</div>
@@ -552,7 +552,7 @@ if ( ! function_exists('widget_timeLine'))
 		$timeline		= '<ul class="list">';
 		for ($i=0; $i<=11; $i++)
 		{ 
-			$timeline	.= '<li><a href="' . base_url($userName . '/' . strtotime("-$i month") . '/0') . '" class="ajaxLoad"><i class="fa fa-clock-o"></i> ' . phrase(strtolower(date('F', strtotime("-$i month")))) . '</a></li>';
+			$timeline	.= '<li><a href="' . base_url($userName . '/' . strtotime("-$i month") . '/0') . '" class="ajaxloads"><i class="fa fa-clock-o"></i> ' . phrase(strtolower(date('F', strtotime("-$i month")))) . '</a></li>';
 		}
 		$timeline		.= '</ul>';
 		return $timeline;
@@ -575,7 +575,7 @@ if ( ! function_exists('widget_hashTags'))
 			$hashtag = ($list ? '<ul style="list-style:none;padding-left:0;margin:0">' : '');
 			foreach($query->result_array() as $row)
 			{
-				$hashtag .= ($list ? '<li><h4>' : '') . '<a href="' . base_url('search/' . format_uri($row['query'])) . '" class="ajaxLoad">#' . $row['query'] . '</a>' . ($list ? '</h4></li>' : ' - ');
+				$hashtag .= ($list ? '<li><h4>' : '') . '<a href="' . base_url('search/' . format_uri($row['query'])) . '" class="ajaxloads">#' . $row['query'] . '</a>' . ($list ? '</h4></li>' : ' - ');
 			}
 			$hashtag .= ($list ? '</ul>' : '');
 			

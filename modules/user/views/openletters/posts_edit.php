@@ -50,7 +50,7 @@
 								<?php if($this->input->is_ajax_request() && isset($modal)) { ?>
 									<a href="javascript:void(0)" class="btn btn-default btn-lg" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i> <?php echo phrase('cancel'); ?></a>
 								<?php } else { ?>
-									<a href="<?php echo base_url('user/openletters'); ?>" class="btn btn-default btn-lg ajaxLoad"><i class="fa fa-times"></i> <?php echo phrase('cancel'); ?></a>
+									<a href="<?php echo base_url('user/openletters'); ?>" class="btn btn-default btn-lg ajaxloads"><i class="fa fa-times"></i> <?php echo phrase('cancel'); ?></a>
 								<?php } ?>
 							</div>
 							<div class="col-xs-6 nomargin">
