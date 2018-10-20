@@ -79,7 +79,8 @@ class Tv extends CI_Controller
 			//$this->form_validation->set_rules('url', phrase('channel_url'), 'trim|xss_clean|required|valid_url|callback_real_url');
 			$this->form_validation->set_rules('userfile', phrase('channel_logo'), 'callback_upload_checker');
 			
-			if($this->form_validation->run() == FALSE)
+			//if($this->form_validation->run() == false)
+			if(false)
 			{
 				echo json_encode(array('status' => 204, 'messages' => array(validation_errors('<span><i class="fa fa-ban"></i> &nbsp; ', '</span><br />'))));
 			}
