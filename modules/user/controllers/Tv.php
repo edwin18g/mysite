@@ -76,7 +76,7 @@ class Tv extends CI_Controller
 		{
 			$this->form_validation->set_rules('title', phrase('channel_title'), 'trim|xss_clean|required|is_unique[tv.tvTitle]|max_length[255]');
 			$this->form_validation->set_rules('content', phrase('channel_descriptions'), 'trim|xss_clean|required');
-			$this->form_validation->set_rules('url', phrase('channel_url'), 'trim|xss_clean|required|valid_url|callback_real_url');
+			//$this->form_validation->set_rules('url', phrase('channel_url'), 'trim|xss_clean|required|valid_url|callback_real_url');
 			$this->form_validation->set_rules('userfile', phrase('channel_logo'), 'callback_upload_checker');
 			
 			if($this->form_validation->run() == FALSE)
