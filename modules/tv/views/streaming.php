@@ -14,11 +14,7 @@
     var player = new Clappr.Player({source: "<?php echo $page['tvURL']; ?>", parentId: "#player"});
   </script>
 					</div>
-					<div data-live="true" data-ratio="0.5625" data-share="false" class="flowplayer col-md-10 h-600px col-sm-offset-1 nomargin-xs nopadding-xs ocdc2475">
- 
-   
- 
-</div>
+					
 				</div>
 			</div>
 		</div>
