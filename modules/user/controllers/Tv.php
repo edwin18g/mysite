@@ -79,13 +79,13 @@ class Tv extends CI_Controller
 			//$this->form_validation->set_rules('url', phrase('channel_url'), 'trim|xss_clean|required|valid_url|callback_real_url');
 			$this->form_validation->set_rules('userfile', phrase('channel_logo'), 'callback_upload_checker');
 			
-			//if($this->form_validation->run() == false)
-			if(false)
-			{
-				echo json_encode(array('status' => 204, 'messages' => array(validation_errors('<span><i class="fa fa-ban"></i> &nbsp; ', '</span><br />'))));
-			}
-			else
-			{
+			// //if($this->form_validation->run() == false)
+			// if(false)
+			// {
+			// 	echo json_encode(array('status' => 204, 'messages' => array(validation_errors('<span><i class="fa fa-ban"></i> &nbsp; ', '</span><br />'))));
+			// }
+			// else
+			// {
 				$data = array(
 					'tvTitle'		=> $this->input->post('title'),
 					'tvContent'		=> $this->input->post('content'),
@@ -105,14 +105,14 @@ class Tv extends CI_Controller
 				{
 					echo json_encode(array('status' => 500, 'messages' => phrase('unable_to_submit_channel')));
 				}
-			}
+			//}
 		}
 		else
 		{
 			$data['meta']			= array(
 				'title' 			=> phrase('edit_channel'),
 				'descriptions'		=> phrase('whatever_you_writing_for_is_a_reportations'),
-				'keywords'			=> 'post, dwitri, blogs, article, social, blogging',
+				'keywords'			=> 'post,  blogs, article, social, blogging',
 				'image'				=> guessImage('tv'),
 				'author'			=> $this->settings['siteTitle']
 			);
