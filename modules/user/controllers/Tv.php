@@ -96,7 +96,7 @@ class Tv extends CI_Controller
 					'language'		=> $this->session->userdata('language'),
 					'timestamp'		=> time()
 				);
-				if($this->model->createPost($fields))
+				if($this->Tv_model->createPost($data))
 				{
 					$this->session->set_flashdata('success', phrase('channel_was_submitted_successfully'));
 					echo json_encode(array("status" => 200, "redirect" => base_url('tv/' . format_uri($this->input->post('title')))));
