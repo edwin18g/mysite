@@ -89,13 +89,18 @@ class Tv extends CI_Controller
 				$data = array(
 					'tvTitle'		=> $this->input->post('title'),
 					'tvContent'		=> $this->input->post('content'),
-					'tvFile'		=> $this->upload_data['userfile']['file_name'],
+					
 					'tvURL'			=> $this->input->post('url'),
 					'tvSlug'		=> format_uri($this->input->post('title')),
 					'contributor'	=> $this->session->userdata('userID'),
 					'language'		=> $this->session->userdata('language'),
 					'timestamp'		=> time()
 				);
+				if(!empty($_FILES['userfile']['name']))
+				{
+					$data['tvFile']	= $this->upload_data['userfile']['file_name'];
+				}
+				
 				
 				if($this->Tv_model->createPost($data))
 				{
