@@ -5,9 +5,9 @@
 	
 	<?php if(!isset($modal)){ ?>
 		<div class="jumbotron bg-dark text-center first-child">
-			<div class="container">
+			<div class="">
 				<div class="row">
-					<div class="col-md-10 h-600px col-sm-offset-1 nomargin-xs nopadding-xs ocdc2475">
+					<div class=" nomargin-xs nopadding-xs ocdc2475">
 						
 						<div id="player"></div>
   <script>
@@ -99,9 +99,10 @@
 					<div class="row bg-dark preloader">
 						<div class="middle ocdc2475">
 							<span class="img text-center">
-								<video id="player">
-									<source type="application/x-mpegURL" src="<?php echo $page['tvURL']; ?>" />
-								</video>
+							<div id="player"></div>
+  <script>
+    var player = new Clappr.Player({source: "<?php echo $page['tvURL']; ?>", parentId: "#player"});
+  </script>
 							</span>
 						</div>
 					</div>
