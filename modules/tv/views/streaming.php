@@ -101,7 +101,7 @@
 							<span class="img text-center">
 							<div id="player"></div>
   <script>
-    var player = new Clappr.Player({source: "<?php echo $page['tvURL']; ?>", parentId: "#player"});
+    var player = new Clappr.Player({source: "<?php echo $page['tvURL']; ?>", parentId: "#player",width:"100%",height:"400px"});
   </script>
 							</span>
 						</div>
