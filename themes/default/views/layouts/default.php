@@ -639,7 +639,7 @@
 		<script src="<?php echo base_url('themes/default/js/masonry.js'); ?>"></script>
 		<script src="<?php echo base_url('themes/default/js/sticky.js'); ?>"></script>
 		<script src="<?php echo base_url('themes/default/js/easing.js'); ?>"></script>
-		<script src="<?php echo base_url('themes/default/js/global.js'); ?>"></script>
+		<script src="<?php echo base_url('themes/default/js/global.js?123'); ?>"></script>
 		
 		<script type="text/javascript">
 			$(window).load(function()
