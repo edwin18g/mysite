@@ -77,7 +77,7 @@
 						
 						$fetch 		= getCategoryNews($cat['categoryID'], 4, 0);
 						$i 			= 1;
-						if(isset($fetch))
+						if(isset($fetch) && !empty($fetch))
 						{
 						foreach($fetch as $c)
 						{
