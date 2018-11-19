@@ -34,6 +34,8 @@
 				<?php
 					$posts 	= getPosts('openletters', null, null, $limit, $offset);
 					$n		= 1;
+					if(!empty($posts))				
+					{
 					foreach($posts as $c)
 					{
 						if($n == 7)
@@ -106,6 +108,8 @@
 						
 						$n++;
 					}
+
+				}
 				?>
 				
 				<div class="row">
