@@ -925,10 +925,10 @@ class User extends CI_Controller
 				
 				if($this->Actions_model->loginCheck($username, $password))
 				{
-					
+					die('i am run'.$this->session->userdata('full_name'));
 					$this->session->set_flashdata('success', phrase('welcome_back') . ', ' . $this->session->userdata('full_name'));
 					echo json_encode(array("status" => 200, "redirect" => (isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : $_SERVER['SERVER_NAME'])));
-					die('i am run');
+					
 				}
 				else
 				{
