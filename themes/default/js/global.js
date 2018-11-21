@@ -1795,58 +1795,72 @@ $(document).ready(function() {
       $("#modal_alert .modal-body").html(fail_alert);
       $("#modal_alert").appendTo("body").modal();
     });
-  }), $(document).on("click", ".newPost", function(event) {
+  }), 
+  $(document).on("click", ".newPost", function(event) 
+  {
     event.preventDefault();
     var href = $(this).attr("href");
-    return $(window).width() > 768 ? ($("#modal_ajax_dn .modal-content").html("").addClass("preloader"), $("#modal_ajax_dn").modal({
-      backdrop : "static",
-      keyboard : false
-    }), void $.ajax({
-      url : href,
-      data : {
-        modal : true
-      },
-      method : "POST",
-      success : function(htmlExercise) {
-        $("#modal_ajax_dn .modal-content").removeClass("preloader").html(htmlExercise);
-      }
+    return $(window).width() > 768 ? ($("#modal_ajax_dn .modal-content").html("").addClass("preloader"), $("#modal_ajax_dn").modal(
+      {
+        backdrop : "static",
+        keyboard : false
+      }), 
+      void $.ajax(
+        {
+          url : href,
+          data : {
+                  modal : true
+                  },
+          method : "POST",
+          success : function(htmlExercise) 
+          {
+            $("#modal_ajax_dn .modal-content").removeClass("preloader").html(htmlExercise);
+          }
+        }).fail(function() 
+        {
+          $("#modal_alert .modal-body").html(fail_alert);
+          $("#modal_alert").appendTo("body").modal();
+        })) : (Pace.restart(), t ? (Pace.stop(),  void $.get(href, function(options) 
+        {
+          if (options.redirect) 
+          {
+            window.location.href = options.url;
+          } else 
+          {
+            document.title = options.meta.title + " | " + siteName;
+            $(".navbar").find("li.active").removeClass("active");
+            $(".navbar a[href='" + href + "']").parents().addClass("active");
+            window.history.pushState("string", options.meta.title + " | " + siteName, href);
+            $(".pushTitle").text(options.meta.title);
+            $("#page-content").html(options.html);
+            if ($.isFunction($.fn.slimScroll) && $(window).width() > 768 && $("#slimScroll").length) 
+            {
+              $("#slimScroll").slimScroll({
+                height : "500px"
+              });
+            }
+            if ($.isFunction($.fn.sticky) && $(window).width() > 768 && $(".sticky").length) 
+            {
+              $(".sticky").sticky();
+            }
+            if ($.isFunction($.fn.masonry) && $(window).width() > 768 && $(".grid").length) 
+            {
+              $(".grid").imagesLoaded(function() {
+                $(".grid").masonry({
+                  itemSelector : ".grid-item"
+                });
+              });
+            }
+          }
+        }).done(function() 
+        {
+          $("html,body").animate({
+          scrollTop : 0
+          },  "slow");
     }).fail(function() {
       $("#modal_alert .modal-body").html(fail_alert);
       $("#modal_alert").appendTo("body").modal();
-    })) : (Pace.restart(), t ? (Pace.stop(),  void $.get(href, function(options) {
-      if (options.redirect) {
-        window.location.href = options.url;
-      } else {
-        document.title = options.meta.title + " | " + siteName;
-        $(".navbar").find("li.active").removeClass("active");
-        $(".navbar a[href='" + href + "']").parents().addClass("active");
-        window.history.pushState("string", options.meta.title + " | " + siteName, href);
-        $(".pushTitle").text(options.meta.title);
-        $("#page-content").html(options.html);
-        if ($.isFunction($.fn.slimScroll) && $(window).width() > 768 && $("#slimScroll").length) {
-          $("#slimScroll").slimScroll({
-            height : "500px"
-          });
-        }
-        if ($.isFunction($.fn.sticky) && $(window).width() > 768 && $(".sticky").length) {
-          $(".sticky").sticky();
-        }
-        if ($.isFunction($.fn.masonry) && $(window).width() > 768 && $(".grid").length) {
-          $(".grid").imagesLoaded(function() {
-            $(".grid").masonry({
-              itemSelector : ".grid-item"
-            });
-          });
-        }
-      }
-    }).done(function() {
-      $("html,body").animate({
-        scrollTop : 0
-      }, "slow");
-    }).fail(function() {
-      $("#modal_alert .modal-body").html(fail_alert);
-      $("#modal_alert").appendTo("body").modal();
-    })));
+    })):'');
   }), $(document).on("click", ".repost", function(event) {
     event.preventDefault();
     $("#modal_ajax_sm .modal-body").addClass("preloader");
