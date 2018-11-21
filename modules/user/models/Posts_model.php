@@ -87,9 +87,9 @@ class Posts_model extends CI_Model {
 		if($this->db->limit(1)->delete('posts'))
 		{
 			$this->db->delete('comments', array('itemID' => $itemID, 'type' => 1));
-			$this->db->delete('likes', array('itemID' => $itemID, 'type' => 1));
+			$this->db->delete('likes', array('itemID' => $itemID, 'likeType' => 1));
 			$this->db->delete('notifications', array('itemID' => $itemID, 'postType' => 1));
-			$this->db->delete('reposts', array('itemID' => $itemID, 'postType' => 1));
+			$this->db->delete('reposts', array('itemID' => $itemID, 'repostType' => 1));
 			
 			return true;
 		}
