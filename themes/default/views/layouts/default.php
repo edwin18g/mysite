@@ -18,7 +18,8 @@
 		<meta property="og:image" content="<?php echo truncate($meta['image'], 160); ?>" />
 		<meta property="fb:app_id" content="423905061028802"/>
 		
-		<link href="<?php echo base_url('themes/default/css/font-awesome/css/font-awesome.min.css'); ?>" rel="stylesheet">
+		<!-- <link href="<?php echo base_url('themes/default/css/font-awesome/css/font-awesome.min.css'); ?>" rel="stylesheet"> -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" />
 		<link href="<?php echo base_url('themes/default/css/bootstrap.min.css'); ?>" rel="stylesheet">
 		<link href="<?php echo base_url('themes/default/css/animate.css'); ?>" rel="stylesheet">
 		<link href="<?php echo base_url('themes/default/css/emoji.css'); ?>" rel="stylesheet">
