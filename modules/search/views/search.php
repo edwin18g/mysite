@@ -74,14 +74,14 @@
 									$tags = explode(',', $row['tags']);
 									foreach($tags as $tag)
 									{
-										$post_tag = '<a href="' . base_url('search/' . $tag) . '" class="ajaxLoad"><span class="badge"><i class="fa fa-tag"></i> ' . truncate($tag, 12) . '</span></a> ';
+										$post_tag = '<a href="' . base_url('search/' . $tag) . '" class="ajaxloads"><span class="badge"><i class="fa fa-tag"></i> ' . truncate($tag, 12) . '</span></a> ';
 									}
 								}
 								else
 								{
 									foreach(json_decode($row['categoryID']) as $key => $val)
 									{
-										$post_tag = '<a href="' . base_url('category/' . getCategorySlugByID($val)) . '" class="ajaxLoad"><span class="badge"><i class="fa fa-tag"></i> ' . truncate(getCategoryByID($val), 12) . '</span></a> ';
+										$post_tag = '<a href="' . base_url('category/' . getCategorySlugByID($val)) . '" class="ajaxloads"><span class="badge"><i class="fa fa-tag"></i> ' . truncate(getCategoryByID($val), 12) . '</span></a> ';
 									}
 								}
 								echo '
@@ -93,7 +93,7 @@
 													<img src="' . base_url('uploads/users/thumbs/' . imageCheck('users', getUserPhoto($row['contributor']), 1)) . '" style="height:40px;width:40px" class="img-rounded img-bordered" alt="" />
 												</div>
 												<div class="col-xs-10 col-md-11">
-													<a href="' . base_url(getUsernameByID($row['contributor'])) . '" class="ajaxLoad hoverCard">
+													<a href="' . base_url(getUsernameByID($row['contributor'])) . '" class="ajaxloads hoverCard">
 														<b>' . getFullnameByID($row['contributor']) . '</b>
 													</a>
 													<br />
@@ -102,14 +102,14 @@
 											</div>
 											<div class="row">
 												<div class="col-xs-9 col-sm-8 nomargin">
-													<a href="' . base_url('posts/' . $row['postSlug']) . '" class="ajaxLoad"><h4>'.truncate($row['postTitle'], 80).'</h4></a>
+													<a href="' . base_url('posts/' . $row['postSlug']) . '" class="ajaxloads"><h4>'.truncate($row['postTitle'], 80).'</h4></a>
 													<p class="hidden-xs">'.truncate($row['postExcerpt'], 80).'</p>
 													<p class="meta hidden-xs">
 														<b><i class="fa fa-comments"></i> '.countComments('posts', $row['postID']).' &nbsp; <i class="fa fa-thumbs-up"></i> '.countLikes('posts', $row['postID']).' &nbsp; <i class="fa fa-eye"></i> '.$row['visits_count'].' <span class="badge pull-right">' . $post_tag . '</span></b>
 													</p>
 												</div>
 												<div class="col-xs-3 col-sm-4">
-													<a href="' . base_url('posts/' . $row['postSlug']) . '" class="ajaxLoad"><img class="img-responsive img-rounded" src="' . getFeaturedImage($row['postID'], 1) . '" alt="'.truncate($row['postTitle'], 80).'"/></a>
+													<a href="' . base_url('posts/' . $row['postSlug']) . '" class="ajaxloads"><img class="img-responsive img-rounded" src="' . getFeaturedImage($row['postID'], 1) . '" alt="'.truncate($row['postTitle'], 80).'"/></a>
 												</div>
 											</div>
 										</div>
@@ -127,7 +127,7 @@
 													<img src="' . base_url('uploads/users/thumbs/' . imageCheck('users', getUserPhoto($row['contributor']), 1)) . '" style="height:40px;width:40px" class="img-rounded img-bordered" alt="" />
 												</div>
 												<div class="col-xs-10 col-md-11">
-													<a href="' . base_url(getUsernameByID($row['contributor'])) . '" class="ajaxLoad hoverCard">
+													<a href="' . base_url(getUsernameByID($row['contributor'])) . '" class="ajaxloads hoverCard">
 														<b>' . getFullnameByID($row['contributor']) . '</b>
 													</a>
 													<br />

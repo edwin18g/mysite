@@ -1,5 +1,5 @@
 
-	<div class="jumbotron">
+	<?php /*<div class="jumbotron hidden">
 		<div class="container first-child">
 			<div class="row">
 				<div class="col-md-2 hidden-xs hidden-sm">
@@ -26,11 +26,11 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> */ ?>
 	<div class="container">
 		<div class="row visible-xs visible-sm">
 			<div class="col-md-2">
-				<a href="<?php echo base_url('posts'); ?>" class="ajaxLoad btn btn-primary btn-block"><i class="fa fa-newspaper-o"></i> <?php echo phrase('read_another_articles'); ?></a>
+				<a href="<?php echo base_url('posts'); ?>" class="ajaxloads btn btn-primary btn-block"><i class="fa fa-newspaper-o"></i> <?php echo phrase('read_another_articles'); ?></a>
 			</div>
 			<hr />
 		</div>
@@ -49,7 +49,7 @@
 					<div class="row visible-xs visible-sm">
 						<div class="col-md-2">
 							<br />
-							<a href="<?php echo base_url('snapshots'); ?>" class="ajaxLoad btn btn-primary btn-block"><i class="fa fa-newspaper-o"></i> <?php echo phrase('view_another_snapshots'); ?></a>
+							<a href="<?php echo base_url('snapshots'); ?>" class="ajaxloads btn btn-primary btn-block"><i class="fa fa-newspaper-o"></i> <?php echo phrase('view_another_snapshots'); ?></a>
 						</div>
 					</div>
 				
@@ -68,7 +68,7 @@
 								<?php echo widget_lastUsers(10, 0); ?>
 								
 								<br />
-								<a href="<?php echo base_url('users'); ?>" class="ajaxLoad btn btn-default btn-block"><i class="fa fa-search"></i> <?php echo phrase('search_user'); ?></a>
+								<a href="<?php echo base_url('users'); ?>" class="ajaxloads btn btn-default btn-block"><i class="fa fa-search"></i> <?php echo phrase('search_user'); ?></a>
 							</div>
 						</div>
 					</div>
@@ -85,7 +85,7 @@
 								<?php echo widget_newOpenletters(10, 0); ?>
 								
 								<br />
-								<a href="<?php echo base_url('openletters'); ?>" class="ajaxLoad btn btn-default btn-block"><i class="fa fa-list"></i> <?php echo phrase('read_another_openletter'); ?></a>
+								<a href="<?php echo base_url('openletters'); ?>" class="ajaxloads btn btn-default btn-block"><i class="fa fa-list"></i> <?php echo phrase('read_another_openletter'); ?></a>
 							</div>
 						</div>
 					</div>
@@ -100,7 +100,7 @@
 						<?php echo widget_activeTV(4, 0, null, 'col-xs-6 col-sm-3'); ?>
 						
 						<br />
-						<a href="<?php echo base_url('tv'); ?>" class="ajaxLoad btn btn-default btn-block"><i class="fa fa-list"></i> <?php echo phrase('watch_another_tv'); ?></a>
+						<a href="<?php echo base_url('tv'); ?>" class="ajaxloads btn btn-default btn-block"><i class="fa fa-list"></i> <?php echo phrase('watch_another_tv'); ?></a>
 					</div>
 				</div>
 			</div>

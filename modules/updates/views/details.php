@@ -7,9 +7,9 @@
 				<div class="image-placeholder">
 					<div class="col-sm-12 text-center nomargin text-shadow" style="background:url(<?php echo base_url('uploads/users/covers/' . imageCheck('covers', getUserCover($page['userID']), 1)); ?>) center center no-repeat;background-size:cover;-webkit-backgroun-size:cover">
 						<br />
-						<a href="<?php echo base_url(getUsernameByID($page['userID'])); ?>" class="ajaxLoad hoverCard"><img src="<?php echo base_url('uploads/users/thumbs/' . imageCheck('users', getUserPhoto($page['userID']), 1)); ?>" alt="" class="img-circle" style="width:100px;height:100px" /></a>
+						<a href="<?php echo base_url(getUsernameByID($page['userID'])); ?>" class="ajaxloads hoverCard"><img src="<?php echo base_url('uploads/users/thumbs/' . imageCheck('users', getUserPhoto($page['userID']), 1)); ?>" alt="" class="img-circle" style="width:100px;height:100px" /></a>
 						<br />
-						<a href="<?php echo base_url(getUsernameByID($page['userID'])); ?>" class="ajaxLoad hoverCard"><b><?php echo getFullNameByID($page['userID']); ?></b> - <small>@<?php echo getUsernameByID($page['userID']); ?></small></a>
+						<a href="<?php echo base_url(getUsernameByID($page['userID'])); ?>" class="ajaxloads hoverCard"><b><?php echo getFullNameByID($page['userID']); ?></b> - <small>@<?php echo getUsernameByID($page['userID']); ?></small></a>
 						<br />
 						<small><i class="fa fa-newspaper-o"></i> <?php echo (countPosts('posts', $page['userID']) + countPosts('snapshots', $page['userID'])); ?> / <i class="fa fa-users"></i> <?php echo getUserFollowers('followers', $page['userID']); ?></small>
 						<p class="meta">

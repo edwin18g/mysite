@@ -8,7 +8,7 @@ if(!function_exists('special_parse'))
 		$mention_regex	= '/@+([a-zA-Z0-9_.]+)/';
 		$img_regex		= '/<img.*src="(.*?)".*?>/';
 		
-		$string			= preg_replace($hash_regex, '<a href="' . base_url('search/$1') . '" class="ajaxLoad">$0</a>', $string);
+		$string			= preg_replace($hash_regex, '<a href="' . base_url('search/$1') . '" class="ajaxloads">$0</a>', $string);
 		$match			= preg_match_all($mention_regex, $string, $callback);
 
 		if(count($callback[1]) > 0)
@@ -20,7 +20,7 @@ if(!function_exists('special_parse'))
 				{
 					if(checkUsername($unique_callback[$i]))
 					{
-						$string = str_replace('@'.$unique_callback[$i], '<a href="' . base_url($unique_callback[$i]) . '" class="ajaxLoad hoverCard">@' . $unique_callback[$i] . '</a>', $string);
+						$string = str_replace('@'.$unique_callback[$i], '<a href="' . base_url($unique_callback[$i]) . '" class="ajaxloads hoverCard">@' . $unique_callback[$i] . '</a>', $string);
 					}
 				}
 			}
@@ -281,12 +281,12 @@ if(!function_exists('parsingStatusByID'))
 							<div class="col-sm-12 nomargin">
 								<div class="row">
 									<div class="col-xs-2 col-sm-1">
-										<a href="' . base_url(($row['userID'] == $userID ? $row['userName'] : getUsernameByID($userID))) . '" class="ajaxLoad hoverCard">
+										<a href="' . base_url(($row['userID'] == $userID ? $row['userName'] : getUsernameByID($userID))) . '" class="ajaxloads hoverCard">
 											<img src="' . base_url('uploads/users/thumbs/' . imageCheck('users', ($row['userID'] == $userID ? getUserPhoto($row['userID'], 1) : getUserPhoto($userID, 1)))) . '" style="height:40px;width:40px" class="img-rounded img-bordered" alt="" />
 										</a>
 									</div>
 									<div class="col-xs-10 col-sm-11">
-										<a href="' . base_url(($row['userID'] == $userID ? $row['userName'] : getUsernameByID($userID))) . '" class="ajaxLoad hoverCard">
+										<a href="' . base_url(($row['userID'] == $userID ? $row['userName'] : getUsernameByID($userID))) . '" class="ajaxloads hoverCard">
 											<b>' . ($row['userID'] == $userID ? $row['full_name'] : getFullnameByID($userID)) . '</b> 
 										</a>
 										' . $actions . ' 
@@ -357,14 +357,14 @@ if(!function_exists('parsingPostByID'))
 					$tags = explode(',', $row['tags']);
 					foreach($tags as $tag)
 					{
-						$post_tag = '<a href="' . base_url('search/' . $tag) . '" class="ajaxLoad"><span class="badge"><i class="fa fa-tag"></i> ' . truncate($tag, 12) . '</span></a> ';
+						$post_tag = '<a href="' . base_url('search/' . $tag) . '" class="ajaxloads"><span class="badge"><i class="fa fa-tag"></i> ' . truncate($tag, 12) . '</span></a> ';
 					}
 				}
 				else
 				{
 					foreach(json_decode($row['categoryID']) as $key => $val)
 					{
-						$post_tag = '<a href="' . base_url('category/' . getCategorySlugByID($val)) . '" class="ajaxLoad"><span class="badge"><i class="fa fa-tag"></i> ' . getCategoryByID($val) . '</span></a> ';
+						$post_tag = '<a href="' . base_url('category/' . getCategorySlugByID($val)) . '" class="ajaxloads"><span class="badge"><i class="fa fa-tag"></i> ' . getCategoryByID($val) . '</span></a> ';
 					}
 				}
 				
@@ -395,12 +395,12 @@ if(!function_exists('parsingPostByID'))
 							<div class="col-sm-12 nomargin">
 								<div class="row">
 									<div class="col-xs-2 col-sm-1">
-										<a href="' . base_url(($row['userID'] == $userID ? $row['userName'] : getUsernameByID($userID))) . '" class="ajaxLoad hoverCard">
+										<a href="' . base_url(($row['userID'] == $userID ? $row['userName'] : getUsernameByID($userID))) . '" class="ajaxloads hoverCard">
 											<img src="' . base_url('uploads/users/thumbs/' . imageCheck('users', ($row['userID'] == $userID ? getUserPhoto($row['userID'], 1) : getUserPhoto($userID, 1)))) . '" style="height:40px;width:40px" class="img-rounded img-bordered" alt="" />
 										</a>
 									</div>
 									<div class="col-xs-10 col-sm-11">
-										<a href="' . base_url(($row['userID'] == $userID ? $row['userName'] : getUsernameByID($userID))) . '" class="ajaxLoad hoverCard">
+										<a href="' . base_url(($row['userID'] == $userID ? $row['userName'] : getUsernameByID($userID))) . '" class="ajaxloads hoverCard">
 											<b>' . ($row['userID'] == $userID ? $row['full_name'] : getFullnameByID($userID)) . '</b> 
 										</a>
 										' . $actions . ' 
@@ -420,10 +420,10 @@ if(!function_exists('parsingPostByID'))
 								) . '
 								<div class="row">
 									<div class="col-xs-3 col-sm-4 nomargin">
-										<a href="' . base_url('posts/' . $row['postSlug']) . '" class="ajaxLoad"><img width="100%" class="img-responsive img-rounded" src="' . getFeaturedImage($row['postID'], 1) . '" alt="'.truncate($row['postTitle'], 80).'"/></a>
+										<a href="' . base_url('posts/' . $row['postSlug']) . '" class="ajaxloads"><img width="100%" class="img-responsive img-rounded" src="' . getFeaturedImage($row['postID'], 1) . '" alt="'.truncate($row['postTitle'], 80).'"/></a>
 									</div>
 									<div class="col-xs-9 col-sm-8 nomargin">
-										<a href="' . base_url('posts/' . $row['postSlug']) . '" class="ajaxLoad"><h4>'.truncate($row['postTitle'], 80).'</h4></a>
+										<a href="' . base_url('posts/' . $row['postSlug']) . '" class="ajaxloads"><h4>'.truncate($row['postTitle'], 80).'</h4></a>
 										<p class="hidden-xs">'.truncate($row['postExcerpt'], 80).'</p>
 										<p class="meta">
 											<b><i class="fa fa-comments"></i> '.countComments('posts', $row['postID']).' &nbsp; <i class="fa fa-thumbs-up"></i> '.countLikes('posts', $row['postID']).' &nbsp; <i class="fa fa-eye"></i> '.$row['visits_count'].' <span class="badge pull-right">' . $post_tag . '</span></b>
@@ -485,12 +485,12 @@ if(!function_exists('parsingImageByID'))
 							<div class="col-sm-12 nomargin">
 								<div class="row">
 									<div class="col-xs-2 col-sm-1">
-										<a href="' . base_url(($row['userID'] == $userID ? $row['userName'] : getUsernameByID($userID))) . '" class="ajaxLoad hoverCard">
+										<a href="' . base_url(($row['userID'] == $userID ? $row['userName'] : getUsernameByID($userID))) . '" class="ajaxloads hoverCard">
 											<img src="' . base_url('uploads/users/thumbs/' . imageCheck('users', ($row['userID'] == $userID ? getUserPhoto($row['userID'], 1) : getUserPhoto($userID, 1)))) . '" style="height:40px;width:40px" class="img-rounded img-bordered" alt="" />
 										</a>
 									</div>
 									<div class="col-xs-10 col-sm-11">
-										<a href="' . base_url(($row['userID'] == $userID ? $row['userName'] : getUsernameByID($userID))) . '" class="ajaxLoad hoverCard">
+										<a href="' . base_url(($row['userID'] == $userID ? $row['userName'] : getUsernameByID($userID))) . '" class="ajaxloads hoverCard">
 											<b>' . ($row['userID'] == $userID ? $row['full_name'] : getFullnameByID($userID)) . '</b> 
 										</a>
 										' . $actions . ' 
@@ -589,12 +589,12 @@ if(!function_exists('parsingOpenletterByID'))
 							<div class="' . (($actionID && $action == 'commenting' || $actionID && $action == 'reposting') ? 'col-sm-12 nomargin':'blog_article') . '">
 								<div class="row">
 									<div class="col-xs-2 col-sm-1">
-										<a href="' . base_url(($row['userID'] == $userID ? $row['userName'] : getUsernameByID($userID))) . '" class="ajaxLoad hoverCard">
+										<a href="' . base_url(($row['userID'] == $userID ? $row['userName'] : getUsernameByID($userID))) . '" class="ajaxloads hoverCard">
 											<img src="' . base_url('uploads/users/thumbs/' . imageCheck('users', ($row['userID'] == $userID ? getUserPhoto($row['userID'], 1) : getUserPhoto($userID, 1)))) . '" style="height:40px;width:40px" class="img-rounded img-bordered" alt="" />
 										</a>
 									</div>
 									<div class="col-xs-10 col-sm-11">
-										<a href="' . base_url($row['userName']) . '" class="ajaxLoad hoverCard">
+										<a href="' . base_url($row['userName']) . '" class="ajaxloads hoverCard">
 											<b>' . ($row['userID'] == $userID ? $row['full_name'] : getFullnameByID($userID)) . '</b> 
 										</a>
 										' . $actions . ' 
@@ -615,11 +615,11 @@ if(!function_exists('parsingOpenletterByID'))
 								' . (($actionID && $action == 'commenting' || $actionID && $action == 'reposting') ? '<div class="letter-placeholder"><div class="blog_article">':'') . '
 								<div class="row">
 									<div class="col-sm-12">
-										<a href="' . base_url('openletters/' . $row['slug']) . '" class="ajaxLoad"><h4>'.truncate($row['title'], 80).'</h4></a>
+										<a href="' . base_url('openletters/' . $row['slug']) . '" class="ajaxloads"><h4>'.truncate($row['title'], 80).'</h4></a>
 										<p>'.truncate($row['content'], 80).'</p>
 										<p class="meta">
 											<b><i class="fa fa-comments"></i> '.countComments('openletters', $row['letterID']).' &nbsp; <i class="fa fa-thumbs-up"></i> '.countLikes('openletters', $row['letterID']).' &nbsp; <i class="fa fa-eye"></i> '.$row['visits_count'].'</b> 
-											<a href="' . base_url('openletters/' . $row['slug']) . '" class="ajaxLoad btn btn-default pull-right"><i class="fa fa-envelope"></i> ' . phrase('read_letter') . '</a>
+											<a href="' . base_url('openletters/' . $row['slug']) . '" class="ajaxloads btn btn-default pull-right"><i class="fa fa-envelope"></i> ' . phrase('read_letter') . '</a>
 										</p>
 									</div>
 								</div>
@@ -679,12 +679,12 @@ if(!function_exists('parsingChannelByID'))
 							<div class="col-sm-12 nomargin">
 								<div class="row">
 									<div class="col-xs-2 col-sm-1">
-										<a href="' . base_url(($row['userID'] == $userID ? $row['userName'] : getUsernameByID($userID))) . '" class="ajaxLoad hoverCard">
+										<a href="' . base_url(($row['userID'] == $userID ? $row['userName'] : getUsernameByID($userID))) . '" class="ajaxloads hoverCard">
 											<img src="' . base_url('uploads/users/thumbs/' . imageCheck('users', ($row['userID'] == $userID ? getUserPhoto($row['userID'], 1) : getUserPhoto($userID, 1)))) . '" style="height:40px;width:40px" class="img-rounded img-bordered" alt="" />
 										</a>
 									</div>
 									<div class="col-xs-10 col-sm-11">
-										<a href="' . base_url(($row['userID'] == $userID ? $row['userName'] : getUsernameByID($userID))) . '" class="ajaxLoad hoverCard">
+										<a href="' . base_url(($row['userID'] == $userID ? $row['userName'] : getUsernameByID($userID))) . '" class="ajaxloads hoverCard">
 											<b>' . ($row['userID'] == $userID ? $row['full_name'] : getFullnameByID($userID)) . '</b> 
 										</a>
 										' . $actions . ' 

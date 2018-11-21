@@ -41,9 +41,9 @@
 								echo '
 									<div class="col-md-4 col-sm-6 col-xs-12 grid-item" id="tv' . $c['tvID'] . '">
 										<div class="image-placeholder">
-											<a href="' . base_url('tv/' . $c['tvSlug']) . '" class="ajax bg-dark"><img width="100%" class="img-responsive" src="' . base_url('uploads/tv/thumbs/' . imageCheck('tv', $c['tvFile'], 1)) . '" alt="' . truncate($c['tvTitle'], 20) . '" /></a>
+											<a href="' . base_url('tv/' . $c['tvSlug']) . '" class="ajaxs bg-dark"><img width="100%" class="img-responsive" src="' . base_url('uploads/tv/thumbs/' . imageCheck('tv', $c['tvFile'], 1)) . '" alt="' . truncate($c['tvTitle'], 20) . '" /></a>
 											<div class="col-sm-12 nomargin" style="border-top:1px solid #ddd">
-												<h3 style="margin-top:10px">' . truncate($c['tvTitle'], 20) . ' <a href="' . base_url('tv/' . $c['tvSlug']) . '" class="ajaxLoad btn btn-primary btn-sm pull-right"><i class="fa fa-eye"></i> ' . phrase('watch') . '</a></h3>
+												<h3 style="margin-top:10px">' . truncate($c['tvTitle'], 20) . ' <a href="' . base_url('tv/' . $c['tvSlug']) . '" class=" btn btn-primary btn-sm pull-right"><i class="fa fa-eye"></i> ' . phrase('watch') . '</a></h3>
 												<p>
 													' . truncate($c['tvContent'], 60) . '
 												</p>

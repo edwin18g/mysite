@@ -34,6 +34,8 @@
 				<?php
 					$posts 	= getPosts('openletters', null, null, $limit, $offset);
 					$n		= 1;
+					if(!empty($posts))				
+					{
 					foreach($posts as $c)
 					{
 						if($n == 7)
@@ -82,11 +84,11 @@
 										</div>
 										<div class="col-sm-5">
 											<div class="row">
-												<a href="' . base_url(getUsernameByID($c['contributor'])) . '" class="ajaxLoad hoverCard">
+												<a href="' . base_url(getUsernameByID($c['contributor'])) . '" class="ajaxloads hoverCard">
 													<img src="' . base_url('uploads/users/thumbs/' . imageCheck('users', getUserPhoto($c['contributor']), 1)) . '" class="rounded col-xs-4" alt="..." />
 												</a>
 												<div class="col-xs-8">
-													<a href="' . base_url(getUsernameByID($c['contributor'])) . '" class="ajaxLoad hoverCard"><b>' . getFullNameByID($c['contributor']) . '</b>
+													<a href="' . base_url(getUsernameByID($c['contributor'])) . '" class="ajaxloads hoverCard"><b>' . getFullNameByID($c['contributor']) . '</b>
 													<br />
 													<small class="text-muted">@' . getUsernameByID($c['contributor']) . '</small></a>
 													<br />
@@ -95,7 +97,7 @@
 											</div>
 											<div class="row">
 												<div class="col-sm-12">
-													<a href="' . base_url('openletters/' . $c['slug']) . '" class="ajaxLoad btn btn-default btn-block"><i class="fa fa-envelope"></i> ' . phrase('read_letter') . '</a>
+													<a href="' . base_url('openletters/' . $c['slug']) . '" class="ajaxloads btn btn-default btn-block"><i class="fa fa-envelope"></i> ' . phrase('read_letter') . '</a>
 												</div>
 											</div>
 										</div>
@@ -106,6 +108,8 @@
 						
 						$n++;
 					}
+
+				}
 				?>
 				
 				<div class="row">

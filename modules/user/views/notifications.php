@@ -80,7 +80,7 @@
 								echo '
 									<tr id="notify' . $row['notifyID'] . '">
 										<td>
-											<a href="' . $row['targetURL'] . '" class="ajaxLoad">
+											<a href="' . $row['targetURL'] . '" class="ajaxloads">
 												<div class="row" style="margin-right:0;margin-left:0;' . ($row['status'] == 0 ? 'color:#000' : 'color:#aaa') . '">
 													<div class="col-xs-3 col-sm-2">
 														<div class="row-xs">

@@ -5,9 +5,9 @@
 	<div class="container first-child">
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1 text-center">
-				<a href="<?php echo base_url(getUsernameByID($page['contributor'])); ?>" class="ajaxLoad hoverCard"><img src="<?php echo base_url('uploads/users/thumbs/' . imageCheck('users', getUserPhoto($page['contributor']), 1)); ?>" alt="" class="img-circle" style="width:100px;height:100px" /></a>
+				<a href="<?php echo base_url(getUsernameByID($page['contributor'])); ?>" class="ajaxloads hoverCard"><img src="<?php echo base_url('uploads/users/thumbs/' . imageCheck('users', getUserPhoto($page['contributor']), 1)); ?>" alt="" class="img-circle" style="width:100px;height:100px" /></a>
 				<br />
-				<a href="<?php echo base_url(getUsernameByID($page['contributor'])); ?>" class="ajaxLoad hoverCard"><b><?php echo getFullNameByID($page['contributor']); ?></b> - <small>@<?php echo getUsernameByID($page['contributor']); ?></small></a>
+				<a href="<?php echo base_url(getUsernameByID($page['contributor'])); ?>" class="ajaxloads hoverCard"><b><?php echo getFullNameByID($page['contributor']); ?></b> - <small>@<?php echo getUsernameByID($page['contributor']); ?></small></a>
 				<br />
 				<small><i class="fa fa-newspaper-o"></i> <?php echo (countPosts('posts', $page['contributor']) + countPosts('snapshots', $page['contributor'])); ?> / <i class="fa fa-users"></i> <?php echo getUserFollowers('followers', $page['contributor']); ?></small>
 				<h3 class="nomargin"><?php echo $page['title']; ?></h3>

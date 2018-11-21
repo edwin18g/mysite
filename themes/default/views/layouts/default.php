@@ -35,25 +35,25 @@
 		<nav class="navbar navbar-custom navbar-fixed-top navbar-inverse text-uppercase hidden-xs hidden-sm">
 			<div class="container">
 				<div class="collapse navbar-collapse" role="navigation">
-					<a class="navbar-brand ajaxLoad" href="<?php echo base_url(); ?>"><img src="<?php echo base_url('themes/default/images/logo.png?123'); ?>" alt="logo" height="100%" /></a>
+					<a class="navbar-brand ajaxloads" href="<?php echo base_url(); ?>"><img src="<?php echo base_url('themes/default/images/logo.png?123'); ?>" alt="logo" height="100%" /></a>
 					<ul class="nav navbar-nav">
 						<li<?php echo ($this->uri->segment(1) == 'posts' ? ' class="active"' : ''); ?>>
-							<a href="<?php echo base_url('posts'); ?>" class="ajaxLoad"><i class="fa fa-newspaper-o"></i> <?php echo phrase('posts'); ?></a>
+							<a href="<?php echo base_url('posts'); ?>" ><i class="fa fa-newspaper-o"></i> <?php echo phrase('posts'); ?></a>
 						</li>
-						<li<?php echo ($this->uri->segment(1) == 'snapshots' ? ' class="active"' : ''); ?>>
-							<a href="<?php echo base_url('snapshots'); ?>" class="ajaxLoad"><i class="fa fa-image"></i> <?php echo phrase('snapshot'); ?></a>
+						<?php /*<li<?php echo ($this->uri->segment(1) == 'snapshots' ? ' class="active"' : ''); ?>>
+							<a href="<?php echo base_url('snapshots'); ?>" ><i class="fa fa-image"></i> <?php echo phrase('snapshot'); ?></a>
 						</li>
 						<li<?php echo ($this->uri->segment(1) == 'openletters' ? ' class="active"' : ''); ?>>
-							<a href="<?php echo base_url('openletters'); ?>" class="ajaxLoad"><i class="fa fa-paperclip"></i> <?php echo phrase('open_letter'); ?></a>
-						</li>
+							<a href="<?php echo base_url('openletters'); ?>" ><i class="fa fa-paperclip"></i> <?php echo phrase('open_letter'); ?></a>
+						</li>*/?>
 						<li<?php echo ($this->uri->segment(1) == 'tv' ? ' class="active"' : ''); ?>>
-							<a href="<?php echo base_url('tv'); ?>" class="ajaxLoad"><i class="fa fa-desktop"></i> <?php echo phrase('tv_channels'); ?></a>
+							<a href="<?php echo base_url('tv'); ?>" ><i class="fa fa-desktop"></i> <?php echo phrase('tv_channels'); ?></a>
 						</li>
 						
 						<?php if($this->session->userdata('loggedIn')) { ?>
 						
 						<li class="hidden-md<?php echo ($this->uri->segment(1) == $this->session->userdata('userName') ? ' active' : ''); ?>">
-							<a href="<?php echo base_url($this->session->userdata('userName')); ?>" class="ajaxLoad"><i class="fa fa-clock-o"></i> <?php echo phrase('timeline'); ?></a>
+							<a href="<?php echo base_url($this->session->userdata('userName')); ?>" class="ajaxloads"><i class="fa fa-clock-o"></i> <?php echo phrase('timeline'); ?></a>
 						</li>
 						
 						<?php } ?>
@@ -69,7 +69,7 @@
 							<div class="dropdown-menu notifications">
 								<div id="slimScroll" class="notifications-area"></div>
 								<div class="notifications-footer">
-									<a href="<?php echo base_url('user/notifications'); ?>" class="ajaxLoad"><b><?php echo phrase('view_all_notifications'); ?></b></a>
+									<a href="<?php echo base_url('user/notifications'); ?>" class="ajaxloads"><b><?php echo phrase('view_all_notifications'); ?></b></a>
 								</div>
 							</div>
 						</li>
@@ -93,51 +93,51 @@
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="<?php echo base_url('uploads/users/thumbs/' . imageCheck('users', getUserPhoto($this->session->userdata('userID')), 1)); ?>" width="20" height="20" alt="..." class="rounded" /> <?php echo truncate($this->session->userdata('full_name'), 4); ?> <span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li>
-									<a href="<?php echo base_url('user/dashboard'); ?>" class="ajaxLoad"><i class="fa fa-dashboard"></i> <?php echo phrase('dashboard'); ?></a>
+									<a href="<?php echo base_url('user/dashboard'); ?>" class="ajaxloads"><i class="fa fa-dashboard"></i> <?php echo phrase('dashboard'); ?></a>
 								</li>
 								<li>
-									<a href="<?php echo base_url(getUsernameByID($this->session->userdata('userID'))); ?>" class="ajaxLoad"><i class="fa fa-desktop"></i> <?php echo phrase('timeline'); ?></a>
+									<a href="<?php echo base_url(getUsernameByID($this->session->userdata('userID'))); ?>" class="ajaxloads"><i class="fa fa-desktop"></i> <?php echo phrase('timeline'); ?></a>
 								</li>
 								<li>
-									<a href="<?php echo base_url('user/posts'); ?>" class="ajaxLoad"><i class="fa fa-newspaper-o"></i> <?php echo phrase('articles'); ?></a>
+									<a href="<?php echo base_url('user/posts'); ?>" class="ajaxloads"><i class="fa fa-newspaper-o"></i> <?php echo phrase('articles'); ?></a>
 								</li>
 								<li>
-									<a href="<?php echo base_url('user/snapshots'); ?>" class="ajaxLoad"><i class="fa fa-image"></i> <?php echo phrase('snapshots'); ?></a>
+									<a href="<?php echo base_url('user/snapshots'); ?>" class="ajaxloads"><i class="fa fa-image"></i> <?php echo phrase('snapshots'); ?></a>
 								</li>
 								<li>
-									<a href="<?php echo base_url('user/openletters'); ?>" class="ajaxLoad"><i class="fa fa-paperclip"></i> <?php echo phrase('open_letters'); ?></a>
+									<a href="<?php echo base_url('user/openletters'); ?>" class="ajaxloads"><i class="fa fa-paperclip"></i> <?php echo phrase('open_letters'); ?></a>
 								</li>
 								<li>
-									<a href="<?php echo base_url('user/tv'); ?>" class="ajaxLoad"><i class="fa fa-desktop"></i> <?php echo phrase('tv_channels'); ?></a>
+									<a href="<?php echo base_url('user/tv'); ?>" class="ajaxloads"><i class="fa fa-desktop"></i> <?php echo phrase('tv_channels'); ?></a>
 								</li>
 								<li role="separator" class="divider"></li>
 							
 								<?php if($this->session->userdata('user_level') == 1) { ?>
 								<li>
-									<a href="<?php echo base_url('user/pages'); ?>" class="ajaxLoad"><i class="fa fa-file-o"></i> <?php echo phrase('manage_pages'); ?></a>
+									<a href="<?php echo base_url('user/pages'); ?>" class="ajaxloads"><i class="fa fa-file-o"></i> <?php echo phrase('manage_pages'); ?></a>
 								</li>
 								<li>
-									<a href="<?php echo base_url('user/categories'); ?>" class="ajaxLoad"><i class="fa fa-sitemap"></i> <?php echo phrase('manage_category'); ?></a>
+									<a href="<?php echo base_url('user/categories'); ?>" class="ajaxloads"><i class="fa fa-sitemap"></i> <?php echo phrase('manage_category'); ?></a>
 								</li>
 								<li>
-									<a href="<?php echo base_url('user/users'); ?>" class="ajaxLoad"><i class="fa fa-users"></i> <?php echo phrase('manage_user'); ?></a>
+									<a href="<?php echo base_url('user/users'); ?>" class="ajaxloads"><i class="fa fa-users"></i> <?php echo phrase('manage_user'); ?></a>
 								</li>
 								<li>
-									<a href="<?php echo base_url('user/translate'); ?>" class="ajaxLoad"><i class="fa fa-language"></i> <?php echo phrase('translate'); ?></a>
+									<a href="<?php echo base_url('user/translate'); ?>" class="ajaxloads"><i class="fa fa-language"></i> <?php echo phrase('translate'); ?></a>
 								</li>
 								<li>
-									<a href="<?php echo base_url('user/settings'); ?>" class="ajaxLoad"><i class="fa fa-cog"></i> <?php echo phrase('global_settings'); ?></a>
+									<a href="<?php echo base_url('user/settings'); ?>" class="ajaxloads"><i class="fa fa-cog"></i> <?php echo phrase('global_settings'); ?></a>
 								</li>
 								<li role="separator" class="divider"></li>
 								
 								<?php } ?>
 								
 								<li>
-									<a href="<?php echo base_url('user/edit_profile'); ?>" class="ajaxLoad"><i class="fa fa-cogs"></i> <?php echo phrase('edit_profile'); ?></a>
+									<a href="<?php echo base_url('user/edit_profile'); ?>" class="ajaxloads"><i class="fa fa-cogs"></i> <?php echo phrase('edit_profile'); ?></a>
 								</li>
 								<li role="separator" class="divider"></li>
 								<li>
-									<a href="<?php echo base_url('user/logout'); ?>" class="ajaxLoad"><b><i class="fa fa-ban"></i> <?php echo phrase('logout'); ?></b></a>
+									<a href="<?php echo base_url('user/logout'); ?>" class="ajaxloads"><b><i class="fa fa-ban"></i> <?php echo phrase('logout'); ?></b></a>
 								</li>
 							</ul>
 						</li>
@@ -150,7 +150,7 @@
 				</div>
 			</div><!-- /.container -->
 		</nav><!-- /.navbar -->
-		<div class="content-wrapper" id="page-content">
+		<div class="content-wrapper" id="">
 		
 		<?php echo $template['body']; ?>
 		
@@ -163,7 +163,7 @@
 						<div class="page-header">
 							<h4>&nbsp;</h4>
 						</div>
-						<a class="ajaxLoad" href="<?php echo base_url('pages/contact'); ?>"><img src="<?php echo base_url('themes/default/images/large_logo.png'); ?>" alt="logo" width="128" /></a>
+						<a class="ajaxloads" href="<?php echo base_url('pages/contact'); ?>"><img src="<?php echo base_url('themes/default/images/large_logo.png'); ?>" alt="logo" width="128" /></a>
 					</div>
 					<div class="col-sm-3">
 						<div class="page-header" style="margin-bottom:0">
@@ -181,10 +181,10 @@
 								</div>
 							</form>
 						</div>
-						<b><?php echo phrase('latest_quiries'); ?>:</b>
+						<!-- <b><?php echo phrase('latest_quiries'); ?>:</b>
 						<br />
 						
-						<?php echo widget_hashTags(false, 20); ?>
+						<?php echo widget_hashTags(false, 20); ?> -->
 						
 						<br />
 					</div>
@@ -207,9 +207,9 @@
 					<div class="col-sm-12 text-center text-muted">
 						<a data-toggle="modal" href="#language"><i class="fa fa-language"></i> <?php echo phrase('language'); ?></a>
 						&nbsp; - &nbsp; 
-						<a href="<?php echo base_url('users'); ?>" class="ajaxLoad"><?php echo phrase('search_user'); ?></a>
+						<a href="<?php echo base_url('users'); ?>" class="ajaxloads"><?php echo phrase('search_user'); ?></a>
 						&nbsp; - &nbsp; 
-						<a href="<?php echo base_url('pages/contact'); ?>" class="ajaxLoad"><?php echo phrase('feedback'); ?></a>
+						<a href="<?php echo base_url('pages/contact'); ?>" class="ajaxloads"><?php echo phrase('feedback'); ?></a>
 						
 					</div>
 				</div>
@@ -258,28 +258,28 @@
 				</li>
 				
 				<li>
-					<a href="<?php echo base_url(); ?>" class="ajaxLoad"><i class="fa fa-home"></i> <?php echo phrase('home'); ?></a>
+					<a href="<?php echo base_url(); ?>" class="ajaxloads"><i class="fa fa-home"></i> <?php echo phrase('home'); ?></a>
 				</li>
 						
 				<?php if($this->session->userdata('loggedIn')) { ?>
 				
 				<li>
-					<a href="<?php echo base_url(getUsernameByID($this->session->userdata('userID'))); ?>" class="ajaxLoad"><i class="fa fa-clock-o"></i>  <?php echo phrase('timeline'); ?></a>
+					<a href="<?php echo base_url(getUsernameByID($this->session->userdata('userID'))); ?>" class="ajaxloads"><i class="fa fa-clock-o"></i>  <?php echo phrase('timeline'); ?></a>
 				</li>
 				
 				<?php } ?>
 				
 				<li>
-					<a href="<?php echo base_url('posts'); ?>" class="ajaxLoad"><i class="fa fa-newspaper-o"></i> <?php echo phrase('posts'); ?></a>
+					<a href="<?php echo base_url('posts'); ?>" class="ajaxloads"><i class="fa fa-newspaper-o"></i> <?php echo phrase('posts'); ?></a>
 				</li>
 				<li>
-					<a href="<?php echo base_url('snapshots'); ?>" class="ajaxLoad"><i class="fa fa-image"></i> <?php echo phrase('snapshot'); ?></a>
+					<a href="<?php echo base_url('snapshots'); ?>" class="ajaxloads"><i class="fa fa-image"></i> <?php echo phrase('snapshot'); ?></a>
 				</li>
 				<li>
-					<a href="<?php echo base_url('openletters'); ?>" class="ajaxLoad"><i class="fa fa-paperclip"></i> <?php echo phrase('openletters'); ?></a>
+					<a href="<?php echo base_url('openletters'); ?>" class="ajaxloads"><i class="fa fa-paperclip"></i> <?php echo phrase('openletters'); ?></a>
 				</li>
 				<li>
-					<a href="<?php echo base_url('tv'); ?>" class="ajaxLoad"><i class="fa fa-desktop"></i> <?php echo phrase('tv_channels'); ?></a>
+					<a href="<?php echo base_url('tv'); ?>" class="ajaxloads"><i class="fa fa-desktop"></i> <?php echo phrase('tv_channels'); ?></a>
 				</li>
 				<li>
 					<a data-toggle="modal" href="#language"><i class="fa fa-language"></i> <?php echo phrase('language'); ?></a>
@@ -289,7 +289,7 @@
 					<ul class="dropdown-menu navmenu-nav">
 						<?php echo generatePageNav(true); ?>
 						<li>
-							<a href="<?php echo base_url('pages/contact'); ?>" class="ajaxLoad"><i class="fa fa-phone"></i> <?php echo phrase('feedback'); ?></a>
+							<a href="<?php echo base_url('pages/contact'); ?>" class="ajaxloads"><i class="fa fa-phone"></i> <?php echo phrase('feedback'); ?></a>
 						</li>
 					</ul>
 				</li>
@@ -298,42 +298,42 @@
 		<?php if($this->session->userdata('loggedIn')) { ?>
 		<div class="menu-right navmenu navmenu-default navmenu-fixed-right">
 			<div style="line-height:60px;font-weight:bold;text-transform:uppercase;padding:0 15px">
-				<a href="<?php echo base_url(getUsernameByID($this->session->userdata('userID'))); ?>" class="ajaxLoad" style="color:#fff"><?php echo truncate($this->session->userdata('full_name'), 22); ?></a>
-				<a href="<?php echo base_url('user/edit_profile'); ?>" class="ajaxLoad pull-right" style="line-height:60px;color:#fff"><i class="fa fa-cog"></i></a>
+				<a href="<?php echo base_url(getUsernameByID($this->session->userdata('userID'))); ?>" class="ajaxloads" style="color:#fff"><?php echo truncate($this->session->userdata('full_name'), 22); ?></a>
+				<a href="<?php echo base_url('user/edit_profile'); ?>" class="ajaxloads pull-right" style="line-height:60px;color:#fff"><i class="fa fa-cog"></i></a>
 			</div>
 			<ul class="navmenu-nav">
 				<li>
-					<a href="<?php echo base_url('user/notifications'); ?>" class="ajaxLoad"><i class="fa fa-bell"></i> <?php echo phrase('notifications'); ?>
+					<a href="<?php echo base_url('user/notifications'); ?>" class="ajaxloads"><i class="fa fa-bell"></i> <?php echo phrase('notifications'); ?>
 					<span class="countAlert more<?php echo (countAlert($this->session->userdata('userID')) > 0 ? ' badge' : ''); ?>"><?php echo (countAlert($this->session->userdata('userID')) < 0 ? countAlert($this->session->userdata('userID')) : ''); ?><b class="countAlerts"><?php echo (countAlert($this->session->userdata('userID')) > 0 ? countAlert($this->session->userdata('userID')) : ''); ?></b></span> 
 				</li>
 				<li>
-					<a href="<?php echo base_url('user/posts'); ?>" class="ajaxLoad"><i class="fa fa-newspaper-o"></i> <?php echo phrase('articles'); ?><span class="badge more"><?php echo countPosts('posts', ($this->session->userdata('user_level') == 1 ? null : $this->session->userdata('userID'))); ?></span></a>
+					<a href="<?php echo base_url('user/posts'); ?>" class="ajaxloads"><i class="fa fa-newspaper-o"></i> <?php echo phrase('articles'); ?><span class="badge more"><?php echo countPosts('posts', ($this->session->userdata('user_level') == 1 ? null : $this->session->userdata('userID'))); ?></span></a>
 				</li>
 				<li>
-					<a href="<?php echo base_url('user/snapshots'); ?>" class="ajaxLoad"><i class="fa fa-image"></i> <?php echo phrase('snapshots'); ?><span class="badge more"><?php echo countPosts('snapshots', ($this->session->userdata('user_level') == 1 ? null : $this->session->userdata('userID'))); ?></span></a>
+					<a href="<?php echo base_url('user/snapshots'); ?>" class="ajaxloads"><i class="fa fa-image"></i> <?php echo phrase('snapshots'); ?><span class="badge more"><?php echo countPosts('snapshots', ($this->session->userdata('user_level') == 1 ? null : $this->session->userdata('userID'))); ?></span></a>
 				</li>
 				<li>
-					<a href="<?php echo base_url('user/openletters'); ?>" class="ajaxLoad"><i class="fa fa-paperclip"></i> <?php echo phrase('open_letters'); ?><span class="badge more"><?php echo countPosts('openletters', ($this->session->userdata('user_level') == 1 ? null : $this->session->userdata('userID'))); ?></span></a>
+					<a href="<?php echo base_url('user/openletters'); ?>" class="ajaxloads"><i class="fa fa-paperclip"></i> <?php echo phrase('open_letters'); ?><span class="badge more"><?php echo countPosts('openletters', ($this->session->userdata('user_level') == 1 ? null : $this->session->userdata('userID'))); ?></span></a>
 				</li>
 				<li>
-					<a href="<?php echo base_url('user/tv'); ?>" class="ajaxLoad"><i class="fa fa-desktop"></i> <?php echo phrase('tv_channels'); ?><span class="badge more"><?php echo countPosts('tv', ($this->session->userdata('user_level') == 1 ? null : $this->session->userdata('userID'))); ?></span></a>
+					<a href="<?php echo base_url('user/tv'); ?>" class="ajaxloads"><i class="fa fa-desktop"></i> <?php echo phrase('tv_channels'); ?><span class="badge more"><?php echo countPosts('tv', ($this->session->userdata('user_level') == 1 ? null : $this->session->userdata('userID'))); ?></span></a>
 				</li>
 				<?php if($this->session->userdata('user_level') == 1) { ?>
 				<li>
-					<a href="<?php echo base_url('user/categories'); ?>" class="ajaxLoad"><i class="fa fa-sitemap"></i> <?php echo phrase('manage_category'); ?></a>
+					<a href="<?php echo base_url('user/categories'); ?>" class="ajaxloads"><i class="fa fa-sitemap"></i> <?php echo phrase('manage_category'); ?></a>
 				</li>
 				<li>
-					<a href="<?php echo base_url('user/users'); ?>" class="ajaxLoad"><i class="fa fa-users"></i> <?php echo phrase('manage_user'); ?></a>
+					<a href="<?php echo base_url('user/users'); ?>" class="ajaxloads"><i class="fa fa-users"></i> <?php echo phrase('manage_user'); ?></a>
 				</li>
 				<li>
-					<a href="<?php echo base_url('user/translate'); ?>" class="ajaxLoad"><i class="fa fa-language"></i> <?php echo phrase('translate'); ?></a>
+					<a href="<?php echo base_url('user/translate'); ?>" class="ajaxloads"><i class="fa fa-language"></i> <?php echo phrase('translate'); ?></a>
 				</li>
 				<li>
-					<a href="<?php echo base_url('user/settings'); ?>" class="ajaxLoad"><i class="fa fa-cog"></i> <?php echo phrase('global_settings'); ?></a>
+					<a href="<?php echo base_url('user/settings'); ?>" class="ajaxloads"><i class="fa fa-cog"></i> <?php echo phrase('global_settings'); ?></a>
 				</li>
 				<?php } ?>
 				<li>
-					<a href="<?php echo base_url('user/logout'); ?>" class="ajaxLoad"><b><i class="fa fa-ban"></i> <?php echo phrase('logout'); ?></b></a>
+					<a href="<?php echo base_url('user/logout'); ?>" class="ajaxloads"><b><i class="fa fa-ban"></i> <?php echo phrase('logout'); ?></b></a>
 				</li>
 			</ul>
 		</div>
@@ -368,7 +368,7 @@
 							<div class="col-sm-5 nomargin loginBorder text-center">
 								<br /><br />
 								<a class="btn btn-primary btn-lg btn-block" href="<?php echo instantLoginURL(); ?>"><i class="fa fa-facebook"></i> &nbsp; <?php echo phrase('instant_login'); ?></a>
-								<a class="ajaxLoad btn btn-success btn-lg btn-block" href="<?php echo base_url('user/register'); ?>"><i class="fa fa-user-plus"></i> &nbsp; <?php echo phrase('register'); ?></a>
+								<a class="ajaxloads btn btn-success btn-lg btn-block" href="<?php echo base_url('user/register'); ?>"><i class="fa fa-user-plus"></i> &nbsp; <?php echo phrase('register'); ?></a>
 								<br /><br /><br />
 							</div>
 						</div>
@@ -639,7 +639,7 @@
 		<script src="<?php echo base_url('themes/default/js/masonry.js'); ?>"></script>
 		<script src="<?php echo base_url('themes/default/js/sticky.js'); ?>"></script>
 		<script src="<?php echo base_url('themes/default/js/easing.js'); ?>"></script>
-		<script src="<?php echo base_url('themes/default/js/global.js'); ?>"></script>
+		<script src="<?php echo base_url('themes/default/js/global.js?123'); ?>"></script>
 		
 		<script type="text/javascript">
 			$(window).load(function()

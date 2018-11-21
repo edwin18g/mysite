@@ -34,11 +34,11 @@ if(!function_exists('generatePageNav'))
 			{
 				if($li)
 				{
-					$link .= '<li><a href="' . base_url('pages/' . $nav['pageSlug']) . '"' . ($CI->uri->segment(2) == $nav['pageSlug'] ? ' class="text-muted ajaxLoad"' : ' class="ajaxLoad"') . '><i class="fa fa-circle-o"></i> ' . $nav['pageTitle'] . '</a></li>';
+					$link .= '<li><a href="' . base_url('pages/' . $nav['pageSlug']) . '"' . ($CI->uri->segment(2) == $nav['pageSlug'] ? ' class="text-muted ajaxloads"' : ' class="ajaxloads"') . '><i class="fa fa-circle-o"></i> ' . $nav['pageTitle'] . '</a></li>';
 				}
 				else
 				{
-					$link .= '<a href="' . base_url('pages/' . $nav['pageSlug']) . '"' . ($CI->uri->segment(2) == $nav['pageSlug'] ? ' class="text-muted ajaxLoad"' : ' class="ajaxLoad"') . '>' . $nav['pageTitle'] . '</a> &nbsp; - &nbsp; ';
+					$link .= '<a href="' . base_url('pages/' . $nav['pageSlug']) . '"' . ($CI->uri->segment(2) == $nav['pageSlug'] ? ' class="text-muted ajaxloads"' : ' class="ajaxloads"') . '>' . $nav['pageTitle'] . '</a> &nbsp; - &nbsp; ';
 				}
 			}
 			$link	.= ($li ? '</ul>' : '');
@@ -243,13 +243,13 @@ if(!function_exists('getUserDetails'))
 							<div class="row article_cover" style="background:' . $hex . ' url(' . base_url('uploads/users/covers/' . imageCheck('covers', getUserCover($c['userID']), 1)) . ') center center no-repeat;background-size:cover;-webkit-background-size:cover">
 								<div class="col-sm-12 nomargin absolute text-shadow" style="width:100%">
 									<div class="col-xs-3">
-										<a href="' . base_url($c['userName']) . '" class="ajaxLoad hoverCard">
+										<a href="' . base_url($c['userName']) . '" class="ajaxloads hoverCard">
 											<img src="' . base_url('uploads/users/thumbs/' . imageCheck('users', getUserPhoto($c['userID']), 1)) . '" class="img-rounded bordered img-responsive" alt="" />
 										</a>
 									</div>
 									<div class="col-xs-9 relative">
 										<h2 class="pull-right">#' . $c['visits_count'] . '</h2>
-										<a href="' . base_url($c['userName']) . '" class="ajaxLoad hoverCard">
+										<a href="' . base_url($c['userName']) . '" class="ajaxloads hoverCard">
 											<b>' . $c['full_name'] . '</b> 
 										</a>
 										<br />
@@ -832,11 +832,11 @@ if(!function_exists('generateBreadcrumb'))
 			$uriSegments = ($CI->uri->segment($i+1));
 			if($uriSegments == '')
 			{
-				$link .= '<li class="active"><a href="'.site_url($prep_link).'" class="ajaxLoad">' . ucwords(str_replace('_', ' ', $CI->uri->segment($i))) . '</a></li>';
+				$link .= '<li class="active"><a href="'.site_url($prep_link).'" class="ajaxloads">' . ucwords(str_replace('_', ' ', $CI->uri->segment($i))) . '</a></li>';
 			}
 			else
 			{
-				$link .= '<li><a href="'.site_url($prep_link).'" class="ajaxLoad">' . ucwords(str_replace('_', ' ', $CI->uri->segment($i))) . '</a><span class="divider"></span></li>';
+				$link .= '<li><a href="'.site_url($prep_link).'" class="ajaxloads">' . ucwords(str_replace('_', ' ', $CI->uri->segment($i))) . '</a><span class="divider"></span></li>';
 			}
 		 
 			$i++;

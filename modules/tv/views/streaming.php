@@ -1,18 +1,20 @@
 
 	<?php foreach($post as $page): ?>
-	
-	<script src="<?php echo base_url('themes/' . $this->settings['theme'] . '/js/mediaplayer/mediaelement-and-player.min.js'); ?>"></script>
-	<link rel="stylesheet" href="<?php echo base_url('themes/' . $this->settings['theme'] . '/js/mediaplayer/mediaelementplayer.min.css'); ?>" />
+	<!-- Flowplayer library -->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
 	
 	<?php if(!isset($modal)){ ?>
 		<div class="jumbotron bg-dark text-center first-child">
-			<div class="container">
+			<div class="">
 				<div class="row">
-					<div class="col-md-10 h-600px col-sm-offset-1 nomargin-xs nopadding-xs ocdc2475">
-						<video id="player">
-							<source type="application/x-mpegURL" src="<?php echo $page['tvURL']; ?>" />
-						</video>
+					<div class=" nomargin-xs nopadding-xs ocdc2475">
+						
+						<div id="player"></div>
+  <script>
+    var player = new Clappr.Player({source: "<?php echo $page['tvURL']; ?>", parentId: "#player",width:"100%",height:"400px"});
+  </script>
 					</div>
+					
 				</div>
 			</div>
 		</div>
@@ -28,7 +30,7 @@
 											<img src="<?php echo base_url('uploads/users/thumbs/' . imageCheck('users', getUserPhoto($page['contributor']), 1)); ?>" width="40" height="40" alt="" class="rounded" />
 										</div>
 										<div class="col-xs-10">
-											<a href="<?php echo base_url(getUsernameByID($page['contributor'])); ?>" class="ajaxLoad hoverCard"><b><?php echo getFullNameByID($page['contributor']); ?></b> <small class="text-muted">@<?php echo getUsernameByID($page['contributor']); ?></small></a>
+											<a href="<?php echo base_url(getUsernameByID($page['contributor'])); ?>" class="ajaxloads hoverCard"><b><?php echo getFullNameByID($page['contributor']); ?></b> <small class="text-muted">@<?php echo getUsernameByID($page['contributor']); ?></small></a>
 											<br />
 											<small class="text-muted">
 											<i class="fa fa-newspaper-o"></i> <?php echo (countPosts('posts', $page['contributor']) + countPosts('snapshots', $page['contributor'])); ?>
@@ -97,9 +99,10 @@
 					<div class="row bg-dark preloader">
 						<div class="middle ocdc2475">
 							<span class="img text-center">
-								<video id="player">
-									<source type="application/x-mpegURL" src="<?php echo $page['tvURL']; ?>" />
-								</video>
+							<div id="player"></div>
+  <script>
+    var player = new Clappr.Player({source: "<?php echo $page['tvURL']; ?>", parentId: "#player",width:"100%",height:"400px"});
+  </script>
 							</span>
 						</div>
 					</div>
@@ -112,7 +115,7 @@
 								<img src="<?php echo base_url('uploads/users/thumbs/' . imageCheck('users', getUserPhoto($page['contributor']), 1)); ?>" width="40" height="40" alt="" class="rounded" data-dismiss="modal" aria-hidden="true" />
 							</div>
 							<div class="col-xs-10 nomargin">
-								<a href="<?php echo base_url(getUsernameByID($page['contributor'])); ?>" class="ajaxLoad hoverCard" data-dismiss="modal" aria-hidden="true"><b><?php echo getFullNameByID($page['contributor']); ?></b> <small class="text-muted">@<?php echo getUsernameByID($page['contributor']); ?></small></a>
+								<a href="<?php echo base_url(getUsernameByID($page['contributor'])); ?>" class="ajaxloads hoverCard" data-dismiss="modal" aria-hidden="true"><b><?php echo getFullNameByID($page['contributor']); ?></b> <small class="text-muted">@<?php echo getUsernameByID($page['contributor']); ?></small></a>
 								<br />
 								<small class="text-muted">
 									<i class="fa fa-newspaper-o"></i> <?php echo (countPosts('posts', $page['contributor']) + countPosts('snapshots', $page['contributor'])); ?>

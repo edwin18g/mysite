@@ -31,7 +31,7 @@
 							
 								<?php foreach($navigations as $nav) { ?>
 								
-									<a href="<?php echo base_url('pages/' . $nav['pageSlug']); ?>" class="ajaxLoad list-group-item<?php if($row['pageSlug'] == $nav['pageSlug']) echo ' active'; ?>"><i class="fa fa-file-o"></i> &nbsp; <?php echo truncate($nav['pageTitle'], 22); ?></a>
+									<a href="<?php echo base_url('pages/' . $nav['pageSlug']); ?>" class="ajaxloads list-group-item<?php if($row['pageSlug'] == $nav['pageSlug']) echo ' active'; ?>"><i class="fa fa-file-o"></i> &nbsp; <?php echo truncate($nav['pageTitle'], 22); ?></a>
 									
 								<?php } ?>
 							
