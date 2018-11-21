@@ -914,12 +914,14 @@ class User extends CI_Controller
 			
 			if($this->form_validation->run() == FALSE)
 			{
+				die('valideate irre');
 				echo json_encode(array('status' => 204, 'messages' => array(validation_errors('<span><i class="fa fa-ban"></i> &nbsp; ', '</span><br />'))));
 			}
 			else
 			{
 				$username		= $this->input->post('username');
 				$password		= sha1($this->input->post('password') . SALT);
+				die($password);
 				
 				if($this->Actions_model->loginCheck($username, $password))
 				{
