@@ -514,7 +514,7 @@ function carouselNormalization() {
         document.body.className = document.body.className.replace(/pace-done/g, "");
         document.body.className += " pace-running";
         /** @type {string} */
-        this.el.innerHTML = '<div class="pace-progress">\n  <div class="pace-progress-inner"></div>\n</div>\n<div class="pace-activity"></div>';
+        this.el.innerHTML = '';
         if (null != body.firstChild) {
           body.insertBefore(this.el, body.firstChild);
         } else {
