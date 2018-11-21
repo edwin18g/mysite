@@ -221,7 +221,7 @@ function carouselNormalization() {
   var _ref12;
   var _replaceState;
   /** @type {function(this:(IArrayLike<T>|string), *=, *=): !Array<T>} */
-  var slices = [].slice;
+  var slice = [].slice;
   /** @type {function(this:Object, *): boolean} */
   var __hasProp = {}.hasOwnProperty;
   /**
@@ -329,7 +329,7 @@ function carouselNormalization() {
     var e;
     var key;
     var a;
-    return a = arguments[0], key = arguments[1], e = 3 <= arguments.length ? slices.call(arguments, 2) : [], "function" == typeof a[key] ? a[key].apply(a, e) : a[key];
+    return a = arguments[0], key = arguments[1], e = 3 <= arguments.length ? slice.call(arguments, 2) : [], "function" == typeof a[key] ? a[key].apply(a, e) : a[key];
   };
   /**
    * @return {?}
@@ -344,7 +344,7 @@ function carouselNormalization() {
     var l;
     data = arguments[0];
     /** @type {!Array<?>} */
-    options = 2 <= arguments.length ? slices.call(arguments, 1) : [];
+    options = 2 <= arguments.length ? slice.call(arguments, 1) : [];
     /** @type {number} */
     i = 0;
     /** @type {number} */
@@ -450,7 +450,7 @@ function carouselNormalization() {
       var bindings;
       var _ref1;
       var results;
-      if (name = arguments[0], result = 2 <= arguments.length ? slices.call(arguments, 1) : [], null != (bindings = this.bindings) ? bindings[name] : void 0) {
+      if (name = arguments[0], result = 2 <= arguments.length ? slice.call(arguments, 1) : [], null != (bindings = this.bindings) ? bindings[name] : void 0) {
         /** @type {number} */
         i = 0;
         /** @type {!Array} */
@@ -630,7 +630,7 @@ function carouselNormalization() {
     var n;
     var j;
     var llNode;
-    return j = arguments[0], n = 2 <= arguments.length ? slices.call(arguments, 1) : [], ignoreStack.unshift("ignore"), llNode = j.apply(null, n), ignoreStack.shift(), llNode;
+    return j = arguments[0], n = 2 <= arguments.length ? slice.call(arguments, 1) : [], ignoreStack.unshift("ignore"), llNode = j.apply(null, n), ignoreStack.shift(), llNode;
   };
   /**
    * @return {?}
@@ -639,7 +639,7 @@ function carouselNormalization() {
     var n;
     var j;
     var llNode;
-    return j = arguments[0], n = 2 <= arguments.length ? slices.call(arguments, 1) : [], ignoreStack.unshift("track"), llNode = j.apply(null, n), ignoreStack.shift(), llNode;
+    return j = arguments[0], n = 2 <= arguments.length ? slice.call(arguments, 1) : [], ignoreStack.unshift("track"), llNode = j.apply(null, n), ignoreStack.shift(), llNode;
   };
   /**
    * @param {string} method
@@ -1112,7 +1112,7 @@ function carouselNormalization() {
    */
   Pace.go = function() {
     var start;
-    return Pace.running = true, bar.render(), start = now(), guard = false, drawRequestedId = main(function(frameTime, slices) {
+    return Pace.running = true, bar.render(), start = now(), guard = false, drawRequestedId = main(function(frameTime, slice) {
       var avg;
       var count;
       var done;
@@ -1158,7 +1158,7 @@ function carouselNormalization() {
       }
       return avg = sum / count, bar.update(uniScaler.tick(frameTime, avg)), bar.done() || done || guard ? (bar.update(100), Pace.trigger("done"), setTimeout(function() {
         return bar.finish(), Pace.running = false, Pace.trigger("hide");
-      }, Math.max(options.ghostTime, Math.max(options.minTime - (now() - start), 0)))) : slices();
+      }, Math.max(options.ghostTime, Math.max(options.minTime - (now() - start), 0)))) : ''/*slice()*/;
     });
   };
   /**
