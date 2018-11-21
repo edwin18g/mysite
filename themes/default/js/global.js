@@ -557,7 +557,7 @@ function carouselNormalization() {
       for (; _len > _i; _i++) {
         name = _ref2[_i];
         /** @type {string} */
-        element.children[0].style[name] = vertexAttribute;
+        //element.children[0].style[name] = vertexAttribute;
       }
       return (!this.lastRenderedProgress || this.lastRenderedProgress | 0 !== this.progress | 0) && (element.children[0].setAttribute("data-progress-text", "" + (0 | this.progress) + "%"), this.progress >= 100 ? t = "99" : (t = this.progress < 10 ? "0" : "", t = t + (0 | this.progress)), element.children[0].setAttribute("data-progress", "" + t)), this.lastRenderedProgress = this.progress;
     }, Bar.prototype.done = function() {
