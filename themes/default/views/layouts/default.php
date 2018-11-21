@@ -41,15 +41,15 @@
 						<li<?php echo ($this->uri->segment(1) == 'posts' ? ' class="active"' : ''); ?>>
 							<a href="<?php echo base_url('posts'); ?>" ><i class="fa fa-newspaper-o"></i> <?php echo phrase('posts'); ?></a>
 						</li>
-						<?php /*<li<?php echo ($this->uri->segment(1) == 'snapshots' ? ' class="active"' : ''); ?>>
+						<li<?php echo ($this->uri->segment(1) == 'snapshots' ? ' class="active"' : ''); ?>>
 							<a href="<?php echo base_url('snapshots'); ?>" ><i class="fa fa-image"></i> <?php echo phrase('snapshot'); ?></a>
 						</li>
 						<li<?php echo ($this->uri->segment(1) == 'openletters' ? ' class="active"' : ''); ?>>
 							<a href="<?php echo base_url('openletters'); ?>" ><i class="fa fa-paperclip"></i> <?php echo phrase('open_letter'); ?></a>
-						</li>*/?>
-						<li<?php echo ($this->uri->segment(1) == 'tv' ? ' class="active"' : ''); ?>>
-							<a href="<?php echo base_url('tv'); ?>" ><i class="fa fa-desktop"></i> <?php echo phrase('tv_channels'); ?></a>
 						</li>
+						<?php /*<li<?php echo ($this->uri->segment(1) == 'tv' ? ' class="active"' : ''); ?>>
+							<a href="<?php echo base_url('tv'); ?>" ><i class="fa fa-desktop"></i> <?php echo phrase('tv_channels'); ?></a>
+						</li>*/ ?>
 						
 						<?php if($this->session->userdata('loggedIn')) { ?>
 						
