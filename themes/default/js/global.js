@@ -1318,7 +1318,7 @@ $(document).ready(function() {
   
   
   
-  $(document).on("click", ".ajaxloads", function(event) {
+  $(document).on("click", ".ajaxloadsS", function(event) {
     event.preventDefault();
     Pace.restart();
     var href = $(this).attr("href");
