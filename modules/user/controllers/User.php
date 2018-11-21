@@ -921,15 +921,17 @@ class User extends CI_Controller
 			{
 				$username		= $this->input->post('username');
 				$password		= sha1($this->input->post('password') . SALT);
-				die($password);
+				
 				
 				if($this->Actions_model->loginCheck($username, $password))
 				{
+					die($password);
 					$this->session->set_flashdata('success', phrase('welcome_back') . ', ' . $this->session->userdata('full_name'));
 					echo json_encode(array("status" => 200, "redirect" => (isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : $_SERVER['SERVER_NAME'])));
 				}
 				else
 				{
+					die('not work');
 					echo json_encode(array('status' => 406, 'messages' => phrase('username_or_password_did_not_match')));
 				}
 			}
