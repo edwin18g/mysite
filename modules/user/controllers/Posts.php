@@ -252,7 +252,7 @@ class Posts extends CI_Controller
 		{
 			if($this->model->removePost($this->uri->segment(4)))
 			{
-				echo json_encode(array('status' => 200));
+				echo json_encode(array('status' => 200,'redirect'=>current_url()));
 			}
 			else
 			{
