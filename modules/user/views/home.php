@@ -18,20 +18,9 @@
         </div>
     </div>
 </div>
-<div class="row">
-					<div class="col-md-4">
-						<div class="whitebg mleft">
-
-
-							<h2>&nbsp;Welcome</h2>
-							
-							<p>
-								Pope Francis created a new Latin rite Diocese of Kuzhithurai, carved out of the Diocese of Kottar, in Kanniyakumari District, Tamil Nadu, India making it a suffragan of the metropolitan see of Madurai and with great joy and pastoral concern, he announced it officially on 22nd December 2014 at 12.00 hrs, Italian Time/16.30 hrs (IST) appointing Fr. Jeromedhas Varuvel S.D.B. as its first Bishop. 
-							</p>
-							<p class="textwrapl readbuttonright"><a href="welcome.php" role="button" class="btn">Read More...</a></p>
-						</div>
-					</div>
-					<div class="col-md-4">
+<div class="container">
+    <div class="row">
+    <div class="col-md-3">
 						<div class="whitebg">
 							<div class="tabbable" id="btabs">
 								<ul class="nav nav-tabs">
@@ -96,7 +85,17 @@
 
 						</div>
 					</div>
-					<div class="col-md-4">
+		<div class="col-md-6">
+			<div class="whitebg mleft">
+                <h2>&nbsp;Welcome</h2>
+				<p>
+						Pope Francis created a new Latin rite Diocese of Kuzhithurai, carved out of the Diocese of Kottar, in Kanniyakumari District, Tamil Nadu, India making it a suffragan of the metropolitan see of Madurai and with great joy and pastoral concern, he announced it officially on 22nd December 2014 at 12.00 hrs, Italian Time/16.30 hrs (IST) appointing Fr. Jeromedhas Varuvel S.D.B. as its first Bishop. 
+				</p>
+				<p class="textwrapl readbuttonright"><a href="welcome.php" role="button" class="btn">Read More...</a></p>
+			</div>
+		</div>
+					
+					<div class="col-md-3">
 						<div class="whitebg mright">
 							<h2>&nbsp;News &amp; Events</h2>
 <p="up" scrollamount="6" onmouseover="this.setAttribute('scrollamount', 0, 0);" onmouseout="this.setAttribute('scrollamount', 6, 0);">
@@ -110,3 +109,5 @@
 						</p="up"></div>
 					</div>
 				</div>
+</div>
+
