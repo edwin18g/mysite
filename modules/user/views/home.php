@@ -3,13 +3,16 @@
 
 
 <div style="border-bottom:1px solid #ddd">
-    <div class="container">
+    <div class="">
         <div class="row">
-            <div class="col-sm-10 col-sm-offset-2" style="position:relative">
+            <div class="" style="position:relative">
                 <div class="btn-group btn-group-justified">
-                    <a class="ajaxloads btn btn-default btn-lg active" href="http://kuzhithuraidiocese.com/new/fr-jaya-kumar" style="border-right:none"><i class="fa fa-newspaper-o"></i><span class="hidden-xs"> &nbsp; Wall</span></a>
-                    <a class="ajaxloads btn btn-default btn-lg" href="http://kuzhithuraidiocese.com/new/fr-jaya-kumar/friends" style="border-right:none"><i class="fa fa-users"></i><span class="hidden-xs"> &nbsp; Friends</span> <small class="badge" id="friends-count">0</small></a>
-                    <a class="ajaxloads btn btn-default btn-lg" href="http://kuzhithuraidiocese.com/new/fr-jaya-kumar/followers" style="border-right:none"><i class="fa fa-retweet"></i><span class="hidden-xs"> &nbsp; Followers</span> <small class="badge" id="followers-count">0</small></a><a class="ajaxloads btn btn-default btn-lg" href="http://kuzhithuraidiocese.com/new/fr-jaya-kumar/following"><i class="fa fa-random"></i><span class="hidden-xs"> &nbsp; Following</span> <small class="badge" id="following-count">0</small></a>
+                    <a class="ajaxloads btn btn-default btn-lg active" href="http://kuzhithuraidiocese.com/new/fr-jaya-kumar" style="border-right:none"><i class="fa fa-newspaper-o"></i><span class="hidden-xs"> &nbsp; Administration</span></a>
+                    <a class="ajaxloads btn btn-default btn-lg" href="http://kuzhithuraidiocese.com/new/fr-jaya-kumar/friends" style="border-right:none"><i class="fa fa-users"></i><span class="hidden-xs"> &nbsp; Priests</span> <small class="badge" id="friends-count">0</small></a>
+                    <a class="ajaxloads btn btn-default btn-lg" href="http://kuzhithuraidiocese.com/new/fr-jaya-kumar/followers" style="border-right:none"><i class="fa fa-retweet"></i><span class="hidden-xs"> &nbsp; Parishes</span> <small class="badge" id="followers-count">0</small></a>
+                    <a class="ajaxloads btn btn-default btn-lg" href="http://kuzhithuraidiocese.com/new/fr-jaya-kumar/following"><i class="fa fa-random"></i><span class="hidden-xs"> &nbsp; Organizations</span> <small class="badge" id="following-count">0</small></a>
+                    <a class="ajaxloads btn btn-default btn-lg" href="http://kuzhithuraidiocese.com/new/fr-jaya-kumar/followers" style="border-right:none"><i class="fa fa-retweet"></i><span class="hidden-xs"> &nbsp; History</span> <small class="badge" id="followers-count">0</small></a>
+                    <a class="ajaxloads btn btn-default btn-lg" href="http://kuzhithuraidiocese.com/new/fr-jaya-kumar/following"><i class="fa fa-random"></i><span class="hidden-xs"> &nbsp; Contact Us</span> <small class="badge" id="following-count">0</small></a>
                 </div>
             </div>
         </div>
