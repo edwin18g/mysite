@@ -1,23 +1,7 @@
 
 <?php echo getNewSnapshotHome(5); ?>
-<div class="jumbotron" style="background:url(<?php echo base_url('uploads/users/covers/placeholder.jpg'); ?>) center center no-repeat;background-size:cover;-webkit-background-size:cover;background-position:fixed;padding-top:240px;padding-bottom:0;margin-bottom:0;width:100%"></div>
-<div class="container" style="position:relative">
-    <div class="row" style="position:absolute;bottom:0;width:100%">
-        <div>
-            <div class="col-sm-2 nomargin relative">
-              <div class="userImage">
-                    <div class="col-xs-6 col-xs-offset-3 col-sm-12 col-sm-offset-0 text-center" style="padding:0">
-                        <div class="rounded" style="width:100%;border:6px solid #eee;overflow:hidden">
-                            <?php echo '<img src="' . base_url('uploads/users/' . imageCheck('users', getUserPhoto($page['userID']))) . '" class="image-rounded img-bordered" style="width:100%" alt="" />'; ?>
-                        </div>
-                    </div>
-                </div>
-              
-            </div>
-            
-        </div>
-    </div>
-</div>
+
+
 <div style="border-bottom:1px solid #ddd">
     <div class="container">
         <div class="row">
