@@ -787,7 +787,7 @@ if(!function_exists('getNewSnapshotHome'))
 			{
 				$posts .= '
 					<div class="item' . ($s == 0 ? ' active' : '') . '">
-						<div style="background:url(' . base_url('uploads/snapshots/thumbs/' . imageCheck('snapshots', $c['snapshotFile'], 1)) . ') center center no-repeat;background-size:cover;-moz-background-size:cover;height:360px" class="rounded-sm"></div>
+						<div style="background:url(' . base_url('uploads/snapshots/' . imageCheck('snapshots', $c['snapshotFile'], 1)) . ') center center no-repeat;background-size:cover;-moz-background-size:cover;height:360px" class="rounded-sm"></div>
 						<div class="carousel-caption">
 							<h3 class="text-shadow"> &nbsp; </h3>
 							<div class="clearfix"></div>
