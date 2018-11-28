@@ -35,7 +35,7 @@
 			<hr />
 		</div>
 		<div class="row">
-			<div class="col-md-2 hidden-xs hidden-sm sticky hidden">
+			<div class="col-md-2 hidden-xs hidden-sm sticky ">
 				<h4><i class="fa fa-tags"></i> &nbsp;<?php echo phrase('trending_hashtags'); ?></h4>
 				<ul style="list-style:none;padding-left:0;margin:0">
 				<li><h4><a href="#">Priests</a></h4></li>
