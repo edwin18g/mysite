@@ -1770,10 +1770,11 @@ $(document).ready(function() {
         if (200 == action.status) {
           $(".comments-count-" + sl_id).text(action.count);
           $("#modal_delete").modal("hide");
+          location.href = location.href;
           if ("all" == data) {
             $(".listHolder").remove();
           } else {
-            $("." + data).remove();
+            $("#" + data).remove();
           }
         } else {
           if (403 == action.status) {
