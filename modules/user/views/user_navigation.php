@@ -53,7 +53,7 @@
 										<span class="badge">@' . $page['userName'] . ' - ' . $page['visits_count'] . ' ' . phrase('stalker') . '</span>
 									</h3>
 								</div>
-								<div class="col-sm-6 text-right-sm text-center-xs">
+								<div class="col-sm-6 text-right-sm text-center-xs hidden">
 									<span class="btn-group">
 										<a href="#profileView" class="btn btn-default" data-toggle="modal"><i class="fa fa-info-circle"></i> ' . phrase('info') . '</a>
 										' . ($page['userID'] != $this->session->userdata('userID') ? '
@@ -135,13 +135,13 @@
 												<?php echo $page['mobile']; ?>
 											</div>
 										</div>
-										<div class="form-group">
+										<div class="form-group hidden">
 											<label class="control-label col-xs-1 col-xs-offset-1 text-left"><i class="fa fa-venus-mars"></i></label>
 											<div class="col-xs-9">
 												<?php echo ($page['gender'] == 'l' ? phrase('male') : phrase('female')); ?>
 											</div>
 										</div>
-										<div class="form-group">
+										<div class="form-group hidden">
 											<label class="control-label col-xs-1 col-xs-offset-1 text-left"><i class="fa fa-child"></i></label>
 											<div class="col-xs-9">
 												<?php echo $page['age'] . ' ' . phrase('years'); ?>
