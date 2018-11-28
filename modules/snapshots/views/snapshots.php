@@ -52,7 +52,7 @@
 						}
 						
 						echo '
-							<div class="row">
+							<div class="col-sm-4">
 								<div class="col-sm-3 text-right sticky hidden-xs">
 									<a href="' . base_url(getUsernameByID($c['contributor'])) . '" class="ajaxloads hoverCard"><img src="' . base_url('uploads/users/thumbs/' . imageCheck('users', getUserPhoto($c['contributor']), 1)) . '" class="rounded" width="40" height="40" alt="..." /></a>
 									<br />
