@@ -28,7 +28,7 @@
 	</div>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-7 sticky">
+			<div class="col-md-12 sticky">
 			
 				<?php
 					$posts 	= getPosts('snapshots', null, null, $limit, $offset);
@@ -99,14 +99,7 @@
 				</div>
 					
 			</div>
-			<div class="col-md-2 hidden-xs hidden-sm sticky">
-				<h4><i class="fa fa-tags"></i> &nbsp; <?php echo phrase('trending'); ?></h4>
-				
-				<?php echo widget_hashTags(true, 10); ?>
-				
-				<?php // echo widget_randomAds(); ?>
-				
-			</div>
+			
 			
 		</div>
 	</div>
