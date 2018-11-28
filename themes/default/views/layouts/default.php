@@ -30,7 +30,7 @@
 		<![endif]-->
 		<script src="<?php echo base_url('themes/default/js/jquery.js'); ?>"></script>
 		<script src="<?php echo base_url('themes/default/js/bootstrap.min.js'); ?>"></script>
-		<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url('themes/default/images/favicon.ico'); ?>">
+		<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url('themes/default/images/favicon.ico?123'); ?>">
 	</head>
 	<body class="fixed">
 		<nav class="navbar navbar-custom navbar-fixed-top navbar-inverse text-uppercase hidden-xs hidden-sm">
