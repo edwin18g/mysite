@@ -166,7 +166,7 @@ class User extends CI_Controller
 			$data['meta']		= array(
 				'title' 		=> phrase('welcome_back'),
 				'descriptions'	=> phrase('whatever_you_writing_for_is_a_reportations'),
-				'keywords'		=> 'post, dwitri, blogs, article, social, blogging',
+				'keywords'		=> 'post,  blogs, article, social, blogging',
 				'image'			=> base_url('uploads/logo.png'),
 				'author'		=> $this->settings['siteTitle']
 			);

@@ -36,7 +36,7 @@
 		<nav class="navbar navbar-custom navbar-fixed-top navbar-inverse text-uppercase hidden-xs hidden-sm">
 			<div class="container">
 				<div class="collapse navbar-collapse" role="navigation">
-					<a class="navbar-brand ajaxloads" href="<?php echo base_url(); ?>"><img src="<?php echo base_url('themes/default/images/logo.png?123'); ?>" alt="logo" height="100%" /></a>
+					<a class="navbar-brand ajaxloads" href="<?php echo base_url(); ?>">Kuzhithurai Diocese <!--<img src="<?php echo base_url('themes/default/images/logo.png?123'); ?>" alt="logo" height="100%" />--></a>
 					<ul class="nav navbar-nav">
 						<li<?php echo ($this->uri->segment(1) == 'posts' ? ' class="active"' : ''); ?>>
 							<a href="<?php echo base_url('posts'); ?>" ><i class="fa fa-newspaper-o"></i> <?php echo phrase('posts'); ?></a>
