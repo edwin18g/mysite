@@ -104,7 +104,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-md-3 hidden-xs hidden-sm sticky">
+			<div class="col-md-3 hidden-xs hidden-sm sticky hidden">
 				
 				<h4><i class="fa fa-eye"></i> &nbsp;<?php echo phrase('most_views'); ?></h4>
 				<?php echo widget_mostViewNews(); ?>
