@@ -107,20 +107,6 @@
 				<?php // echo widget_randomAds(); ?>
 				
 			</div>
-			<div class="col-md-3 hidden-xs hidden-sm sticky">
-				<h4><i class="fa fa-certificate"></i> &nbsp; <?php echo phrase('top_contributors'); ?></h4>
 			
-				<?php echo widget_topContributors(); ?>
-				
-				<br />
-				
-				<h4><i class="fa fa-clock-o"></i> &nbsp; <?php echo phrase('latest_articles'); ?></h4>
-				
-				<?php echo widget_sidebarNews(); ?>
-					
-			
-				<?php // echo widget_randomAds(); ?>
-					
-			</div>
 		</div>
 	</div>
