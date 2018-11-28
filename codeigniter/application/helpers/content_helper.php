@@ -755,6 +755,65 @@ if(!function_exists('getNewSnapshot'))
 	}
 }
 
+if(!function_exists('getNewSnapshotHome'))
+{
+	function getNewSnapshotHome($limit = 10)
+	{
+		$CI =& get_instance();
+		$CI->db->order_by('FIELD(language, "' . $CI->session->userdata('language') . '") DESC', FALSE);
+		$CI->db->order_by('timestamp', 'DESC');
+		$CI->db->limit($limit);
+		$query = $CI->db->get('snapshots');
+		if($query->num_rows() > 0)
+		{
+			$posts = '<div id="snapshot" class="carousel slide rounded-sm bg-dark" data-ride="carousel"><ol class="carousel-indicators">'."\r\n";
+			
+			$s = 0;
+			foreach($query->result_array() as $c)
+			{
+				$posts .= '
+					<li data-target="#snapshot" data-slide-to="'.$s.'"' . ($s == 0 ? ' class="active"' : '') . '></li>
+				'."\r\n";
+				$s++;
+			}
+			
+			$s = 0;
+			$posts .= '
+				</ol>
+				<div class="carousel-inner" role="listbox">
+			'."\r\n";
+			
+			foreach($query->result_array() as $c)
+			{
+				$posts .= '
+					<div class="item' . ($s == 0 ? ' active' : '') . '">
+						<div style="background:url(' . base_url('uploads/snapshots/' . imageCheck('snapshots', $c['snapshotFile'], 1)) . ') center center no-repeat;background-size:cover;-moz-background-size:cover;height:360px" class="rounded-sm"></div>
+						<div class="carousel-caption">
+							<h3 class="text-shadow"> &nbsp; </h3>
+							<div class="clearfix"></div>
+							<p class="text-shadow">' . ($c['snapshotContent'] != '' ? truncate($c['snapshotContent'], 80) : phrase('no_content')) . '</p>
+							<div class="clearfix"></div>
+							<br />
+							<a href="' . base_url('snapshots/' . $c['snapshotSlug']) . '" class="ajax btn btn-primary"><i class="fa fa-search"></i> &nbsp; '.phrase('view').'</a>
+						</div>
+					</div>
+				'."\r\n";
+				
+				$s++;
+			}
+			
+			$posts .= '
+				</div>
+			</div>';
+			return $posts;
+		}
+		else
+		{
+			return null;
+		}
+	}
+}
+
 if(!function_exists('getFeaturedImage'))
 {
 	function getFeaturedImage($postID = null, $thumb = 0) {

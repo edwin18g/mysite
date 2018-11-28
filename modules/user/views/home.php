@@ -41,10 +41,10 @@
 				<?php echo widget_hashTags(true, 10); ?>
 			</div>
 			<div class="col-md-7 sticky">
-				<?php if(getNewSnapshot(5) !== null): ?>
-					<h4><i class="fa fa-image"></i> &nbsp;<?php echo phrase('new_from_snapshots'); ?></h4>
+				<?php if(getNewSnapshotHome(5) !== null): ?>
+					<!-- <h4><i class="fa fa-image"></i> &nbsp;<?php echo phrase('new_from_snapshots'); ?></h4> -->
 					<div class="row-xs">
-						<?php echo getNewSnapshot(5); ?>
+						<?php echo getNewSnapshotHome(5); ?>
 					</div>
 					<div class="row visible-xs visible-sm">
 						<div class="col-md-2">
