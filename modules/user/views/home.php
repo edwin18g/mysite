@@ -27,12 +27,7 @@
 									<li class="active">
 										<a href="#panelbishop" data-toggle="tab">Bishop</a>
 									</li>
-									<li>
-										<a href="#panelbcircular" data-toggle="tab">Circulars</a>
-									</li>
-									<li>
-										<a href="#panelnewsletter" data-toggle="tab">Newsletter</a>
-									</li>
+									
 									<li>
 										<a href="#panelbcal" data-toggle="tab">Calendar</a>
 									</li>
@@ -40,7 +35,7 @@
 								<div class="tab-content">
 									<div class="tab-pane active" id="panelbishop">
 
-										<img src="images/bishop-message.png" class="textwrap">
+										<img src="http://www.kuzhithuraidiocese.com/images/bishop-message.png" class="textwrap">
 										<p>The Most Rev. Msgr. V. Jeromedhas, SDB was born on October 21, 1951 at Paduvoor, Diocese of Kottar. <a href="aboutbishop.php">Read More ...</a></p>
 										
 										<p class="textwrap readbuttonup"><a href="#bishopmessageenglish" role="button" class="btn" data-toggle="modal">Message</a></p>
@@ -48,33 +43,10 @@
 										<p></p>
 										
 									</div>
-									<div class="tab-pane" id="panelbcircular">
 									
-							<p>
-								<a href="circular/circular.pdf" target="“_blank”">Circular</a>
-							</p>
-					
-
-
-									</div>
-									<div class="tab-pane" id="panelnewsletter">
 									
-							<p>
-								<a href="newsletter/January-16.pdf" target="“_blank&quot;">Newsletter January 2016</a>
-							</p>
-							<p>
-								<a href="newsletter/December-15.pdf" target="“_blank”">Newsletter December 2015</a>
-							</p>
-							<p>
-								<a href="newsletter/November-15.pdf" target="“_blank”">Newsletter November 2015</a>
-							</p>
-<a href="newsletter/News letter - August 2018.pdf" target="“_blank”"> News Letter - August 2018<p></p>
-						
-
-
-									</a></div><a href="newsletter/News letter - August 2018.pdf" target="“_blank”">
-
-									</a><div class="tab-pane" id="panelbcal"><a href="newsletter/News letter - August 2018.pdf" target="“_blank”">
+                                    
+                                    <div class="tab-pane" id="panelbcal"><a href="newsletter/News letter - August 2018.pdf" target="“_blank”">
 										<iframe src="https://www.google.com/calendar/embed?showPrint=0&amp;height=500&amp;wkst=1&amp;bgcolor=%23ffffff&amp;src=rcdiocesekuzhithurai%40gmail.com&amp;color=%231B887A&amp;ctz=Asia%2FCalcutta" width="100%" height="200" scrolling="yes" class="iframe-class" frameborder="0"></iframe><br>
 										</a><center><a href="newsletter/News letter - August 2018.pdf" target="“_blank”"></a><a href="calendar.php">Click here to Enlarge Calendar</a></center>
 
