@@ -35,7 +35,7 @@
 			<hr />
 		</div>
 		<div class="row">
-			<div class="col-md-2 hidden-xs hidden-sm sticky">
+			<div class="col-md-2 hidden-xs hidden-sm sticky hidden">
 				<h4><i class="fa fa-tags"></i> &nbsp;<?php echo phrase('trending_hashtags'); ?></h4>
 					
 				<?php echo widget_hashTags(true, 10); ?>
@@ -72,7 +72,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-sm-7 sticky">
+					<div class="col-sm-7 sticky hidden">
 						<div class="image-placeholder">
 							<div class="col-sm-12">
 								<h4><i class="fa fa-retweet"></i> &nbsp;<?php echo phrase('updates_stream'); ?></h4>
@@ -93,7 +93,7 @@
 				
 				<?php // echo widget_randomAds(); ?>
 				
-				<div class="image-placeholder">
+				<div class="image-placeholder hidden">
 					<div class="col-sm-12">
 						<h4><i class="fa fa-eye"></i> &nbsp;<?php echo phrase('people_are_watching'); ?></h4>
 				
