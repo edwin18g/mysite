@@ -37,8 +37,15 @@
 		<div class="row">
 			<div class="col-md-2 hidden-xs hidden-sm sticky hidden">
 				<h4><i class="fa fa-tags"></i> &nbsp;<?php echo phrase('trending_hashtags'); ?></h4>
-					
-				<?php echo widget_hashTags(true, 10); ?>
+				<ul style="list-style:none;padding-left:0;margin:0">
+				<li><h4><a href="#">Priests</a></h4></li>
+				<li><h4><a href="#">Parishes</a></h4></li>
+				<li><h4><a href="#">Organizations</a></h4></li>
+				<li><h4><a href="#">History</a></h4></li>
+				<li><h4><a href="#">Gallery</a></h4></li>
+				<li><h4><a href="#">Contact Us</a></h4></li>
+				</ul>
+				<?php //echo widget_hashTags(true, 10); ?>
 			</div>
 			<div class="col-md-7 sticky">
 				<?php if(getNewSnapshotHome(5) !== null): ?>
