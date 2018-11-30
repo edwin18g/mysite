@@ -258,7 +258,7 @@ if(!function_exists('getUserDetails'))
 								</div>
 							</div>
 						</div>
-						<div class="col-sm-12">
+						<div class="col-sm-12 hidden">
 							<p class="text-muted">
 								' . $c['bio'] . '
 							</p>
