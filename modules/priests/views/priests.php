@@ -17,7 +17,7 @@
 		}
 		else
 		{
-			$search	= listUsers(null, $limit, $offset);
+			$search	= listpriests(null, $limit, $offset);
 			$count 	= userSearchCount($keywords);
 		}
 	?>
