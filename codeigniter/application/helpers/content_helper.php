@@ -128,7 +128,7 @@ if(!function_exists('listUsers'))
 	}
 }
 
-if(!function_exists('listUsers'))
+if(!function_exists('listpriests'))
 {
 	function listpriests($status = null, $limit = 10, $offset = 0)
 	{
