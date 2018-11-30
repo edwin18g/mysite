@@ -86,14 +86,14 @@ class Priests extends CI_Controller
 					json_encode(
 						array(
 							'meta'		=> $data['meta'],
-							'html'		=> $this->load->view('users', $data, true)
+							'html'		=> $this->load->view('priests', $data, true)
 						)
 					)
 				);
 			}
 			else
 			{
-				$this->template->build('users', $data);
+				$this->template->build('priests', $data);
 			}
 		}
 	}
