@@ -67,7 +67,7 @@
 			</div>
 		</div>
 					
-					<div class="col-md-3 hidden">
+					<div class="col-md-3 ">
 						<div class="whitebg mright">
 						<?php echo widget_newOpenletters(1); ?>
 							<h2>&nbsp;Newsd &amp; Events</h2>
