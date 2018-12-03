@@ -76,16 +76,7 @@
 					{
 					foreach($posts as $c)
 					{
-						if($n == 7)
-						{
-							echo '
-								<div class="letter-placeholder">
-								
-									' . widget_randomAds() . '
-									
-								</div>
-							';
-						}
+						
 						
 						echo '
 							<div class="letter-placeholder">
@@ -116,23 +107,12 @@
 										<div class="col-sm-7">
 											<div class="row">
 												<div class="col-sm-12">
-													' . truncate($c['content'], 160) . '
+													' . truncate($c['content'], 60) . '
 												</div>
 											</div>
 										</div>
-										<div class="col-sm-5">
-											<div class="row">
-												<a href="' . base_url(getUsernameByID($c['contributor'])) . '" class="ajaxloads hoverCard">
-													<img src="' . base_url('uploads/users/thumbs/' . imageCheck('users', getUserPhoto($c['contributor']), 1)) . '" class="rounded col-xs-4" alt="..." />
-												</a>
-												<div class="col-xs-8">
-													<a href="' . base_url(getUsernameByID($c['contributor'])) . '" class="ajaxloads hoverCard"><b>' . getFullNameByID($c['contributor']) . '</b>
-													<br />
-													<small class="text-muted">@' . getUsernameByID($c['contributor']) . '</small></a>
-													<br />
-													<small class="text-muted"><i class="fa fa-newspaper-o"></i> ' . (countPosts('posts', $c['contributor']) + countPosts('snapshots', $c['contributor'])) . ' / <i class="fa fa-users"></i> ' . getUserFollowers('followers', $c['contributor']) . '</small>
-												</div>
-											</div>
+										<div class="col-sm-12">
+											
 											<div class="row">
 												<div class="col-sm-12">
 													<a href="' . base_url('openletters/' . $c['slug']) . '" class="ajaxloads btn btn-default btn-block"><i class="fa fa-envelope"></i> ' . phrase('read_letter') . '</a>
