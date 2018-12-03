@@ -37,8 +37,8 @@
 					<div class="col-sm-5 nomargin loginBorder">
 						<div class="gap-sm"></div>
 						<div class="gap-sm"></div>
-						<a class="btn btn-primary btn-lg btn-block" href="<?php echo instantLoginURL(); ?>"><i class="fa fa-facebook"></i> &nbsp; <?php echo phrase('instant_login'); ?></a>
-						<a class="btn btn-success btn-lg btn-block" href="<?php echo base_url('user/register'); ?>"><i class="fa fa-user-plus"></i> &nbsp; <?php echo phrase('register'); ?></a>
+						<!-- <a class="btn btn-primary btn-lg btn-block" href="<?php echo instantLoginURL(); ?>"><i class="fa fa-facebook"></i> &nbsp; <?php echo phrase('instant_login'); ?></a>
+						<a class="btn btn-success btn-lg btn-block" href="<?php echo base_url('user/register'); ?>"><i class="fa fa-user-plus"></i> &nbsp; <?php echo phrase('register'); ?></a> -->
 						<div class="gap-sm"></div>
 						<div class="gap-sm"></div>
 					</div>
