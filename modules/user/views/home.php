@@ -69,7 +69,86 @@
 					
 					<div class="col-md-3 ">
 						<div class="whitebg mright">
-						<?php echo widget_newOpenletters(1); ?>
+						<?php
+					$posts 	= getPosts('openletters', null, null, 1);
+					$n		= 1;
+					if(!empty($posts))				
+					{
+					foreach($posts as $c)
+					{
+						if($n == 7)
+						{
+							echo '
+								<div class="letter-placeholder">
+								
+									' . widget_randomAds() . '
+									
+								</div>
+							';
+						}
+						
+						echo '
+							<div class="letter-placeholder">
+								<div class="blog_article">
+									<div class="row">
+										<div class="col-sm-12 nomargin">
+											<b>
+												<div class="row">
+													<div class="col-sm-3 nopadding">
+														' . phrase('subject') . '
+													</div>
+													<div class="col-sm-9 nopadding">
+														' . $c['title'] . '
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-3">
+														' . phrase('aimed_to') . '
+													</div>
+													<div class="col-sm-9">
+														' . $c['targetName'] . '
+													</div>
+												</div>
+											</b>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-7">
+											<div class="row">
+												<div class="col-sm-12">
+													' . truncate($c['content'], 160) . '
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-5">
+											<div class="row">
+												<a href="' . base_url(getUsernameByID($c['contributor'])) . '" class="ajaxloads hoverCard">
+													<img src="' . base_url('uploads/users/thumbs/' . imageCheck('users', getUserPhoto($c['contributor']), 1)) . '" class="rounded col-xs-4" alt="..." />
+												</a>
+												<div class="col-xs-8">
+													<a href="' . base_url(getUsernameByID($c['contributor'])) . '" class="ajaxloads hoverCard"><b>' . getFullNameByID($c['contributor']) . '</b>
+													<br />
+													<small class="text-muted">@' . getUsernameByID($c['contributor']) . '</small></a>
+													<br />
+													<small class="text-muted"><i class="fa fa-newspaper-o"></i> ' . (countPosts('posts', $c['contributor']) + countPosts('snapshots', $c['contributor'])) . ' / <i class="fa fa-users"></i> ' . getUserFollowers('followers', $c['contributor']) . '</small>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-sm-12">
+													<a href="' . base_url('openletters/' . $c['slug']) . '" class="ajaxloads btn btn-default btn-block"><i class="fa fa-envelope"></i> ' . phrase('read_letter') . '</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						';
+						
+						$n++;
+					}
+
+				}
+				?>
 							<h2>&nbsp;Newsd &amp; Events</h2>
 <p="up" scrollamount="6" onmouseover="this.setAttribute('scrollamount', 0, 0);" onmouseout="this.setAttribute('scrollamount', 6, 0);">
 							
