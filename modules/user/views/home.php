@@ -68,6 +68,7 @@
 		</div>
 					
 					<div class="col-md-3 ">
+					<h2>&nbsp;News &amp; Events</h2>
 						<div class="whitebg mright">
 						<?php
 					$posts 	= getPosts('openletters', null, null, 1);
@@ -104,7 +105,7 @@
 										</div>
 									</div>
 									<div class="row">
-										<div class="col-sm-7">
+										<div class="col-sm-12">
 											<div class="row">
 												<div class="col-sm-12">
 													' . truncate($c['content'], 60) . '
@@ -129,16 +130,10 @@
 
 				}
 				?>
-							<h2>&nbsp;Newsd &amp; Events</h2>
-<p="up" scrollamount="6" onmouseover="this.setAttribute('scrollamount', 0, 0);" onmouseout="this.setAttribute('scrollamount', 6, 0);">
 							
-							<hr>
 
-							<p>
-		The release of Common Accounting Software System to keep the accounts of parishes of Kuzhithurai Diocese on 01/08/2018 at St. Xavier's Catholic College of Engineering, Chunkankadai. We thank the software cell of the IT department of St Xavier's Catholic college of Engineering for their innovating and creative work.
-							</p>
-<p></p>
-						</p="up"></div>
+							
+						</div>
 					</div>
 				</div>
 </div>
