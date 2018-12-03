@@ -298,7 +298,7 @@
 					<a href="<?php echo base_url(); ?>" class="ajaxloads"><i class="fa fa-desktop"></i> History<?php //echo phrase('tv_channels'); ?></a>
 				</li>
 				<li>
-					<a href="<?php echo base_url(); ?>" class="ajaxloads"><i class="fa fa-desktop"></i> Contact Us<?php //echo phrase('tv_channels'); ?></a>
+					<a href="<?php echo base_url('pages/contact'); ?>" class="ajaxloads"><i class="fa fa-desktop"></i> Contact Us<?php //echo phrase('tv_channels'); ?></a>
 				</li>
 				<li>
 					<a data-toggle="modal" href="#language"><i class="fa fa-language"></i> <?php echo phrase('language'); ?></a>
@@ -307,9 +307,9 @@
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i> <?php echo phrase('other'); ?> <span class="more"><i class="fa fa-chevron-down"></i></span></a>
 					<ul class="dropdown-menu navmenu-nav">
 						<?php echo generatePageNav(true); ?>
-						<li>
+						<!-- <li>
 							<a href="<?php echo base_url('pages/contact'); ?>" class="ajaxloads"><i class="fa fa-phone"></i> <?php echo phrase('feedback'); ?></a>
-						</li>
+						</li> -->
 					</ul>
 				</li>
 			</ul>
