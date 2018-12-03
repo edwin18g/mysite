@@ -69,6 +69,7 @@
 					
 					<div class="col-md-3">
 						<div class="whitebg mright">
+						<?php echo widget_newOpenletters(1); ?>
 							<h2>&nbsp;News &amp; Events</h2>
 <p="up" scrollamount="6" onmouseover="this.setAttribute('scrollamount', 0, 0);" onmouseout="this.setAttribute('scrollamount', 6, 0);">
 							
