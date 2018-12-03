@@ -3,11 +3,11 @@
 
 
 <div style="border-bottom:1px solid #ddd">
-    <div class="">
+    <div class="hidden-xs">
         <div class="row">
             <div class="" style="position:relative">
                 <div class="btn-group btn-group-justified">
-                    <a class="ajaxloads btn btn-default btn-lg active" href="http://kuzhithuraidiocese.com/new/fr-jaya-kumar" style="border-right:none"><i class="fa fa-newspaper-o"></i><span class="hidden-xs"> &nbsp; Administration</span></a>
+                    <a class="ajaxloads btn btn-default btn-lg active " href="http://kuzhithuraidiocese.com/new/fr-jaya-kumar" style="border-right:none"><i class="fa fa-newspaper-o"></i><span class="hidden-xs"> &nbsp; Administration</span></a>
                     <a class="ajaxloads btn btn-default btn-lg" href="<?php echo base_url('priest'); ?>" style="border-right:none"><i class="fa fa-users"></i><span class="hidden-xs"> &nbsp; Priests</span> </a>
                     <a class="ajaxloads btn btn-default btn-lg" href="http://kuzhithuraidiocese.com/new/fr-jaya-kumar/followers" style="border-right:none"><i class="fa fa-retweet"></i><span class="hidden-xs"> &nbsp; Parishes</span> </a>
                     <a class="ajaxloads btn btn-default btn-lg" href="http://kuzhithuraidiocese.com/new/fr-jaya-kumar/following"><i class="fa fa-random"></i><span class="hidden-xs"> &nbsp; Organizations</span> </a>
@@ -135,7 +135,7 @@
 							
 						</div>
 					</div>
-					
+
 				</div>
 </div>
 

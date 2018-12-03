@@ -196,21 +196,21 @@
 			var x = document.getElementsByTagName('script')[0];
 			x.parentNode.insertBefore(s, x);
 		})();
-		$('#player').mediaelementplayer({
-			videoWidth: $('.ocdc2475').width(),
-			videoHeight: $('.ocdc2475').height(),
-			enableAutosize: true,
-			startVolume: 0.8,
-			/* features: ['playpause','progress','current','duration','tracks','volume','fullscreen'], */
-			features: ['playpause','progress','current','duration','volume'],
-			alwaysShowControls: false,
-			enableKeyboard: true,
-			pauseOtherPlayers: true,
-			enablePluginSmoothing: true,
-			success: function(player, node){
-				$('.mejs-overlay-button').trigger('click');
-			}
-		});
+		// $('#player').mediaelementplayer({
+		// 	videoWidth: $('.ocdc2475').width(),
+		// 	videoHeight: $('.ocdc2475').height(),
+		// 	enableAutosize: true,
+		// 	startVolume: 0.8,
+		// 	/* features: ['playpause','progress','current','duration','tracks','volume','fullscreen'], */
+		// 	features: ['playpause','progress','current','duration','volume'],
+		// 	alwaysShowControls: false,
+		// 	enableKeyboard: true,
+		// 	pauseOtherPlayers: true,
+		// 	enablePluginSmoothing: true,
+		// 	success: function(player, node){
+		// 		$('.mejs-overlay-button').trigger('click');
+		// 	}
+		// });
 	</script>
 	
 	<?php endforeach; ?>

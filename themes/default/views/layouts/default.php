@@ -283,6 +283,24 @@
 					<a href="<?php echo base_url('tv'); ?>" class="ajaxloads"><i class="fa fa-desktop"></i> <?php echo phrase('tv_channels'); ?></a>
 				</li>
 				<li>
+					<a href="<?php echo base_url(); ?>" class="ajaxloads"><i class="fa fa-desktop"></i> Administration<?php //echo phrase('tv_channels'); ?></a>
+				</li>
+				<li>
+					<a href="<?php echo base_url('priest'); ?>" class="ajaxloads"><i class="fa fa-desktop"></i> Priests<?php //echo phrase('tv_channels'); ?></a>
+				</li>
+				<li>
+					<a href="<?php echo base_url(); ?>" class="ajaxloads"><i class="fa fa-desktop"></i> Parishes<?php //echo phrase('tv_channels'); ?></a>
+				</li>
+				<li>
+					<a href="<?php echo base_url(); ?>" class="ajaxloads"><i class="fa fa-desktop"></i> Organizations<?php //echo phrase('tv_channels'); ?></a>
+				</li>
+				<li>
+					<a href="<?php echo base_url(); ?>" class="ajaxloads"><i class="fa fa-desktop"></i> History<?php //echo phrase('tv_channels'); ?></a>
+				</li>
+				<li>
+					<a href="<?php echo base_url(); ?>" class="ajaxloads"><i class="fa fa-desktop"></i> Contact Us<?php //echo phrase('tv_channels'); ?></a>
+				</li>
+				<li>
 					<a data-toggle="modal" href="#language"><i class="fa fa-language"></i> <?php echo phrase('language'); ?></a>
 				</li>
 				<li class="dropdown">
