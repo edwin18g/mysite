@@ -39,6 +39,21 @@
 							</div>
 						</div>
 					</form>
+					<div style="border-bottom:1px solid #ddd">
+    <div class="hidden-xs">
+       
+            <div class="" style="position:relative">
+                <div class="btn-group btn-group-justified">
+                    <a class="ajaxloads btn btn-default btn-sm active " href="http://kuzhithuraidiocese.com/new/fr-jaya-kumar" style="border-right:none">ALL/a>
+                    <a class="ajaxloads btn btn-default btn-sm" href="<?php echo base_url('priest'); ?>" style="border-right:none">Diocesan Priests</a>
+                    <a class="ajaxloads btn btn-default btn-sm" href="http://kuzhithuraidiocese.com/new/fr-jaya-kumar/followers" style="border-right:none">Priests on Contract</a>
+                    <a class="ajaxloads btn btn-default btn-sm" href="http://kuzhithuraidiocese.com/new/fr-jaya-kumar/following">Religious Priests </a>
+                    <a class="ajaxloads btn btn-default btn-sm" href="http://kuzhithuraidiocese.com/new/fr-jaya-kumar/followers" style="border-right:none">Religious Men</a>
+                </div>
+            </div>
+        </div>
+    
+</div>
 				</div>
 			</div>
 		</div>
