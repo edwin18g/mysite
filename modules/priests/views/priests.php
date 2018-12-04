@@ -28,7 +28,7 @@
 				<div class="col-md-8 col-sm-offset-2">
 					<form class="form-horizontal submitForm" action="<?php echo base_url('users'); ?>" method="post" data-save="<?php echo phrase('search'); ?>" data-saving="<?php echo phrase('searching'); ?>" data-alert="<?php echo phrase('unable_to_submit_inquiry'); ?>">
 						<div class="input-group">
-							<input type="text" class="form-control input-lg" name="query" placeholder="<?php echo phrase('search_user'); ?>"<?php echo ($keywords != null ? ' value="' . $keywords . '"' : 'test'); ?> />
+							<input type="text" class="form-control input-lg" name="query" placeholder="<?php echo 'Search Priest'//echo phrase('search_user'); ?>"<?php echo ($keywords != null ? ' value="' . $keywords . '"' : 'test'); ?> />
 							<span class="input-group-btn">
 								<input type="hidden" name="hash" value="<?php echo sha1(time()); ?>" />
 								<button type="submit" class="btn btn-lg btn-success nomargin submitBtn"><i class="fa fa-search"></i> <?php echo phrase('search'); ?></button>
