@@ -53,15 +53,7 @@
 						
 						echo '
 							<div class="col-sm-4">
-								<div class="col-sm-3 text-right sticky hidden-xs">
-									<a href="' . base_url(getUsernameByID($c['contributor'])) . '" class="ajaxloads hoverCard"><img src="' . base_url('uploads/users/thumbs/' . imageCheck('users', getUserPhoto($c['contributor']), 1)) . '" class="rounded" width="40" height="40" alt="..." /></a>
-									<br />
-									<a href="' . base_url(getUsernameByID($c['contributor'])) . '" class="ajaxloads hoverCard"><b>' . getFullNameByID($c['contributor']) . '</b>
-									<br />
-									<small class="text-muted">@' . getUsernameByID($c['contributor']) . '</small></a>
-									<br />
-									<small class="text-muted"><i class="fa fa-newspaper-o"></i> ' . (countPosts('posts', $c['contributor']) +  countPosts('snapshots', $c['contributor'])) . ' / <i class="fa fa-users"></i> ' . getUserFollowers('followers', $c['contributor']) . '</small>
-								</div>
+								
 								<div class="col-sm-9 sticky">
 									<div class="first image-placeholder">
 										<a href="' . base_url('snapshots/' . $c['snapshotSlug']).'" class="ajax relative" style="display:block">
