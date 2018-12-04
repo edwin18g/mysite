@@ -1103,7 +1103,7 @@ a {
 }
 
 a:focus,a:hover {
-    color: #2a6496;
+    color: #60484;
     text-decoration: underline
 }
 
@@ -3222,7 +3222,7 @@ input[readonly] {
 }
 
 .btn-link:focus,.btn-link:hover {
-    color: #2a6496;
+    color: #60484;
     text-decoration: underline;
     background-color: transparent
 }
@@ -4542,7 +4542,7 @@ select[multiple].input-group-sm>.form-control,select[multiple].input-group-sm>.i
 }
 
 .navbar-inverse .navbar-brand:hover,.navbar-inverse .navbar-brand:focus {
-    color: #2a6496
+    color: #60484
 }
 
 .navbar-inverse .navbar-text {
@@ -4554,7 +4554,7 @@ select[multiple].input-group-sm>.form-control,select[multiple].input-group-sm>.i
 }
 
 .navbar-inverse .navbar-nav>li>a:hover,.navbar-inverse .navbar-nav>li>a:focus {
-    color: #2a6496
+    color: #60484
 }
 
 .navbar-inverse .navbar-nav>.active>a,.navbar-inverse .navbar-nav>.active>a:hover,.navbar-inverse .navbar-nav>.active>a:focus {
@@ -4583,7 +4583,7 @@ select[multiple].input-group-sm>.form-control,select[multiple].input-group-sm>.i
 }
 
 .navbar-inverse .navbar-nav>.open>a,.navbar-inverse .navbar-nav>.open>a:hover,.navbar-inverse .navbar-nav>.open>a:focus {
-    color: #2a6496
+    color: #60484
 }
 
 @media (max-width: 767px) {
@@ -4600,11 +4600,11 @@ select[multiple].input-group-sm>.form-control,select[multiple].input-group-sm>.i
     }
 
     .navbar-inverse .navbar-nav .open .dropdown-menu>li>a:hover,.navbar-inverse .navbar-nav .open .dropdown-menu>li>a:focus {
-        color: #2a6496
+        color: #60484
     }
 
     .navbar-inverse .navbar-nav .open .dropdown-menu>.active>a,.navbar-inverse .navbar-nav .open .dropdown-menu>.active>a:hover,.navbar-inverse .navbar-nav .open .dropdown-menu>.active>a:focus {
-        color: #2a6496
+        color: #60484
     }
 
     .navbar-inverse .navbar-nav .open .dropdown-menu>.disabled>a,.navbar-inverse .navbar-nav .open .dropdown-menu>.disabled>a:hover,.navbar-inverse .navbar-nav .open .dropdown-menu>.disabled>a:focus {
@@ -4693,7 +4693,7 @@ select[multiple].input-group-sm>.form-control,select[multiple].input-group-sm>.i
 }
 
 .pagination>li>a:focus,.pagination>li>a:hover,.pagination>li>span:focus,.pagination>li>span:hover {
-    color: #2a6496;
+    color: #60484;
     background-color: #eee;
     border-color: #e8e8e8
 }
