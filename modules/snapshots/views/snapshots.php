@@ -52,9 +52,9 @@
 						}
 						
 						echo '
-							<div class="col-sm-4">
+							<div class="col-sm-3">
 								
-								<div class="col-sm-9 sticky">
+								<div class="col-sm-12 sticky">
 									<div class="first image-placeholder">
 										<a href="' . base_url('snapshots/' . $c['snapshotSlug']).'" class="ajax relative" style="display:block">
 											' . (strtolower(substr($c['snapshotFile'], -3)) == 'gif' ? '<span class="gif_play"></span>' : '') . '
@@ -71,7 +71,7 @@
 												<a href="' . base_url('user/repost/snapshots/' . $c['snapshotID']) . '" class="btn btn-default repost" data-id="' . $c['snapshotID'] . '"><i class="fa fa-retweet"></i> <span id="reposts-count' . $c['snapshotID'] . '">' . countReposts('snapshots', $c['snapshotID']) . '</span> <span class="hidden-xs">' . phrase('reposts') . '</span></a>
 											</div>
 											<br />
-											' . getComments('snapshots', $c['snapshotID'], 5) . '
+											
 										</div>
 									</div>
 								</div>
