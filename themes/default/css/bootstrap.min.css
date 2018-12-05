@@ -4883,7 +4883,7 @@ a.badge:focus,a.badge:hover,a.label:focus,a.label:hover {
 }
 
 .bg-alpha *, .jumbotron * {
-    color: #fff
+    color: #000;
 }
 
 .bg-alpha input,.jumbotron input {
