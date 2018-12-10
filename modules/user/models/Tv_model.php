@@ -87,7 +87,7 @@ class Tv_model extends CI_Model
 			@unlink('uploads/tv/thumbs/' . $photo);
 			$this->db->delete('comments', array('itemID' => $this->getPostIDBySlug($slug), 'commentType' => 2));
 			$this->db->delete('likes', array('itemID' => $this->getPostIDBySlug($slug), 'likeType' => 2));
-			$this->db->delete('notifications', array('itemID' => $this->getPostIDBySlug($slug), 'notificationType' => 2));
+			$this->db->delete('notifications', array('itemID' => $this->getPostIDBySlug($slug), 'postType' => 2));
 			$this->db->delete('reposts', array('itemID' => $this->getPostIDBySlug($slug), 'repostType' => 2));
 			
 			return true;
