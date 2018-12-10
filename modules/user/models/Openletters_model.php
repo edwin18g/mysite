@@ -62,7 +62,7 @@ class Openletters_model extends CI_Model {
 		{
 			$this->db->delete('comments', array('itemID' => $itemID, 'commentType' => 3));
 			$this->db->delete('likes', array('itemID' => $itemID, 'likeType' => 3));
-			$this->db->delete('notifications', array('itemID' => $itemID, 'notificationType' => 3));
+			$this->db->delete('notifications', array('itemID' => $itemID, 'postType' => 3));
 			$this->db->delete('reposts', array('itemID' => $itemID, 'repostType' => 3));
 			
 			return true;
