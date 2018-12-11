@@ -3,6 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['search']					= 'search';
 $route['priest']					    = 'priests';
+$route['administration']					    = 'administration';
+
 $route['posts']						= 'posts';
 $route['snapshots']					= 'snapshots';
 $route['openletters']				= 'openletters';

@@ -283,7 +283,7 @@
 					<a href="<?php echo base_url('tv'); ?>" class="ajaxloads"><i class="fa fa-desktop"></i> <?php echo phrase('tv_channels'); ?></a>
 				</li>
 				<li>
-					<a href="<?php echo base_url(); ?>" class="ajaxloads"><i class="fa fa-desktop"></i> Administration<?php //echo phrase('tv_channels'); ?></a>
+					<a href="<?php echo base_url('administration'); ?>" class="ajaxloads"><i class="fa fa-desktop"></i> Administration<?php //echo phrase('tv_channels'); ?></a>
 				</li>
 				<li>
 					<a href="<?php echo base_url('priest'); ?>" class="ajaxloads"><i class="fa fa-desktop"></i> Priests<?php //echo phrase('tv_channels'); ?></a>
