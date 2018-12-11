@@ -295,7 +295,7 @@
 					<a href="<?php echo base_url(); ?>" class="ajaxloads"><i class="fa fa-desktop"></i> Organizations<?php //echo phrase('tv_channels'); ?></a>
 				</li>
 				<li>
-					<a href="<?php echo base_url(); ?>" class="ajaxloads"><i class="fa fa-desktop"></i> History<?php //echo phrase('tv_channels'); ?></a>
+					<a href="<?php echo base_url('pages/history'); ?>" class="ajaxloads"><i class="fa fa-desktop"></i> History<?php //echo phrase('tv_channels'); ?></a>
 				</li>
 				<li>
 					<a href="<?php echo base_url('pages/contact'); ?>" class="ajaxloads"><i class="fa fa-desktop"></i> Contact Us<?php //echo phrase('tv_channels'); ?></a>

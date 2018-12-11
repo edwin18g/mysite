@@ -11,7 +11,7 @@
                     <a class="ajaxloads btn btn-default btn-sm" href="<?php echo base_url('priest'); ?>" style="border-right:none"><i class="fa fa-users"></i><span class="hidden-xs"> &nbsp; Priests</span> </a>
                     <a class="ajaxloads btn btn-default btn-sm" href="http://kuzhithuraidiocese.com/new/fr-jaya-kumar/followers" style="border-right:none"><i class="fa fa-retweet"></i><span class="hidden-xs"> &nbsp; Parishes</span> </a>
                     <a class="ajaxloads btn btn-default btn-sm" href="http://kuzhithuraidiocese.com/new/fr-jaya-kumar/following"><i class="fa fa-random"></i><span class="hidden-xs"> &nbsp; Organizations</span> </a>
-                    <a class="ajaxloads btn btn-default btn-sm" href="http://kuzhithuraidiocese.com/new/fr-jaya-kumar/followers" style="border-right:none"><i class="fa fa-retweet"></i><span class="hidden-xs"> &nbsp; History</span> </a>
+                    <a class="ajaxloads btn btn-default btn-sm" href="<?php echo base_url('pages/history')?>" style="border-right:none"><i class="fa fa-retweet"></i><span class="hidden-xs"> &nbsp; History</span> </a>
                     <a class="ajaxloads btn btn-default btn-sm" href="http://kuzhithuraidiocese.com/new/fr-jaya-kumar/following"><i class="fa fa-random"></i><span class="hidden-xs"> &nbsp; Contact Us</span> </a>
                 </div>
             </div>
