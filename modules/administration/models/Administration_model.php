@@ -9,7 +9,8 @@ class Administration_model extends CI_Model {
 
 	function getAdministration()
 	{
-	
+		$this->db->select('administration.*,users.*');
+		$this->db->join('users', 'administration.a_user_id = users.id', 'left');
 		$query = $this->db->get('administration');
 		return $query->result_array();
 
