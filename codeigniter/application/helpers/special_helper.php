@@ -307,12 +307,12 @@ if(!function_exists('getadminstration'))
 						<div class="col-sm-12 nomargin nogap_ltr rounded-top">
 							<div class="row article_cover" style="background:' . $hex . ' url(' . base_url('uploads/users/covers/' . imageCheck('covers', getUserCover($c['userID']), 1)) . ') center center no-repeat;background-size:cover;-webkit-background-size:cover">
 								<div class="col-sm-12 nomargin absolute text-shadow" style="width:100%">
-									<div class="col-xs-3">
+									<div class="col-sm-3 col-xs-12">
 										<a href="' . base_url($c['userName']) . '" class="ajaxloads hoverCard">
 											<img src="' . base_url('uploads/users/thumbs/' . imageCheck('users', getUserPhoto($c['userID']), 1)) . '" class="img-rounded bordered img-responsive" alt="" />
 										</a>
 									</div>
-									<div class="col-xs-9 relative">
+									<div class="col-sm-9 col-xs-12 relative">
 										<h2 class="pull-right">#' . $c['visits_count'] . '</h2>
 										<a href="' . base_url($c['userName']) . '" class="ajaxloads hoverCard">
 											<b>' . $c['full_name'] . '</b> 
