@@ -73,9 +73,11 @@ class Administration extends CI_Controller
 			{
 				$data['keywords']	= null;
 				$data['meta']		= array(
-					'title' 		=> phrase('search_user'),
-					'descriptions'	=> phrase('search_user'),
-					'keywords'		=> 'dwitri, users, article, posts, tags, snapshots',
+					// 'title' 		=> phrase('search_user'),
+					'title' 		=> 'Administration',
+					//'descriptions'	=> phrase('search_user'),
+					'descriptions'	=> 'Administration',
+					'keywords'		=> 'Administration, users, article, posts, tags, snapshots',
 					'image'			=> guessImage(),
 					'author'		=> $this->settings['siteTitle']
 				);
