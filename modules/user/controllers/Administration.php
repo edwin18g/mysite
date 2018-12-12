@@ -8,7 +8,7 @@ class Administration extends CI_Controller
 	{
 		parent::__construct();
 
-		die('i am back');
+		die('test file');
 		
 		$this->load->model('Posts_model', 'model','Administration_model');
 		
