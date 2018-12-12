@@ -318,7 +318,7 @@ if(!function_exists('getadminstration'))
 											<b>' . $c['full_name'] . '</b> 
 										</a>
 										<br />
-										<small>@' . $c['userName'] . ' - ' . time_since(strtotime($c['last_login'])) . '</small>
+										<small>' . $c['a_role'] .   '</small>
 									</div>
 								</div>
 							</div>
