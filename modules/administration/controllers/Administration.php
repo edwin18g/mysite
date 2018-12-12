@@ -86,7 +86,8 @@ class Administration extends CI_Controller
 			$administrations  = array();
 			foreach($administration as $userrole)
 			{
-				$administrations[$userrole['a_type']]['user'][] =$userrole;
+				$administrations[$userrole['a_type']]['type_name']  = $this->Administration_model->a_type[$userrole['a_type']];
+				$administrations[$userrole['a_type']]['user'][] 	= $userrole;
 			}
 			$data['administration'] = $administrations;
 		}

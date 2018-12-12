@@ -5,6 +5,7 @@ class Administration_model extends CI_Model {
 	function __construct()
 	{
 		parent::__construct();
+		$this->a_type = array(1=>'Bisop',2=>'Diocesan Service Team',3=>'College of Consulters');
 	}
 
 	function getAdministration()

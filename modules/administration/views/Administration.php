@@ -72,6 +72,7 @@
 					echo '<div class="row grid">';
 					foreach($administration as $key =>$role)
 					{
+						echo '<h2>'.$role['type_name'].'</h2>';
 						foreach($role['user'] as $rkey =>$ruser)
 						{
 							echo '
