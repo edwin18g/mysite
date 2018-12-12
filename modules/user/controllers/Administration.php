@@ -7,6 +7,8 @@ class Administration extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
+
+		die('i am back');
 		
 		$this->load->model('Posts_model', 'model','Administration_model');
 		
