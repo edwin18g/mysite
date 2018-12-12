@@ -6,6 +6,14 @@ class Administration_model extends CI_Model {
 	{
 		parent::__construct();
 	}
+
+	function getAdministration()
+	{
+	
+		$query = $this->db->get('administration');
+		return $query->result_array();
+
+	}
 		
 	function getPostSearch($keywords = null, $limit = 10, $offset = 0)
 	{

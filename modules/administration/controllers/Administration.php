@@ -7,7 +7,7 @@ class Administration extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
-		
+		$this->load->model('Administration_model');
 		/* CACHE CONTROL*/
 		$this->output->set_header('Last-Modified: ' . gmdate("D, d M Y H:i:s") . ' GMT');
 		$this->output->set_header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
@@ -15,6 +15,7 @@ class Administration extends CI_Controller
 		$this->output->set_header("Expires: Mon, 26 Jul 2010 05:00:00 GMT");
 		
 		$this->settings = globalSettings();
+
 		
 		if(!$this->session->userdata('online'))
 		{
@@ -39,9 +40,9 @@ class Administration extends CI_Controller
 	
 	function index($slug = null, $limit = 10, $offset = 0)
 	{
+		$administration		= $this->Administration_model->getAdministration();
 
-		echo "i am admin "; die;
-		
+echo "<pre>"; print_r($administration);die;		
 		if($this->input->post('hash'))
 		{
 			$this->form_validation->set_rules('query', phrase('keywords'), 'trim|required|xss_clean|max_length[20]|alpha');
