@@ -38,6 +38,10 @@ if(!function_exists('getPosts'))
 		{
 			$CI->db->from('pages');
 		}
+		else if($type == 'administration')
+		{
+			$CI->db->from('administration');
+		}
 		
 		if($contributor != null)
 		{

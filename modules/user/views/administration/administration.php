@@ -14,11 +14,11 @@
 		<div class="container first-child">
 			<div class="row">
 				<div class="col-sm-7 col-sm-offset-1 hidden-xs">
-					<h2><i class="fa fa-newspaper-o"></i> &nbsp; <?php echo phrase('posts'); ?></h2>
+					<h2><i class="fa fa-newspaper-o"></i> &nbsp; <?php echo phrase('administration'); ?></h2>
 				</div>
 				<div class="col-sm-3">
 					<div class="col-12-xs">
-						<a href="<?php echo base_url('user/posts/add'); ?>" class="btn btn-lg btn-block btn-primary newPost"><i class="fa fa-plus"></i> &nbsp; <?php echo phrase('write_article'); ?></a>
+						<a href="<?php echo base_url('user/administration/add'); ?>" class="btn btn-lg btn-block btn-primary newPost"><i class="fa fa-plus"></i> &nbsp; <?php echo phrase('add_administration'); ?></a>
 					</div>
 				</div>
 			</div>
@@ -37,38 +37,33 @@
 						<th>
 							<?php echo phrase('title'); ?>
 						</th>
-						<th class="hidden-xs">
-							<?php echo phrase('date_created'); ?>
+						<th class="">
+							Role
 						</th>
-						<th class="hidden-xs">
-							<?php echo phrase('comments'); ?>
-						</th>
+						
 						<th class="text-right col-xs-4">
 							<?php echo phrase('action'); ?>
 						</th>
 					</tr>
 					
 					<?php
-						$posts = getPosts('posts', ($this->session->userdata('user_level') == 1 ? null : $this->session->userdata('userID')), null, $limit, $offset);
-						if($posts)
+						if($administration)
 						{
-							foreach($posts as $c)
+							foreach($administration as $c)
 							{
 								echo '
-									<tr id="post' . $c['postID'] . '">
+									<tr id="post' . $c['id'] . '">
 										<td>
-											<a href="' . base_url('posts/' . $c['postSlug']) . '" target="_blank">' . truncate($c['postTitle'], 50) . '</a>
+											<a href="' . base_url( $c['userName']) . '" target="_blank">' . $c['full_name'] . '</a>
 										</td>
-										<td class="hidden-xs">
-											' . date('d M Y', $c['timestamp']) . '
+										<td class="">
+											' . $c['a_type']. '
 										</td>
-										<td class="hidden-xs">
-											' . countComments('posts', $c['postID']) . '
-										</td>
+										
 										<td class="text-right col-xs-4">
 											<div class="btn-group">
-												<a class="btn btn-default btn-sm newPost" href="' . base_url('user/posts/edit/' . $c['postSlug']) . '" data-push="tooltip" data-placement="top" title="' . phrase('edit_post') . '"><i class="btn-icon-only fa fa-edit"> </i></a>
-												<a class="btn btn-default btn-sm" href="javascript:void(0)" onclick="confirm_modal(\'' . base_url('user/posts/remove/' . $c['postID']) . '\', \'post' . $c['postID'] . '\')" data-push="tooltip" data-placement="top" title="' . phrase('remove') . '"><i class="btn-icon-only fa fa-times"> </i></a>
+												<a class="btn btn-default btn-sm newPost" href="' . base_url('user/administration/edit/' . $c['id']) . '" data-push="tooltip" data-placement="top" title="' . phrase('edit_administration') . '"><i class="btn-icon-only fa fa-edit"> </i></a>
+												<a class="btn btn-default btn-sm" href="javascript:void(0)" onclick="confirm_modal(\'' . base_url('user/administration/remove/' . $c['postID']) . '\', \'post' . $c['id'] . '\')" data-push="tooltip" data-placement="top" title="' . phrase('remove') . '"><i class="btn-icon-only fa fa-times"> </i></a>
 											</div>
 										</td>
 									</tr>

@@ -8,7 +8,7 @@ class Administration extends CI_Controller
 	{
 		parent::__construct();
 		
-		$this->load->model('Posts_model', 'model');
+		$this->load->model('Posts_model', 'model','Administration_model');
 		
 		/* CACHE CONTROL*/
 		$this->output->set_header('Last-Modified: ' . gmdate("D, d M Y H:i:s") . ' GMT');
@@ -44,12 +44,14 @@ class Administration extends CI_Controller
 		if(!$this->session->userdata('loggedIn')) return error(403, ($this->input->is_ajax_request() ? 'ajax' : null));
 		
 		$data['meta']		= array(
-			'title' 		=> phrase('posts'),
+			'title' 		=> phrase('administration'),
 			'descriptions'	=> phrase('whatever_you_writing_for_is_a_reportations'),
 			'keywords'		=> 'post, dwitri, blogs, article, social, blogging',
 			'image'			=> guessImage('posts'),
 			'author'		=> $this->settings['siteTitle']
 		);
+		$administration		= $this->Administration_model->getAdministration();
+		$data['administration'] =$administration;
 		if($this->input->is_ajax_request())
 		{
 			$this->output->set_content_type('application/json');
@@ -57,7 +59,7 @@ class Administration extends CI_Controller
 				json_encode(
 					array(
 						'meta'		=> $data['meta'],
-						'html'		=> $this->load->view('posts/posts', $data, true)
+						'html'		=> $this->load->view('administration/administration', $data, true)
 					)
 				)
 			);
@@ -65,7 +67,7 @@ class Administration extends CI_Controller
 		else
 		{
 			$this->template->set_partial('navigation', 'dashboard_navigation');
-			$this->template->build('posts/posts', $data);
+			$this->template->build('administration/administration', $data);
 		}
 	}
 	
