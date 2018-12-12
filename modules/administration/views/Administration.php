@@ -70,22 +70,19 @@
 				<?php
 					$n	= 1;
 					echo '<div class="row grid">';
-					foreach($search as $row)
+					foreach($administration as $key =>$role)
 					{
-						if($n++ == 7)
+						foreach($role['user'] as $rkey =>$ruser)
 						{
-							echo'
+							echo '
 							<div class="col-sm-6 grid-item">
-								' . widget_randomAds() . '
-							</div>
-							';
-						}
-						
-						echo '
-							<div class="col-sm-6 grid-item">
-								' . getUserDetails($row['userID']) . '
+								' . getadminstration($ruser) . '
 							</div>
 						';
+						}
+						
+						
+						
 					}
 					echo '</div>';
 				?>
