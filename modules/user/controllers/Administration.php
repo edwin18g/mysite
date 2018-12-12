@@ -52,6 +52,7 @@ class Administration extends CI_Controller
 		);
 		$administration		= $this->Administration_model->getAdministration();
 		$data['administration'] =$administration;
+		echo "<pre>"; print_r($data);die;
 		if($this->input->is_ajax_request())
 		{
 			$this->output->set_content_type('application/json');
