@@ -297,6 +297,7 @@ if(!function_exists('getadminstration'))
 {
 	function getadminstration($c, $bio = false)
 	{
+		$CI =& get_instance();
 		
 			$user = '';
 			
