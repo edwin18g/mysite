@@ -41,6 +41,7 @@ class Posts extends CI_Controller
 	
 	function index()
 	{
+		
 		if(!$this->session->userdata('loggedIn')) return error(403, ($this->input->is_ajax_request() ? 'ajax' : null));
 		
 		$data['meta']		= array(
