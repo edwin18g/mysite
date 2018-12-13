@@ -9,7 +9,7 @@ class Administration extends CI_Controller
 		parent::__construct();
 
 		
-		$this->load->model('Administrationuser_model', 'model');
+		$this->load->model('Administration_model','model');
 		
 		/* CACHE CONTROL*/
 		$this->output->set_header('Last-Modified: ' . gmdate("D, d M Y H:i:s") . ' GMT');
@@ -42,6 +42,7 @@ class Administration extends CI_Controller
 	
 	function index()
 	{
+		//echo "die"; die;
 		if(!$this->session->userdata('loggedIn')) return error(403, ($this->input->is_ajax_request() ? 'ajax' : null));
 		
 		$data['meta']		= array(
@@ -52,7 +53,9 @@ class Administration extends CI_Controller
 			'author'		=> $this->settings['siteTitle']
 		);
 		$administration		= $this->model->getAdministration();
-		$data['administration'] =$administration;
+		$data['administration'] = $administration;
+		$data['a_type'] 		= $this->model->a_type;
+		
 		if($this->input->is_ajax_request())
 		{
 			$this->output->set_content_type('application/json');
@@ -122,8 +125,8 @@ class Administration extends CI_Controller
 		else
 		{
 			$data['current'] 		= $this->uri->segment(2);
-			$data['post'] 			= $this->model->getPost($this->uri->segment(4));
-			$data['categories']		= $this->model->getCategories();
+			//$data['post'] 			= $this->model->getPost($this->uri->segment(4));
+			$data['a_type'] 		= $this->model->a_type;
 			$data['meta']			= array(
 				'title' 			=> phrase('add_article'),
 				'descriptions'		=> phrase('whatever_you_writing_for_is_a_reportations'),
@@ -136,7 +139,7 @@ class Administration extends CI_Controller
 				if(null != $this->input->post('modal'))
 				{
 					$data['modal']	= true;
-					$this->load->view('posts/posts_add', $data);
+					$this->load->view('administration/posts_add', $data);
 				}
 				else
 				{
@@ -153,7 +156,7 @@ class Administration extends CI_Controller
 			}
 			else
 			{
-				$this->template->build('posts/posts_add', $data);
+				$this->template->build('administration/posts_add', $data);
 			}
 	  	}
 	}

@@ -42,11 +42,11 @@
 							<div class="col-sm-4 sticky">
 								<div class="form-group">
 									<div class="col-sm-12">
-										<h3><?php echo phrase('post_category'); ?></h3>	
+										<h3>Select Role<?php //echo phrase('post_category'); ?></h3>	
 										<?php
-											foreach ($categories as $c)
+											foreach ($a_type as $id =>$t_name)
 											{
-												echo '<label class="control-label"><input type="checkbox" name="categoryID[]" value="' . $c['categoryID'] . '"' . (set_value('categoryID[]') ? (in_array(set_value('categoryID[]'), json_decode(set_value('categoryID[]'))) ? ' checked' : '') : '') . ' /> ' . $c['categoryTitle'] . '</label><br />';	
+												echo '<label class="control-label"><input type="checkbox" name="categoryID[]" value="' . $id . '"' . (set_value('categoryID[]') ? (in_array(set_value('categoryID[]'), json_decode(set_value('categoryID[]'))) ? ' checked' : '') : '') . ' /> ' . $t_name . '</label><br />';	
 											}
 										?>
 									</div>
