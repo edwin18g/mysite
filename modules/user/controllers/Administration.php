@@ -9,7 +9,7 @@ class Administration extends CI_Controller
 		parent::__construct();
 
 		
-		$this->load->model('Posts_model', 'model','Administrationuser_model');
+		$this->load->model('Administrationuser_model', 'model');
 		
 		/* CACHE CONTROL*/
 		$this->output->set_header('Last-Modified: ' . gmdate("D, d M Y H:i:s") . ' GMT');
