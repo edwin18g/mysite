@@ -51,7 +51,7 @@ class Administration extends CI_Controller
 			'image'			=> guessImage('posts'),
 			'author'		=> $this->settings['siteTitle']
 		);
-		$administration		= $this->Administrationuser_model->getAdministration();
+		$administration		= $this->model->getAdministration();
 		$data['administration'] =$administration;
 		if($this->input->is_ajax_request())
 		{
