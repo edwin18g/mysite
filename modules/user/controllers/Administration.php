@@ -9,7 +9,7 @@ class Administration extends CI_Controller
 		parent::__construct();
 
 		
-		$this->load->model('Posts_model', 'model','Administration_model');
+		$this->load->model('Posts_model', 'model','Administrationuser_model');
 		
 		/* CACHE CONTROL*/
 		$this->output->set_header('Last-Modified: ' . gmdate("D, d M Y H:i:s") . ' GMT');
@@ -51,7 +51,7 @@ class Administration extends CI_Controller
 			'image'			=> guessImage('posts'),
 			'author'		=> $this->settings['siteTitle']
 		);
-		$administration		= $this->Administration_model->getAdministration();
+		$administration		= $this->Administrationuser_model->getAdministration();
 		$data['administration'] =$administration;
 		if($this->input->is_ajax_request())
 		{
