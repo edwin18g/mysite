@@ -25,8 +25,7 @@
 								<div class="form-group">
 									<div class="col-sm-12">
 										<!-- <input type="text" name="postPriest" class="form-control input-lg" value="< ?php echo htmlspecialchars(set_value('postTitle')); ?>" placeholder="< ?php echo phrase('post_title'); ?>" /> -->
-										<select id="select-priest" class="repositories selectized" placeholder="Pick a repository..." >
-										<option value="https://github.com/brianreavis/selectize.js" selected="selected">selectize.js</option></select>
+										<select id="select-repo" class="repositories selectized" placeholder="Pick a repository..." ><option value="https://github.com/brianreavis/selectize.js" selected="selected">selectize.js</option></select>
 									</div>
 								</div>
 								<br />
@@ -111,8 +110,8 @@
 				}
 			});
 		}
-		$('#select-priest').selectize({
-    valueField: 'userID',
+		$('#select-repo').selectize({
+    valueField: 'url',
     labelField: 'name',
     searchField: 'name',
     create: false,
@@ -141,16 +140,16 @@
     load: function(query, callback) {
         if (!query.length) return callback();
         $.ajax({
-            url: '<?php echo base_url('user/administration/get_user'); ?>' ,
-            type: 'POST',
-			data :{'search':query}
+            url: 'https://api.github.com/legacy/repos/search/' + encodeURIComponent(query),
+            type: 'GET',
             error: function() {
                 callback();
             },
             success: function(res) {
-                callback(res.slice(0, 10));
+                callback(res.repositories.slice(0, 10));
             }
         });
     }
 });
+
 	</script>
