@@ -25,7 +25,8 @@
 								<div class="form-group">
 									<div class="col-sm-12">
 										<!-- <input type="text" name="postPriest" class="form-control input-lg" value="< ?php echo htmlspecialchars(set_value('postTitle')); ?>" placeholder="< ?php echo phrase('post_title'); ?>" /> -->
-										<select id="select-priest" class="repositories selectized" placeholder="Pick a repository..." tabindex="-1" style="display: none;"><option value="https://github.com/brianreavis/selectize.js" selected="selected">selectize.js</option></select>
+										<select id="select-priest" class="repositories selectized" placeholder="Pick a repository..." >
+										<option value="https://github.com/brianreavis/selectize.js" selected="selected">selectize.js</option></select>
 									</div>
 								</div>
 								<br />
@@ -111,7 +112,7 @@
 			});
 		}
 		$('#select-priest').selectize({
-    valueField: 'url',
+    valueField: 'userID',
     labelField: 'name',
     searchField: 'name',
     create: false,
@@ -147,7 +148,7 @@
                 callback();
             },
             success: function(res) {
-                callback(res.repositories.slice(0, 10));
+                callback(res.slice(0, 10));
             }
         });
     }
