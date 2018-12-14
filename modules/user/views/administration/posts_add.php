@@ -25,7 +25,7 @@
 								<div class="form-group">
 									<div class="col-sm-12">
 										<!-- <input type="text" name="postPriest" class="form-control input-lg" value="< ?php echo htmlspecialchars(set_value('postTitle')); ?>" placeholder="< ?php echo phrase('post_title'); ?>" /> -->
-										<select id="select-repo" class="repositories selectized" placeholder="Pick a repository..." ><option value="https://github.com/brianreavis/selectize.js" selected="selected">selectize.js</option></select>
+										<select id="select-repo" class="repositories selectized" placeholder="Select priest..." ></select>
 									</div>
 								</div>
 								<br />
