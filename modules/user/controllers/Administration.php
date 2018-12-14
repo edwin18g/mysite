@@ -39,6 +39,20 @@ class Administration extends CI_Controller
 			$this->index($method);
 		}
 	}
+
+	function get_user()
+	{
+		$users		= $this->model->getUsers(array('search'=>''));
+		$this->output->set_content_type('application/json');
+			$this->output->set_output(
+				json_encode(
+					array(
+						'response'		=> $users
+					)
+				)
+			);
+
+	}
 	
 	function index()
 	{

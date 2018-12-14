@@ -1,6 +1,8 @@
 
 	<link href="<?php echo base_url('themes/' . $this->settings['theme'] . '/css/redactor.css'); ?>" rel="stylesheet">
 	<link href="<?php echo base_url('themes/' . $this->settings['theme'] . '/css/tags.css'); ?>" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.css" />
+
 	<?php
 	if(!$this->input->is_ajax_request()) echo '<br /><br />';
 	?>
@@ -19,10 +21,11 @@
 					<div class="modal-body">
 						<div class="row">
 							<div class="col-sm-8 sticky">
-								<h3><?php echo phrase('title_and_content'); ?></h3>
+								<h3><?php echo 'Select Priest'//phrase('title_and_content'); ?></h3>
 								<div class="form-group">
 									<div class="col-sm-12">
-										<input type="text" name="postTitle" class="form-control input-lg" value="<?php echo htmlspecialchars(set_value('postTitle')); ?>" placeholder="<?php echo phrase('post_title'); ?>" />
+										<!-- <input type="text" name="postPriest" class="form-control input-lg" value="< ?php echo htmlspecialchars(set_value('postTitle')); ?>" placeholder="< ?php echo phrase('post_title'); ?>" /> -->
+										<select id="select-priest" class="repositories selectized" placeholder="Pick a repository..." tabindex="-1" style="display: none;"><option value="https://github.com/brianreavis/selectize.js" selected="selected">selectize.js</option></select>
 									</div>
 								</div>
 								<br />
@@ -90,6 +93,7 @@
 	
 	<script src="<?php echo base_url('themes/' . $this->settings['theme'] . '/js/redactor.js'); ?>"></script>
 	<script src="<?php echo base_url('themes/' . $this->settings['theme'] . '/js/tags.js'); ?>"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/selectize.min.js"></script>
 	
 	<script type="text/javascript">
 		if($(window).width() > 768)
@@ -106,4 +110,46 @@
 				}
 			});
 		}
+		$('#select-priest').selectize({
+    valueField: 'url',
+    labelField: 'name',
+    searchField: 'name',
+    create: false,
+    render: {
+        option: function(item, escape) {
+            return '<div>' +
+                '<span class="title">' +
+                    '<span class="name"><i class="icon ' + (item.fork ? 'fork' : 'source') + '"></i>' + escape(item.name) + '</span>' +
+                    '<span class="by">' + escape(item.username) + '</span>' +
+                '</span>' +
+                '<span class="description">' + escape(item.description) + '</span>' +
+                '<ul class="meta">' +
+                    (item.language ? '<li class="language">' + escape(item.language) + '</li>' : '') +
+                    '<li class="watchers"><span>' + escape(item.watchers) + '</span> watchers</li>' +
+                    '<li class="forks"><span>' + escape(item.forks) + '</span> forks</li>' +
+                '</ul>' +
+            '</div>';
+        }
+    },
+    score: function(search) {
+        var score = this.getScoreFunction(search);
+        return function(item) {
+            return score(item) * (1 + Math.min(item.watchers / 100, 1));
+        };
+    },
+    load: function(query, callback) {
+        if (!query.length) return callback();
+        $.ajax({
+            url: '<?php echo base_url('user/administration/get_user'); ?>' ,
+            type: 'POST',
+			data :{'search':query}
+            error: function() {
+                callback();
+            },
+            success: function(res) {
+                callback(res.repositories.slice(0, 10));
+            }
+        });
+    }
+});
 	</script>
