@@ -16,6 +16,17 @@ class Administration_model extends CI_Model {
 		return $query->result_array();
 
 	}
+	function getUsers($param =array())
+	{
+		$this->db->select('users.*');
+		if($param['search'])
+		{
+			$this->db->like('full_name',$param['search']);
+		}
+		$query = $this->db->get('users');
+		return $query->result_array();
+
+	}
 		
 	function getPostSearch($keywords = null, $limit = 10, $offset = 0)
 	{
