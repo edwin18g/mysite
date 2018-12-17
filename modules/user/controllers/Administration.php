@@ -94,25 +94,17 @@ class Administration extends CI_Controller
 		if(!$this->session->userdata('loggedIn')) return error(403, ($this->input->is_ajax_request() ? 'ajax' : null));
 		if($this->input->post('hash'))
 		{
-			$this->form_validation->set_rules('postTitle', phrase('post_title'), 'trim|xss_clean|required|is_unique[posts.postTitle]|min_length[10]|max_length[260]');
-			$this->form_validation->set_rules('content', phrase('content'), 'trim|xss_clean|required|min_length[160]');
-			$this->form_validation->set_rules('categoryID[]', phrase('category_id'), 'trim|xss_clean|required');
-			$this->form_validation->set_rules('tags', phrase('tags'), 'trim|xss_clean|max_length[160]|callback_alphaCheck');
-			
+			$this->form_validation->set_rules('user_id', phrase('post_title'), 'trim|xss_clean|required|is_unique[posts.postTitle]|min_length[10]|max_length[260]');
+			$this->form_validation->set_rules('a_role', phrase('content'), 'trim|xss_clean|required|min_length[160]');
+			$this->form_validation->set_rules('a_type', phrase('category_id'), 'trim|xss_clean|required');
 			if($this->form_validation->run() == FALSE)
 			{
 				echo json_encode(array('status' => 204, 'messages' => array(validation_errors('<span><i class="fa fa-ban"></i> &nbsp; ', '</span><br />'))));
 			}
 			else
 			{
-				if (null !== $this->input->post('postHeadline') && $this->input->post('postHeadline') == 'Y')
-				{
-					$headline = 'Y';
-				}
-				else
-				{
-					$headline = 'N';
-				}
+				
+				$headline = 'Y';
 				$fields = array(
 					'contributor'		=> $this->session->userdata('userID'),
 					'postTitle'			=> $this->input->post('postTitle'),

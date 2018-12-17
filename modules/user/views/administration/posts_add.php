@@ -25,7 +25,7 @@
 								<div class="form-group">
 									<div class="col-sm-12">
 										<!-- <input type="text" name="postPriest" class="form-control input-lg" value="< ?php echo htmlspecialchars(set_value('postTitle')); ?>" placeholder="< ?php echo phrase('post_title'); ?>" /> -->
-										<select id="select-repo" class="repositories selectized" placeholder="Select priest..." ></select>
+										<select id="select-repo" class="repositories selectized" placeholder="Select priest..."  name="user_id"></select>
 									</div>
 								</div>
 								<br />
@@ -33,7 +33,7 @@
 								<div class="form-group">
 									<div class="col-sm-12">
 										<!-- <input type="text" name="postPriest" class="form-control input-lg" value="< ?php echo htmlspecialchars(set_value('postTitle')); ?>" placeholder="< ?php echo phrase('post_title'); ?>" /> -->
-										<select id="a_type" class="repositories selectized" placeholder="Select priest..." >
+										<select id="a_type" class="repositories selectized" placeholder="Select role..." name="a_type" >
 										<?php foreach($a_type as $key=>$aType):?>
 										<option value="<?php echo $key?>" ><?php echo $aType ?></option>
 										<?php endforeach;?>
@@ -43,40 +43,13 @@
 								<h3><?php echo 'Role'//phrase('title_and_content'); ?></h3>
 								<div class="form-group">
 									<div class="col-sm-12">
-										<textarea name="content" class="redactor form-control" placeholder="<?php echo phrase('write_article_here'); ?>"><?php echo set_value('content'); ?></textarea>
-									</div>
-								</div>
-								<br />
-								<div class="form-group">
-									<div class="col-sm-12">
-										<h4><?php echo phrase('tags'); ?></h4>
-										<input name="tags"  data-role="tagsinput" class="form-control" type="text" value="<?php echo set_value('tags'); ?>" />
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-4 sticky">
-								<div class="form-group">
-									<div class="col-sm-12">
-										<h3>Select Role<?php //echo phrase('post_category'); ?></h3>	
-										<?php
-											foreach ($a_type as $id =>$t_name)
-											{
-												echo '<label class="control-label"><input type="checkbox" name="categoryID[]" value="' . $id . '"' . (set_value('categoryID[]') ? (in_array(set_value('categoryID[]'), json_decode(set_value('categoryID[]'))) ? ' checked' : '') : '') . ' /> ' . $t_name . '</label><br />';	
-											}
-										?>
+										<input type="text" name="a_role" class="redactor form-control" placeholder="">
 									</div>
 								</div>
 								
-								<?php if($this->session->userdata('user_level') == 1) { ?>
-								<div class="form-group">	
-									<label class="control-label col-sm-12 text-left">
-										<input name="postHeadline" type="checkbox" value="Y"<?php if(set_value('postHeadline') == 'Y') echo ' checked'; ?> /> 
-										<b class="text-danger"><?php echo phrase('headline'); ?></b>
-									</label>
-								</div>
-								<?php } ?>
 								
 							</div>
+							
 						</div>
 						<div class="form-group">
 							<div class="col-sm-12 statusHolder">
@@ -89,7 +62,7 @@
 								<?php if($this->input->is_ajax_request() && isset($modal)) { ?>
 									<a href="javascript:void(0)" class="btn btn-default btn-lg" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i> <?php echo phrase('cancel'); ?></a>
 								<?php } else { ?>
-									<a href="<?php echo base_url('user/posts'); ?>" class="btn btn-default btn-lg ajaxloads"><i class="fa fa-times"></i> <?php echo phrase('cancel'); ?></a>
+									<a href="<?php echo base_url('user/administration'); ?>" class="btn btn-default btn-lg ajaxloads"><i class="fa fa-times"></i> <?php echo phrase('cancel'); ?></a>
 								<?php } ?>
 							</div>
 							<div class="col-xs-6 nomargin">
