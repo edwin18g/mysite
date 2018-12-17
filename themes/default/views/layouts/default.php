@@ -114,6 +114,9 @@
 								<li role="separator" class="divider"></li>
 							
 								<?php if($this->session->userdata('user_level') == 1) { ?>
+									<li>
+									<a href="<?php echo base_url('user/administration'); ?>" class="ajaxloads"><i class="fa fa-file-o"></i> Administration Management<?php /*echo phrase('manage_pages'); */ ?></a>
+								</li>
 								<li>
 									<a href="<?php echo base_url('user/pages'); ?>" class="ajaxloads"><i class="fa fa-file-o"></i> <?php echo phrase('manage_pages'); ?></a>
 								</li>
@@ -340,6 +343,9 @@
 				<?php if($this->session->userdata('user_level') == 1) { ?>
 				<li>
 					<a href="<?php echo base_url('user/categories'); ?>" class="ajaxloads"><i class="fa fa-sitemap"></i> <?php echo phrase('manage_category'); ?></a>
+				</li>
+				<li>
+					<a href="<?php echo base_url('user/administration'); ?>" class="ajaxloads"><i class="fa fa-users"></i> Administration Management<?php /*echo phrase('manage_user');*/ ?></a>
 				</li>
 				<li>
 					<a href="<?php echo base_url('user/users'); ?>" class="ajaxloads"><i class="fa fa-users"></i> <?php echo phrase('manage_user'); ?></a>

@@ -29,6 +29,18 @@
 									</div>
 								</div>
 								<br />
+								<h3><?php echo 'Select Priest'//phrase('title_and_content'); ?></h3>
+								<div class="form-group">
+									<div class="col-sm-12">
+										<!-- <input type="text" name="postPriest" class="form-control input-lg" value="< ?php echo htmlspecialchars(set_value('postTitle')); ?>" placeholder="< ?php echo phrase('post_title'); ?>" /> -->
+										<select id="a_type" class="repositories selectized" placeholder="Select priest..." >
+										<?php foreach($a_type as $key=>$aType):?>
+										<option value="<?php echo $key?>" ><?php echo $aType ?></option>
+										<?php endforeach;?>
+										</select>
+									</div>
+								</div>
+								<h3><?php echo 'Role'//phrase('title_and_content'); ?></h3>
 								<div class="form-group">
 									<div class="col-sm-12">
 										<textarea name="content" class="redactor form-control" placeholder="<?php echo phrase('write_article_here'); ?>"><?php echo set_value('content'); ?></textarea>
@@ -96,6 +108,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.2/js/standalone/selectize.min.js"></script>
 	
 	<script type="text/javascript">
+	var base_url  = '<?php echo base_url()?>';
 		if($(window).width() > 768)
 		{
 			$('.redactor').redactor({
@@ -110,6 +123,9 @@
 				}
 			});
 		}
+		
+
+
 		$('#select-repo').selectize({
     valueField: 'userID',
     labelField: 'full_name',
@@ -117,11 +133,15 @@
     create: false,
     render: {
         option: function(item, escape) {
-            return '<div>' +
-                '<span class="title">' +
-                    '<span class="name"><i class="icon ' + (item.fork ? 'fork' : 'source') + '"></i>' + escape(item.full_name) + '</span>' +
-                '</span>' +
-            '</div>';
+            return `<div class="media">
+  						<div class="media-left">
+    						<img src="`+ base_url+`uploads/users/thumbs/`+item.photo + `" class="media-object" style="width:60px">
+  						</div>
+  						<div class="media-body">
+    						<h4 class="media-heading">` + escape(item.full_name) + `</h4>
+    						<p>Lorem ipsum...</p>
+  						</div>
+					</div>`;
         }
     },
     
@@ -140,5 +160,6 @@
         });
     }
 });
+
 
 	</script>

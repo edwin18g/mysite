@@ -18,7 +18,7 @@
 				</div>
 				<div class="col-sm-3">
 					<div class="col-12-xs">
-						<a href="<?php echo base_url('user/administration/add'); ?>" class="btn btn-lg btn-block btn-primary newPost"><i class="fa fa-plus"></i> &nbsp; <?php echo phrase('add_administration'); ?></a>
+						<a href="<?php echo base_url('user/administration/add'); ?>" class="btn btn-lg btn-block btn-primary newAdministration"><i class="fa fa-plus"></i> &nbsp; <?php echo phrase('add_administration'); ?></a>
 					</div>
 				</div>
 			</div>

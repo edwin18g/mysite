@@ -22,46 +22,11 @@
 		}
 	?>
 	
-	<div class="jumbotron bg-primary">
-		<div class="container first-child">
-			<div class="row">
-				<div class="col-md-8 col-sm-offset-2">
-					<form class="form-horizontal submitForm" action="<?php echo base_url('users'); ?>" method="post" data-save="<?php echo phrase('search'); ?>" data-saving="<?php echo phrase('searching'); ?>" data-alert="<?php echo phrase('unable_to_submit_inquiry'); ?>">
-						<div class="input-group">
-							<input type="text" class="form-control input-lg" name="query" placeholder="<?php echo 'Search Priest'//echo phrase('search_user'); ?>"<?php echo ($keywords != null ? ' value="' . $keywords . '"' : 'test'); ?> />
-							<span class="input-group-btn">
-								<input type="hidden" name="hash" value="<?php echo sha1(time()); ?>" />
-								<button type="submit" class="btn btn-lg btn-success nomargin submitBtn"><i class="fa fa-search"></i> <?php echo phrase('search'); ?></button>
-							</span>
-						</div>
-						<div class="form-group">
-							<div class="col-sm-12 statusHolder">
-							</div>
-						</div>
-					</form>
-					<div style="border-bottom:1px solid #ddd">
-    <div class="hidden-xs">
-       
-            <div class="" style="position:relative">
-                <div class="btn-group btn-group-justified">
-                    <a class="ajaxloads btn btn-default btn-sm active " href="http://kuzhithuraidiocese.com/new/fr-jaya-kumar" style="border-right:none">ALL</a>
-                    <a class="ajaxloads btn btn-default btn-sm" href="<?php echo base_url('priest'); ?>" style="border-right:none">Diocesan Priests</a>
-                    <a class="ajaxloads btn btn-default btn-sm" href="http://kuzhithuraidiocese.com/new/fr-jaya-kumar/followers" style="border-right:none">Priests on Contract</a>
-                    <a class="ajaxloads btn btn-default btn-sm" href="http://kuzhithuraidiocese.com/new/fr-jaya-kumar/following">Religious Priests </a>
-                    <a class="ajaxloads btn btn-default btn-sm" href="http://kuzhithuraidiocese.com/new/fr-jaya-kumar/followers" style="border-right:none">Religious Men</a>
-                </div>
-            </div>
-        </div>
-    
-</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	
 	<br />
 	<div class="container">
 		<div class="row">
-			<div class="col-md-8 col-md-offset-2">
+			<div class="col-md-12 ">
 				<?php if($keywords): ?>
 				<br />
 				<div class="alert alert-<?php echo ($count > 0 ? 'info' : 'danger'); ?>"><?php echo phrase('showing'); ?> <b><?php echo $offset . ' - ' . ($count > $limit && $limit+$offset < $count ? $limit+$offset : $count) . ' ' . phrase('from') . ' ' . ($count > 0 ? $count : 0); ?></b> <?php echo phrase('results_for_keywords'); ?> <b>"<?php echo $keywords; ?>"</b></div>
@@ -69,20 +34,21 @@
 				
 				<?php
 					$n	= 1;
-					echo '<div class="row grid">';
+					echo '<div class="row ">';
 					foreach($administration as $key =>$role)
 					{
-						echo '<h2>'.$role['type_name'].'</h2>';
+						echo '<div class="col-md-10 col-md-offset-2"><h2>'.$role['type_name'].'</h2>';
 						foreach($role['user'] as $rkey =>$ruser)
 						{
+							$size =($ruser['a_type'] == 1)?"6":"4";
 							echo '
-							<div class="col-sm-6 grid-item">
+							<div class="col-sm-'.$size.' ">
 								' . getadminstration($ruser) . '
 							</div>
 						';
 						}
 						
-						
+						echo '</div><br>';
 						
 					}
 					echo '</div>';

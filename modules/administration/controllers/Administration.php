@@ -40,7 +40,7 @@ class Administration extends CI_Controller
 	
 	function index($slug = null, $limit = 10, $offset = 0)
 	{
-		die("run");
+		
 		
 		if($this->input->post('hash'))
 		{
