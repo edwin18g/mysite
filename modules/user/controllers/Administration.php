@@ -114,7 +114,7 @@ class Administration extends CI_Controller
 				if($this->model->saveAdministration($fields))
 				{
 					$this->session->set_flashdata('success', phrase('article_was_submitted_successfully'));
-					echo json_encode(array("status" => 200, "redirect" => base_url('posts/' . format_uri($this->input->post('postTitle')))));
+					echo json_encode(array("status" => 200, "redirect" => base_url('user/administration')));
 				}
 				else
 				{
