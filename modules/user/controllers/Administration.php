@@ -94,30 +94,24 @@ class Administration extends CI_Controller
 		if(!$this->session->userdata('loggedIn')) return error(403, ($this->input->is_ajax_request() ? 'ajax' : null));
 		if($this->input->post('hash'))
 		{
-			$this->form_validation->set_rules('user_id', phrase('post_title'), 'trim|xss_clean|required|is_unique[posts.postTitle]|min_length[10]|max_length[260]');
-			$this->form_validation->set_rules('a_role', phrase('content'), 'trim|xss_clean|required|min_length[160]');
-			$this->form_validation->set_rules('a_type', phrase('category_id'), 'trim|xss_clean|required');
-			if($this->form_validation->run() == FALSE)
-			{
-				echo json_encode(array('status' => 204, 'messages' => array(validation_errors('<span><i class="fa fa-ban"></i> &nbsp; ', '</span><br />'))));
-			}
-			else
+			//$this->form_validation->set_rules('user_id', phrase('post_title'), 'trim|xss_clean|required|is_unique[posts.postTitle]|min_length[10]|max_length[260]');
+			//$this->form_validation->set_rules('a_role', phrase('content'), 'trim|xss_clean|required|min_length[160]');
+			//$this->form_validation->set_rules('a_type', phrase('category_id'), 'trim|xss_clean|required');
+			//if($this->form_validation->run() == true)
+			// {
+			// 	echo json_encode(array('status' => 204, 'messages' => array(validation_errors('<span><i class="fa fa-ban"></i> &nbsp; ', '</span><br />'))));
+			// }
+			// else
 			{
 				
 				$headline = 'Y';
 				$fields = array(
-					'contributor'		=> $this->session->userdata('userID'),
-					'postTitle'			=> $this->input->post('postTitle'),
-					'categoryID'		=> json_encode($this->input->post('categoryID')),
-					'postSlug'			=> format_uri($this->input->post('postTitle')),
-					'postContent'		=> $this->input->post('content'),
-					'postExcerpt'		=> truncate($this->input->post('content'), 260),
-					'tags'				=> str_replace(' ', '', $this->input->post('tags')),
-					'postHeadline'		=> $headline,
-					'language'			=> $this->session->userdata('language'),
-					'timestamp'			=> time()
+					'a_role'		=> $this->input->post('a_role'),
+					'a_type'			=> $this->input->post('a_type'),
+					'a_user_id'		=> json_encode($this->input->post('user_id'))
+					
 				);
-				if($this->model->createPost($fields))
+				if($this->model->saveAdministration($fields))
 				{
 					$this->session->set_flashdata('success', phrase('article_was_submitted_successfully'));
 					echo json_encode(array("status" => 200, "redirect" => base_url('posts/' . format_uri($this->input->post('postTitle')))));

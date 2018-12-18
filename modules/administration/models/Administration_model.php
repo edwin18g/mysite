@@ -16,6 +16,35 @@ class Administration_model extends CI_Model {
 		return $query->result_array();
 
 	}
+	function saveAdministration($data = array())
+
+	{
+		if(!empty($data['id']))
+		{
+			$this->db->where('id', $data['id']);
+			if($this->db->update('administration', $data))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+
+		}
+		else
+		{
+			if($this->db->insert('administration', $data))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		
+	}
 	function getUsers($param =array())
 	{
 		$this->db->select('users.*');
