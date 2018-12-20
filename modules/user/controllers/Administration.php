@@ -108,7 +108,7 @@ class Administration extends CI_Controller
 				$fields = array(
 					'a_role'		=> $this->input->post('a_role'),
 					'a_type'			=> $this->input->post('a_type'),
-					'a_user_id'		=> json_encode($this->input->post('user_id'))
+					'a_user_id'		=> $this->input->post('user_id')
 					
 				);
 				if($this->model->saveAdministration($fields))
@@ -256,7 +256,7 @@ class Administration extends CI_Controller
 		}
 		else
 		{
-			if($this->model->removePost($this->uri->segment(4)))
+			if($this->model->removeadmininstraion($this->uri->segment(4)))
 			{
 				echo json_encode(array('status' => 200));
 

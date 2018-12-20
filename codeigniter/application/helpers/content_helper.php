@@ -667,7 +667,7 @@ if(!function_exists('getHeadlineNews'))
 	function getHeadlineNews($categoryID = 0, $limit = 10)
 	{
 		$CI =& get_instance();
-		$CI->db->order_by('FIELD(language, "' . $CI->session->userdata('language') . '") DESC', FALSE);
+		//$CI->db->order_by('FIELD(language, "' . $CI->session->userdata('language') . '") DESC', FALSE);
 		$CI->db->order_by('timestamp', 'DESC');
 		$CI->db->limit($limit);
 		if(is_numeric($categoryID))
@@ -676,6 +676,8 @@ if(!function_exists('getHeadlineNews'))
 		}
 		$CI->db->where('postHeadline', 'Y');
 		$query = $CI->db->get('posts');
+		//echo $CI->db->last_query(); die;
+		//echo "test".  $query->num_rows();die;
 		if($query->num_rows() > 0)
 		{
 			$posts = '<div id="carousel" class="carousel slide rounded-sm bg-dark" data-ride="carousel"><ol class="carousel-indicators">'."\r\n";
@@ -707,6 +709,72 @@ if(!function_exists('getHeadlineNews'))
 							<div class="clearfix"></div>
 							<br />
 							<a href="' . base_url('posts/' . $c['postSlug']) . '" class="ajaxloads btn btn-primary"><i class="fa fa-search"></i> &nbsp; '.phrase('read_more').'</a>
+						</div>
+					</div>
+				'."\r\n";
+				
+				$s++;
+			}
+			
+			$posts .= '
+				</div>
+			</div>';
+			return $posts;
+		}
+		else
+		{
+			return null;
+		}
+	}
+}
+
+if(!function_exists('getNewsAndEvents'))
+{
+	function getNewsAndEvents($categoryID = 0, $limit = 5)
+	{
+		$CI =& get_instance();
+		//$CI->db->order_by('FIELD(language, "' . $CI->session->userdata('language') . '") DESC', FALSE);
+		$CI->db->order_by('timestamp', 'DESC');
+		$CI->db->limit($limit);
+		if(is_numeric($categoryID))
+		{
+			$CI->db->like('categoryID', '"' . $categoryID . '"');
+		}
+		$CI->db->where('headline', 'Y');
+		$query = $CI->db->get('openletters');
+		//echo $CI->db->last_query(); die;
+		//echo "test".  $query->num_rows();die;
+		if($query->num_rows() > 0)
+		{
+			$posts = '<div id="carousel" class="carousel slide rounded-sm bg-dark" data-ride="carousel"><ol class="carousel-indicators">'."\r\n";
+			
+			$s = 0;
+			foreach($query->result_array() as $c)
+			{
+				$posts .= '
+					<li data-target="#carousel" data-slide-to="'.$s.'"' . ($s == 0 ? ' class="active"' : '') . '></li>
+				'."\r\n";
+				$s++;
+			}
+			
+			$s = 0;
+			$posts .= '
+				</ol>
+				<div class="carousel-inner" role="listbox">
+			'."\r\n";
+			
+			foreach($query->result_array() as $c)
+			{
+				$posts .= '
+					<div class="item' . ($s == 0 ? ' active' : '') . '">
+						<div style="background:url(https://oakdome.com/k5/lesson-plans/photo-editing/wanted-poster/blank-wanted-poster.jpg) center center no-repeat;background-size:cover;-moz-background-size:cover;height:360px" class="rounded-sm"></div>
+						<div class="carousel-caption">
+							<h3 class="text-shadow">' . ($c['title'] != '' ? truncate($c['title'], 80) : phrase('no_title')) . '</h3>
+							<div class="clearfix"></div>
+							<p class="text-shadow">' . ($c['content'] != '' ? truncate($c['content'], 80) : phrase('no_content')) . '</p>
+							<div class="clearfix"></div>
+							<br />
+							<a href="' . base_url('openletters/' . $c['slug']) . '" class="ajaxloads btn btn-default btn-block"><i class="fa fa-envelope"></i> ' . phrase('read_more') . '</a>
 						</div>
 					</div>
 				'."\r\n";

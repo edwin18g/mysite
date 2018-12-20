@@ -956,6 +956,8 @@ class User extends CI_Controller
 			);
 			if($this->input->is_ajax_request())
 			{
+				header('Access-Control-Allow-Origin: *');
+				header("Access-Control-Allow-Methods: GET, OPTIONS,POST");
 				$this->output->set_content_type('application/json');
 				$this->output->set_output(
 					json_encode(

@@ -40,7 +40,7 @@
 									<div class="col-sm-4" style="margin:0">
 										<div class="tile-stats tile-gray">
 											<p>
-												<input type="text" name="phrase<?php echo $row['phrase_id'];?>" placeholder="<?php echo $row['phrase'];?>" value="<?php echo $phrase_language;?>" data-push="tooltip" data-placement="top" title="<?php echo $row['phrase'];?>" class="form-control"/>
+												<input type="text" name="phrase<?php echo $row['phrase_id'];?>" placeholder="<?php echo $row['phrase'];?>" value="<?php echo $phrase_language;?>" data-push="tooltip" data-placement="top" title="<?php echo $phrase_language;?>"  class="form-control tranClass"/>
 											</p>
 										</div>
 										

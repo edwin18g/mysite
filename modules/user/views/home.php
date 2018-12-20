@@ -20,44 +20,61 @@
 </div>
 <div class="container">
     <div class="row">
-    <div class="col-md-3">
-						<div class="whitebg">
-							<div class="tabbable" id="btabs">
-								<ul class="nav nav-tabs">
-									<li class="active">
-										<a href="#panelbishop" data-toggle="tab">Bishop</a>
-									</li>
-									
-									<li>
-										<a href="#panelbcal" data-toggle="tab">Calendar</a>
-									</li>
-								</ul>
-								<div class="tab-content">
-									<div class="tab-pane active" id="panelbishop">
-
-										<img src="http://www.kuzhithuraidiocese.com/images/bishop-message.png" class="textwrap">
-										<p>The Most Rev. Msgr. V. Jeromedhas, SDB was born on October 21, 1951 at Paduvoor, Diocese of Kottar. <a href="aboutbishop.php">Read More ...</a></p>
-										
-										<p class="textwrap readbuttonup"><a href="#bishopmessageenglish" role="button" class="btn" data-toggle="modal">Message</a></p>
-										<p class="textwrap readbuttondown"><a href="#bishopmessagetamil" role="button" class="btn" data-toggle="modal"><strong>தமிழில்</strong></a></p>
-										<p></p>
-										
-									</div>
-									
-									
-                                    
-                                    <div class="tab-pane" id="panelbcal"><a href="newsletter/News letter - August 2018.pdf" target="“_blank”">
-										<iframe src="https://www.google.com/calendar/embed?showPrint=0&amp;height=500&amp;wkst=1&amp;bgcolor=%23ffffff&amp;src=rcdiocesekuzhithurai%40gmail.com&amp;color=%231B887A&amp;ctz=Asia%2FCalcutta" width="100%" height="200" scrolling="yes" class="iframe-class" frameborder="0"></iframe><br>
-										</a><center><a href="newsletter/News letter - August 2018.pdf" target="“_blank”"></a><a href="calendar.php">Click here to Enlarge Calendar</a></center>
-
-									</div>
-								</div>
-							</div>
-							
-
+		<div class="col-md-3">
+			<div class="whitebg">
+				<div class="tabbable" id="btabs">
+					<ul class="nav nav-tabs">
+						<li class="active">
+							<a href="#panelbishop" data-toggle="tab">Bishop</a>
+						</li>
+						<li>
+							<a href="#panelbcal" data-toggle="tab">Calendar</a>
+						</li>
+					</ul>
+					<div class="tab-content">
+						<div class="tab-pane active" id="panelbishop">
+							<img src="http://www.kuzhithuraidiocese.com/images/bishop-message.png" class="textwrap">
+							<p>The Most Rev. Msgr. V. Jeromedhas, SDB was born on October 21, 1951 at Paduvoor, Diocese of Kottar. <a href="aboutbishop.php">Read More ...</a></p>
+							<p class="textwrap readbuttonup"><a href="#bishopmessageenglish" role="button" class="btn" data-toggle="modal">Message</a></p>
+							<p class="textwrap readbuttondown"><a href="#bishopmessagetamil" role="button" class="btn" data-toggle="modal"><strong>தமிழில்</strong></a></p>
+							<p></p>
+						</div>
+						<div class="tab-pane" id="panelbcal"><a href="newsletter/News letter - August 2018.pdf" target="“_blank”">
+							<iframe src="https://www.google.com/calendar/embed?showPrint=0&amp;height=500&amp;wkst=1&amp;bgcolor=%23ffffff&amp;src=rcdiocesekuzhithurai%40gmail.com&amp;color=%231B887A&amp;ctz=Asia%2FCalcutta" width="100%" height="200" scrolling="yes" class="iframe-class" frameborder="0"></iframe><br>
+							</a><center><a href="newsletter/News letter - August 2018.pdf" target="“_blank”"></a><a href="calendar.php">Click here to Enlarge Calendar</a></center>
 						</div>
 					</div>
-		<div class="col-md-6">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6 nomargin-xs nopadding-xs">
+					
+			<h2>&nbsp;Latest Article</h2>
+				
+				
+			
+					<?php
+						if(getHeadlineNews('all', 5) !== null)
+						{
+							echo getHeadlineNews('all', 5);
+						}
+					?>
+				
+				
+		</div>
+		
+		<div class="col-md-3 nomargin-xs nopadding-xs">
+			<h2>&nbsp;News &amp; Events</h2>
+			<?php
+						if(getNewsAndEvents('all', 5) !== null)
+						{
+							echo getNewsAndEvents('all', 5);
+						}
+					?>
+				
+			</div>
+			<div class="clearfix"></div>
+			<div class="col-md-6">
 			<div class="whitebg mleft">
                 <h2>&nbsp;Welcome</h2>
 				<p>
@@ -66,76 +83,6 @@
 				<p class="textwrapl readbuttonright"><a href="welcome.php" role="button" class="btn">Read More...</a></p>
 			</div>
 		</div>
-					
-					<div class="col-md-3 ">
-					<h2>&nbsp;News &amp; Events</h2>
-						<div class="whitebg mright">
-						<?php
-					$posts 	= getPosts('openletters', null, null, 1);
-					$n		= 1;
-					if(!empty($posts))				
-					{
-					foreach($posts as $c)
-					{
-						
-						
-						echo '
-							<div class="letter-placeholder">
-								<div class="blog_article">
-									<div class="row">
-										<div class="col-sm-12 nomargin">
-											<b>
-												<div class="row">
-													<div class="col-sm-3 nopadding">
-														' . phrase('subject') . '
-													</div>
-													<div class="col-sm-9 nopadding">
-														' . $c['title'] . '
-													</div>
-												</div>
-												<div class="row">
-													<div class="col-sm-3">
-														' . phrase('aimed_to') . '
-													</div>
-													<div class="col-sm-9">
-														' . $c['targetName'] . '
-													</div>
-												</div>
-											</b>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-sm-12">
-											<div class="row">
-												<div class="col-sm-12">
-													' . truncate($c['content'], 60) . '
-												</div>
-											</div>
-										</div>
-										<div class="col-sm-12">
-											
-											<div class="row">
-												<div class="col-sm-12">
-													<a href="' . base_url('openletters/' . $c['slug']) . '" class="ajaxloads btn btn-default btn-block"><i class="fa fa-envelope"></i> ' . phrase('read_letter') . '</a>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						';
-						
-						$n++;
-					}
-
-				}
-				?>
-							
-
-							
-						</div>
-					</div>
-
-				</div>
-</div>
+		</div>
+	</div>
 

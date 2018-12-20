@@ -62,7 +62,7 @@
 										
 										<td class="text-right col-xs-4">
 											<div class="btn-group">
-												<a class="btn btn-default btn-sm newPost" href="' . base_url('user/administration/edit/' . $c['id']) . '" data-push="tooltip" data-placement="top" title="' . phrase('edit_administration') . '"><i class="btn-icon-only fa fa-edit"> </i></a>
+												
 												<a class="btn btn-default btn-sm" href="javascript:void(0)" onclick="confirm_modal(\'' . base_url('user/administration/remove/' . $c['id']) . '\', \'post' . $c['id'] . '\')" data-push="tooltip" data-placement="top" title="' . phrase('remove') . '"><i class="btn-icon-only fa fa-times"> </i></a>
 											</div>
 										</td>
