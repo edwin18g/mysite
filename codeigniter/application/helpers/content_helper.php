@@ -701,7 +701,7 @@ if(!function_exists('getHeadlineNews'))
 			{
 				$posts .= '
 					<div class="item' . ($s == 0 ? ' active' : '') . '">
-						<div style="background:url(' . getFeaturedImage($c['postID'], 1) . ') center center no-repeat;background-size:cover;-moz-background-size:cover;height:360px" class="rounded-sm"></div>
+						<div style="background:url(' . getFeaturedImage($c['postID'], 1) . ') center center no-repeat;background-size:cover;-moz-background-size:cover;height:250px" class="rounded-sm"></div>
 						<div class="carousel-caption">
 							<h3 class="text-shadow">' . ($c['postTitle'] != '' ? truncate($c['postTitle'], 80) : phrase('no_title')) . '</h3>
 							<div class="clearfix"></div>
@@ -767,7 +767,7 @@ if(!function_exists('getNewsAndEvents'))
 			{
 				$posts .= '
 					<div class="item' . ($s == 0 ? ' active' : '') . '">
-						<div style="background:url(https://oakdome.com/k5/lesson-plans/photo-editing/wanted-poster/blank-wanted-poster.jpg) center center no-repeat;background-size:cover;-moz-background-size:cover;height:360px" class="rounded-sm"></div>
+						<div style="background:url(https://images.sharefaith.com/images/3/1390235030319_78/img_mouseover3.jpg) center center no-repeat;background-size:cover;-moz-background-size:cover;height:250px" class="rounded-sm"></div>
 						<div class="carousel-caption">
 							<h3 class="text-shadow">' . ($c['title'] != '' ? truncate($c['title'], 80) : phrase('no_title')) . '</h3>
 							<div class="clearfix"></div>

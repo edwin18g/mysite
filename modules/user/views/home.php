@@ -34,9 +34,7 @@
 					<div class="tab-content">
 						<div class="tab-pane active" id="panelbishop">
 							<img src="http://www.kuzhithuraidiocese.com/images/bishop-message.png" class="textwrap">
-							<p>The Most Rev. Msgr. V. Jeromedhas, SDB was born on October 21, 1951 at Paduvoor, Diocese of Kottar. <a href="aboutbishop.php">Read More ...</a></p>
-							<p class="textwrap readbuttonup"><a href="#bishopmessageenglish" role="button" class="btn" data-toggle="modal">Message</a></p>
-							<p class="textwrap readbuttondown"><a href="#bishopmessagetamil" role="button" class="btn" data-toggle="modal"><strong>தமிழில்</strong></a></p>
+							<p>The Most Rev. Msgr. V. Jeromedhas, SDB was born on October 21, 1951 at Paduvoor, Diocese of Kottar. <a href="<?php echo base_url('bishop')?>" class="ajaxloads btn btn-default btn-block"><i class="fa fa-envelope"></i> <?php echo phrase('read_more') ?></a></p>
 							<p></p>
 						</div>
 						<div class="tab-pane" id="panelbcal"><a href="newsletter/News letter - August 2018.pdf" target="“_blank”">
