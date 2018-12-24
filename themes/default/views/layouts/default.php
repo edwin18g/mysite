@@ -147,7 +147,7 @@
 						</li>
 						<?php } else { ?>
 						<li style="border:none"<?php echo ($this->uri->segment(1) == 'user' ? ' class="active"' : ''); ?>>
-							<a data-toggle="modal" href="#login"><span class="btn btn-success"><i class="fa fa-lock"></i> <?php echo phrase('login'); ?></b></span></a>
+							<a data-toggle="modal" href="<?php echo base_url('user/login')?>"><span class="btn btn-success"><i class="fa fa-lock"></i> <?php echo phrase('login'); ?></b></span></a>
 						</li>
 						<?php } ?>
 					</ul>
@@ -239,7 +239,7 @@
 								</span>
 							</a>
 						<?php }else{ ?>
-							<a href="#login" data-toggle="modal" style="color:#fff;line-height:60px">
+							<a href="<?php echo base_url('user/login')?>" data-toggle="modal" style="color:#fff;line-height:60px">
 								<span class="btn" style="border:1px solid #fff"><i class="fa fa-lock"></i></span>
 							</a>
 						<?php } ?>
