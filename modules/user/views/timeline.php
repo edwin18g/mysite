@@ -22,23 +22,44 @@
 	?>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-2 hidden-xs hidden-sm sticky">
-				<h4><i class="fa fa-info-circle"></i> <?php echo phrase('account_details'); ?></h4>
-				<p class="text-muted">
-					<i class="fa fa-quote-left"></i> <?php echo $page['bio']; ?>
+			<div class="col-md-2  hidden-sm sticky">
+				<h4><i class="fa fa-info-circle"></i> <?php echo phrase('about_me'); ?></h4>
+				<!-- <p class="text-muted">
+					<i class="fa fa-quote-left"></i> < ?php echo $page['bio']; ?>
+				</p> -->
+				<p>
+				<?php echo phrase('father_name'); ?> :  <?php echo ($page['pr_father_name'] != null)?$page['pr_father_name']:'-' ; ?>
 				</p>
 				<p>
-					<i class="fa fa-map-marker"></i> <?php echo $page['address']; ?>
+				<?php echo phrase('mother_name'); ?> :  <?php echo ($page['pr_mother_name'] != null)?$page['pr_mother_name']:'-' ; ?>
 				</p>
 				<p>
-					<i class="fa fa-mobile"></i> <?php echo $page['mobile']; ?>
+				<?php echo phrase('birth_date'); ?> :  <?php echo ($page['pr_birth_date'] != null)?$page['pr_birth_date']:'-' ; ?>
 				</p>
 				<p>
-					<i class="fa fa-venus-mars"></i> <?php echo ($page['gender'] == 'l' ? phrase('male') : phrase('female')); ?>
+				<?php echo phrase('birth_place'); ?> :  <?php echo ($page['pr_birth_place'] != null)?$page['pr_birth_place']:'-' ; ?>
 				</p>
 				<p>
-					<i class="fa fa-child"></i> <?php echo $page['age'] . ' ' . phrase('years'); ?>
+				<?php echo phrase('seminary'); ?> :  <?php echo ($page['pr_seminary'] != null)?$page['pr_seminary']:'-' ; ?>
 				</p>
+				<p>
+				<?php echo phrase('ordination_date'); ?> :  <?php echo ($page['pr_ordination_date'] != null)?$page['pr_ordination_date']:'-' ; ?>
+				</p>
+				<p>
+				<?php echo phrase('place_ordination'); ?> :  <?php echo ($page['pr_place_ordination'] != null)?$page['pr_place_ordination']:'-' ; ?>
+				</p>
+				<p>
+				<?php echo phrase('ordination_by'); ?> :  <?php echo ($page['pr_ordination_by'] != null)?$page['pr_ordination_by']:'-' ; ?>
+				</p>
+				<p>
+				<?php echo phrase('parish'); ?> :  <?php echo ($page['pr_parish'] != null)?$page['pr_parish']:'-' ; ?>
+				</p>
+				<!-- <p>
+					<i class="fa fa-venus-mars"></i> < ?php echo ($page['gender'] == 'l' ? phrase('male') : phrase('female')); ?>
+				</p> -->
+				<!-- <p>
+					<i class="fa fa-child"></i> < ?php echo $page['age'] . ' ' . phrase('years'); ?>
+				</p> -->
 				
 				<?php // echo widget_randomAds('small'); ?>
 				
@@ -67,7 +88,7 @@
 											<select name="visibility" class="btn form-control bordered" style="width:inherit;display:inline">
 												<option value="0"><?php echo phrase('public'); ?></option>
 												<option value="1"><?php echo phrase('followers'); ?></option>
-												<option value="2"><?php echo phrase('friends'); ?></option>
+												<!-- <option value="2">< ?php echo phrase('friends'); ?></option> -->
 											</select>
 											<button class="btn btn-primary" type="submit"><i id="update-icon" class="fa fa-edit"></i> <?php echo phrase('post'); ?></button>
 										</div>
@@ -226,7 +247,7 @@
 			
 				<?php echo widget_timeLine($page['userName']); ?>
 			</div>
-			<div class="col-md-2 hidden-xs hidden-sm sticky">
+			<div class="col-md-2 hidden hidden-sm sticky">
 				<div class="row">
 					<h4><i class="fa fa-certificate"></i> &nbsp; <?php echo phrase('top_contributors'); ?></h4>
 				
