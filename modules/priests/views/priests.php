@@ -32,12 +32,13 @@
 							<span class="input-group-btn">
 								<input type="hidden" name="hash" value="<?php echo sha1(time()); ?>" />
 								<button type="submit" class="btn btn-lg btn-success nomargin submitBtn"><i class="fa fa-search"></i> <?php echo phrase('search'); ?></button>
-								<select id="p_type" class="repositories selectized" placeholder="Filter By" name="p_type" >
+								
+							</span>
+							<select id="p_type" class="repositories selectized" placeholder="Filter By" name="p_type" >
 										<?php foreach($p_type as $key=>$pType):?>
 										<option value="<?php echo $key?>" ><?php echo $pType ?></option>
 										<?php endforeach;?>
 										</select>
-							</span>
 						</div>
 						<div class="form-group">
 							<div class="col-sm-12 statusHolder">

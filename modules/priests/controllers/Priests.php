@@ -7,15 +7,13 @@ class Priests extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
-		
 		/* CACHE CONTROL*/
 		$this->output->set_header('Last-Modified: ' . gmdate("D, d M Y H:i:s") . ' GMT');
 		$this->output->set_header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
 		$this->output->set_header('Pragma: no-cache');
 		$this->output->set_header("Expires: Mon, 26 Jul 2010 05:00:00 GMT");
-		
 		$this->settings = globalSettings();
-		$this->load->model('Priest_model');
+		$this->load->model('Priests_model');
 		if(!$this->session->userdata('online'))
 		{
 			$ip		= getenv('remote_addr');
@@ -79,7 +77,7 @@ class Priests extends CI_Controller
 					'author'		=> $this->settings['siteTitle']
 				);
 			}
-			$data['p_type']     = $this->Priest_model->priest_type;
+			$data['p_type']     = $this->Priests_model->priest_type;
 			if($this->input->is_ajax_request())
 			{
 				$this->output->set_content_type('application/json');
