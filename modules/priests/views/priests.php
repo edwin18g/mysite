@@ -34,12 +34,17 @@
 								<button type="submit" class="btn btn-lg btn-success nomargin submitBtn"><i class="fa fa-search"></i> <?php echo phrase('search'); ?></button>
 								
 							</span>
-							<select id="p_type" class="repositories selectized" placeholder="Filter By" name="p_type" >
+							
+						</div>
+						<div class="form-group">
+  <label for="sel1">Filter:</label>
+  
+  <select id="p_type" class="form-control" placeholder="Filter By" name="p_type" >
 										<?php foreach($p_type as $key=>$pType):?>
 										<option value="<?php echo $key?>" ><?php echo $pType ?></option>
 										<?php endforeach;?>
 										</select>
-						</div>
+</div>
 						<div class="form-group">
 							<div class="col-sm-12 statusHolder">
 							</div>

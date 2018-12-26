@@ -248,7 +248,7 @@ if(!function_exists('getUserDetails'))
 										</a>
 									</div>
 									<div class="col-xs-9 relative">
-										<h2 class="pull-right">#' . $c['visits_count'] . '</h2>
+										
 										<a href="' . base_url($c['userName']) . '" class="ajaxloads hoverCard">
 											<b>' . $c['full_name'] . '</b> 
 										</a>
