@@ -2,6 +2,11 @@
 
 class Priests_model extends CI_Model {
 
+	public $priest_type = array(0=>'All',
+								1=>'Diocesan Priests',
+								2=>'Priests on Contract',
+								3=>'Religious Priests',
+								4=>'Religious Men');
 	function __construct()
 	{
 		parent::__construct();

@@ -50,7 +50,7 @@
 									<h3>
 										<a class="text-shadow" href="' . base_url($page['userName']) . '"><b>' . $page['full_name'] . '</b></a>
 										<br />
-										<span class="badge">@' . $page['userName'] . ' - ' . $page['visits_count'] . ' ' . phrase('stalker') . '</span>
+										<span class="badge">@' . $page['userName'] . '</span>
 									</h3>
 								</div>
 								<div class="col-sm-6 text-right-sm text-center-xs hidden">

@@ -15,7 +15,7 @@ class Priests extends CI_Controller
 		$this->output->set_header("Expires: Mon, 26 Jul 2010 05:00:00 GMT");
 		
 		$this->settings = globalSettings();
-		
+		$this->load->model('Priest_model');
 		if(!$this->session->userdata('online'))
 		{
 			$ip		= getenv('remote_addr');
@@ -79,6 +79,7 @@ class Priests extends CI_Controller
 					'author'		=> $this->settings['siteTitle']
 				);
 			}
+			$data['p_type']     = $this->Priest_model->priest_type;
 			if($this->input->is_ajax_request())
 			{
 				$this->output->set_content_type('application/json');
