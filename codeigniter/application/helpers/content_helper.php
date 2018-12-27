@@ -157,7 +157,29 @@ if(!function_exists('listpriests'))
 		}
 	}
 }
-
+if(!function_exists('listparish'))
+{
+	function listparish($status = null, $limit = 10, $offset = 0)
+	{
+		$CI =& get_instance();
+		
+		if($status != null)
+		{
+			$CI->db->where('status', $status);
+		}
+		$CI->db->limit($limit, $offset);
+		//$CI->db->order_by('last_login', 'desc');
+		$query = $CI->db->get('parish');
+		if($query->num_rows() > 0)
+		{
+			return $query->result_array();
+		}
+		else
+		{
+			return false;
+		}
+	}
+}
 if(!function_exists('generatePagination'))
 {
 	function generatePagination($type = null, $category = null, $userID = null, $slug = null, $limit = 12, $offset = 0, $timestamp = null)

@@ -7,16 +7,13 @@ class Parish extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model('Administration_model');
+		$this->load->model('Parish_model');
 		/* CACHE CONTROL*/
 		$this->output->set_header('Last-Modified: ' . gmdate("D, d M Y H:i:s") . ' GMT');
 		$this->output->set_header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
 		$this->output->set_header('Pragma: no-cache');
 		$this->output->set_header("Expires: Mon, 26 Jul 2010 05:00:00 GMT");
-		
 		$this->settings = globalSettings();
-
-		
 		if(!$this->session->userdata('online'))
 		{
 			$ip		= getenv('remote_addr');
@@ -40,8 +37,6 @@ class Parish extends CI_Controller
 	
 	function index($slug = null, $limit = 10, $offset = 0)
 	{
-		
-		
 		if($this->input->post('hash'))
 		{
 			$this->form_validation->set_rules('query', phrase('keywords'), 'trim|required|xss_clean|max_length[20]|alpha');
@@ -75,7 +70,7 @@ class Parish extends CI_Controller
 				$data['keywords']	= null;
 				$data['meta']		= array(
 					// 'title' 		=> phrase('search_user'),
-					'title' 		=> 'Administration',
+					'title' 		=> 'Parish',
 					//'descriptions'	=> phrase('search_user'),
 					'descriptions'	=> 'Administration',
 					'keywords'		=> 'Administration, users, article, posts, tags, snapshots',
@@ -106,14 +101,14 @@ class Parish extends CI_Controller
 					json_encode(
 						array(
 							'meta'		=> $data['meta'],
-							'html'		=> $this->load->view('priests', $data, true)
+							'html'		=> $this->load->view('parish_list', $data, true)
 						)
 					)
 				);
 			}
 			else
 			{
-				$this->template->build('Administration', $data);
+				$this->template->build('parish_list', $data);
 			}
 		}
 	}

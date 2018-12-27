@@ -17,16 +17,48 @@
 		}
 		else
 		{
-			$search	= listpriests(null, $limit, $offset);
+			$search	= listparish(null, $limit, $offset);
 			$count 	= userSearchCount($keywords);
 		}
 	?>
 	
-	
+	<div class="jumbotron bg-primary">
+		<div class="container first-child">
+			<div class="row">
+				<div class="col-md-8 col-sm-offset-2">
+					<form class="form-horizontal submitForm" action="<?php echo base_url('users'); ?>" method="post" data-save="<?php echo phrase('search'); ?>" data-saving="<?php echo phrase('searching'); ?>" data-alert="<?php echo phrase('unable_to_submit_inquiry'); ?>">
+						<div class="input-group">
+							<input type="text" class="form-control input-lg" name="query" placeholder="<?php echo 'Search Priest'//echo phrase('search_user'); ?>"<?php echo ($keywords != null ? ' value="' . $keywords . '"' : 'test'); ?> />
+							<span class="input-group-btn">
+								<input type="hidden" name="hash" value="<?php echo sha1(time()); ?>" />
+								<button type="submit" class="btn btn-lg btn-success nomargin submitBtn"><i class="fa fa-search"></i> <?php echo phrase('search'); ?></button>
+								
+							</span>
+							
+						</div>
+						<div class="form-group">
+  <label for="sel1">Filter:</label>
+  
+  <select id="p_type" class="form-control" placeholder="Filter By" name="p_type" >
+										<?php foreach($p_type as $key=>$pType):?>
+										<option value="<?php echo $key?>" ><?php echo $pType ?></option>
+										<?php endforeach;?>
+										</select>
+</div>
+						<div class="form-group">
+							<div class="col-sm-12 statusHolder">
+							</div>
+						</div>
+					</form>
+					
+				</div>
+			</div>
+		</div>
+	</div>
 	<br />
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12 ">
+			<div class="col-md-8 col-md-offset-2">
 				<?php if($keywords): ?>
 				<br />
 				<div class="alert alert-<?php echo ($count > 0 ? 'info' : 'danger'); ?>"><?php echo phrase('showing'); ?> <b><?php echo $offset . ' - ' . ($count > $limit && $limit+$offset < $count ? $limit+$offset : $count) . ' ' . phrase('from') . ' ' . ($count > 0 ? $count : 0); ?></b> <?php echo phrase('results_for_keywords'); ?> <b>"<?php echo $keywords; ?>"</b></div>
@@ -34,24 +66,36 @@
 				
 				<?php
 					$n	= 1;
-					echo '<div class="row ">';
-					foreach($administration as $key =>$role)
-					{
-						echo '<div class="col-md-10 col-md-offset-2"><h2>'.$role['type_name'].'</h2>';
-						foreach($role['user'] as $rkey =>$ruser)
-						{
-							$size =($ruser['a_type'] == 1)?"6":"4";
-							echo '
-							<div class="col-sm-'.$size.' ">
-								' . getadminstration($ruser) . '
+					echo '<div class="row grid">';
+					foreach($search as $c)
+			{
+				$hex		= '#' . random_hex();
+				$user .= '<div class="col-sm-6 grid-item">
+					<div class="first image-placeholder relative">
+						<div class="col-sm-12 nomargin nogap_ltr rounded-top">
+							<div class="row article_cover" style="background:' . $hex . ' url(' . base_url('uploads/users/covers/' . imageCheck('covers', getUserCover($c['userID']), 1)) . ') center center no-repeat;background-size:cover;-webkit-background-size:cover">
+								<div class="col-sm-12 nomargin absolute text-shadow" style="width:100%">
+									<div class="col-xs-3">
+										<a href="' . base_url($c['cname']) . '" class="ajaxloads hoverCard">
+											<img src="' . base_url('uploads/users/thumbs/' . imageCheck('users', getUserPhoto($c['userID']), 1)) . '" class="img-rounded bordered img-responsive" alt="" />
+										</a>
+									</div>
+									<div class="col-xs-9 relative">
+										
+										<a href="' . base_url($c['cname']) . '" class="ajaxloads hoverCard">
+											<b>' . $c['cname'] . '</b> 
+										</a>
+										<br />
+										<small>@' . $c['cname'] .  '</small>
+									</div>
+								</div>
 							</div>
-						';
-						}
-						
-						echo '</div><br>';
-						
-					}
+						</div>
+					</div></div>
+				';
+			}
 					echo '</div>';
+					
 				?>
 				
 				<div class="row">
