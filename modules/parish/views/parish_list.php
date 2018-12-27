@@ -12,13 +12,13 @@
 		$limit 	= 12;
 		if($keywords)
 		{
-			$search	= userSearch($keywords, $limit, $offset);
-			$count 	= userSearchCount($keywords);
+			$search	= listparish($keywords, $limit, $offset);
+			$count 	= parishSearchCount($keywords);
 		}
 		else
 		{
 			$search	= listparish(null, $limit, $offset);
-			$count 	= userSearchCount($keywords);
+			$count 	= parishSearchCount($keywords);
 		}
 	?>
 	
@@ -26,7 +26,7 @@
 		<div class="container first-child">
 			<div class="row">
 				<div class="col-md-8 col-sm-offset-2">
-					<form class="form-horizontal submitForm" action="<?php echo base_url('users'); ?>" method="post" data-save="<?php echo phrase('search'); ?>" data-saving="<?php echo phrase('searching'); ?>" data-alert="<?php echo phrase('unable_to_submit_inquiry'); ?>">
+					<form class="form-horizontal submitForm" action="<?php echo base_url('parish'); ?>" method="post" data-save="<?php echo phrase('search'); ?>" data-saving="<?php echo phrase('searching'); ?>" data-alert="<?php echo phrase('unable_to_submit_inquiry'); ?>">
 						<div class="input-group">
 							<input type="text" class="form-control input-lg" name="query" placeholder="<?php echo 'Search Priest'//echo phrase('search_user'); ?>"<?php echo ($keywords != null ? ' value="' . $keywords . '"' : 'test'); ?> />
 							<span class="input-group-btn">
@@ -70,23 +70,23 @@
 					foreach($search as $c)
 			{
 				$hex		= '#' . random_hex();
-				$user .= '<div class="col-sm-6 grid-item">
+				echo '<div class="col-sm-6 grid-item">
 					<div class="first image-placeholder relative">
 						<div class="col-sm-12 nomargin nogap_ltr rounded-top">
-							<div class="row article_cover" style="background:' . $hex . ' url(' . base_url('uploads/users/covers/' . imageCheck('covers', getUserCover($c['userID']), 1)) . ') center center no-repeat;background-size:cover;-webkit-background-size:cover">
+							<div class="row article_cover" style="background:' . $hex . ' url(' . base_url('uploads/users/covers/' . imageCheck('covers', getUserCover($c['id']), 1)) . ') center center no-repeat;background-size:cover;-webkit-background-size:cover">
 								<div class="col-sm-12 nomargin absolute text-shadow" style="width:100%">
 									<div class="col-xs-3">
-										<a href="' . base_url($c['cname']) . '" class="ajaxloads hoverCard">
-											<img src="' . base_url('uploads/users/thumbs/' . imageCheck('users', getUserPhoto($c['userID']), 1)) . '" class="img-rounded bordered img-responsive" alt="" />
+										<a href="' . base_url($c['slug']) . '" class="ajaxloads hoverCard">
+											<img src="' . base_url('uploads/users/thumbs/' . imageCheck('users', getUserPhoto($c['id']), 1)) . '" class="img-rounded bordered img-responsive" alt="" />
 										</a>
 									</div>
 									<div class="col-xs-9 relative">
 										
-										<a href="' . base_url($c['cname']) . '" class="ajaxloads hoverCard">
+										<a href="' . base_url($c['slug']) . '" class="ajaxloads hoverCard">
 											<b>' . $c['cname'] . '</b> 
 										</a>
 										<br />
-										<small>@' . $c['cname'] .  '</small>
+										<small>@' . $c['slug'] .  '</small>
 									</div>
 								</div>
 							</div>

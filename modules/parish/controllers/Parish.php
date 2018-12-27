@@ -78,21 +78,8 @@ class Parish extends CI_Controller
 					'author'		=> $this->settings['siteTitle']
 				);
 			}
-			$administration		= $this->Administration_model->getAdministration();
-		if(!empty($administration))
-		{
-			$administrations  = array();
-			foreach($administration as $userrole)
-			{
-				$administrations[$userrole['a_type']]['type_name']  = $this->Administration_model->a_type[$userrole['a_type']];
-				$administrations[$userrole['a_type']]['user'][] 	= $userrole;
-			}
-			$data['administration'] = $administrations;
-		}
-		else
-		{
-			$data['administration'] = false;
-		}
+			
+		
 	
 			if($this->input->is_ajax_request())
 			{

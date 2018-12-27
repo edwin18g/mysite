@@ -376,6 +376,12 @@ if(!function_exists('generatePagination'))
 			$segment		= 4;
 			$num			= $CI->db->count_all('language');
 		}
+		elseif($type == 'parish')
+		{
+			$type			= 'parish/' . $slug;
+			$segment		= 4;
+			$num			= $CI->db->count_all('parish');
+		}
 		
 		$config['base_url'] 			= base_url($type);
 	   
@@ -1487,6 +1493,31 @@ if(!function_exists('userSearchCount'))
 		$CI->db->or_like('bio', $keywords);
 		
 		$query = $CI->db->get('users');
+		
+		if($query->num_rows() > 0)
+		{
+			return $query->num_rows();
+		}
+		else
+		{
+			return false;
+		}
+	}
+}
+if(!function_exists('parishSearchCount'))
+{
+	function parishSearchCount($keywords = '')
+	{
+		$CI =& get_instance();
+		
+		$CI->db->like('cname', $keywords);
+		$CI->db->or_like('slug', $keywords);
+		$CI->db->or_like('chistory', $keywords);
+		$CI->db->or_like('psaint', $keywords);
+		$CI->db->or_like('substation', $keywords);
+		$CI->db->or_like('website', $keywords);
+		
+		$query = $CI->db->get('parish');
 		
 		if($query->num_rows() > 0)
 		{

@@ -292,7 +292,7 @@
 					<a href="<?php echo base_url('priest'); ?>" class="ajaxloads"><i class="fa fa-desktop"></i> Priests<?php //echo phrase('tv_channels'); ?></a>
 				</li>
 				<li>
-					<a href="<?php echo base_url(); ?>" class="ajaxloads"><i class="fa fa-desktop"></i> Parishes<?php //echo phrase('tv_channels'); ?></a>
+					<a href="<?php echo base_url('parish'); ?>" class="ajaxloads"><i class="fa fa-desktop"></i> Parishes<?php //echo phrase('tv_channels'); ?></a>
 				</li>
 				<li>
 					<a href="<?php echo base_url(); ?>" class="ajaxloads"><i class="fa fa-desktop"></i> Organizations<?php //echo phrase('tv_channels'); ?></a>
