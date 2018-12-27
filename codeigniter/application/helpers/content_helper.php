@@ -165,7 +165,7 @@ if(!function_exists('listparish'))
 		
 		if($status != null)
 		{
-			$CI->db->where('status', $status);
+			$CI->db->like('cname', $status);
 		}
 		$CI->db->limit($limit, $offset);
 		//$CI->db->order_by('last_login', 'desc');

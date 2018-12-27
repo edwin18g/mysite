@@ -47,7 +47,7 @@ class Parish extends CI_Controller
 			}
 			else
 			{
-				echo json_encode(array("status" => 200, "redirect" => base_url('users/' . urlencode(str_replace(' ', '-', $this->input->post('query'))))));
+				echo json_encode(array("status" => 200, "redirect" => base_url('parish/' . urlencode(str_replace(' ', '-', $this->input->post('query'))))));
 			}
 		}
 		else

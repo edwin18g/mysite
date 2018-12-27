@@ -104,7 +104,7 @@
 						<?php
 						if($keywords)
 						{
-							echo generatePagination('userSearch', $keywords, null, $keywords, $limit, $offset);
+							echo generatePagination('parish', $keywords, null, $keywords, $limit, $offset);
 						}
 						?>
 						
