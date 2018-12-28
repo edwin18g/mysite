@@ -28,32 +28,9 @@
 					<i class="fa fa-quote-left"></i> < ?php echo $page['bio']; ?>
 				</p> -->
 				<p>
-				<?php echo phrase('father_name'); ?> :  <?php echo ($page['pr_father_name'] != null)?$page['pr_father_name']:'-' ; ?>
+				<?php echo phrase('father_name'); ?> :  <?php echo ($page['cname'] != null)?$page['cname']:'-' ; ?>
 				</p>
-				<p>
-				<?php echo phrase('mother_name'); ?> :  <?php echo ($page['pr_mother_name'] != null)?$page['pr_mother_name']:'-' ; ?>
-				</p>
-				<p>
-				<?php echo phrase('birth_date'); ?> :  <?php echo ($page['pr_birth_date'] != null)?$page['pr_birth_date']:'-' ; ?>
-				</p>
-				<p>
-				<?php echo phrase('birth_place'); ?> :  <?php echo ($page['pr_birth_place'] != null)?$page['pr_birth_place']:'-' ; ?>
-				</p>
-				<p>
-				<?php echo phrase('seminary'); ?> :  <?php echo ($page['pr_seminary'] != null)?$page['pr_seminary']:'-' ; ?>
-				</p>
-				<p>
-				<?php echo phrase('ordination_date'); ?> :  <?php echo ($page['pr_ordination_date'] != null)?$page['pr_ordination_date']:'-' ; ?>
-				</p>
-				<p>
-				<?php echo phrase('place_ordination'); ?> :  <?php echo ($page['pr_place_ordination'] != null)?$page['pr_place_ordination']:'-' ; ?>
-				</p>
-				<p>
-				<?php echo phrase('ordination_by'); ?> :  <?php echo ($page['pr_ordination_by'] != null)?$page['pr_ordination_by']:'-' ; ?>
-				</p>
-				<p>
-				<?php echo phrase('parish'); ?> :  <?php echo ($page['pr_parish'] != null)?$page['pr_parish']:'-' ; ?>
-				</p>
+				
 				<!-- <p>
 					<i class="fa fa-venus-mars"></i> < ?php echo ($page['gender'] == 'l' ? phrase('male') : phrase('female')); ?>
 				</p> -->
@@ -67,7 +44,7 @@
 			<div class="col-md-6 sticky">
 			
 				<?php
-					if($page['userID'] == $this->session->userdata('userID')):
+					if($page['id'] == $this->session->userdata('userID')):
 				?>
 				<div class="row">
 					<div class="col-sm-12 nomargin">
@@ -105,7 +82,7 @@
 				
 				<?php
 					$n				= 1;
-					$timeline		= getTimelines($page['userID'], $limit, $offset, $timestamp);
+					$timeline		= getTimelines($page['id'], $limit, $offset, $timestamp);
 					//print_r($timeline); exit();
 					if(sizeof($timeline) > 0)
 					{
@@ -237,7 +214,7 @@
 				<div class="row">
 					<div class="col-sm-12 text-center">
 					
-						<?php echo timelinePaging($page['userID'], $limit, $offset, $timestamp); ?>
+						<?php echo timelinePaging($page['id'], $limit, $offset, $timestamp); ?>
 						
 					</div>
 				</div>
@@ -245,7 +222,7 @@
 			<div class="col-md-2 hidden-xs hidden-sm sticky">
 				<h4><i class="fa fa-calendar"></i> &nbsp; <?php echo phrase('timeline'); ?></h4>
 			
-				<?php echo widget_timeLine($page['userName']); ?>
+				<?php echo widget_timeLine($page['slug']); ?>
 			</div>
 			<div class="col-md-2 hidden hidden-sm sticky">
 				<div class="row">
