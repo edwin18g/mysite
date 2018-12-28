@@ -207,7 +207,7 @@
 					}
 					else
 					{
-						echo '<div class="col-sm-12 text-center" style="padding:60px 0"><div class="alert alert-danger"><h4>' . $page['full_name'] . ' ' . phrase('does_not_have_any_update') . ($timestamp ? ' ' . phrase('in') . ' ' . date('F', $timestamp) : '') . '</h4></div></div>';
+						echo '<div class="col-sm-12 text-center" style="padding:60px 0"><div class="alert alert-danger"><h4>' . $page['cname'] . ' ' . phrase('does_not_have_any_update') . ($timestamp ? ' ' . phrase('in') . ' ' . date('F', $timestamp) : '') . '</h4></div></div>';
 					}
 				?>
 					
