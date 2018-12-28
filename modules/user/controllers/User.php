@@ -164,7 +164,7 @@ class User extends CI_Controller
 		elseif($this->User_model->getParish($slug))
 		{
 			$this->load->helper('timeline');
-			$data['profile']	= $this->User_model->getUser($slug);
+			$data['profile']	= $this->User_model->getParish($slug);
 			$data['meta']		= array(
 				'title' 		=> $this->User_model->getUserTitle($slug),
 				'descriptions'	=> $this->User_model->getUserExcerpt($slug),
@@ -179,14 +179,14 @@ class User extends CI_Controller
 					json_encode(
 						array(
 							'meta'		=> $data['meta'],
-							'html'		=> $this->load->view('timeline', $data, true)
+							'html'		=> $this->load->view('parishs', $data, true)
 						)
 					)
 				);
 			}
 			else
 			{
-				$this->template->build('timeline', $data);
+				$this->template->build('parishs', $data);
 			}
 		}
 		else
