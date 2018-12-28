@@ -100,12 +100,10 @@
 				
 				<div class="row">
 					<div class="col-sm-12 text-center">
-					
+					<button  class="ajaxloadmore btn btn-default btn-block"><i class="fa fa-envelope"></i> Load More</button>
 						<?php
-						if($keywords)
-						{
-							echo generatePagination('parish', $keywords, null, $keywords, $limit, $offset);
-						}
+				
+						//echo generatePagination('parish', $keywords, null, $keywords, $limit, $offset);
 						?>
 						
 					</div>
@@ -113,3 +111,11 @@
 			</div>
 		</div>
 	</div>
+	<script>
+	var offset 		= 0;
+	var limit 		= 12;
+	var keyword     = '';
+	$('ajaxloadmore').click(function(){
+		
+	});
+	</script>

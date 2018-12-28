@@ -40,6 +40,19 @@ class User_model extends CI_Model
 			return false;
 		}
 	}
+
+	function getParish($slug = null)
+	{
+		$query = $this->db->where('slug', $slug)->limit(1)->get('parish');
+		if($query->num_rows() > 0)
+		{
+			return $query->result_array();
+		}
+		else
+		{
+			return false;
+		}
+	}
 	
 	function getUserFollowers($slug = null, $limit = 10, $offset = 0)
 	{

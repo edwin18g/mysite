@@ -161,6 +161,34 @@ class User extends CI_Controller
 				}
 			}
 		}
+		elseif($this->User_model->getParish($slug))
+		{
+			$this->load->helper('timeline');
+			$data['profile']	= $this->User_model->getUser($slug);
+			$data['meta']		= array(
+				'title' 		=> $this->User_model->getUserTitle($slug),
+				'descriptions'	=> $this->User_model->getUserExcerpt($slug),
+				'keywords'		=> $this->User_model->getUserTags($slug),
+				'image'			=> guessImage('users', $slug),
+				'author'		=> $this->settings['siteTitle']
+			);
+			if($this->input->is_ajax_request())
+			{
+				$this->output->set_content_type('application/json');
+				$this->output->set_output(
+					json_encode(
+						array(
+							'meta'		=> $data['meta'],
+							'html'		=> $this->load->view('timeline', $data, true)
+						)
+					)
+				);
+			}
+			else
+			{
+				$this->template->build('timeline', $data);
+			}
+		}
 		else
 		{
 			$data['meta']		= array(
