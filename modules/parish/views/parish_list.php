@@ -9,7 +9,7 @@
 			$offset = $this->uri->segment($totSegments);
 		}
 		
-		$limit 	= 12;
+		$limit 	= 25;
 		if($keywords)
 		{
 			$search	= listparish($keywords, $limit, $offset);
@@ -112,10 +112,22 @@
 		</div>
 	</div>
 	<script>
+	var admin_url   = '<?php echo base_url()?>';
 	var offset 		= 0;
-	var limit 		= 12;
+	var limit 		= 25;
 	var keyword     = '';
+	var record_showing = '<?php echo (!empty($search))?count($search):0?>';
 	$('ajaxloadmore').click(function(){
+		console.log('click');
+		$.ajax({
+                    url: admin_url+'parish',
+                    type: "POST",
+                    data: {'records': record_showing},
+                    success: function(response){
+                       
+                    }
+                });
+		
 		
 	});
 	</script>
