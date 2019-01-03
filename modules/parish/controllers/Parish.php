@@ -39,6 +39,28 @@ class Parish extends CI_Controller
 	{
 		$limit   = 25;
 		$offset  = 0;
+
+		if($this->input->post('records'))
+			{
+				$offset  			= $this->input->post('records') - 1;
+				$loadmore_status 	= 0;
+				$myArr[] 			= listparish(null, $limit, $offset);
+				$myArr[] 			= $loadmore_status;
+				$myJSON 			= json_encode($myArr,true);
+				echo $myJSON;die;
+				
+				//echo "test<pre>"; print_r(listparish(null, $limit, $offset));die;
+				$this->output->set_content_type('application/json');
+				$this->output->set_output(
+					json_encode(
+						array(
+							'meta'		=> $data['meta'],
+							'response'		=> array('list'=>listparish(null, $limit, $offset) ,'loadmore_hide'=>$loadmore_status)
+						)
+					)
+				);
+
+			}
 		if($this->input->post('hash'))
 		{
 			$this->form_validation->set_rules('query', phrase('keywords'), 'trim|required|xss_clean|max_length[20]|alpha');
@@ -82,25 +104,9 @@ class Parish extends CI_Controller
 			}
 			
 		
-	
+			
 			if($this->input->is_ajax_request())
 			{
-				if($this->input->post('records'))
-				{
-					$offset  = $this->input->post('records') - 1;
-					$loadmore_status = 0;
-					$this->output->set_content_type('application/json');
-					$this->output->set_output(
-						json_encode(
-							array(
-								'meta'		=> $data['meta'],
-								'response'		=> array('list'=>listparish(null, $limit, $offset) ,'loadmore_hide'=>$loadmore_status)
-							)
-						)
-					);
-
-				}else
-				{
 					$this->output->set_content_type('application/json');
 					$this->output->set_output(
 						json_encode(
@@ -110,7 +116,7 @@ class Parish extends CI_Controller
 							)
 						)
 					);
-				}
+				
 				
 			}
 			else

@@ -117,14 +117,15 @@
 	var limit 		= 25;
 	var keyword     = '';
 	var record_showing = '<?php echo (!empty($search))?count($search):0?>';
-	$('ajaxloadmore').click(function(){
+	$('.ajaxloadmore').click(function(){
 		console.log('click');
 		$.ajax({
                     url: admin_url+'parish',
                     type: "POST",
                     data: {'records': record_showing},
                     success: function(response){
-                       
+						response = JSON.parse(response);
+						console.log(response);
                     }
                 });
 		
