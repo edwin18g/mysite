@@ -37,92 +37,79 @@ class Parish extends CI_Controller
 	
 	function index($slug = null, $limit = 10, $offset = 0)
 	{
-		$limit   = 25;
-		$offset  = 0;
-
+		$limit   		= 25;
+		$offset  		= 0;
+		$parishCount 	= parishCount();
 		if($this->input->post('records'))
-			{
-				$offset  			= $this->input->post('records') - 1;
-				$loadmore_status 	= 0;
-				$myArr[] 			= listparish(null, $limit, $offset);
-				$myArr[] 			= $loadmore_status;
-				$myJSON 			= json_encode($myArr,true);
-				echo $myJSON;die;
-				
-				//echo "test<pre>"; print_r(listparish(null, $limit, $offset));die;
-				$this->output->set_content_type('application/json');
-				$this->output->set_output(
-					json_encode(
-						array(
-							'meta'		=> $data['meta'],
-							'response'		=> array('list'=>listparish(null, $limit, $offset) ,'loadmore_hide'=>$loadmore_status)
-						)
-					)
-				);
-
-			}
-		if($this->input->post('hash'))
 		{
-			$this->form_validation->set_rules('query', phrase('keywords'), 'trim|required|xss_clean|max_length[20]|alpha');
-			
-			if($this->form_validation->run() == FALSE)
-			{
-				echo json_encode(array('status' => 204, 'messages' => array(validation_errors('<span><i class="fa fa-ban"></i> &nbsp; ', '</span><br />'))));
-			}
-			else
-			{
-				echo json_encode(array("status" => 200, "redirect" => base_url('parish/' . urlencode(str_replace(' ', '-', $this->input->post('query'))))));
-			}
-		}
+			$viewedRecord		= $this->input->post('records');
+			$offset  			= $this->input->post('records') - 1;
+			$loadmore_status 	= 0;
+			$myArr[] 			= listparish(null, $limit, $offset);
+			$remainRecord		= $parishCount - $viewedRecord;
+			$myArr[] 			= ( $remainRecord == 0 )?'hide':$remainRecord;
+			$myJSON 			= json_encode($myArr,true);
+			echo $myJSON;die;
+
+		}			
 		else
 		{
-			$query = str_replace('-', ' ', $this->uri->segment(2));
-			
-			if($query != null)
+			$pCCount		= listparish(null, $limit, $offset,true);
+			$search			= listparish(null, $limit, $offset);
+			$remainRecord   = $parishCount - $pCCount;
+			if($this->input->post('hash'))
 			{
-				$data['keywords']	= $query;
-				$data['meta']		= array(
-					'title' 		=> phrase('searching') . ' "' . $query . '"',
-					'descriptions'	=> phrase('searching') . ' "' . $query . '"',
-					'keywords'		=> format_tag($query),
-					'image'			=> guessImage('users', $slug),
-					'author'		=> $this->settings['siteTitle']
-				);
+				$this->form_validation->set_rules('query', phrase('keywords'), 'trim|required|xss_clean|max_length[20]|alpha');
+				
+				if($this->form_validation->run() == FALSE)
+				{
+					echo json_encode(array('status' => 204, 'messages' => array(validation_errors('<span><i class="fa fa-ban"></i> &nbsp; ', '</span><br />'))));
+				}
+				else
+				{
+					echo json_encode(array("status" => 200, "redirect" => base_url('parish/' . urlencode(str_replace(' ', '-', $this->input->post('query'))))));
+				}
 			}
 			else
 			{
-				$data['keywords']	= null;
-				$data['meta']		= array(
-					// 'title' 		=> phrase('search_user'),
-					'title' 		=> 'Parish',
-					//'descriptions'	=> phrase('search_user'),
-					'descriptions'	=> 'Administration',
-					'keywords'		=> 'Administration, users, article, posts, tags, snapshots',
-					'image'			=> guessImage(),
-					'author'		=> $this->settings['siteTitle']
-				);
-			}
-			
-		
-			
-			if($this->input->is_ajax_request())
-			{
-					$this->output->set_content_type('application/json');
-					$this->output->set_output(
-						json_encode(
-							array(
-								'meta'		=> $data['meta'],
-								'html'		=> $this->load->view('parish_list', $data, true)
-							)
-						)
+				$query = str_replace('-', ' ', $this->uri->segment(2));
+				
+				if($query != null)
+				{
+					$data['keywords']	= $query;
+					$data['meta']		= array(
+						'title' 		=> phrase('searching') . ' "' . $query . '"',
+						'descriptions'	=> phrase('searching') . ' "' . $query . '"',
+						'keywords'		=> format_tag($query),
+						'image'			=> guessImage('users', $slug),
+						'author'		=> $this->settings['siteTitle']
 					);
+				}
+				else
+				{
+					$data['keywords']	= null;
+					$data['meta']		= array(
+						// 'title' 		=> phrase('search_user'),
+						'title' 		=> 'Parish',
+						//'descriptions'	=> phrase('search_user'),
+						'descriptions'	=> 'Administration',
+						'keywords'		=> 'Administration, users, article, posts, tags, snapshots',
+						'image'			=> guessImage(),
+						'author'		=> $this->settings['siteTitle']
+					);
+				}
 				
-				
-			}
-			else
-			{
+			
+				$data['parishCount']		= $parishCount;
+				$data['search']				= $search;
+				$data['remainRecord']		= $remainRecord;
 				$this->template->build('parish_list', $data);
+				
 			}
+
+			
 		}
+
+		
 	}
 }

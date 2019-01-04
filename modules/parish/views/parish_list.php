@@ -17,7 +17,7 @@
 		}
 		else
 		{
-			$search	= listparish(null, $limit, $offset);
+			
 			$count 	= parishSearchCount($keywords);
 		}
 	?>
@@ -100,7 +100,7 @@
 				
 				<div class="row">
 					<div class="col-sm-12 text-center">
-					<button  class="ajaxloadmore btn btn-default btn-block"><i class="fa fa-envelope"></i> Load More</button>
+					<button  class="ajaxloadmore btn btn-default btn-block"><i class="fa fa-envelope"></i> Load More - (<?php echo $remainRecord?>)</button>
 						<?php
 				
 						//echo generatePagination('parish', $keywords, null, $keywords, $limit, $offset);

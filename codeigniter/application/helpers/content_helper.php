@@ -159,7 +159,7 @@ if(!function_exists('listpriests'))
 }
 if(!function_exists('listparish'))
 {
-	function listparish($status = null, $limit = 10, $offset = 0)
+	function listparish($status = null, $limit = 10, $offset = 0,$count = false)
 	{
 		$CI =& get_instance();
 		
@@ -172,6 +172,10 @@ if(!function_exists('listparish'))
 		$query = $CI->db->get('parish');
 		if($query->num_rows() > 0)
 		{
+			if($count)
+			{
+				return $query->num_rows();
+			}
 			return $query->result_array();
 		}
 		else
@@ -1517,6 +1521,24 @@ if(!function_exists('parishSearchCount'))
 		$CI->db->or_like('substation', $keywords);
 		$CI->db->or_like('website', $keywords);
 		
+		$query = $CI->db->get('parish');
+		
+		if($query->num_rows() > 0)
+		{
+			return $query->num_rows();
+		}
+		else
+		{
+			return false;
+		}
+	}
+}
+
+if(!function_exists('parishCount'))
+{
+	function parishCount()
+	{
+		$CI =& get_instance();
 		$query = $CI->db->get('parish');
 		
 		if($query->num_rows() > 0)
