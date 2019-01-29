@@ -66,7 +66,7 @@
 				
 				<?php
 					$n	= 1;
-					echo '<div class="row grid">';
+					echo '<div class="row grid list-parish">';
 					foreach($search as $c)
 			{
 				$hex		= '#' . random_hex();
@@ -124,8 +124,9 @@
                     type: "POST",
                     data: {'records': record_showing},
                     success: function(response){
-						response = JSON.parse(response);
+						response = JSON.parse(response,true);
 						console.log(response);
+						alert(response);
                     }
                 });
 		
