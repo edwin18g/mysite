@@ -135,7 +135,9 @@ class User extends CI_Controller
 			else
 			{
 				$this->load->helper('timeline');
-				$data['profile']	= $this->User_model->getUser($slug);
+				$data['profile']			= $this->User_model->getUser($slug);
+				$data['customfield']	= $this->User_model->getUserCustom($data['profile'][0]['userID']);
+			//	print_r($data['customfield']);die;
 				$data['meta']		= array(
 					'title' 		=> $this->User_model->getUserTitle($slug),
 					'descriptions'	=> $this->User_model->getUserExcerpt($slug),
@@ -161,15 +163,100 @@ class User extends CI_Controller
 				}
 			}
 		}
+		elseif($this->User_model->getParish($slug))
+		{
+			$this->load->helper('timeline');
+			$data['profile']	= $this->User_model->getParish($slug);
+			$data['meta']		= array(
+				'title' 		=> $this->User_model->getUserTitle($slug),
+				'descriptions'	=> $this->User_model->getUserExcerpt($slug),
+				'keywords'		=> $this->User_model->getUserTags($slug),
+				'image'			=> guessImage('users', $slug),
+				'author'		=> $this->settings['siteTitle']
+			);
+			if($this->input->is_ajax_request())
+			{
+				$this->output->set_content_type('application/json');
+				$this->output->set_output(
+					json_encode(
+						array(
+							'meta'		=> $data['meta'],
+							'html'		=> $this->load->view('parishs', $data, true)
+						)
+					)
+				);
+			}
+			else
+			{
+				$this->template->build('parishs', $data);
+			}
+		}
+		elseif($this->User_model->getCommissions($slug))
+		{
+			$this->load->helper('timeline');
+			$data['profile']	= $this->User_model->getCommissions($slug);
+			$data['meta']		= array(
+				'title' 		=> $this->User_model->getUserTitle($slug),
+				'descriptions'	=> $this->User_model->getUserExcerpt($slug),
+				'keywords'		=> $this->User_model->getUserTags($slug),
+				'image'			=> guessImage('users', $slug),
+				'author'		=> $this->settings['siteTitle']
+			);
+			if($this->input->is_ajax_request())
+			{
+				$this->output->set_content_type('application/json');
+				$this->output->set_output(
+					json_encode(
+						array(
+							'meta'		=> $data['meta'],
+							'html'		=> $this->load->view('commissions', $data, true)
+						)
+					)
+				);
+			}
+			else
+			{
+				$this->template->build('commissions', $data);
+			}
+		}
 		else
 		{
 			$data['meta']		= array(
 				'title' 		=> phrase('welcome_back'),
 				'descriptions'	=> phrase('whatever_you_writing_for_is_a_reportations'),
-				'keywords'		=> 'post, dwitri, blogs, article, social, blogging',
+				'keywords'		=> 'post,  blogs, article, social, blogging',
 				'image'			=> base_url('uploads/logo.png'),
 				'author'		=> $this->settings['siteTitle']
 			);
+		
+			 
+			$random_parish 						= $this->cache->memcached->get('randaom_parish');
+		
+if (!$random_parish){
+	
+  			$data['cachereset'] = 1;
+ 				$data_pass   						= array();
+			 $data_pass['limit']			= 4;
+			 $data_pass['order_by'] 	= array('column'=>'id','value'=>'RANDOM');
+			$random_parish						= $this->User_model->getParishs($data_pass);
+			
+  $this->cache->memcached->save('randaom_parish',$random_parish, 86400);
+}  
+			$data['randoam_parish']   = $random_parish; 
+			 $data_pass   						= array();
+			 $data_pass['limit']			= 4;
+			 $data_pass['order_by'] 	= array('column'=>'id','value'=>'RANDOM');
+			$data['randoam_commission']		= $this->User_model->getCommRand($data_pass);
+			
+			 $data_pass   						= array();
+			 $data_pass['limit']			= 4;
+			 $data_pass['order_by'] 	= array('column'=>'id','value'=>'RANDOM');
+			$data['feature_posts']		= $this->User_model->getPostFeatures($data_pass);
+			$data_pass   						= array();
+			 $data_pass['limit']			= 4;
+			 $data_pass['order_by'] 	= array('column'=>'tvID','value'=>'RANDOM');
+				$data['media_posts']		= $this->User_model->getTvFeatures($data_pass);
+			
 			if($this->input->is_ajax_request())
 			{
 				$this->output->set_content_type('application/json');
@@ -184,6 +271,10 @@ class User extends CI_Controller
 			}
 			else
 			{
+// 				$mobile=$this->agent->is_mobile();
+// if($mobile){
+// echo "this moile";die;
+// }
 				$this->template->build('home', $data);
 			}
 		}
@@ -232,8 +323,8 @@ class User extends CI_Controller
 		}
 		else
 		{
-			$this->form_validation->set_rules('content', phrase('update_content'), 'trim|required|xss_clean');
-			$this->form_validation->set_rules('visibility', phrase('visibility'), 'trim|required|numeric|xss_clean');
+			$this->form_validation->set_rules('content', phrase('update_content'), 'trim|required');
+			$this->form_validation->set_rules('visibility', phrase('visibility'), 'trim|required|numeric');
 			
 			if($this->form_validation->run() == FALSE)
 			{
@@ -241,13 +332,19 @@ class User extends CI_Controller
 			}
 			else 
 			{
-				$content 	= $this->input->post('content');
-				$visibility	= $this->input->post('visibility');
-				$exec		= $this->Actions_model->statusUpdate();
+			
+				$status = array(
+			'userID' => $this->session->userdata('userID'),
+			'updateContent' => $this->input->post('content'),
+			'visibility' => '1',
+			'timestamp' => time()
+		);
+		$content = $this->input->post('content');
+				$exec		= $this->Actions_model->statusUpdate($status);
 				if($exec)
 				{
 					$updateID = $exec;
-					echo json_encode(array('status' => 200, 'html' => $this->updates_markup($updateID, $content, $visibility)));
+					echo json_encode(array('status' => 200, 'html' => $this->updates_markup($updateID, $content)));
 				}
 				else
 				{
@@ -798,7 +895,7 @@ class User extends CI_Controller
 		{
 			$this->form_validation->set_rules('full_name', phrase('full_name'), 'trim|required|xss_clean');
 			$this->form_validation->set_rules('gender', phrase('gender'), 'trim|required|xss_clean');
-			$this->form_validation->set_rules('age', phrase('age'), 'trim|required|xss_clean|numeric');
+		//	$this->form_validation->set_rules('age', phrase('age'), 'trim|required|xss_clean|numeric');
 			$this->form_validation->set_rules('mobile', phrase('mobile'), 'trim|required|xss_clean|numeric');
 			$this->form_validation->set_rules('address', phrase('address'), 'trim|required|xss_clean');
 			$this->form_validation->set_rules('language', phrase('language'), 'trim|xss_clean');
@@ -830,7 +927,17 @@ class User extends CI_Controller
 					'address'			=> $this->input->post('address'),
 					'email'				=> $this->input->post('email'),
 					'language'			=> $this->input->post('language'),
-					'bio'				=> $this->input->post('bio')
+					'bio'				=> $this->input->post('bio'),
+					'pr_father_name'				=> $this->input->post('pr_father_name'),
+					'pr_mother_name'				=> $this->input->post('pr_mother_name'),
+						'pr_birth_date'				=> $this->input->post('pr_birth_date'),
+							'pr_birth_place'				=> $this->input->post('pr_birth_place'),
+								'pr_seminary'				=> $this->input->post('pr_seminary'),
+
+	'pr_ordination_date'				=> $this->input->post('pr_ordination_date'),
+		'pr_place_ordination'				=> $this->input->post('pr_place_ordination'),
+		'pr_ordination_by'				=> $this->input->post('pr_ordination_by'),
+		'pr_parish'				=> $this->input->post('pr_parish')
 				);
 				if($this->session->userdata('newRegister'))
 				{
@@ -908,29 +1015,35 @@ class User extends CI_Controller
 		if($this->session->userdata('loggedIn')) redirect($this->session->userdata('userName'));
 		if($this->input->post('hash'))
 		{
-			$this->form_validation->set_rules('username', phrase('username_or_email'),'trim|required|xss_clean');
-			$this->form_validation->set_rules('password', phrase('password'),'trim|required|xss_clean');
-			$this->form_validation->set_rules('hash', phrase('hash'),'trim|required|xss_clean');
+			$this->form_validation->set_rules('username', phrase('username_or_email'),'required');
+			$this->form_validation->set_rules('password', phrase('password'),'required');
+			//$this->form_validation->set_rules('hash', phrase('hash'),'trim|required');
 			
-			if($this->form_validation->run() == FALSE)
-			{
-				echo json_encode(array('status' => 204, 'messages' => array(validation_errors('<span><i class="fa fa-ban"></i> &nbsp; ', '</span><br />'))));
-			}
-			else
-			{
+			// if($this->form_validation->run() == FALSE)
+			// {
+			// 	die('valideate irre');
+			// 	echo json_encode(array('status' => 204, 'messages' => array(validation_errors('<span><i class="fa fa-ban"></i> &nbsp; ', '</span><br />'))));
+			// }
+			// else
+			// {
 				$username		= $this->input->post('username');
 				$password		= sha1($this->input->post('password') . SALT);
 				
+				
 				if($this->Actions_model->loginCheck($username, $password))
 				{
+					
 					$this->session->set_flashdata('success', phrase('welcome_back') . ', ' . $this->session->userdata('full_name'));
-					echo json_encode(array("status" => 200, "redirect" => (isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : $_SERVER['SERVER_NAME'])));
+					redirect((isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : $_SERVER['SERVER_NAME']));
+					//echo json_encode(array("status" => 200, "redirect" => (isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : $_SERVER['SERVER_NAME'])));
+					
 				}
 				else
 				{
+					
 					echo json_encode(array('status' => 406, 'messages' => phrase('username_or_password_did_not_match')));
 				}
-			}
+		//	}
 		}
 		else
 		{
@@ -951,6 +1064,8 @@ class User extends CI_Controller
 			);
 			if($this->input->is_ajax_request())
 			{
+				header('Access-Control-Allow-Origin: *');
+				header("Access-Control-Allow-Methods: GET, OPTIONS,POST");
 				$this->output->set_content_type('application/json');
 				$this->output->set_output(
 					json_encode(
@@ -970,10 +1085,12 @@ class User extends CI_Controller
 	
 	function register()
  	{
-		if($this->session->userdata('loggedIn')) redirect();
+ 		
+	
 		
 		if(null != $this->input->post('hash'))
 		{
+		
 			$this->form_validation->set_rules('full_name', phrase('full_name'), 'trim|required|xss_clean');
 			$this->form_validation->set_rules('gender', phrase('gender'), 'trim|required|xss_clean');
 			$this->form_validation->set_rules('age', phrase('age'), 'trim|required|xss_clean|numeric');
@@ -984,13 +1101,10 @@ class User extends CI_Controller
 			$this->form_validation->set_rules('password', phrase('password'), 'trim|required|min_length[4]|max_length[32]');
 			$this->form_validation->set_rules('con_password', phrase('confirmation_password'),'trim|required|matches[password]');
 			$this->form_validation->set_rules('language', phrase('language'), 'trim|xss_clean');
+	
 			
-			if($this->form_validation->run() == FALSE)
-			{
-				echo json_encode(array('status' => 204, 'messages' => array(validation_errors('<span><i class="fa fa-ban"></i> &nbsp; ', '</span><br />'))));
-			}
-			else
-			{
+	
+				
 				$fields = array(
 					'full_name'			=> $this->input->post('full_name'),
 					'gender'			=> $this->input->post('gender'),
@@ -1007,25 +1121,18 @@ class User extends CI_Controller
 				$password				= sha1($this->input->post('con_password'). SALT);
 				if($this->Actions_model->createProfile($fields, $username, $password))
 				{
-					$this->session->set_flashdata('success', phrase('your_account_was_created'));
+					$this->session->set_flashdata('success', 'new Account created successfully');
 					echo json_encode(array("status" => 200, "redirect" => base_url($fields['userName'])));
 				}
 				else
 				{
 					echo json_encode(array('status' => 500, 'messages' => phrase('unable_to_registering_your_account')));
 				}
-			}
+			
 		}
 		else
 		{
-			$user = $this->facebook->getUser();
-			if($user)
-			{
-				if($this->Actions_model->facebookLogin($user))
-				{
-					redirect($this->session->userdata('userName'));
-				}
-			}
+			
 			
 			$data['meta']		= array(
 				'title' 		=> phrase('register'),
@@ -1055,6 +1162,7 @@ class User extends CI_Controller
 	
 	function uploads()
 	{
+		
 		if(!$this->input->is_ajax_request()) return error(404);
 		
 		if(!$this->session->userdata('loggedIn'))
@@ -1063,15 +1171,20 @@ class User extends CI_Controller
 		}
 		else
 		{
-			$type = $this->uri->segment(3);
+			$type 			= $this->uri->segment(3);
+			$id         = ($this->uri->segment(5) != null) ?$this->uri->segment(5):false;
+			$module     = ($this->uri->segment(4) != null )?$this->uri->segment(4):'users';
+			
+		
+			
 			
 			if($type == 'photo')
 			{
-				$config['upload_path'] 	= 'uploads/users';
+				$config['upload_path'] 	= 'uploads/'.$module;
 			}
 			elseif($type == 'cover')
 			{
-				$config['upload_path'] 	= 'uploads/users/covers';
+				$config['upload_path'] 	= 'uploads/'.$module.'/covers';
 			}
 			else
 			{
@@ -1095,7 +1208,7 @@ class User extends CI_Controller
 
 					//upload successful generate a thumbnail
 					$config['image_library'] 	= 'gd2';
-					$config['source_image'] 	= 'uploads/users/' . $this->upload_data['userfile']['file_name'];
+					$config['source_image'] 	= 'uploads/'.$module.'/' . $this->upload_data['userfile']['file_name'];
 					$config['create_thumb'] 	= FALSE;
 					$config['maintain_ratio'] 	= TRUE;
 					$config['width']     		= 500;
@@ -1107,7 +1220,7 @@ class User extends CI_Controller
 					if($this->image_lib->resize())
 					{
 						$this->image_lib->clear();
-						generateThumbnail('users', $this->upload_data['userfile']['file_name']);
+						generateThumbnail($module, $this->upload_data['userfile']['file_name']);
 					}
 				}
 				elseif($type == 'cover')
@@ -1116,7 +1229,7 @@ class User extends CI_Controller
 
 					//upload successful generate a thumbnail
 					$config['image_library'] 	= 'gd2';
-					$config['source_image'] 	= 'uploads/users/covers/' . $this->upload_data['userfile']['file_name'];
+					$config['source_image'] 	= 'uploads/'.$module.'/covers/' . $this->upload_data['userfile']['file_name'];
 					$config['create_thumb'] 	= FALSE;
 					$config['maintain_ratio'] 	= TRUE;
 					$config['width']     		= 1024;
@@ -1129,31 +1242,86 @@ class User extends CI_Controller
 					$this->image_lib->clear();
 				}
 				
-				$this->db->select($type);
-				$this->db->where('userID', $this->session->userdata('userID'));
-				$this->db->limit(1);
-				$query = $this->db->get('users');
 				
-				if($query->num_rows() > 0)
+				
+				// //$this->db->select($type);
+				// $this->db->where('userID', $this->session->userdata('userID'));
+				// $this->db->limit(1);
+				// $query = $this->db->get('users');
+				
+				// if($query->num_rows() > 0)
+				// {
+				// 	foreach($query->result_array() as $row)
+				// 	{
+				// 		if($type == 'photo' && file_exists('uploads/users/' . $row['photo']))
+				// 		{
+				// 			unlink('uploads/users/' . $row['photo']);
+				// 			if(file_exists('uploads/users/thumbs/' . $row['photo']))
+				// 			{
+				// 				unlink('uploads/users/thumbs/' . $row['photo']);
+				// 			}
+				// 		}
+				// 		elseif($type == 'cover' && file_exists('uploads/users/covers/' . $row['cover']))
+				// 		{
+				// 			unlink('uploads/users/covers/' . $row['cover']);
+				// 		}
+				// 	}
+				// }
+				
+				$parsedata 			= array();
+				$filename 			= $this->upload_data['userfile']['file_name'];
+				$datafield 			= array();
+				
+				if($module == 'users')
 				{
-					foreach($query->result_array() as $row)
-					{
-						if($type == 'photo' && file_exists('uploads/users/' . $row['photo']))
+					if($type == 'photo')
 						{
-							unlink('uploads/users/' . $row['photo']);
-							if(file_exists('uploads/users/thumbs/' . $row['photo']))
-							{
-								unlink('uploads/users/thumbs/' . $row['photo']);
-							}
+							$parsedata['photo'] = $filename;
 						}
-						elseif($type == 'cover' && file_exists('uploads/users/covers/' . $row['cover']))
+					elseif($type == 'cover')
 						{
-							unlink('uploads/users/covers/' . $row['cover']);
+							$parsedata['cover'] = $filename;
 						}
-					}
+						$datafield['table'] 				= 'users';
+						$datafield['where_column'] 	= 'userID';
+						$userId = $this->session->userdata('userID');
+						if($id)
+						{
+						$userId = $id;
+						}
+						$datafield['where_data']		= $userId;
+						
+				}elseif($module == 'parish')
+				{
+					if($type == 'photo')
+						{
+							$parsedata['cimg'] = $filename;
+						}
+					elseif($type == 'cover')
+						{
+							$parsedata['cimg'] = $filename;
+						}
+							$datafield['table'] 				= 'parish';
+						$datafield['where_column'] 	= 'id';
+						$datafield['where_data']		= $this->input->post('parish_id');
+				}
+				elseif($module == 'commissions')
+				{
+					if($type == 'photo')
+						{
+							$parsedata['c_img'] = $filename;
+						}
+					elseif($type == 'cover')
+						{
+							$parsedata['cimg'] = $filename;
+						}
+							$datafield['table'] 				= 'commissions';
+						$datafield['where_column'] 	= 'id';
+						$datafield['where_data']		= $id;
 				}
 				
-				if($this->Actions_model->updatePhoto($type, $this->upload_data['userfile']['file_name']))
+				
+				if($this->Actions_model->updatePhoto($parsedata, $datafield))
 				{
 					echo json_encode(array('status' => 200, 'messages' => phrase($type . '_changed_successfully')));
 				}
@@ -1192,7 +1360,7 @@ class User extends CI_Controller
 		}
 	}
 
-	function updates_markup($updateID = 0, $content = '', $visibility = 0)
+	function updates_markup($updateID = 0, $content = '', $visibility = 1)
 	{
 		return '
 			<div id="update' . $updateID . '">

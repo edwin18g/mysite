@@ -1,5 +1,409 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
-
+if(!function_exists('getTimeline_parish'))
+{
+	function getTimelines_parish($userID = 0, $limit = 12, $offset = 0, $timestamp = null)
+	{
+		$CI =& get_instance();
+		
+		$users		= array($userID);
+		
+		$query	= $CI->db->query('
+			SELECT *
+				FROM
+					(
+						SELECT
+							timestamp,
+							updateID as groupID,
+							updateID as groupOrder,
+							IF(updateID IS NOT NULL, "YES", NULL) as is_update,
+							updateID,
+							userID as update_contributor,
+							timestamp as update_time,
+							updateID as is_post,
+							updateID as postID,
+							updateID as post_contributor,
+							updateID as post_time,
+							updateID as is_snapshot,
+							updateID as snapshotID,
+							updateID as snapshot_contributor,
+							updateID as snapshot_time,
+							updateID as is_openletter,
+							updateID as letterID,
+							updateID as openletter_contributor,
+							updateID as openletter_time,
+							updateID as is_tv,
+							updateID as tvID,
+							updateID as tv_contributor,
+							updateID as tv_time,
+							updateID as is_comment,
+							updateID as commentID,
+							updateID as commenterID,
+							updateID as item_commented,
+							updateID as commentType,
+							updateID as comment_time,
+							updateID as is_like,
+							updateID as likeID,
+							updateID as likerID,
+							updateID as item_liked,
+							updateID as likeType,
+							updateID as like_time,
+							updateID as is_repost,
+							updateID as repostID,
+							updateID as reposterID,
+							updateID as item_reposted,
+							updateID as repostType,
+							updateID as repost_time
+						FROM
+							updates
+						WHERE
+							userID IN (' . join(',', $users) . ')
+						' . ($timestamp != null ? 'AND MONTH(FROM_UNIXTIME(timestamp)) = MONTH(FROM_UNIXTIME(' . $timestamp . '))' : '') . '
+						UNION ALL
+						SELECT
+							timestamp,
+							postID,
+							postID,
+							postID,
+							postID,
+							postID,
+							postID,
+							IF(postID IS NOT NULL, "YES", NULL),
+							postID,
+							contributor,
+							timestamp,
+							postID,
+							postID,
+							postID,
+							postID,
+							postID,
+							postID,
+							postID,
+							postID,
+							postID,
+							postID,
+							postID,
+							postID,
+							postID,
+							postID,
+							postID,
+							postID,
+							postID,
+							postID,
+							postID,
+							postID,
+							postID,
+							postID,
+							postID,
+							postID,
+							postID,
+							postID,
+							postID,
+							postID,
+							postID,
+							postID
+						FROM
+							posts
+						WHERE
+							contributor IN (' . join(',', $users) . ')
+						' . ($timestamp != null ? 'AND MONTH(FROM_UNIXTIME(timestamp)) = MONTH(FROM_UNIXTIME(' . $timestamp . '))' : '') . '
+						UNION ALL
+						SELECT
+							timestamp,
+							snapshotID,
+							snapshotID,
+							snapshotID,
+							snapshotID,
+							snapshotID,
+							snapshotID,
+							snapshotID,
+							snapshotID,
+							snapshotID,
+							snapshotID,
+							IF(snapshotID IS NOT NULL, "YES", NULL),
+							snapshotID,
+							contributor,
+							timestamp,
+							snapshotID,
+							snapshotID,
+							snapshotID,
+							snapshotID,
+							snapshotID,
+							snapshotID,
+							snapshotID,
+							snapshotID,
+							snapshotID,
+							snapshotID,
+							snapshotID,
+							snapshotID,
+							snapshotID,
+							snapshotID,
+							snapshotID,
+							snapshotID,
+							snapshotID,
+							snapshotID,
+							snapshotID,
+							snapshotID,
+							snapshotID,
+							snapshotID,
+							snapshotID,
+							snapshotID,
+							snapshotID,
+							snapshotID
+						FROM
+							snapshots
+						WHERE
+							contributor IN (' . join(',', $users) . ')
+					' . ($timestamp != null ? 'AND MONTH(FROM_UNIXTIME(timestamp)) = MONTH(FROM_UNIXTIME(' . $timestamp . '))' : '') . '
+						UNION ALL
+						SELECT
+							timestamp,
+							letterID,
+							letterID,
+							letterID,
+							letterID,
+							letterID,
+							letterID,
+							letterID,
+							letterID,
+							letterID,
+							letterID,
+							letterID,
+							letterID,
+							letterID,
+							letterID,
+							IF(letterID IS NOT NULL, "YES", NULL),
+							letterID,
+							contributor,
+							timestamp,
+							letterID,
+							letterID,
+							letterID,
+							letterID,
+							letterID,
+							letterID,
+							letterID,
+							letterID,
+							letterID,
+							letterID,
+							letterID,
+							letterID,
+							letterID,
+							letterID,
+							letterID,
+							letterID,
+							letterID,
+							letterID,
+							letterID,
+							letterID,
+							letterID,
+							letterID
+						FROM
+							openletters
+						WHERE
+							contributor IN (' . join(',', $users) . ')
+						' . ($timestamp != null ? 'AND MONTH(FROM_UNIXTIME(timestamp)) = MONTH(FROM_UNIXTIME(' . $timestamp . '))' : '') . '
+						UNION ALL
+						SELECT
+							timestamp,
+							tvID,
+							tvID,
+							tvID,
+							tvID,
+							tvID,
+							tvID,
+							tvID,
+							tvID,
+							tvID,
+							tvID,
+							tvID,
+							tvID,
+							tvID,
+							tvID,
+							tvID,
+							tvID,
+							tvID,
+							tvID,
+							IF(tvID IS NOT NULL, "YES", NULL),
+							tvID,
+							contributor,
+							timestamp,
+							tvID,
+							tvID,
+							tvID,
+							tvID,
+							tvID,
+							tvID,
+							tvID,
+							tvID,
+							tvID,
+							tvID,
+							tvID,
+							tvID,
+							tvID,
+							tvID,
+							tvID,
+							tvID,
+							tvID,
+							tvID
+						FROM
+							tv
+						WHERE
+							contributor IN (' . join(',', $users) . ')
+						' . ($timestamp != null ? 'AND MONTH(FROM_UNIXTIME(timestamp)) = MONTH(FROM_UNIXTIME(' . $timestamp . '))' : '') . '
+						UNION ALL
+						SELECT
+							timestamp,
+							itemID,
+							commentType,
+							commentID,
+							commentID,
+							commentID,
+							commentID,
+							commentID,
+							commentID,
+							commentID,
+							commentID,
+							commentID,
+							commentID,
+							commentID,
+							commentID,
+							commentID,
+							commentID,
+							commentID,
+							commentID,
+							commentID,
+							commentID,
+							commentID,
+							commentID,
+							IF(commentID IS NOT NULL, "YES", NULL),
+							commentID,
+							userID,
+							itemID,
+							commentType,
+							timestamp,
+							commentID,
+							commentID,
+							commentID,
+							commentID,
+							commentID,
+							commentID,
+							commentID,
+							commentID,
+							commentID,
+							commentID,
+							commentID,
+							commentID
+						FROM
+							comments
+						WHERE
+							userID IN (' . join(',', $users) . ')
+						' . ($timestamp != null ? 'AND MONTH(FROM_UNIXTIME(timestamp)) = MONTH(FROM_UNIXTIME(' . $timestamp . '))' : '') . '
+						UNION ALL
+						SELECT
+							timestamp,
+							itemID,
+							likeType,
+							likeID,
+							likeID,
+							likeID,
+							likeID,
+							likeID,
+							likeID,
+							likeID,
+							likeID,
+							likeID,
+							likeID,
+							likeID,
+							likeID,
+							likeID,
+							likeID,
+							likeID,
+							likeID,
+							likeID,
+							likeID,
+							likeID,
+							likeID,
+							likeID,
+							likeID,
+							likeID,
+							likeID,
+							likeID,
+							likeID,
+							IF(likeID IS NOT NULL, "YES", NULL),
+							likeID,
+							userID,
+							itemID,
+							likeType,
+							timestamp,
+							likeID,
+							likeID,
+							likeID,
+							likeID,
+							likeID,
+							likeID
+						FROM
+							likes
+						WHERE
+							userID IN (' . join(',', $users) . ')
+						' . ($timestamp != null ? 'AND MONTH(FROM_UNIXTIME(timestamp)) = MONTH(FROM_UNIXTIME(' . $timestamp . '))' : '') . '
+						UNION ALL
+						SELECT
+							timestamp,
+							itemID,
+							repostType,
+							repostID,
+							repostID,
+							repostID,
+							repostID,
+							repostID,
+							repostID,
+							repostID,
+							repostID,
+							repostID,
+							repostID,
+							repostID,
+							repostID,
+							repostID,
+							repostID,
+							repostID,
+							repostID,
+							repostID,
+							repostID,
+							repostID,
+							repostID,
+							repostID,
+							repostID,
+							repostID,
+							repostID,
+							repostID,
+							repostID,
+							repostID,
+							repostID,
+							repostID,
+							repostID,
+							repostID,
+							repostID,
+							IF(repostID IS NOT NULL, "YES", NULL),
+							repostID,
+							userID,
+							itemID,
+							repostType,
+							timestamp
+						FROM
+							reposts
+						WHERE
+							userID IN (' . join(',', $users) . ')
+						' . ($timestamp != null ? 'AND MONTH(FROM_UNIXTIME(timestamp)) = MONTH(FROM_UNIXTIME(' . $timestamp . '))' : '') . '
+						ORDER BY timestamp DESC
+					) union_fetch
+				GROUP BY groupID, groupOrder
+				ORDER BY timestamp DESC
+				LIMIT
+					' . $offset . ', '. $limit . '
+		')->result_array();
+		return $query;
+	}
+}
 if(!function_exists('getTimeline'))
 {
 	function getTimelines($userID = 0, $limit = 12, $offset = 0, $timestamp = null)

@@ -1,21 +1,22 @@
 
 	<div class="bg-info">
-		<div class="container first-child">
+		<div class="container-fluid first-child">
 			<div class="row">
-				<div class="col-sm-7 col-sm-offset-1 hidden-xs">
-					<h2><i class="fa fa-language"></i> &nbsp; <?php echo phrase('translation'); ?></h2>
+				<div class="col-sm-7  hidden-xs">
+					
+					<span class="Page-title">User <i class="fa fa-angle-double-right"></i> <?php echo phrase('translation'); ?> <i class="fa fa-angle-double-right"></i></span>
 				</div>
-				<div class="col-sm-3">
+				<div class="col-sm-2">
 					<div class="col-12-xs">
-						<a href="javascript:void(0)" class="btn btn-lg btn-block btn-primary disabled"><i class="fa fa-plus"></i> &nbsp; <?php echo phrase('add_translation'); ?></a>
+						<a href="javascript:void(0)" class="btn btn-md btn-block btn-primary disabled"><i class="fa fa-plus"></i> &nbsp; <?php echo phrase('add_translation'); ?></a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="container">
+	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-3 col-md-offset-1 hidden-xs hidden-sm sticky">
+			<div class="col-md-2 hidden-xs hidden-sm sticky" style="background: #fff;margin: 0px;position: static;">
 			
 				<?php echo ($this->input->is_ajax_request() ? $this->load->view('dashboard_navigation') : $template['partials']['navigation']); ?>
 				
@@ -40,7 +41,7 @@
 									<div class="col-sm-4" style="margin:0">
 										<div class="tile-stats tile-gray">
 											<p>
-												<input type="text" name="phrase<?php echo $row['phrase_id'];?>" placeholder="<?php echo $row['phrase'];?>" value="<?php echo $phrase_language;?>" data-push="tooltip" data-placement="top" title="<?php echo $row['phrase'];?>" class="form-control"/>
+												<input type="text" name="phrase<?php echo $row['phrase_id'];?>" placeholder="<?php echo $row['phrase'];?>" value="<?php echo $phrase_language;?>" data-push="tooltip" data-placement="top" title="<?php echo $phrase_language;?>"  class="form-control tranClass"/>
 											</p>
 										</div>
 										

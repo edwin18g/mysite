@@ -18,9 +18,8 @@
 					<?php echo $meta['descriptions']; ?>
 				</div>
 				<div class="col-md-3">
-					<?php if(!$this->session->userdata('loggedIn')) { ?>
-						<a href="#login" class="btn btn-lg btn-block btn-primary" data-toggle="modal"><i class="fa fa-plus"></i> &nbsp; <?php echo phrase('write_article'); ?></a>
-					<?php } else { ?>
+					<?php if($this->session->userdata('loggedIn')) { ?>
+					
 						<a href="<?php echo base_url('user/posts/add'); ?>" class="btn btn-lg btn-block btn-primary newPost"><i class="fa fa-plus"></i> &nbsp; <?php echo phrase('write_article'); ?></a>
 					<?php } ?>
 				</div>

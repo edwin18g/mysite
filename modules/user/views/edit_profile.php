@@ -2,28 +2,19 @@
 	<?php foreach($profile as $row) { ?>
 	
 	<div class="bg-info">
-		<div class="container first-child">
+		<div class="container-fluid first-child">
 			<div class="row">
-				<div class="col-sm-7 col-sm-offset-1 hidden-xs">
-					<h2><i class="fa fa-cog"></i> &nbsp; <?php echo phrase('edit_profile'); ?></h2>
-				</div>
-				<div class="col-sm-3">
-					<?php if(!empty($row['facebookUID'])) { ?>
+				<div class="col-sm-7  hidden-xs">
 					
-						<a class="btn btn-danger btn-lg btn-block" href="<?php echo base_url('user/connect'); ?>"><i class="fa fa-facebook"></i> &nbsp; <?php echo phrase('do_not_connect_to_facebook'); ?></a>
-						
-					<?php } else { ?>
-					
-						<a class="btn btn-primary btn-lg btn-block" href="<?php echo base_url('user/connect'); ?>"><i class="fa fa-facebook"></i> &nbsp; <?php echo phrase('connect_to_facebook'); ?></a>
-						
-					<?php } ?>
+						<span class="Page-title">User <i class="fa fa-angle-double-right"></i> <?php echo phrase('edit_profile'); ?> <i class="fa fa-angle-double-right"></i></span>
 				</div>
+				
 			</div>
 		</div>
 	</div>
-	<div class="container">
+	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-3 col-md-offset-1 hidden-xs hidden-sm sticky">
+			<div class="col-md-2 hidden-xs hidden-sm sticky" style="background: #fff;margin: 0px;position: static;">
 			
 				<?php echo ($this->input->is_ajax_request() ? $this->load->view('dashboard_navigation') : $template['partials']['navigation']); ?>
 				
@@ -54,14 +45,81 @@
 					</div>
 					
 					<?php } ?>
-					
+						<div class="form-group">
+						<label class="control-label col-sm-4">Father Name </label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" name="pr_father_name" value="<?php echo set_value('pr_father_name', $row['pr_father_name']); ?>" />
+						
+						</div>
+					</div>
+						<div class="form-group">
+						<label class="control-label col-sm-4">Mother Name </label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" name="pr_mother_name" value="<?php echo set_value('pr_mother_name', $row['pr_mother_name']); ?>" />
+						
+						</div>
+					</div>
 					<div class="form-group">
+						<label class="control-label col-sm-4">Date of Birth </label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" name="pr_birth_date" value="<?php echo set_value('pr_birth_date', $row['pr_birth_date']); ?>" />
+						
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-4">Birth  Place</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" name="pr_birth_place" value="<?php echo set_value('pr_birth_place', $row['pr_birth_place']); ?>" />
+						
+						</div>
+					</div>
+						<div class="form-group">
+						<label class="control-label col-sm-4">
+						Seminary</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" name="pr_seminary" value="<?php echo set_value('pr_seminary', $row['pr_seminary']); ?>" />
+						
+						</div>
+					</div>
+						<div class="form-group">
+						<label class="control-label col-sm-4">
+						Ordination Date</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" name="pr_ordination_date" value="<?php echo set_value('pr_ordination_date', $row['pr_ordination_date']); ?>" />
+						
+						</div>
+					</div>
+						<div class="form-group">
+						<label class="control-label col-sm-4">
+						 Place of Ordination</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" name="pr_place_ordination" value="<?php echo set_value('pr_place_ordination', $row['pr_place_ordination']); ?>" />
+						
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-4">
+						 Ordination By</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" name="pr_ordination_by" value="<?php echo set_value('pr_ordination_by', $row['pr_ordination_by']); ?>" />
+						
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-4">
+						 Parish</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" name="pr_parish" value="<?php echo set_value('pr_parish', $row['pr_parish']); ?>" />
+						
+						</div>
+					</div>
+					<div class="form-group hidden">
 						<label class="control-label col-sm-4"><?php echo phrase('gender'); ?></label>
 						<div class="col-sm-8">
 							<select name="gender" class="form-control">
 								<option value=""><?php echo phrase('select_gender'); ?></option>
-								<option value="l"<?php if($row['gender'] == 'l') echo ' selected'; ?>><?php echo phrase('man'); ?></option>
-								<option value="p"<?php if($row['gender'] == 'p') echo ' selected'; ?>><?php echo phrase('woman'); ?></option>
+								<option value="l" selected><?php echo phrase('man'); ?></option>
+								
 							</select>
 							<?php echo form_error('gender', '<div class="alert alert-danger">', '</div>'); ?>
 						</div>

@@ -44,10 +44,10 @@
 									<div class="col-sm-12">
 										<h3><?php echo phrase('post_category'); ?></h3>	
 										<?php
-											foreach ($categories as $c)
+										if(!empty($categories)){	foreach ($categories as $c)
 											{
 												echo '<label class="control-label"><input type="checkbox" name="categoryID[]" value="' . $c['categoryID'] . '"' . (set_value('categoryID[]') ? (in_array(set_value('categoryID[]'), json_decode(set_value('categoryID[]'))) ? ' checked' : '') : '') . ' /> ' . $c['categoryTitle'] . '</label><br />';	
-											}
+											}}
 										?>
 									</div>
 								</div>

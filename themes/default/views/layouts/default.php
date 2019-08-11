@@ -18,37 +18,105 @@
 		<meta property="og:image" content="<?php echo truncate($meta['image'], 160); ?>" />
 		<meta property="fb:app_id" content="423905061028802"/>
 		
-		<link href="<?php echo base_url('themes/default/css/font-awesome/css/font-awesome.min.css'); ?>" rel="stylesheet">
-		<link href="<?php echo base_url('themes/default/css/bootstrap.min.css'); ?>" rel="stylesheet">
-		<link href="<?php echo base_url('themes/default/css/animate.css'); ?>" rel="stylesheet">
-		<link href="<?php echo base_url('themes/default/css/emoji.css'); ?>" rel="stylesheet">
-		<link href="<?php echo base_url('themes/default/css/styles.css'); ?>" rel="stylesheet">
-		<link href="<?php echo base_url('themes/default/fonts/raleway/Raleway.css'); ?>" rel="stylesheet">
+		<!-- <link href="<?php echo base_url('themes/default/css/font-awesome/css/font-awesome.min.css?123'); ?>" rel="stylesheet"> -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css?123" />
+		<link href="<?php echo base_url('themes/default/css/bootstrap.min.css?5545'); ?>" rel="stylesheet">
+		<link href="<?php echo base_url('themes/default/css/animate.css?123'); ?>" rel="stylesheet">
+		<link href="<?php echo base_url('themes/default/css/emoji.css?1234'); ?>" rel="stylesheet">
+		<link href="<?php echo base_url('themes/default/css/styles.css?3454744'); ?>" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css" />
+		<link href="<?php echo base_url('themes/default/fonts/raleway/Raleway.css?1234'); ?>" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Mukta+Malar" rel="stylesheet">
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-		<script src="<?php echo base_url('themes/default/js/jquery.js'); ?>"></script>
-		<script src="<?php echo base_url('themes/default/js/bootstrap.min.js'); ?>"></script>
-		<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url('themes/default/images/favicon.ico'); ?>">
+		<script src="<?php echo base_url('themes/default/js/jquery.js?1234'); ?>"></script>
+		<script src="<?php echo base_url('themes/default/js/bootstrap.min.js?123'); ?>"></script>
+		<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url('themes/default/images/favicon.ico?123'); ?>">
 	</head>
 	<body class="fixed">
+	
 		<nav class="navbar navbar-custom navbar-fixed-top navbar-inverse text-uppercase hidden-xs hidden-sm">
+				<div class="col-sm-12" style="
+    background: #f5f5f5;
+    margin: 0px;
+"><a class="navbar-brand ajaxloads" href="<?php echo base_url(); ?>"> <img src="<?php echo base_url('themes/default/images/logo.png?1234'); ?>" alt="logo" height="100%" /></a>
+<form class="col-sm-6">
+  <div class="input-group">
+    <input type="text" class="form-control" placeholder="Search">
+    <div class="input-group-btn">
+      <button class="btn btn-default" type="submit">
+        <i class="fa fa-search"></i>
+      </button>
+    </div>
+  </div>
+</form>
+</div>
 			<div class="container">
+			
 				<div class="collapse navbar-collapse" role="navigation">
-					<a class="navbar-brand ajaxloads" href="<?php echo base_url(); ?>"><img src="<?php echo base_url('themes/default/images/logo.png?123'); ?>" alt="logo" height="100%" /></a>
+				
 					<ul class="nav navbar-nav">
+						<li<?php echo ($this->uri->segment(1) == '' ? ' class="active"' : ''); ?>>
+							<a href="<?php echo base_url(); ?>" > Home</a>
+						</li>
+						<li<?php echo ($this->uri->segment(1) == 'administration' ? ' class="active"' : ''); ?>>
+							<a href="<?php echo base_url('administration'); ?>" > Administration</a>
+						</li>
+							<li<?php echo ($this->uri->segment(1) == 'priest' ? ' class="active"' : ''); ?>>
+							<a href="<?php echo base_url('priest'); ?>" >Priests</a>
+						</li>
+							<li<?php echo ($this->uri->segment(1) == 'parish' ? ' class="active"' : ''); ?>>
+							<a href="<?php echo base_url('parish'); ?>" > Parish</a>
+						</li>
+							<li<?php echo ($this->uri->segment(1) == 'commission' ? ' class="active"' : ''); ?>>
+							<a href="<?php echo base_url('commission'); ?>" > Commissions </a>
+						</li>
+						<?php $organizations = array('schools','institutions','industries','kidss') ?>
+							<li class="dropdown <?php echo (in_array($this->uri->segment(2), $organizations)  ? 'active' : ''); ?>"  >
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Organizations <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+									<li>
+										<a href="<?php echo base_url('/pages/schools'); ?>" >Schools</a>
+									</li>
+										<li<?php echo ($this->uri->segment(1) == 'Organizations' ? ' class="active"' : ''); ?>>
+										<a href="<?php echo base_url('/pages/institutions'); ?>" >Institutions</a>
+									</li>
+									<li<?php echo ($this->uri->segment(1) == 'Organizations' ? ' class="active"' : ''); ?>>
+										<a href="<?php echo base_url('/pages/industries'); ?>" >Industries</a>
+									</li>
+										<li<?php echo ($this->uri->segment(1) == 'Organizations' ? ' class="active"' : ''); ?>>
+										<a href="<?php echo base_url('/pages/kidss'); ?>" >kidss</a>
+									</li>
+							</ul>
+							</li>
+						
+							<li<?php echo ($this->uri->segment(2) == 'history' ? ' class="active"' : ''); ?>>
+							<a href="<?php echo base_url('pages/history'); ?>" > History</a>
+						</li>
+						<li<?php echo ($this->uri->segment(2) == 'contact' ? ' class="active"' : ''); ?>>
+							<a href="<?php echo base_url('/pages/contact'); ?>" > Contact Us</a>
+						</li>
+						
+							<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+							
+								      
 						<li<?php echo ($this->uri->segment(1) == 'posts' ? ' class="active"' : ''); ?>>
 							<a href="<?php echo base_url('posts'); ?>" ><i class="fa fa-newspaper-o"></i> <?php echo phrase('posts'); ?></a>
 						</li>
-						<?php /*<li<?php echo ($this->uri->segment(1) == 'snapshots' ? ' class="active"' : ''); ?>>
+						<li<?php echo ($this->uri->segment(1) == 'snapshots' ? ' class="active"' : ''); ?>>
 							<a href="<?php echo base_url('snapshots'); ?>" ><i class="fa fa-image"></i> <?php echo phrase('snapshot'); ?></a>
 						</li>
 						<li<?php echo ($this->uri->segment(1) == 'openletters' ? ' class="active"' : ''); ?>>
 							<a href="<?php echo base_url('openletters'); ?>" ><i class="fa fa-paperclip"></i> <?php echo phrase('open_letter'); ?></a>
-						</li>*/?>
-						<li<?php echo ($this->uri->segment(1) == 'tv' ? ' class="active"' : ''); ?>>
-							<a href="<?php echo base_url('tv'); ?>" ><i class="fa fa-desktop"></i> <?php echo phrase('tv_channels'); ?></a>
 						</li>
+								</ul>
+								</li>
+						<?php /*<li<?php echo ($this->uri->segment(1) == 'tv' ? ' class="active"' : ''); ?>>
+							<a href="<?php echo base_url('tv'); ?>" ><i class="fa fa-desktop"></i> <?php echo phrase('tv_channels'); ?></a>
+						</li>*/ ?>
 						
 						<?php if($this->session->userdata('loggedIn')) { ?>
 						
@@ -60,19 +128,19 @@
 						
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li<?php echo ($this->uri->segment(1) == 'search' ? ' class="active"' : ''); ?>>
-							<a href="#search" data-toggle="modal" data-push="tooltip" data-placement="bottom" data-title="<?php echo phrase('search'); ?>"><i class="fa fa-search"></i></a>
-						</li>
+						<!--<li< ?php echo ($this->uri->segment(1) == 'search' ? ' class="active"' : ''); ?>>-->
+						<!--	<a href="#search" data-toggle="modal" data-push="tooltip" data-placement="bottom" data-title="< ?php echo phrase('search'); ?>"><i class="fa fa-search"></i></a>-->
+						<!--</li>-->
 						<?php if($this->session->userdata('loggedIn')) { ?>
-						<li class="dropdown">
-							<a href="javascript:void(0)" class="dropdown-toggle load-notifications" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" aria-close="false"> &nbsp;  <span class="countAlert<?php echo (countAlert($this->session->userdata('userID')) > 0 ? ' badge bg-red' : ''); ?>" style="font-size:16px"><i class="fa fa-bell hidden-xs"></i> <?php echo (countAlert($this->session->userdata('userID')) > 0 ? countAlert($this->session->userdata('userID')) : ''); ?></span></a>
-							<div class="dropdown-menu notifications">
-								<div id="slimScroll" class="notifications-area"></div>
-								<div class="notifications-footer">
-									<a href="<?php echo base_url('user/notifications'); ?>" class="ajaxloads"><b><?php echo phrase('view_all_notifications'); ?></b></a>
-								</div>
-							</div>
-						</li>
+						<!--<li class="dropdown">-->
+						<!--	<a href="javascript:void(0)" class="dropdown-toggle load-notifications" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" aria-close="false"> &nbsp;  <span class="countAlert<?php echo (countAlert($this->session->userdata('userID')) > 0 ? ' badge bg-red' : ''); ?>" style="font-size:16px"><i class="fa fa-bell hidden-xs"></i> <?php echo (countAlert($this->session->userdata('userID')) > 0 ? countAlert($this->session->userdata('userID')) : ''); ?></span></a>-->
+						<!--	<div class="dropdown-menu notifications">-->
+						<!--		<div id="slimScroll" class="notifications-area"></div>-->
+						<!--		<div class="notifications-footer">-->
+						<!--			<a href="< ?php echo base_url('user/notifications'); ?>" class="ajaxloads"><b>< ?php echo phrase('view_all_notifications'); ?></b></a>-->
+						<!--		</div>-->
+						<!--	</div>-->
+						<!--</li>-->
 						<li>
 							<a href="#posts" data-toggle="modal" data-push="tooltip" data-placement="bottom" data-title="<?php echo phrase('send_something'); ?>"><span class="btn btn-warning"><i class="fa fa-plus"></i></span></a>
 						</li>
@@ -104,15 +172,19 @@
 								<li>
 									<a href="<?php echo base_url('user/snapshots'); ?>" class="ajaxloads"><i class="fa fa-image"></i> <?php echo phrase('snapshots'); ?></a>
 								</li>
-								<li>
-									<a href="<?php echo base_url('user/openletters'); ?>" class="ajaxloads"><i class="fa fa-paperclip"></i> <?php echo phrase('open_letters'); ?></a>
-								</li>
-								<li>
-									<a href="<?php echo base_url('user/tv'); ?>" class="ajaxloads"><i class="fa fa-desktop"></i> <?php echo phrase('tv_channels'); ?></a>
-								</li>
+							
+								<!--<li>-->
+								<!--	<a href="< ?php echo base_url('user/tv'); ?>" class="ajaxloads"><i class="fa fa-desktop"></i> < ?php echo phrase('tv_channels'); ?></a>-->
+								<!--</li>-->
 								<li role="separator" class="divider"></li>
 							
 								<?php if($this->session->userdata('user_level') == 1) { ?>
+									<li>
+									<a href="<?php echo base_url('user/openletters'); ?>" class="ajaxloads"><i class="fa fa-paperclip"></i> <?php echo phrase('open_letters'); ?></a>
+								</li>
+									<li>
+									<a href="<?php echo base_url('user/administration'); ?>" class="ajaxloads"><i class="fa fa-file-o"></i> Administration Management<?php /*echo phrase('manage_pages'); */ ?></a>
+								</li>
 								<li>
 									<a href="<?php echo base_url('user/pages'); ?>" class="ajaxloads"><i class="fa fa-file-o"></i> <?php echo phrase('manage_pages'); ?></a>
 								</li>
@@ -121,6 +193,9 @@
 								</li>
 								<li>
 									<a href="<?php echo base_url('user/users'); ?>" class="ajaxloads"><i class="fa fa-users"></i> <?php echo phrase('manage_user'); ?></a>
+								</li>
+								<li>
+									<a href="<?php echo base_url('user/commissions'); ?>" class="ajaxloads"><i class="fa fa-users"></i> Manage Commissions</a>
 								</li>
 								<li>
 									<a href="<?php echo base_url('user/translate'); ?>" class="ajaxloads"><i class="fa fa-language"></i> <?php echo phrase('translate'); ?></a>
@@ -143,7 +218,7 @@
 						</li>
 						<?php } else { ?>
 						<li style="border:none"<?php echo ($this->uri->segment(1) == 'user' ? ' class="active"' : ''); ?>>
-							<a data-toggle="modal" href="#login"><span class="btn btn-success"><i class="fa fa-lock"></i> <?php echo phrase('login'); ?></b></span></a>
+							<a data-toggle="modal" href="<?php echo base_url('user/login')?>"><span class="btn btn-success"><i class="fa fa-lock"></i> <?php echo phrase('login'); ?></b></span></a>
 						</li>
 						<?php } ?>
 					</ul>
@@ -215,7 +290,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="navbar navbar-custom header-mobile navbar-fixed-top visible-xs visible-sm">
+		<div class="navbar navbar-custom header-mobile navbar-fixed-top visible-xs visible-sm card">
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-2 nomargin nopadding">
@@ -235,7 +310,7 @@
 								</span>
 							</a>
 						<?php }else{ ?>
-							<a href="#login" data-toggle="modal" style="color:#fff;line-height:60px">
+							<a href="<?php echo base_url('user/login')?>" data-toggle="modal" style="color:#fff;line-height:60px">
 								<span class="btn" style="border:1px solid #fff"><i class="fa fa-lock"></i></span>
 							</a>
 						<?php } ?>
@@ -278,8 +353,26 @@
 				<li>
 					<a href="<?php echo base_url('openletters'); ?>" class="ajaxloads"><i class="fa fa-paperclip"></i> <?php echo phrase('openletters'); ?></a>
 				</li>
+				<!--<li>-->
+				<!--	<a href="< ?php echo base_url('tv'); ?>" class="ajaxloads"><i class="fa fa-desktop"></i> < ?php echo phrase('tv_channels'); ?></a>-->
+				<!--</li>-->
 				<li>
-					<a href="<?php echo base_url('tv'); ?>" class="ajaxloads"><i class="fa fa-desktop"></i> <?php echo phrase('tv_channels'); ?></a>
+					<a href="<?php echo base_url('administration'); ?>" class="ajaxloads"><i class="fa fa-desktop"></i> Administration<?php //echo phrase('tv_channels'); ?></a>
+				</li>
+				<li>
+					<a href="<?php echo base_url('priest'); ?>" class="ajaxloads"><i class="fa fa-desktop"></i> Priests<?php //echo phrase('tv_channels'); ?></a>
+				</li>
+				<li>
+					<a href="<?php echo base_url('parish'); ?>" class="ajaxloads"><i class="fa fa-desktop"></i> Parishes<?php //echo phrase('tv_channels'); ?></a>
+				</li>
+				<li>
+					<a href="<?php echo base_url(); ?>" class="ajaxloads"><i class="fa fa-desktop"></i> Organizations<?php //echo phrase('tv_channels'); ?></a>
+				</li>
+				<li>
+					<a href="<?php echo base_url('pages/history'); ?>" class="ajaxloads"><i class="fa fa-desktop"></i> History<?php //echo phrase('tv_channels'); ?></a>
+				</li>
+				<li>
+					<a href="<?php echo base_url('pages/contact'); ?>" class="ajaxloads"><i class="fa fa-desktop"></i> Contact Us<?php //echo phrase('tv_channels'); ?></a>
 				</li>
 				<li>
 					<a data-toggle="modal" href="#language"><i class="fa fa-language"></i> <?php echo phrase('language'); ?></a>
@@ -288,9 +381,9 @@
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i> <?php echo phrase('other'); ?> <span class="more"><i class="fa fa-chevron-down"></i></span></a>
 					<ul class="dropdown-menu navmenu-nav">
 						<?php echo generatePageNav(true); ?>
-						<li>
+						<!-- <li>
 							<a href="<?php echo base_url('pages/contact'); ?>" class="ajaxloads"><i class="fa fa-phone"></i> <?php echo phrase('feedback'); ?></a>
-						</li>
+						</li> -->
 					</ul>
 				</li>
 			</ul>
@@ -312,18 +405,22 @@
 				<li>
 					<a href="<?php echo base_url('user/snapshots'); ?>" class="ajaxloads"><i class="fa fa-image"></i> <?php echo phrase('snapshots'); ?><span class="badge more"><?php echo countPosts('snapshots', ($this->session->userdata('user_level') == 1 ? null : $this->session->userdata('userID'))); ?></span></a>
 				</li>
+				
+				<!--<li>-->
+				<!--	<a href="< ?php echo base_url('user/tv'); ?>" class="ajaxloads"><i class="fa fa-desktop"></i> <?php echo phrase('tv_channels'); ?><span class="badge more">< ?php echo countPosts('tv', ($this->session->userdata('user_level') == 1 ? null : $this->session->userdata('userID'))); ?></span></a>-->
+				<!--</li>-->
+				<?php if($this->session->userdata('user_level') == 1) { ?>
 				<li>
 					<a href="<?php echo base_url('user/openletters'); ?>" class="ajaxloads"><i class="fa fa-paperclip"></i> <?php echo phrase('open_letters'); ?><span class="badge more"><?php echo countPosts('openletters', ($this->session->userdata('user_level') == 1 ? null : $this->session->userdata('userID'))); ?></span></a>
 				</li>
 				<li>
-					<a href="<?php echo base_url('user/tv'); ?>" class="ajaxloads"><i class="fa fa-desktop"></i> <?php echo phrase('tv_channels'); ?><span class="badge more"><?php echo countPosts('tv', ($this->session->userdata('user_level') == 1 ? null : $this->session->userdata('userID'))); ?></span></a>
-				</li>
-				<?php if($this->session->userdata('user_level') == 1) { ?>
-				<li>
 					<a href="<?php echo base_url('user/categories'); ?>" class="ajaxloads"><i class="fa fa-sitemap"></i> <?php echo phrase('manage_category'); ?></a>
 				</li>
 				<li>
-					<a href="<?php echo base_url('user/users'); ?>" class="ajaxloads"><i class="fa fa-users"></i> <?php echo phrase('manage_user'); ?></a>
+					<a href="<?php echo base_url('user/administration'); ?>" class="ajaxloads"><i class="fa fa-users"></i> Administration Management<?php /*echo phrase('manage_user');*/ ?></a>
+				</li>
+				<li>
+					<a href="<?php echo base_url('user/users'); ?>" class="ajaxloads"><i class="fa fa-users"></i> Manage Priests</a>
 				</li>
 				<li>
 					<a href="<?php echo base_url('user/translate'); ?>" class="ajaxloads"><i class="fa fa-language"></i> <?php echo phrase('translate'); ?></a>
@@ -338,6 +435,37 @@
 			</ul>
 		</div>
 		<?php } ?>
+			<div class="modal fade" id="commission_custom">
+			<div class="modal-dialog modal_table" style="max-width:400px">
+				<div class="modal-content modal_cell">
+					
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+						<h3 id="myModalLabel"><i class="fa fa-info-circle"></i> <?php echo phrase('notification');?></h3>
+					</div>
+					
+					<div class="modal-body">
+					<div class="form-group">
+    <label for="pwd">custom field Name:</label>
+    <input type="text" class="form-control" id="custom_field_name">
+  </div>
+   
+					</div>
+					
+					<div class="modal-footer">
+						<div class="row">
+							<div class="col-xs-6 text-left">
+								<a href="javascript:void(0)" class="btn btn-success" id="create_custom" onclick="create_input(modal=false)"  data-id=""><i class="fa fa-check" id="delete-icon"></i> <?php echo phrase('continue');?></a>
+							</div>
+							<div class="col-xs-6">
+								<button type="button" class="btn btn-default" data-dismiss="modal"><?php echo phrase('cancel');?></button>
+							</div>
+						</div>
+					</div>
+						
+				</div>
+			</div>
+		</div>
 		
 		<?php if(!$this->session->userdata('loggedIn')) { ?>
 				
@@ -350,7 +478,7 @@
 					</div>
 					<div class="modal-body" style="padding-top:0;padding-bottom:0">
 						<div class="row">
-							<div class="col-sm-7 nomargin">
+							<div class="col-sm-11 nomargin">
 								<form action="<?php echo base_url('user/login'); ?>" method="post" class="submitForm" data-save="<?php echo phrase('sign_in'); ?>" data-saving="<?php echo phrase('signing_in'); ?>" data-alert="<?php echo phrase('unable_to_signing_in'); ?>">
 									<div class="input-group col-sm-12">
 										<span class="input-group-addon"><i class="fa fa-at"></i></span>
@@ -365,12 +493,12 @@
 									<button class="btn btn-primary btn-lg btn-block submitBtn" type="submit"><i class="fa fa-key"></i> <?php echo phrase('login'); ?></button>
 								</form>
 							</div>
-							<div class="col-sm-5 nomargin loginBorder text-center">
-								<br /><br />
-								<a class="btn btn-primary btn-lg btn-block" href="<?php echo instantLoginURL(); ?>"><i class="fa fa-facebook"></i> &nbsp; <?php echo phrase('instant_login'); ?></a>
-								<a class="ajaxloads btn btn-success btn-lg btn-block" href="<?php echo base_url('user/register'); ?>"><i class="fa fa-user-plus"></i> &nbsp; <?php echo phrase('register'); ?></a>
-								<br /><br /><br />
-							</div>
+							<!--<div class="col-sm-5 nomargin loginBorder text-center">-->
+							<!--	<br /><br />-->
+								<!--<a class="btn btn-primary btn-lg btn-block" href="<?php echo instantLoginURL(); ?>"><i class="fa fa-facebook"></i> &nbsp; <?php echo phrase('instant_login'); ?></a>-->
+								<!--<a class="ajaxloads btn btn-success btn-lg btn-block" href="<?php echo base_url('user/register'); ?>"><i class="fa fa-user-plus"></i> &nbsp; <?php echo phrase('register'); ?></a>-->
+							<!--	<br /><br /><br />-->
+							<!--</div>-->
 						</div>
 					</div>
 					<div class="modal-footer">
@@ -419,10 +547,10 @@
 						<h3 id="myModalLabel"><i class="fa fa-plus"></i> &nbsp; <?php echo phrase('post_something'); ?></h3>
 					</div>
 					<div class="modal-body">
-						<a href="<?php echo base_url('user/posts/add'); ?>" class="btn btn-primary btn-block btn-lg newPost"><i class="fa fa-newspaper-o"></i> &nbsp; <?php echo phrase('write_article'); ?></a>
-						<a href="<?php echo base_url('user/snapshots/add'); ?>" class="btn btn-info btn-block btn-lg newPost"><i class="fa fa-image"></i> &nbsp; <?php echo phrase('send_snapshot'); ?></a>
-						<a href="<?php echo base_url('user/openletters/add'); ?>" class="btn btn-warning btn-block btn-lg newPost"><i class="fa fa-paperclip"></i> &nbsp; <?php echo phrase('submit_open_letter'); ?></a>
-						<a href="<?php echo base_url('user/tv/add'); ?>" class="btn btn-danger btn-block btn-lg newPost"><i class="fa fa-desktop"></i> &nbsp; <?php echo phrase('submit_tv_channel'); ?></a>
+						<a href="<?php echo base_url('user/posts/add'); ?>" class="btn btn-primary btn-block btn-lg newPost"><i class="fa fa-newspaper-o"></i> &nbsp; Write Post</a>
+						<a href="<?php echo base_url('user/snapshots/add'); ?>" class="btn btn-info btn-block btn-lg newPost"><i class="fa fa-image"></i> &nbsp; Upload Gallery</a>
+						<!--<a href="<?php echo base_url('user/openletters/add'); ?>" class="btn btn-warning btn-block btn-lg newPost"><i class="fa fa-paperclip"></i> &nbsp; <?php echo phrase('submit_open_letter'); ?></a>-->
+						<!--<a href="<?php echo base_url('user/tv/add'); ?>" class="btn btn-danger btn-block btn-lg newPost"><i class="fa fa-desktop"></i> &nbsp; <?php echo phrase('submit_tv_channel'); ?></a>-->
 					</div>
 					<div class="modal-footer text-center">
 						<?php echo phrase('choose_what_is_in_your_mind_right_now'); ?>
@@ -635,11 +763,12 @@
 				empty_alert	= '<?php echo phrase('please_enter_some_text_to_submit'); ?>'
 		</script>
 		
-		<script src="<?php echo base_url('themes/default/js/scrollbar.js'); ?>"></script>
-		<script src="<?php echo base_url('themes/default/js/masonry.js'); ?>"></script>
-		<script src="<?php echo base_url('themes/default/js/sticky.js'); ?>"></script>
-		<script src="<?php echo base_url('themes/default/js/easing.js'); ?>"></script>
-		<script src="<?php echo base_url('themes/default/js/global.js?123'); ?>"></script>
+		<script src="<?php echo base_url('themes/default/js/scrollbar.js?123'); ?>"></script>
+		<script src="<?php echo base_url('themes/default/js/masonry.js?123'); ?>"></script>
+		<script src="<?php echo base_url('themes/default/js/sticky.js?123'); ?>"></script>
+		<script src="<?php echo base_url('themes/default/js/easing.js?223'); ?>"></script>
+		<script src="<?php echo base_url('themes/default/js/global.js?123.1.46'); ?>"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.all.min.js"></script>
 		
 		<script type="text/javascript">
 			$(window).load(function()

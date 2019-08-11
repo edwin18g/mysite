@@ -21,7 +21,7 @@
 						<div data-provides="fileupload" class="btn btn-file fileupload fileupload-new userImage" style="padding:0">
 							<div class="fileupload-new" style="overflow:hidden">
 								<div class="col-xs-6 col-xs-offset-3 col-sm-12 col-sm-offset-0 text-center" style="padding:0">
-									<div class="rounded" style="width:100%;border:6px solid #eee;overflow:hidden">
+									<div class="rounded full-round image-parent" style="border:6px solid #eee;overflow:hidden">
 										<img id="userfile_preview" src="<?php echo base_url('uploads/users/' . imageCheck('users', getUserPhoto($page['userID']))); ?>" class="img-rounded img-bordered" style="width:100%" alt="" />
 										<input onchange="readPhoto(this, 'userfile_preview');" type="file" name="userfile" accept="image/*" />
 									</div>
@@ -34,7 +34,7 @@
 					
 					<div class="userImage">
 						<div class="col-xs-6 col-xs-offset-3 col-sm-12 col-sm-offset-0 text-center" style="padding:0">
-							<div class="rounded" style="width:100%;border:6px solid #eee;overflow:hidden">
+							<div class="rounded full-round image-parent" style="border:6px solid #eee;overflow:hidden">
 								<?php echo '<img src="' . base_url('uploads/users/' . imageCheck('users', getUserPhoto($page['userID']))) . '" class="image-rounded img-bordered" style="width:100%" alt="" />'; ?>
 							</div>
 						</div>
@@ -50,10 +50,10 @@
 									<h3>
 										<a class="text-shadow" href="' . base_url($page['userName']) . '"><b>' . $page['full_name'] . '</b></a>
 										<br />
-										<span class="badge">@' . $page['userName'] . ' - ' . $page['visits_count'] . ' ' . phrase('stalker') . '</span>
+									
 									</h3>
 								</div>
-								<div class="col-sm-6 text-right-sm text-center-xs">
+								<div class="col-sm-6 text-right-sm text-center-xs hidden">
 									<span class="btn-group">
 										<a href="#profileView" class="btn btn-default" data-toggle="modal"><i class="fa fa-info-circle"></i> ' . phrase('info') . '</a>
 										' . ($page['userID'] != $this->session->userdata('userID') ? '
@@ -87,13 +87,14 @@
 				<div class="col-sm-10 col-sm-offset-2" style="position:relative">
 					
 					<div class="btn-group btn-group-justified">
-						<a class="ajaxloads btn btn-default btn-lg<?php echo (!$this->uri->segment(2) || $this->uri->segment(2) == 'timeline' ? ' active' : ''); ?>" href="<?php echo base_url($page['userName']); ?>" style="border-right:none"><i class="fa fa-newspaper-o"></i><span class="hidden-xs"> &nbsp; <?php echo phrase('wall'); ?></span></a>
+							<!--<a class="ajaxloads btn btn-default btn-lg <?php echo (!$this->uri->segment(2) || $this->uri->segment(2) == 'about' ? ' active' : ''); ?>" href="#" style="border-right:none"><i class="fa fa-info-circle"></i> <?php echo phrase('about_me'); ?></a>-->
+						<a class="ajaxloads btn btn-default btn-lg <?php echo (!$this->uri->segment(2) || $this->uri->segment(2) == 'timeline' ? ' active' : ''); ?>" href="<?php echo base_url($page['userName']); ?>" style="border-right:none"><i class="fa fa-newspaper-o"></i><span class="hidden-xs"> &nbsp; <?php echo phrase('wall'); ?></span></a>
 						
-						<a class="ajaxloads btn btn-default btn-lg<?php echo ($this->uri->segment(2) == 'friends' ? ' active' : ''); ?>" href="<?php echo base_url($page['userName'] . '/friends'); ?>" style="border-right:none"><i class="fa fa-users"></i><span class="hidden-xs"> &nbsp; <?php echo phrase('friends'); ?></span> <?php echo '<small class="badge" id="friends-count">' . getUserFriends('active', $page['userID']) . '</small>'; ?></a>
+						<!-- <a class="ajaxloads btn btn-default btn-lg<?php echo ($this->uri->segment(2) == 'friends' ? ' active' : ''); ?>" href="<?php echo base_url($page['userName'] . '/friends'); ?>" style="border-right:none"><i class="fa fa-users"></i><span class="hidden-xs"> &nbsp; <?php echo phrase('friends'); ?></span> <?php echo '<small class="badge" id="friends-count">' . getUserFriends('active', $page['userID']) . '</small>'; ?></a> -->
 						
-						<a class="ajaxloads btn btn-default btn-lg<?php echo ($this->uri->segment(2) == 'followers' ? ' active' : ''); ?>" href="<?php echo base_url($page['userName'] . '/followers'); ?>" style="border-right:none"><i class="fa fa-retweet"></i><span class="hidden-xs"> &nbsp; <?php echo phrase('followers'); ?></span> <?php echo '<small class="badge" id="followers-count">' . getUserFollowers('followers', $page['userID']) . '</small>'; ?></a>
+						<!--<a class="ajaxloads btn btn-default btn-lg<?php echo ($this->uri->segment(2) == 'followers' ? ' active' : ''); ?>" href="<?php echo base_url($page['userName'] . '/followers'); ?>" style="border-right:none"><i class="fa fa-retweet"></i><span class="hidden-xs"> &nbsp; <?php echo phrase('followers'); ?></span> <?php echo '<small class="badge" id="followers-count">' . getUserFollowers('followers', $page['userID']) . '</small>'; ?></a>-->
 						
-						<a class="ajaxloads btn btn-default btn-lg<?php echo ($this->uri->segment(2) == 'following' ? ' active' : ''); ?>" href="<?php echo base_url($page['userName'] . '/following'); ?>"><i class="fa fa-random"></i><span class="hidden-xs"> &nbsp; <?php echo phrase('following'); ?></span> <?php echo '<small class="badge" id="following-count">' . getUserFollowers('following', $page['userID']) . '</small>'; ?></a>
+						<!--<a class="ajaxloads btn btn-default btn-lg<?php echo ($this->uri->segment(2) == 'following' ? ' active' : ''); ?>" href="<?php echo base_url($page['userName'] . '/following'); ?>"><i class="fa fa-random"></i><span class="hidden-xs"> &nbsp; <?php echo phrase('following'); ?></span> <?php echo '<small class="badge" id="following-count">' . getUserFollowers('following', $page['userID']) . '</small>'; ?></a>-->
 					</div>
 				</div>
 			</div>
@@ -135,13 +136,13 @@
 												<?php echo $page['mobile']; ?>
 											</div>
 										</div>
-										<div class="form-group">
+										<div class="form-group hidden">
 											<label class="control-label col-xs-1 col-xs-offset-1 text-left"><i class="fa fa-venus-mars"></i></label>
 											<div class="col-xs-9">
 												<?php echo ($page['gender'] == 'l' ? phrase('male') : phrase('female')); ?>
 											</div>
 										</div>
-										<div class="form-group">
+										<div class="form-group hidden">
 											<label class="control-label col-xs-1 col-xs-offset-1 text-left"><i class="fa fa-child"></i></label>
 											<div class="col-xs-9">
 												<?php echo $page['age'] . ' ' . phrase('years'); ?>

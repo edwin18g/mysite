@@ -69,12 +69,48 @@ class Snapshots extends CI_Controller
 		}
 	}
 	
+	function change_status()
+	{
+		 $response      					= array();
+		 $response['error']				= false;
+		 
+		if($this->input->post('snapshotID'))
+		{
+			$id 		= $this->input->post('snapshotID');
+			$snap 	= $this->model->getPost_byid($id);
+			
+			if($snap)
+			{
+			$save 										= array();
+			$save['snapshotID']     	= $id;
+			$save['home_slider']			= ($snap['home_slider']  == 1)?0:1;
+			
+			if($this->model->updatePost($save))
+			{
+				$response['class']			= ($snap['home_slider']  == 1)?'btn-default':'btn-success';
+			}
+			}
+			
+		}
+		
+		echo  json_encode($response);
+		exit;
+	}
 	function add()
 	{
+		$IdOassToview        = false;
+		if($this->uri->segment(4))
+		{
+			$findType   = explode('_', $this->uri->segment(4));
+			$module     = $findType[0];
+			$id         = $findType[1];
+			$IdOassToview 			= true;
+		}
+	
 		if(!$this->session->userdata('loggedIn')) return error(403, ($this->input->is_ajax_request() ? 'ajax' : null));
 		if($this->input->post('hash'))
 		{
-			$this->form_validation->set_rules('content', phrase('content'), 'trim|xss_clean|required|max_length[260]');
+			
 			$this->form_validation->set_rules('userfile', phrase('image'), 'callback_upload_checker');
 			
 			if($this->form_validation->run() == FALSE)
@@ -85,14 +121,18 @@ class Snapshots extends CI_Controller
 			{
 				$time	= time();
 				$fields = array(
-					'snapshotContent'	=> $this->input->post('content'),
+					'snapshotContent'	=> (($this->input->post('content'))?$this->input->post('content'):''),
 					'snapshotFile'		=> $this->upload_data['userfile']['file_name'],
 					'contributor'		=> $this->session->userdata('userID'),
 					'snapshotSlug'		=> md5($time . $this->session->userdata('userID') . $this->input->post('content')),
-					'snapshotCredits'	=> $this->input->post('credits'),
+					'snapshotCredits'	=> (($this->input->post('credits'))?$this->input->post('credits'):''),
 					'language'			=> $this->session->userdata('language'),
 					'timestamp'			=> $time
 				);
+				if($this->input->post('parish'))
+				{
+					$fields['parish_id'] = $this->input->post('parish');
+				}
 				if($this->model->createPost($fields))
 				{
 					$this->session->set_flashdata('success', phrase('snapshot_was_successfully_submitted'));
@@ -113,6 +153,11 @@ class Snapshots extends CI_Controller
 				'image'				=> guessImage('snapshots'),
 				'author'		=> $this->settings['siteTitle']
 			);
+			if($IdOassToview)
+			{
+				$data['id'] = $id;
+				$data['module'] = $module;
+			}
 			if($this->input->is_ajax_request())
 			{
 				if(null != $this->input->post('modal'))
@@ -241,7 +286,7 @@ class Snapshots extends CI_Controller
 	{
 		$config['upload_path'] 		= 'uploads/snapshots';
 		$config['allowed_types'] 	= 'jpg|jpeg|gif|png';
-		$config['max_size']      	= 1024*2; //2MB
+		$config['max_size']      	= 1024*5; //2MB
 		$config['encrypt_name']	 	= TRUE;
 		
 		$this->upload->initialize($config); 

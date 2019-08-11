@@ -1,4 +1,6 @@
 <?php
+//phpinfo();s
+//$memcache = new Memcache;
 	if (!file_exists('config.php'))
 	{
 		header('Location:install');
@@ -61,7 +63,7 @@
  *
  * NOTE: If you change these, also change the error_reporting() code below
  */
-	define('ENVIRONMENT', 'development');
+	define('ENVIRONMENT', 'production');
 
 /*
  *---------------------------------------------------------------

@@ -25,6 +25,7 @@ if(!function_exists('getPosts'))
 		else if($type == 'snapshots')
 		{
 			$CI->db->from('snapshots');
+				$CI->db->where('parish_id', null);
 		}
 		else if($type == 'openletters')
 		{
@@ -37,6 +38,10 @@ if(!function_exists('getPosts'))
 		else if($type == 'pages')
 		{
 			$CI->db->from('pages');
+		}
+		else if($type == 'administration')
+		{
+			$CI->db->from('administration');
 		}
 		
 		if($contributor != null)
@@ -128,6 +133,59 @@ if(!function_exists('listUsers'))
 	}
 }
 
+if(!function_exists('listpriests'))
+{
+	function listpriests($status = null, $limit = 10, $offset = 0)
+	{
+		$CI =& get_instance();
+		
+		if($status != null)
+		{
+			$CI->db->where('status', $status);
+		}
+		//$CI->db->limit($limit, $offset);
+		$CI->db->where('level', '0');
+		$CI->db->order_by('last_login', 'desc');
+		
+		$query = $CI->db->get('users');
+		
+		if($query->num_rows() > 0)
+		{
+			return $query->result_array();
+		}
+		else
+		{
+			return false;
+		}
+	}
+}
+if(!function_exists('listparish'))
+{
+	function listparish($status = null, $limit = 10, $offset = 0,$count = false)
+	{
+		$CI =& get_instance();
+		
+		if($status != null)
+		{
+			$CI->db->like('cname', $status);
+		}
+	//	$CI->db->limit($limit, $offset);
+		//$CI->db->order_by('last_login', 'desc');
+		$query = $CI->db->get('parish');
+		if($query->num_rows() > 0)
+		{
+			if($count)
+			{
+				return $query->num_rows();
+			}
+			return $query->result_array();
+		}
+		else
+		{
+			return false;
+		}
+	}
+}
 if(!function_exists('generatePagination'))
 {
 	function generatePagination($type = null, $category = null, $userID = null, $slug = null, $limit = 12, $offset = 0, $timestamp = null)
@@ -323,6 +381,12 @@ if(!function_exists('generatePagination'))
 			$type			= 'user/translate/' . $slug;
 			$segment		= 4;
 			$num			= $CI->db->count_all('language');
+		}
+		elseif($type == 'parish')
+		{
+			$type			= 'parish/' . $slug;
+			$segment		= 4;
+			$num			= $CI->db->count_all('parish');
 		}
 		
 		$config['base_url'] 			= base_url($type);
@@ -637,15 +701,17 @@ if(!function_exists('getHeadlineNews'))
 	function getHeadlineNews($categoryID = 0, $limit = 10)
 	{
 		$CI =& get_instance();
-		$CI->db->order_by('FIELD(language, "' . $CI->session->userdata('language') . '") DESC', FALSE);
+		//$CI->db->order_by('FIELD(language, "' . $CI->session->userdata('language') . '") DESC', FALSE);
 		$CI->db->order_by('timestamp', 'DESC');
 		$CI->db->limit($limit);
-		if(is_numeric($categoryID))
-		{
-			$CI->db->like('categoryID', '"' . $categoryID . '"');
-		}
-		$CI->db->where('postHeadline', 'Y');
+		// if(is_numeric($categoryID))
+		// {
+		// 	$CI->db->like('categoryID', '"' . $categoryID . '"');
+		// }
+		//$CI->db->where('postHeadline', 'Y');
 		$query = $CI->db->get('posts');
+		//echo $CI->db->last_query(); die;
+		//echo "test".  $query->num_rows();die;
 		if($query->num_rows() > 0)
 		{
 			$posts = '<div id="carousel" class="carousel slide rounded-sm bg-dark" data-ride="carousel"><ol class="carousel-indicators">'."\r\n";
@@ -669,7 +735,7 @@ if(!function_exists('getHeadlineNews'))
 			{
 				$posts .= '
 					<div class="item' . ($s == 0 ? ' active' : '') . '">
-						<div style="background:url(' . getFeaturedImage($c['postID'], 1) . ') center center no-repeat;background-size:cover;-moz-background-size:cover;height:360px" class="rounded-sm"></div>
+						<div style="background:url(' . getFeaturedImage($c['postID'], 1) . ') center center no-repeat;background-size:cover;-moz-background-size:cover;height:250px" class="rounded-sm"></div>
 						<div class="carousel-caption">
 							<h3 class="text-shadow">' . ($c['postTitle'] != '' ? truncate($c['postTitle'], 80) : phrase('no_title')) . '</h3>
 							<div class="clearfix"></div>
@@ -678,6 +744,65 @@ if(!function_exists('getHeadlineNews'))
 							<br />
 							<a href="' . base_url('posts/' . $c['postSlug']) . '" class="ajaxloads btn btn-primary"><i class="fa fa-search"></i> &nbsp; '.phrase('read_more').'</a>
 						</div>
+					</div>
+				'."\r\n";
+				
+				$s++;
+			}
+			
+			$posts .= '
+				</div>
+			</div>';
+			return $posts;
+		}
+		else
+		{
+			return null;
+		}
+	}
+}
+
+if(!function_exists('getNewsAndEvents'))
+{
+	function getNewsAndEvents($categoryID = 0, $limit = 5)
+	{
+		$CI =& get_instance();
+		//$CI->db->order_by('FIELD(language, "' . $CI->session->userdata('language') . '") DESC', FALSE);
+		$CI->db->order_by('timestamp', 'DESC');
+		$CI->db->limit($limit);
+		// if(is_numeric($categoryID))
+		// {
+		// 	$CI->db->like('categoryID', '"' . $categoryID . '"');
+		// }
+		//$CI->db->where('headline', 'Y');
+		$query = $CI->db->get('openletters');
+		//echo $CI->db->last_query(); die;
+		//echo "test".  $query->num_rows();die;
+		if($query->num_rows() > 0)
+		{
+			$posts = '<div id="carousel" class="carousel slide rounded-sm " data-ride="carousel">';
+			
+			$s = 0;
+			foreach($query->result_array() as $c)
+			{
+				
+					
+				$s++;
+			}
+			
+			$s = 0;
+			$posts .= '
+				
+				<div class="carousel-inner" role="listbox">
+			'."\r\n";
+			
+			foreach($query->result_array() as $c)
+			{
+				$posts .= '
+					<div class="item' . ($s == 0 ? ' active' : '') . '">
+							<h5 class="">' . ($c['title'] != '' ? truncate($c['title'], 40) : phrase('no_title')) . '</h5>
+						<p class="t">' . ($c['content'] != '' ? truncate($c['content'], 80) : phrase('no_content')) . '</p>
+						
 					</div>
 				'."\r\n";
 				
@@ -736,6 +861,66 @@ if(!function_exists('getNewSnapshot'))
 							<div class="clearfix"></div>
 							<br />
 							<a href="' . base_url('snapshots/' . $c['snapshotSlug']) . '" class="ajax btn btn-primary"><i class="fa fa-search"></i> &nbsp; '.phrase('view').'</a>
+						</div>
+					</div>
+				'."\r\n";
+				
+				$s++;
+			}
+			
+			$posts .= '
+				</div>
+			</div>';
+			return $posts;
+		}
+		else
+		{
+			return null;
+		}
+	}
+}
+
+if(!function_exists('getNewSnapshotHome'))
+{
+	function getNewSnapshotHome($limit = 10)
+	{
+		$CI =& get_instance();
+			$CI->db->where('home_slider', 1);
+		$CI->db->order_by('FIELD(language, "' . $CI->session->userdata('language') . '") DESC', FALSE);
+		$CI->db->order_by('timestamp', 'DESC');
+		$CI->db->limit($limit);
+		$query = $CI->db->get('snapshots');
+		if($query->num_rows() > 0)
+		{
+			$posts = '<div id="snapshot" class="carousel slide rounded-sm bg-dark" data-ride="carousel"><ol class="carousel-indicators">'."\r\n";
+			
+			$s = 0;
+			foreach($query->result_array() as $c)
+			{
+				$posts .= '
+					<li data-target="#snapshot" data-slide-to="'.$s.'"' . ($s == 0 ? ' class="active"' : '') . '></li>
+				'."\r\n";
+				$s++;
+			}
+			
+			$s = 0;
+			$posts .= '
+				</ol>
+				<div class="carousel-inner" role="listbox">
+			'."\r\n";
+			
+			foreach($query->result_array() as $c)
+			{
+				$posts .= '
+					<div class="item' . ($s == 0 ? ' active' : '') . '">
+						<div style="background:url(' . base_url('uploads/snapshots/' . imageCheck('snapshots', $c['snapshotFile'], 1)) . ') center center no-repeat;background-size:cover;-moz-background-size:cover;height:400px" class="rounded-sm"></div>
+						<div class="carousel-caption">
+							<h3 class="text-shadow"> &nbsp; </h3>
+							<div class="clearfix"></div>
+							<p class="text-shadow">' . ($c['snapshotContent'] != '' ? truncate($c['snapshotContent'], 80) : phrase('no_content')) . '</p>
+							<div class="clearfix"></div>
+							<br />
+						
 						</div>
 					</div>
 				'."\r\n";
@@ -1308,6 +1493,49 @@ if(!function_exists('userSearchCount'))
 		$CI->db->or_like('bio', $keywords);
 		
 		$query = $CI->db->get('users');
+		
+		if($query->num_rows() > 0)
+		{
+			return $query->num_rows();
+		}
+		else
+		{
+			return false;
+		}
+	}
+}
+if(!function_exists('parishSearchCount'))
+{
+	function parishSearchCount($keywords = '')
+	{
+		$CI =& get_instance();
+		
+		$CI->db->like('cname', $keywords);
+		$CI->db->or_like('slug', $keywords);
+		$CI->db->or_like('chistory', $keywords);
+		$CI->db->or_like('psaint', $keywords);
+		$CI->db->or_like('substation', $keywords);
+		$CI->db->or_like('website', $keywords);
+		
+		$query = $CI->db->get('parish');
+		
+		if($query->num_rows() > 0)
+		{
+			return $query->num_rows();
+		}
+		else
+		{
+			return false;
+		}
+	}
+}
+
+if(!function_exists('parishCount'))
+{
+	function parishCount()
+	{
+		$CI =& get_instance();
+		$query = $CI->db->get('parish');
 		
 		if($query->num_rows() > 0)
 		{

@@ -1,16 +1,17 @@
-
-	<div class="jumbotron">
-		<div class="container first-child">
+<div class="bg-info">
+		<div class="container-fluid first-child">
 			<div class="row">
-				<div class="col-sm-10 col-sm-offset-1 text-shadow text-center hidden-xs">
-					<h2><i class="fa fa-info-circle"></i> &nbsp; <?php echo phrase('welcome_to_user_control_panel'); ?></h2>
+				<div class="col-sm-7  hidden-xs">
+				<span class="Page-title">User <i class="fa fa-angle-double-right"></i> Dashboard <i class="fa fa-angle-double-right"></i></span>
 				</div>
+			
 			</div>
 		</div>
 	</div>
-	<div class="container">
+	
+	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-3 col-md-offset-1 hidden-xs hidden-sm sticky">
+			<div class="col-md-2 hidden-xs hidden-sm sticky" style="background: #fff;margin: 0px;position: static;">
 			
 				<?php echo ($this->input->is_ajax_request() ? $this->load->view('dashboard_navigation') : $template['partials']['navigation']); ?>
 				

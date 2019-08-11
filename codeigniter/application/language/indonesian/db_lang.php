@@ -34,3 +34,4 @@ $lang['db_column_name_required'] = 'Sebuah nama kolom diperlukan untuk operasi t
 $lang['db_column_definition_required'] = 'Definisi kolom diperlukan untuk operasi tersebut.';
 $lang['db_unable_to_set_charset'] = 'Tidak dapat mengatur set karakter koneksi klien: %s';
 $lang['db_error_heading'] = 'Sebuah Kesalahan Basis Data Terjadi';
+

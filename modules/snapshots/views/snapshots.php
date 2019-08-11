@@ -16,7 +16,7 @@
 				<div class="col-md-9 hidden-xs">
 					<h2><i class="fa fa-image"></i> &nbsp; <?php echo phrase('snapshots'); ?></h2>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-3 hidden">
 					<?php if(!$this->session->userdata('loggedIn')) { ?>
 						<a href="#login" class="btn btn-lg btn-block btn-primary" data-toggle="modal"><i class="fa fa-upload"></i> &nbsp; <?php echo phrase('upload_snapshot'); ?></a>
 					<?php } else { ?>
@@ -28,7 +28,7 @@
 	</div>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-7 sticky">
+			<div class="col-md-12 sticky">
 			
 				<?php
 					$posts 	= getPosts('snapshots', null, null, $limit, $offset);
@@ -52,26 +52,18 @@
 						}
 						
 						echo '
-							<div class="row">
-								<div class="col-sm-3 text-right sticky hidden-xs">
-									<a href="' . base_url(getUsernameByID($c['contributor'])) . '" class="ajaxloads hoverCard"><img src="' . base_url('uploads/users/thumbs/' . imageCheck('users', getUserPhoto($c['contributor']), 1)) . '" class="rounded" width="40" height="40" alt="..." /></a>
-									<br />
-									<a href="' . base_url(getUsernameByID($c['contributor'])) . '" class="ajaxloads hoverCard"><b>' . getFullNameByID($c['contributor']) . '</b>
-									<br />
-									<small class="text-muted">@' . getUsernameByID($c['contributor']) . '</small></a>
-									<br />
-									<small class="text-muted"><i class="fa fa-newspaper-o"></i> ' . (countPosts('posts', $c['contributor']) +  countPosts('snapshots', $c['contributor'])) . ' / <i class="fa fa-users"></i> ' . getUserFollowers('followers', $c['contributor']) . '</small>
-								</div>
-								<div class="col-sm-9 sticky">
+							<div class="col-sm-3">
+								
+								<div class="col-sm-12 sticky">
 									<div class="first image-placeholder">
 										<a href="' . base_url('snapshots/' . $c['snapshotSlug']).'" class="ajax relative" style="display:block">
 											' . (strtolower(substr($c['snapshotFile'], -3)) == 'gif' ? '<span class="gif_play"></span>' : '') . '
-											<img width="100%" class="img-responsive rounded-top" style="margin:0;" src="' . base_url('uploads/snapshots/thumbs/' . imageCheck('snapshots', $c['snapshotFile'], 1)) . '" alt="' . truncate($c['snapshotContent'], 30) . '"/>
+											<img width="100%" class="img-responsive rounded-top"  style="height: 100px;object-fit: cover;margin:0;" src="' . base_url('uploads/snapshots/thumbs/' . imageCheck('snapshots', $c['snapshotFile'], 1)) . '" alt="' . truncate($c['snapshotContent'], 30) . '"/>
 										</a>
 										<div class="col-sm-12">
 											<p>
 												<span class="badge pull-right">@' . time_since($c['timestamp']) . '</span>
-												' . special_parse(truncate($c['snapshotContent'], 160)) . '
+												' . special_parse(truncate($c['snapshotContent'], 15)) . '
 											</p>
 											<div class="btn-group btn-group-justified">
 												<a href="' . base_url('snapshots/' . $c['snapshotSlug']).'" class="btn btn-default ajax"><i class="fa fa-comments"></i> <span class="comments-count-snapshots' . $c['snapshotID'] . '">' . countComments('snapshots', $c['snapshotID']) . '</span> <span class="hidden-xs">' . phrase('comments') . '</span></a>
@@ -79,7 +71,7 @@
 												<a href="' . base_url('user/repost/snapshots/' . $c['snapshotID']) . '" class="btn btn-default repost" data-id="' . $c['snapshotID'] . '"><i class="fa fa-retweet"></i> <span id="reposts-count' . $c['snapshotID'] . '">' . countReposts('snapshots', $c['snapshotID']) . '</span> <span class="hidden-xs">' . phrase('reposts') . '</span></a>
 											</div>
 											<br />
-											' . getComments('snapshots', $c['snapshotID'], 5) . '
+											
 										</div>
 									</div>
 								</div>
@@ -99,28 +91,7 @@
 				</div>
 					
 			</div>
-			<div class="col-md-2 hidden-xs hidden-sm sticky">
-				<h4><i class="fa fa-tags"></i> &nbsp; <?php echo phrase('trending'); ?></h4>
-				
-				<?php echo widget_hashTags(true, 10); ?>
-				
-				<?php // echo widget_randomAds(); ?>
-				
-			</div>
-			<div class="col-md-3 hidden-xs hidden-sm sticky">
-				<h4><i class="fa fa-certificate"></i> &nbsp; <?php echo phrase('top_contributors'); ?></h4>
 			
-				<?php echo widget_topContributors(); ?>
-				
-				<br />
-				
-				<h4><i class="fa fa-clock-o"></i> &nbsp; <?php echo phrase('latest_articles'); ?></h4>
-				
-				<?php echo widget_sidebarNews(); ?>
-					
 			
-				<?php // echo widget_randomAds(); ?>
-					
-			</div>
 		</div>
 	</div>

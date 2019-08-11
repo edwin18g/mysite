@@ -17,7 +17,7 @@ $autoload['libraries'] = array(
 	'template'
 );
 
-$autoload['drivers'] = array();
+$autoload['drivers'] = array('cache');
 
 $autoload['helper'] = array(
 	'date',

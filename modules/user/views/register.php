@@ -1,16 +1,4 @@
-		<div class="jumbotron bg-primary">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-7 col-sm-offset-1 text-center-xs">
-						<h3 id="myModalLabel"><i class="fa fa-user-plus"></i> &nbsp; &nbsp; <?php echo phrase('register_new_account'); ?></h3>
-					</div>
-					<div class="col-sm-3">
-						<a class="btn btn-info btn-block btn-lg" href="<?php echo instantLoginURL(); ?>"><i class="fa fa-facebook"></i> &nbsp; <?php echo phrase('instant_login'); ?></a>
-						<br />
-					</div>
-				</div>
-			</div>
-		</div>
+	
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-3 col-sm-offset-1 sticky">
@@ -121,9 +109,7 @@
 								</div>
 								<div class="statusHolder"></div>
 								<div class="form-group">
-									<div class="col-xs-6 col-sm-4 col-sm-offset-4">
-										<a href="<?php echo base_url('user/login'); ?>" class="btn btn-default btn-lg"><i class="fa fa-arrow-left"></i> &nbsp; <?php echo phrase('login'); ?></a>
-									</div>
+									
 									<div class="col-xs-6 col-sm-4 text-right">
 										<input type="hidden" name="hash" value="<?php echo sha1(time()); ?>" />
 										<button type="submit" class="btn btn-primary btn-lg submitBtn"><i class="fa fa-check-circle"></i> &nbsp; <?php echo phrase('register'); ?></button>

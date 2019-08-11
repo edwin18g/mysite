@@ -11,7 +11,7 @@ class Settings_model extends CI_Model
 	function getSettings()
 	{
 		$this->db->select('*');
-		$this->db->where("siteID", 0);
+		$this->db->where("siteID", 1);
 		$query = $this->db->get('settings');
 		if ($query->num_rows() > 0)
 		{

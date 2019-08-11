@@ -14,13 +14,13 @@
 		<div class="container first-child">
 			<div class="row">
 				<div class="col-md-9 hidden-xs">
-					<h2><i class="fa fa-desktop"></i> &nbsp; <?php echo phrase('tv_channels'); ?></h2>
+					<h2><i class="fa fa-desktop"></i> &nbsp; Media</h2>
 				</div>
 				<div class="col-md-3">
 					<?php if(!$this->session->userdata('loggedIn')) { ?>
 						<a href="#login" class="btn btn-lg btn-primary btn-block" data-toggle="modal"><i class="fa fa-desktop"></i> &nbsp; <?php echo phrase('publish_channel'); ?></a>
 					<?php } else { ?>
-						<a href="<?php echo base_url('user/tv/add'); ?>" class="btn btn-lg btn-primary btn-block newPost"><i class="fa fa-desktop"></i> &nbsp; <?php echo phrase('publish_channel'); ?></a>
+						<!--<a href="< ?php echo base_url('user/tv/add'); ?>" class="btn btn-lg btn-primary btn-block newPost"><i class="fa fa-desktop"></i> &nbsp; < ?php echo phrase('publish_channel'); ?></a>-->
 					<?php } ?>
 				</div>
 			</div>

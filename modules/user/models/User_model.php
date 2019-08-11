@@ -41,6 +41,138 @@ class User_model extends CI_Model
 		}
 	}
 	
+	function getUserCustom($id)
+	{
+		if(isset($id))
+		{
+				$query = $this->db->where('id', $id)->limit(1)->get('users_customfield');
+				if($query->num_rows() > 0)
+		{
+		
+			
+			return $query->row_array();
+		}
+		else
+		{
+			return false;
+		}
+		}
+	}
+	
+	function getPostFeatures($param)
+	{
+		$query = $this->db->limit($param['limit'])->order_by('timestamp','DESC')->get('posts');
+		if($query->num_rows() > 0)
+		{
+		
+			
+			return $query->result_array();
+		}
+		else
+		{
+			return false;
+		}
+	}
+	function getCommissions($slug = null)
+	{
+		$query = $this->db->where('slug', $slug)->limit(1)->get('commissions');
+		if($query->num_rows() > 0)
+		{
+		
+			
+			return $query->result_array();
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	function getParish($slug = null)
+	{
+		$query = $this->db->where('slug', $slug)->limit(1)->get('parish');
+		if($query->num_rows() > 0)
+		{
+			return $query->result_array();
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+		function getParishs($data = array())
+	{
+		$limit 				= ($data['limit'])?$data['limit']:false;
+		$order_by     = ($data['order_by'])?$data['order_by']:false;
+		
+		if($limit)
+		{
+			$this->db->limit($limit);
+		}
+		if($order_by)
+		{
+			$this->db->order_by($order_by['column'], $order_by['value']);
+		}
+		$query = $this->db->get('parish');
+		if($query->num_rows() > 0)
+		{
+			return $query->result_array();
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+	
+		function getTvFeatures($data = array())
+	{
+		$limit 				= ($data['limit'])?$data['limit']:false;
+		$order_by     = ($data['order_by'])?$data['order_by']:false;
+		
+		if($limit)
+		{
+			$this->db->limit($limit);
+		}
+		if($order_by)
+		{
+			$this->db->order_by($order_by['column'], $order_by['value']);
+		}
+		$query = $this->db->get('tv');
+		if($query->num_rows() > 0)
+		{
+			return $query->result_array();
+		}
+		else
+		{
+			return false;
+		}
+	}
+		function getCommRand($data = array())
+	{
+		$limit 				= ($data['limit'])?$data['limit']:false;
+		$order_by     = ($data['order_by'])?$data['order_by']:false;
+		
+		if($limit)
+		{
+			$this->db->limit($limit);
+		}
+		if($order_by)
+		{
+			$this->db->order_by($order_by['column'], $order_by['value']);
+		}
+		$query = $this->db->get('commissions');
+		if($query->num_rows() > 0)
+		{
+			return $query->result_array();
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
 	function getUserFollowers($slug = null, $limit = 10, $offset = 0)
 	{
 		$query = $this->db->where('is_following', $this->getUserID($slug))->limit($limit, $offset)->limit($limit, $offset)->get('followers');

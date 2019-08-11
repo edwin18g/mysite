@@ -41,7 +41,11 @@ class Posts extends CI_Controller
 	
 	function index($slug = null, $limit = 10, $offset = 0)
 	{
+		
+		$slug   = ($slug != null)?urldecode($slug):null;
+		
 		$posts					= $this->model->getPost($slug);
+		
 		if($posts)
 		{
 			$data['post']		= $posts;

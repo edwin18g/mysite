@@ -667,7 +667,7 @@ class CI_Pagination {
 	{
 		isset($attributes['rel']) OR $attributes['rel'] = TRUE;
 		$this->_link_types = ($attributes['rel'])
-			? array('start' => 'start', 'prev' => 'prev', 'next' => 'next')
+			? array('start' => 'Start', 'prev' => 'Prev', 'next' => 'Next')
 			: array();
 		unset($attributes['rel']);
 

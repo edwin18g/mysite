@@ -18,29 +18,45 @@
 		$limit = 20;
 		
 		foreach($profile as $page):
+			?>
+				<div class="container">
+					<?php 
 		include 'user_navigation.php';
 	?>
+	</div>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-2 hidden-xs hidden-sm sticky">
-				<h4><i class="fa fa-info-circle"></i> <?php echo phrase('account_details'); ?></h4>
-				<p class="text-muted">
-					<i class="fa fa-quote-left"></i> <?php echo $page['bio']; ?>
-				</p>
-				<p>
-					<i class="fa fa-map-marker"></i> <?php echo $page['address']; ?>
-				</p>
-				<p>
-					<i class="fa fa-mobile"></i> <?php echo $page['mobile']; ?>
-				</p>
-				<p>
-					<i class="fa fa-venus-mars"></i> <?php echo ($page['gender'] == 'l' ? phrase('male') : phrase('female')); ?>
-				</p>
-				<p>
-					<i class="fa fa-child"></i> <?php echo $page['age'] . ' ' . phrase('years'); ?>
-				</p>
-				
-				<?php // echo widget_randomAds('small'); ?>
+			<div class="col-md-3   sticky card" style="background:#fff;">
+				<h4 class="sub-head"><i class="fa fa-info-circle"></i> <?php echo phrase('about_me'); ?></h4>
+				<!-- <p class="text-muted">
+					<i class="fa fa-quote-left"></i> < ?php echo $page['bio']; ?>
+				</p> -->
+				<ul class ="list-group">
+					<li class="list-group-item"> <span class="Ul-left"><i class="fa fa-angle-double-right"></i> <?php echo ' '.phrase('father_name'); ?>   </span><br><span class="Ul-right"><?php echo ($page['pr_father_name'] != null)?$page['pr_father_name']:'-' ; ?></span></li>
+					<li class="list-group-item"><span class="Ul-left"><i class="fa fa-angle-double-right"></i><?php echo ' '.phrase('mother_name'); ?>   </span><br><span class="Ul-right"><?php echo ($page['pr_mother_name'] != null)?$page['pr_mother_name']:'-' ; ?></span></li>
+					<li class="list-group-item"><span class="Ul-left"><i class="fa fa-angle-double-right"></i><?php echo ' '.phrase('birth_date'); ?>   </span><br><span class="Ul-right"><?php echo ($page['pr_birth_date'] != null)?$page['pr_birth_date']:'-' ; ?></span></li>
+					<li class="list-group-item"><span class="Ul-left"><i class="fa fa-angle-double-right"></i><?php echo ' '.phrase('birth_place'); ?>   </span><br><span class="Ul-right"><?php echo ($page['pr_birth_place'] != null)?$page['pr_birth_place']:'-' ; ?></span></li>
+					<li class="list-group-item"><span class="Ul-left"><i class="fa fa-angle-double-right"></i><?php echo ' '.phrase('seminary'); ?>   </span><br><span class="Ul-right"><?php echo ($page['pr_seminary'] != null)?$page['pr_seminary']:'-' ; ?></span></li>
+					<li class="list-group-item"><span class="Ul-left"><i class="fa fa-angle-double-right"></i><?php echo ' '.phrase('ordination_date'); ?>   </span><br><span class="Ul-right"><?php echo ($page['pr_ordination_date'] != null)?$page['pr_ordination_date']:'-' ; ?></span></li>
+					<li class="list-group-item"><span class="Ul-left"><i class="fa fa-angle-double-right"></i><?php echo ' '.phrase('place_ordination'); ?>   </span><br><span class="Ul-right"><?php echo ($page['pr_place_ordination'] != null)?$page['pr_place_ordination']:'-' ; ?></span></li>
+					<li class="list-group-item"><span class="Ul-left"><i class="fa fa-angle-double-right"></i><?php echo ' '.phrase('ordination_by'); ?>   </span><br><span class="Ul-right"><?php echo ($page['pr_ordination_by'] != null)?$page['pr_ordination_by']:'-' ; ?></span></li>
+					<li class="list-group-item"><span class="Ul-left"><i class="fa fa-angle-double-right"></i><?php echo ' '.phrase('parish'); ?>   </span><br><span class="Ul-right"><?php echo ($page['pr_parish'] != null)?$page['pr_parish']:'-' ; ?></span></li>
+					<?php if($customfield):?>
+						<li class="list-group-item"><span class="Ul-left"><i class="fa fa-angle-double-right"></i><?php echo ' '.$customfield['custom_name']; ?>   </span><br><span class="Ul-right"><?php echo ($customfield['custom_value'] != null)?$customfield['custom_value']:'-' ; ?></span></li>
+					<?php endif; ?>
+				</ul>
+				<div class="clearfix"></div>
+					<h4 class="sub-head"><i class="fa fa-info-circle"></i> Contact</h4>
+				<!-- <p class="text-muted">
+					<i class="fa fa-quote-left"></i> < ?php echo $page['bio']; ?>
+				</p> -->
+				<ul class ="list-group">
+					<li class="list-group-item"> <span class="Ul-left" ><i class="fa fa-angle-double-right"></i> Address   </span><br><span class="Ul-right"><?php echo ($page['address'] != null)?$page['address']:'-' ; ?></span></li>
+					<li class="list-group-item"><span class="Ul-left" ><i class="fa fa-angle-double-right"></i>Email  </span><br><span class="Ul-right"><?php echo ($page['email'] != null)?$page['email']:'-' ; ?></span></li>
+					<li class="list-group-item"><span class="Ul-left"><i class="fa fa-angle-double-right"></i>Mobile   </span><br><span class="Ul-right"><?php echo ($page['mobile'] != null)?$page['mobile']:'-' ; ?></span></li>
+					
+				</ul>
+			
 				
 			</div>
 			<div class="col-md-6 sticky">
@@ -67,7 +83,7 @@
 											<select name="visibility" class="btn form-control bordered" style="width:inherit;display:inline">
 												<option value="0"><?php echo phrase('public'); ?></option>
 												<option value="1"><?php echo phrase('followers'); ?></option>
-												<option value="2"><?php echo phrase('friends'); ?></option>
+												<!-- <option value="2">< ?php echo phrase('friends'); ?></option> -->
 											</select>
 											<button class="btn btn-primary" type="submit"><i id="update-icon" class="fa fa-edit"></i> <?php echo phrase('post'); ?></button>
 										</div>
@@ -226,7 +242,7 @@
 			
 				<?php echo widget_timeLine($page['userName']); ?>
 			</div>
-			<div class="col-md-2 hidden-xs hidden-sm sticky">
+			<div class="col-md-2 hidden hidden-sm sticky">
 				<div class="row">
 					<h4><i class="fa fa-certificate"></i> &nbsp; <?php echo phrase('top_contributors'); ?></h4>
 				

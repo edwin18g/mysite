@@ -22,17 +22,17 @@ $lang['error_csrf'] = 'This form post did not pass our security checks.';
 
 // Login
 $lang['login_heading']         = 'Login';
-$lang['login_subheading']      = 'Silakan login dengan email/username dan password anda.';
+$lang['login_subheading']      = 'Please log in with your email / username and password.';
 $lang['login_identity_label']  = 'Email/Username:';
-$lang['login_password_label']  = 'Kata Sandi:';
-$lang['login_remember_label']  = 'Ingatkan Saya:';
+$lang['login_password_label']  = 'Password:';
+$lang['login_remember_label']  = 'Remind me:';
 $lang['login_submit_btn']      = 'Login';
-$lang['login_forgot_password'] = 'Lupa Kata Sandi?';
+$lang['login_forgot_password'] = 'Forgot Password?';
 
 // Index
-$lang['index_heading']           = 'Pengguna';
-$lang['index_subheading']        = 'Di bawah ini list dari para Pengguna.';
-$lang['index_fname_th']          = 'Nama Awal';
+$lang['index_heading']           = 'The user';
+$lang['index_subheading']        = 'Below is a list of Users.';
+$lang['index_fname_th']          = 'First name';
 $lang['index_lname_th']          = 'Nama Akhir';
 $lang['index_email_th']          = 'Email';
 $lang['index_groups_th']         = 'Grup';
@@ -53,109 +53,110 @@ $lang['deactivate_validation_confirm_label'] = 'konfirmasi';
 $lang['deactivate_validation_user_id_label'] = 'ID Pengguna';
 
 // Create User
-$lang['create_user_heading']                           = 'Buat Pengguna';
-$lang['create_user_subheading']                        = 'Silakan masukan informasi Pengguna di bawah ini.';
-$lang['create_user_fname_label']                       = 'Nama Awal:';
-$lang['create_user_lname_label']                       = 'Nama Akhir:';
-$lang['create_user_company_label']                     = 'Nama Perusahaan:';
-$lang['create_user_email_label']                       = 'Surel:';
-$lang['create_user_phone_label']                       = 'Telepon:';
-$lang['create_user_password_label']                    = 'Kata Sandi:';
-$lang['create_user_password_confirm_label']            = 'Konfirmasi Kata Sandi:';
-$lang['create_user_submit_btn']                        = 'Buat Pengguna';
-$lang['create_user_validation_fname_label']            = 'Nama Awal';
-$lang['create_user_validation_lname_label']            = 'Nama Akhir';
-$lang['create_user_validation_email_label']            = 'Alamat Surel';
-$lang['create_user_validation_phone1_label']           = 'Bagian Kesatu dari Telepon';
-$lang['create_user_validation_phone2_label']           = 'Bagian Kedua dari Telepon';
-$lang['create_user_validation_phone3_label']           = 'Bagian Ketiga dari Telepon';
-$lang['create_user_validation_company_label']          = 'Nama Perusahaan';
-$lang['create_user_validation_password_label']         = 'Kata Sandi';
-$lang['create_user_validation_password_confirm_label'] = 'Konfirmasi Kata Sandi';
+$lang ['create_user_heading'] = 'Create User';
+$lang ['create_user_subheading'] = 'Please enter User information below.';
+$lang ['create_user_fname_label'] = 'Initial Name:';
+$lang ['create_user_lname_label'] = 'Last Name:';
+$lang ['create_user_company_label'] = 'Company Name:';
+$lang ['create_user_email_label'] = 'Email:';
+$lang ['create_user_phone_label'] = 'Phone:';
+$lang ['create_user_password_label'] = 'Password:';
+$lang ['create_user_password_confirm_label'] = 'Confirm Password:';
+$lang ['create_user_submit_btn'] = 'Create User';
+$lang ['create_user_validation_fname_label'] = 'Initial Name';
+$lang ['create_user_validation_lname_label'] = 'Last Name';
+$lang ['create_user_validation_email_label'] = 'Email Address';
+$lang ['create_user_validation_phone1_label'] = 'Part One of the Phone';
+$lang ['create_user_validation_phone2_label'] = 'Second Part of Phone';
+$lang ['create_user_validation_phone3_label'] = 'Third Part of the Phone';
+$lang ['create_user_validation_company_label'] = 'Company Name';
+$lang ['create_user_validation_password_label'] = 'Password';
+$lang ['create_user_validation_password_confirm_label'] = 'Confirm Password';
 
 // Edit User
-$lang['edit_user_heading']                           = 'Ubah Pengguna';
-$lang['edit_user_subheading']                        = 'Silakan masukan informasi Pengguna di bawah ini.';
-$lang['edit_user_fname_label']                       = 'Nama Awal:';
-$lang['edit_user_lname_label']                       = 'Nama Akhir:';
-$lang['edit_user_company_label']                     = 'Nama Perusahaan:';
-$lang['edit_user_email_label']                       = 'Surel:';
-$lang['edit_user_phone_label']                       = 'Telepon:';
-$lang['edit_user_password_label']                    = 'Kata Sandi:';
-$lang['edit_user_password_confirm_label']            = 'Konfirmasi Kata Sandi:';
-$lang['edit_user_groups_heading']                    = 'Anggota dari Grup';
-$lang['edit_user_submit_btn']                        = 'Simpan Pengguna';
-$lang['edit_user_validation_fname_label']            = 'Nama Awal';
-$lang['edit_user_validation_lname_label']            = 'Nama Akhir';
-$lang['edit_user_validation_email_label']            = 'Alamat Surel';
-$lang['edit_user_validation_phone1_label']           = 'Bagian Kesatu dari Telepon';
-$lang['edit_user_validation_phone2_label']           = 'Bagian Kedua dari Telepon';
-$lang['edit_user_validation_phone3_label']           = 'Bagian Ketiga dari Telepon';
-$lang['edit_user_validation_company_label']          = 'Nama Perusahaan';
-$lang['edit_user_validation_groups_label']           = 'Nama Grup';
-$lang['edit_user_validation_password_label']         = 'Kata Sandi';
-$lang['edit_user_validation_password_confirm_label'] = 'Konfirmasi Kata Sandi';
+$lang ['edit_user_heading'] = 'Change User';
+$lang ['edit_user_subheading'] = 'Please enter User information below.';
+$lang ['edit_user_fname_label'] = 'Initial Name:';
+$lang ['edit_user_lname_label'] = 'Last Name:';
+$lang ['edit_user_company_label'] = 'Company Name:';
+$lang ['edit_user_email_label'] = 'Email:';
+$lang ['edit_user_phone_label'] = 'Phone:';
+$lang ['edit_user_password_label'] = 'Password:';
+$lang ['edit_user_password_confirm_label'] = 'Confirm Password:';
+$lang ['edit_user_groups_heading'] = 'Members of the Group';
+$lang ['edit_user_submit_btn'] = 'Save User';
+$lang ['edit_user_validation_fname_label'] = 'Initial Name';
+$lang ['edit_user_validation_lname_label'] = 'Last Name';
+$lang ['edit_user_validation_email_label'] = 'Email Address';
+$lang ['edit_user_validation_phone1_label'] = 'Part One of the Phone';
+$lang ['edit_user_validation_phone2_label'] = 'Second Part of Phone';
+$lang ['edit_user_validation_phone3_label'] = 'Third Part of the Phone';
+$lang ['edit_user_validation_company_label'] = 'Company Name';
+$lang ['edit_user_validation_groups_label'] = 'Group Name';
+$lang ['edit_user_validation_password_label'] = 'Password';
+$lang ['edit_user_validation_password_confirm_label'] = 'Confirm Password';
 
 // Create Group
-$lang['create_group_title']                  = 'Buat Grup';
-$lang['create_group_heading']                = 'Buat Grupp';
-$lang['create_group_subheading']             = 'Silakan masukan detail Grup di bawah ini.';
-$lang['create_group_name_label']             = 'Nama Grup:';
-$lang['create_group_desc_label']             = 'Deskripsi:';
-$lang['create_group_submit_btn']             = 'Buat Grup';
-$lang['create_group_validation_name_label']  = 'Nama Grup';
-$lang['create_group_validation_desc_label']  = 'Deskripsi';
-
+$lang ['create_group_title'] = 'Create Group';
+$lang ['create_group_heading'] = 'Create Grupp';
+$lang ['create_group_subheading'] = 'Please enter the Group details below.';
+$lang ['create_group_name_label'] = 'Group Name:';
+$lang ['create_group_desc_label'] = 'Description:';
+$lang ['create_group_submit_btn'] = 'Create Group';
+$lang ['create_group_validation_name_label'] = 'Group Name';
+$lang ['create_group_validation_desc_label'] = 'Description';
 // Edit Group
-$lang['edit_group_title']                    = 'Ubah Grup';
-$lang['edit_group_saved']                    = 'Grup Tersimpan';
-$lang['edit_group_heading']                  = 'Ubah Grup';
-$lang['edit_group_subheading']               = 'Silakan masukan detail Grup di bawah ini.';
-$lang['edit_group_name_label']               = 'Nama Grup:';
-$lang['edit_group_desc_label']               = 'Deskripsi:';
-$lang['edit_group_submit_btn']               = 'Simpan Grup';
-$lang['edit_group_validation_name_label']    = 'Nama Grup';
-$lang['edit_group_validation_desc_label']    = 'Deskripsi';
+$lang ['edit_group_title'] = 'Change Group';
+$lang ['edit_group_saved'] = 'Saved Groups';
+$lang ['edit_group_heading'] = 'Change Group';
+$lang ['edit_group_subheading'] = 'Please enter the Group details below.';
+$lang ['edit_group_name_label'] = 'Group Name:';
+$lang ['edit_group_desc_label'] = 'Description:';
+$lang ['edit_group_submit_btn'] = 'Save Group';
+$lang ['edit_group_validation_name_label'] = 'Group Name';
+$lang ['edit_group_validation_desc_label'] = 'Description';
 
 // Change Password
-$lang['change_password_heading']                               = 'Ganti Kata Sandi';
-$lang['change_password_old_password_label']                    = 'Kata Santi Lama:';
-$lang['change_password_new_password_label']                    = 'Kata Sandi Baru (paling sedikit %s karakter):';
-$lang['change_password_new_password_confirm_label']            = 'Konfirmasi Kata Sandi::';
-$lang['change_password_submit_btn']                            = 'Ubah';
-$lang['change_password_validation_old_password_label']         = 'Kata Sandi Lama';
-$lang['change_password_validation_new_password_label']         = 'Kata Sandi Baru';
-$lang['change_password_validation_new_password_confirm_label'] = 'Konfirmasi Kata Sandi Baru';
+$lang ['change_password_heading'] = 'Change Password';
+$lang ['change_password_old_password_label'] = 'Said Santi Lama:';
+$lang ['change_password_new_password_label'] = 'New Password (at least% s characters):';
+$lang ['change_password_new_password_confirm_label'] = 'Confirm Password:';
+$lang ['change_password_submit_btn'] = 'Change';
+$lang ['change_password_validation_old_password_label'] = 'Old Password';
+$lang ['change_password_validation_new_password_label'] = 'New Password';
+$lang ['change_password_validation_new_password_confirm_label'] = 'Confirm New Password';
 
 // Forgot Password
-$lang['forgot_password_heading']                 = 'Lupa Kata Sandi';
-$lang['forgot_password_subheading']              = 'PSilakan masukkan %s anda, agar kami bisa mengirim Kata Sandi baru ke surel Anda.';
-$lang['forgot_password_email_label']             = '%s:';
-$lang['forgot_password_submit_btn']              = 'Submit';
-$lang['forgot_password_validation_email_label']  = 'Alamat Surel';
-$lang['forgot_password_username_identity_label'] = 'Nama Pengguna';
-$lang['forgot_password_email_identity_label']    = 'Surel';
-$lang['forgot_password_email_not_found']         = 'Tidak ada data dari surel tersebut.';
+$lang ['forgot_password_heading'] = 'Forgot Password';
+$lang ['forgot_password_subheading'] = 'Please enter your% s, so we can send a new Password to your email.';
+$lang ['forgot_password_email_label'] = '% s:';
+$lang ['forgot_password_submit_btn'] = 'Submit';
+$lang ['forgot_password_validation_email_label'] = 'Email Address';
+$lang ['forgot_password_username_identity_label'] = 'User Name';
+$lang ['forgot_password_email_identity_label'] = 'Email';
+$lang ['forgot_password_email_not_found'] = 'There is no data from the email.';
 
 // Reset Password
-$lang['reset_password_heading']                               = 'Ganti Kata Sandi';
-$lang['reset_password_new_password_label']                    = 'Kata Sandi Baru (paling sedikit %s karakter):';
-$lang['reset_password_new_password_confirm_label']            = 'Konfirmasi Kata Sandi:';
-$lang['reset_password_submit_btn']                            = 'Ubah';
-$lang['reset_password_validation_new_password_label']         = 'Kata Sandi Baru';
-$lang['reset_password_validation_new_password_confirm_label'] = 'Konfirmasi Kata Sandi Baru';
+$lang['reset_password_heading']                               = 'Change Password';
+$lang['reset_password_new_password_label']                    = 'New Password (at least% s characters):';
+$lang['reset_password_new_password_confirm_label']            = 'Confirm Password:';
+$lang['reset_password_submit_btn']                            = 'Change';
+$lang['reset_password_validation_new_password_label']         = 'New password';
+$lang['reset_password_validation_new_password_confirm_label'] = 'Confirm New Password';
 
 // Activation Email
-$lang['email_activate_heading']    = 'Aktivasi Akun untuk %s';
-$lang['email_activate_subheading'] = 'Silakan klik link ini untuk %s.';
-$lang['email_activate_link']       = 'Aktivasi akun anda';
+$lang['email_activate_heading']    = 'Account Activation for% s';
+$lang['email_activate_subheading'] = 'Please click this link for% s.';
+$lang['email_activate_link']       = 'Activate your account';
 
 // Forgot Password Email
-$lang['email_forgot_password_heading']    = 'Ubah Kata Sandi for %s';
-$lang['email_forgot_password_subheading'] = 'Silakan klik link ini untuk %s.';
-$lang['email_forgot_password_link']       = 'Ubah Kata Sandi Anda';
+$lang['email_forgot_password_heading']    = 'Change the Password for% s';
+$lang['email_forgot_password_subheading'] = 'Please click this link for% s.';
+$lang['email_forgot_password_link']       = 'Change your password';
 
 // New Password Email
-$lang['email_new_password_heading']    = 'Kata Sandi Baru untuk %s';
-$lang['email_new_password_subheading'] = 'Kata Sandi and sudah diubah menjadi: %s';
+$lang['email_new_password_heading']    = 'New Password for% s';
+$lang['email_new_password_subheading'] = 'Password and has been changed to:% s';
+
+
 

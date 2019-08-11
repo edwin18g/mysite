@@ -35,6 +35,19 @@ class Snapshots_model extends CI_Model
 			return false;
 		}
 	}
+	
+	function getPost_byid($id = null)
+	{
+		$query = $this->db->limit(1)->where('snapshotID', $id)->get('snapshots');
+		if($query->num_rows() > 0)
+		{
+			return $query->row_array();
+		}
+		else
+		{
+			return false;
+		}
+	}
 		
 	function createPost($fields)
 	{
@@ -50,7 +63,12 @@ class Snapshots_model extends CI_Model
 	
 	function updatePost($fields = array(), $slug = null)
 	{
-		$photo		= $this->db->limit(1)->get_where('snapshots', array('snapshotSlug' => $slug));
+		$whereslug        = array('snapshotSlug' => $slug);
+			if($fields['snapshotID'])
+			{
+				$whereslug        = array('snapshotID' => $fields['snapshotID']);
+			}
+		$photo		= $this->db->limit(1)->get_where('snapshots', $whereslug);
 		if($photo->num_rows() > 0)
 		{
 			if(isset($fields['snapshotFile']))
@@ -58,7 +76,15 @@ class Snapshots_model extends CI_Model
 				@unlink('uploads/snapshots/' . $photo->row()->snapshotFile);
 				@unlink('uploads/snapshots/thumbs/' . $photo->row()->snapshotFile);
 			}
-			$this->db->where('snapshotSlug', $slug);
+			
+			if($fields['snapshotID'])
+			{
+				$this->db->where('snapshotID', $fields['snapshotID']);	
+			}
+			else
+			{
+				$this->db->where('snapshotSlug', $slug);	
+			}
 			if($this->db->update('snapshots', $fields))
 			{
 				return true;
@@ -91,7 +117,7 @@ class Snapshots_model extends CI_Model
 			@unlink('uploads/snapshots/thumbs/' . $photo);
 			$this->db->delete('comments', array('itemID' => $this->getPostIDBySlug($slug), 'commentType' => 2));
 			$this->db->delete('likes', array('itemID' => $this->getPostIDBySlug($slug), 'likeType' => 2));
-			$this->db->delete('notifications', array('itemID' => $this->getPostIDBySlug($slug), 'notificationType' => 2));
+			$this->db->delete('notifications', array('itemID' => $this->getPostIDBySlug($slug), 'postType' => 2));
 			$this->db->delete('reposts', array('itemID' => $this->getPostIDBySlug($slug), 'repostType' => 2));
 			
 			return true;

@@ -248,7 +248,7 @@ if(!function_exists('getUserDetails'))
 										</a>
 									</div>
 									<div class="col-xs-9 relative">
-										<h2 class="pull-right">#' . $c['visits_count'] . '</h2>
+										
 										<a href="' . base_url($c['userName']) . '" class="ajaxloads hoverCard">
 											<b>' . $c['full_name'] . '</b> 
 										</a>
@@ -258,7 +258,7 @@ if(!function_exists('getUserDetails'))
 								</div>
 							</div>
 						</div>
-						<div class="col-sm-12">
+						<div class="col-sm-12 hidden">
 							<p class="text-muted">
 								' . $c['bio'] . '
 							</p>
@@ -293,6 +293,66 @@ if(!function_exists('getUserDetails'))
 	}
 }
 
+if(!function_exists('getadminstration'))
+{
+	function getadminstration($c, $bio = false)
+	{
+		$CI =& get_instance();
+		
+			$user = '';
+			
+				$hex		= '#' . random_hex();
+				$user .= '
+					<div class="first image-placeholder relative">
+						<div class="col-sm-12 nomargin nogap_ltr rounded-top">
+							<div class="row article_cover" style="background:#607D8B;">
+								<div class="col-sm-12 nomargin absolute text-shadow" style="width:100%">
+									<div class="col-xs-5">
+										<a href="' . base_url($c['userName']) . '" class="ajaxloads hoverCard">
+											<img src="' . base_url('uploads/users/thumbs/' . imageCheck('users', getUserPhoto($c['userID']), 1)) . '" class="img-rounded bordered img-responsive" alt="" />
+										</a>
+									</div>
+									<div class="col-xs-7 relative">
+									
+										<a href="' . base_url($c['userName']) . '" class="ajaxloads hoverCard">
+											<b>' . $c['full_name'] . '</b> 
+										</a>
+										<br />
+										<small>' . $c['a_role'] .   '</small>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-12 hidden">
+							<p class="text-muted">
+								' . $c['bio'] . '
+							</p>
+							' . ($c['userID'] != $CI->session->userdata('userID') ? '
+								<div class="btn-group btn-group-justified">
+							' . (is_userConnect('following', $c['userID']) ? '
+								<a class="btn btn-sm btn-warning" id="follow" href="' . base_url('user/follow/' . $c['userName']) . '"><i class="fa fa-refresh" id="follow-icon"></i> <span class="follow-text">' . phrase('unfollow') . '</span></a>
+							' : '
+								<a class="btn btn-sm btn-info" id="follow" href="' . base_url('user/follow/' . $c['userName']) . '"><i class="fa fa-refresh" id="follow-icon"></i> <span class="follow-text">' . phrase('follow') . '</span></a>
+							') . '
+							' . (is_userConnect('friendship', $c['userID']) ? '
+								<a class="btn btn-sm btn-danger" id="friendship" href="' . base_url('user/friendship/' . $c['userName']) . '""><i class="fa fa-user" id="friend-icon"></i> <span class="friend-text">' . phrase('unfriend') . '</span></a>
+							' : (is_userConnect('pending', $c['userID']) ? '
+								<a class="btn btn-sm btn-warning" id="friendship" href="' . base_url('user/friendship/' . $c['userName']) . '""><i class="fa fa-user" id="friend-icon"></i> <span class="friend-text">' . phrase(($c['userID'] == $CI->session->userdata('userID') ? 'cancel' : 'accept')) . '</span></a>
+							' : '
+								<a class="btn btn-sm btn-success" id="friendship" href="' . base_url('user/friendship/' . $c['userName']) . '"><i class="fa fa-user" id="friend-icon"></i> <span class="friend-text">' . phrase('add_friend') . '</span></a>
+							')) . '
+								</div>
+							' : '
+							') . '
+						</div>
+					</div>
+				';
+			
+			
+			return $user;
+		
+	}
+}
 if(!function_exists('getUserPhoto'))
 {
 	function getUserPhoto($userID = null)
@@ -321,6 +381,23 @@ if(!function_exists('getUserPhoto'))
 		{
 			return 'placeholder.jpg';
 		}
+	}
+}
+
+if(!function_exists('imageUrlCheck'))
+{
+	function imageUrlCheck($imgWithPath = null)
+	{
+		if(file_exists($imgWithPath))
+		{
+			$rtrn = base_url($imgWithPath);
+		}else
+		{
+			$rtrn = 'https://lyon-rhone.fff.fr/wp-content/uploads/sites/105/2017/09/reunion2__mxox8j-611x378.jpg';
+		}
+
+		return $rtrn;
+	
 	}
 }
 
@@ -638,6 +715,7 @@ if(!function_exists('imageCheck'))
 		}
 	}
 }
+
 
 if(!function_exists('getSocial'))
 {

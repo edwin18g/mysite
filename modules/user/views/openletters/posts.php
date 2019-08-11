@@ -11,22 +11,23 @@
 	?>
 	
 	<div class="bg-info">
-		<div class="container first-child">
+		<div class="container-fluid first-child">
 			<div class="row">
-				<div class="col-sm-7 col-sm-offset-1 hidden-xs">
-					<h2><i class="fa fa-paperclip"></i> &nbsp; <?php echo phrase('open_letters'); ?></h2>
+				<div class="col-sm-7  hidden-xs">
+					<span class="Page-title">User <i class="fa fa-angle-double-right"></i> News & Events <i class="fa fa-angle-double-right"></i></span>
+					
 				</div>
-				<div class="col-sm-3">
+				<div class="col-sm-2">
 					<div class="col-12-xs">
-						<a href="<?php echo base_url('user/openletters/add'); ?>" class="btn btn-lg btn-block btn-primary newPost"><i class="fa fa-plus"></i> &nbsp; <?php echo phrase('write_letter'); ?></a>
+						<a href="<?php echo base_url('user/openletters/add'); ?>" class="btn btn-md btn-block btn-primary newPost"><i class="fa fa-plus"></i> &nbsp; Add News & Events</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="container">
+	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-3 col-sm-offset-1 hidden-xs hidden-sm sticky">
+		<div class="col-md-2 hidden-xs hidden-sm sticky" style="background: #fff;margin: 0px;position: static;">
 			
 				<?php echo ($this->input->is_ajax_request() ? $this->load->view('dashboard_navigation') : $template['partials']['navigation']); ?>
 				

@@ -6,43 +6,14 @@
 					<h2><i class="fa fa-newspaper-o"></i> &nbsp; <?php echo phrase('posts'); ?></h2>
 				</div>
 				<div class="col-md-3">
-					<?php if(!$this->session->userdata('loggedIn')) { ?>
-						<a href="#login" class="btn btn-lg btn-block btn-primary" data-toggle="modal"><i class="fa fa-plus"></i> &nbsp; <?php echo phrase('write_article'); ?></a>
-					<?php } else { ?>
-						<a href="<?php echo base_url('user/posts/add'); ?>" class="btn btn-lg btn-block btn-primary newPost"><i class="fa fa-plus"></i> &nbsp; <?php echo phrase('write_article'); ?></a>
+					<?php if($this->session->userdata('loggedIn')) { ?>
+						<a href="<?php echo base_url('user/posts/add'); ?>" class="btn btn-sm btn-block btn-primary newPost"><i class="fa fa-plus"></i> &nbsp; <?php echo phrase('write_article'); ?></a>
 					<?php } ?>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="jumbotron">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-2 hidden-xs hidden-sm">
-					<h4><i class="fa fa-certificate"></i> &nbsp;<?php echo phrase('contributors'); ?></h4>
-				
-					<?php echo widget_topContributors(8); ?>
-							
-				</div>
-				<div class="col-md-7 nomargin-xs nopadding-xs">
-			
-					<?php
-						if(getHeadlineNews('all', 5) !== null)
-						{
-							echo getHeadlineNews('all', 5);
-						}
-					?>
-				
-				</div>
-				<div class="col-md-3">
-					<h4><i class="fa fa-comments-o"></i> &nbsp;<?php echo phrase('most_commented'); ?></h4>
-				
-					<?php echo widget_mostCommentNews(5, 0); ?>
-				
-				</div>
-			</div>
-		</div>
-	</div>
+	
 	<div class="container">
 		<div class="row">
 			<div class="col-md-2 hidden-xs hidden-sm sticky">
@@ -180,9 +151,7 @@
 				
 				<br />
 				
-				<h4><i class="fa fa-tags"></i> &nbsp;<?php echo phrase('trending_hashtags'); ?></h4>
-					
-				<?php echo widget_hashTags(true, 10); ?>
+			
 			</div>
 		</div>
 	</div>

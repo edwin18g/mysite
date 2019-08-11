@@ -41,6 +41,7 @@ class Posts extends CI_Controller
 	
 	function index()
 	{
+		
 		if(!$this->session->userdata('loggedIn')) return error(403, ($this->input->is_ajax_request() ? 'ajax' : null));
 		
 		$data['meta']		= array(
@@ -76,7 +77,7 @@ class Posts extends CI_Controller
 		{
 			$this->form_validation->set_rules('postTitle', phrase('post_title'), 'trim|xss_clean|required|is_unique[posts.postTitle]|min_length[10]|max_length[260]');
 			$this->form_validation->set_rules('content', phrase('content'), 'trim|xss_clean|required|min_length[160]');
-			$this->form_validation->set_rules('categoryID[]', phrase('category_id'), 'trim|xss_clean|required');
+		//	$this->form_validation->set_rules('categoryID[]', phrase('category_id'), 'trim|xss_clean|required');
 			$this->form_validation->set_rules('tags', phrase('tags'), 'trim|xss_clean|max_length[160]|callback_alphaCheck');
 			
 			if($this->form_validation->run() == FALSE)
@@ -182,7 +183,7 @@ class Posts extends CI_Controller
 				$fields = array(
 					'postTitle'			=> $this->input->post('postTitle'),
 					'categoryID'		=> json_encode($this->input->post('categoryID')),
-					'postSlug'			=> format_uri($this->input->post('postTitle')),
+					'postSlug'			=> str_replace(' ','-', $this->input->post('postTitle')),
 					'postContent'		=> $this->input->post('content'),
 					'postExcerpt'		=> truncate($this->input->post('content'), 260),
 					'tags'				=> str_replace(' ', '', $this->input->post('tags')),
@@ -190,7 +191,8 @@ class Posts extends CI_Controller
 					'language'			=> $this->session->userdata('language'),
 					'timestamp'			=> time()
 				);
-				if($this->model->updatePost($fields, $this->uri->segment(4)))
+			
+				if($this->model->updatePost_id($fields, $this->uri->segment(4)))
 				{
 					$this->session->set_flashdata('success', phrase('article_was_updated_successfully'));
 					echo json_encode(array("status" => 200, "redirect" => base_url('user/posts')));
@@ -203,9 +205,11 @@ class Posts extends CI_Controller
 		}
 		else
 		{
+			
 			$data['current'] 		= $this->uri->segment(2);
-			$data['post'] 			= $this->model->getPost($this->uri->segment(4));
+			$data['post'] 			= $this->model->getPost_by_id($this->uri->segment(4));
 			$data['categories']		= $this->model->getCategories();
+			
 			$data['meta']			= array(
 				'title' 			=> phrase('edit_article'),
 				'descriptions'		=> phrase('whatever_you_writing_for_is_a_reportations'),
@@ -213,6 +217,8 @@ class Posts extends CI_Controller
 				'image'				=> guessImage('posts'),
 				'author'		=> $this->settings['siteTitle']
 			);
+		
+		
 			if($this->input->is_ajax_request())
 			{
 				if(null != $this->input->post('modal'))
@@ -253,6 +259,7 @@ class Posts extends CI_Controller
 			if($this->model->removePost($this->uri->segment(4)))
 			{
 				echo json_encode(array('status' => 200));
+
 			}
 			else
 			{

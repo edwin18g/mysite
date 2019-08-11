@@ -7,20 +7,23 @@
 							<a href="<?php echo base_url('user/posts'); ?>" class="ajaxloads list-group-item<?php if($this->uri->segment(2) == 'posts') echo ' active'; ?>"><i class="fa fa-newspaper-o"></i> &nbsp; <?php echo phrase('posts'); ?> &nbsp; <?php echo (countPosts('posts', ($this->session->userdata('user_level') == 1 ? null : $this->session->userdata('userID'))) > 0 ? '<span class="badge">' . countPosts('posts', ($this->session->userdata('user_level') == 1 ? null : $this->session->userdata('userID'))) . '</span>' : '') ?></a>
 							
 							<a href="<?php echo base_url('user/snapshots'); ?>" class="ajaxloads list-group-item<?php if($this->uri->segment(2) == 'snapshots') echo ' active'; ?>"><i class="fa fa-image"></i> &nbsp; <?php echo phrase('snapshots'); ?> &nbsp; <?php echo (countPosts('snapshots', ($this->session->userdata('user_level') == 1 ? null : $this->session->userdata('userID'))) > 0 ? '<span class="badge">' . countPosts('snapshots', ($this->session->userdata('user_level') == 1 ? null : $this->session->userdata('userID'))) . '</span>' : '') ?></a>
+			
+						
 							
-							<a href="<?php echo base_url('user/openletters'); ?>" class="ajaxloads list-group-item<?php if($this->uri->segment(2) == 'openletters') echo ' active'; ?>"><i class="fa fa-paperclip"></i> &nbsp; <?php echo phrase('open_letters'); ?> &nbsp; <?php echo (countPosts('openletters', ($this->session->userdata('user_level') == 1 ? null : $this->session->userdata('userID'))) > 0 ? '<span class="badge">' . countPosts('openletters', ($this->session->userdata('user_level') == 1 ? null : $this->session->userdata('userID'))) . '</span>' : '') ?></a>
-							
-							<a href="<?php echo base_url('user/tv'); ?>" class="ajaxloads list-group-item<?php if($this->uri->segment(2) == 'tv') echo ' active'; ?>"><i class="fa fa-desktop"></i> &nbsp; <?php echo phrase('tv_channels'); ?> &nbsp; <?php echo (countPosts('tv', ($this->session->userdata('user_level') == 1 ? null : $this->session->userdata('userID'))) > 0 ? '<span class="badge">' . countPosts('tv', ($this->session->userdata('user_level') == 1 ? null : $this->session->userdata('userID'))) . '</span>' : '') ?></a>
+							<!--<a href="< ?php echo base_url('user/tv'); ?>" class="ajaxloads list-group-item< ?php if($this->uri->segment(2) == 'tv') echo ' active'; ?>"><i class="fa fa-desktop"></i> &nbsp; <?php echo phrase('tv_channels'); ?> &nbsp; < ?php echo (countPosts('tv', ($this->session->userdata('user_level') == 1 ? null : $this->session->userdata('userID'))) > 0 ? '<span class="badge">' . countPosts('tv', ($this->session->userdata('user_level') == 1 ? null : $this->session->userdata('userID'))) . '</span>' : '') ?></a>-->
 							
 							<?php if($this->session->userdata('user_level') == 1) : ?>
 						</div>
 						<h4><?php echo phrase('administration'); ?></h4>
 						<div class="list-group">
+								<a href="<?php echo base_url('user/openletters'); ?>" class="ajaxloads list-group-item<?php if($this->uri->segment(2) == 'openletters') echo ' active'; ?>"><i class="fa fa-paperclip"></i> &nbsp; <?php echo phrase('open_letters'); ?> &nbsp; <?php echo (countPosts('openletters', ($this->session->userdata('user_level') == 1 ? null : $this->session->userdata('userID'))) > 0 ? '<span class="badge">' . countPosts('openletters', ($this->session->userdata('user_level') == 1 ? null : $this->session->userdata('userID'))) . '</span>' : '') ?></a>
+							<a href="<?php echo base_url('user/administration'); ?>" class="ajaxloads list-group-item <?php if($this->uri->segment(2) == 'administration') echo ' active'; ?>"><i class="fa fa-file-o"></i> Administration Management<?php /*echo phrase('manage_pages'); */ ?></a>
+								
 							<a href="<?php echo base_url('user/pages'); ?>" class="ajaxloads list-group-item<?php if($this->uri->segment(2) == 'pages') echo ' active'; ?>"><i class="fa fa-files-o"></i> &nbsp; <?php echo phrase('manage_pages'); ?></a>
 							
 							<a href="<?php echo base_url('user/categories'); ?>" class="ajaxloads list-group-item<?php if($this->uri->segment(2) == 'categories') echo ' active'; ?>"><i class="fa fa-sitemap"></i> &nbsp; <?php echo phrase('post_categories'); ?> &nbsp; <?php echo (countPosts('categories', null) > 0 ? '<span class="badge">' . countPosts('categories', null) . '</span>' : '') ?></a>
 							
-							<a href="<?php echo base_url('user/users'); ?>" class="ajaxloads list-group-item<?php if($this->uri->segment(2) == 'users') echo ' active'; ?>"><i class="fa fa-users"></i> &nbsp; <?php echo phrase('users'); ?> &nbsp; <?php echo (countPosts('users', null) > 0 ? '<span class="badge">' . countPosts('users', null) . '</span>' : '') ?></a>
+							<a href="<?php echo base_url('user/users'); ?>" class="ajaxloads list-group-item<?php if($this->uri->segment(2) == 'users') echo ' active'; ?>"><i class="fa fa-users"></i> &nbsp; Priests <!--< ?php echo phrase('users'); ?>--> &nbsp; <?php echo (countPosts('users', null) > 0 ? '<span class="badge">' . countPosts('users', null) . '</span>' : '') ?></a>
 							
 							<a href="<?php echo base_url('user/settings'); ?>" class="ajaxloads list-group-item<?php if($this->uri->segment(2) == 'settings') echo ' active'; ?>"><i class="fa fa-cogs"></i> &nbsp; <?php echo phrase('global_settings'); ?></a>
 							

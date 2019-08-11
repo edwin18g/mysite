@@ -82,8 +82,8 @@ class Users extends CI_Controller
 			$this->form_validation->set_rules('address', phrase('address'), 'trim|required|xss_clean');
 			$this->form_validation->set_rules('language', phrase('language'), 'trim|xss_clean');
 			$this->form_validation->set_rules('bio', phrase('address'), 'trim|xss_clean');
-			$this->form_validation->set_rules('email', phrase('email_address'), 'trim|required|valid_email|is_unique[users.email.userID.'.$this->session->userdata('userID').']');
-			$this->form_validation->set_rules('username', phrase('username'), 'trim|required|alpha_dash|is_unique[users.userName.userID.'.$this->session->userdata('userID').']');
+			$this->form_validation->set_rules('email', phrase('email_address'), 'trim|required');
+			$this->form_validation->set_rules('username', phrase('username'), 'trim|required|alpha_dash');
 			
 			if(null != $this->input->post('password'))
 			{
@@ -106,7 +106,19 @@ class Users extends CI_Controller
 					'address'			=> $this->input->post('address'),
 					'email'				=> $this->input->post('email'),
 					'language'			=> $this->input->post('language'),
-					'bio'				=> $this->input->post('bio')
+					'bio'				=> $this->input->post('bio'),
+						'pr_father_name'				=> $this->input->post('pr_father_name'),
+					'pr_mother_name'				=> $this->input->post('pr_mother_name'),
+						'pr_birth_date'				=> $this->input->post('pr_birth_date'),
+							'pr_birth_place'				=> $this->input->post('pr_birth_place'),
+								'pr_seminary'				=> $this->input->post('pr_seminary'),
+
+	'pr_ordination_date'				=> $this->input->post('pr_ordination_date'),
+		'pr_place_ordination'				=> $this->input->post('pr_place_ordination'),
+		'pr_ordination_by'				=> $this->input->post('pr_ordination_by'),
+		'pr_parish'				=> $this->input->post('pr_parish'),
+		'level'    => $this->input->post('level'),
+		'pr_type' => $this->input->post('pr_type')
 				);
 				if(null != $this->input->post('con_password'))
 				{

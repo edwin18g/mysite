@@ -25,12 +25,12 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-2 hidden-xs hidden-sm sticky">
-				<h4><i class="fa fa-certificate"></i> &nbsp; <?php echo phrase('top_contributors'); ?></h4>
+				<!--<h4><i class="fa fa-certificate"></i> &nbsp; <?php echo phrase('top_contributors'); ?></h4>-->
 			
-				<?php echo widget_topContributors(12); ?>
+				<!--< ?php echo widget_topContributors(12); ?>-->
 				
 			</div>
-			<div class="col-md-5 nomargin-xs sticky">
+			<div class="col-md-6 nomargin-xs sticky">
 				<?php
 					$posts 	= getPosts('openletters', null, null, $limit, $offset);
 					$n		= 1;
@@ -56,14 +56,12 @@
 										<div class="col-sm-12 nomargin">
 											<b>
 												<div class="row">
-													<div class="col-sm-3 nopadding">
-														' . phrase('subject') . '
-													</div>
-													<div class="col-sm-9 nopadding">
+													
+													<div class="col-sm-12 nopadding">
 														' . $c['title'] . '
 													</div>
 												</div>
-												<div class="row">
+												<div class="row hidden">
 													<div class="col-sm-3">
 														' . phrase('aimed_to') . '
 													</div>
@@ -121,12 +119,12 @@
 				</div>
 					
 			</div>
-			<div class="col-md-2 hidden-xs hidden-sm sticky">
-				<h4><i class="fa fa-tags"></i> &nbsp; <?php echo phrase('trending'); ?></h4>
+			<!--<div class="col-md-2 hidden-xs hidden-sm sticky">-->
+			<!--	<h4><i class="fa fa-tags"></i> &nbsp; < ?php echo phrase('trending'); ?></h4>-->
 						
-				<?php echo widget_hashTags(true, 10); ?>
-			</div>
-			<div class="col-md-3 hidden-xs hidden-sm sticky">
+			<!--	< ?php echo widget_hashTags(true, 10); ?>-->
+			<!--</div>-->
+			<div class="col-md-4 hidden-xs hidden-sm sticky">
 				<h4><i class="fa fa-clock-o"></i> &nbsp; <?php echo phrase('latest_articles'); ?></h4>
 				
 				<?php echo widget_sidebarNews(); ?>

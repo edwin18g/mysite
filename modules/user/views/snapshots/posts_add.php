@@ -35,6 +35,7 @@
 								<div class="form-group">
 									<div class="col-sm-12">
 										<h4><?php echo phrase('about_this_snapshot'); ?></h4>
+									<?php if ($id):?>	<input type ="hidden" value ="<?php echo $id?>" name ="<?php echo $module?>"><?php endif;?>
 										<textarea name="content" class="form-control" placeholder="<?php echo phrase('write_snapshot_descriptions'); ?>"><?php echo strip_tags(set_value('content')); ?></textarea>
 									</div>
 								</div>

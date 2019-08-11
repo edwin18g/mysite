@@ -2,37 +2,63 @@
 	<?php foreach($post as $page): ?>
 	
 	<br />
-	<div class="container first-child">
+
+	<hr />
+	<div class="container">
 		<div class="row">
-			<div class="col-md-12 text-center">
-				<a href="<?php echo base_url(getUsernameByID($page['contributor'])); ?>" class="ajaxloads hoverCard"><img src="<?php echo base_url('uploads/users/thumbs/' . imageCheck('users', getUserPhoto($page['contributor']), 1)); ?>" alt="" class="img-circle" style="width:100px;height:100px" /></a>
+			<!--<div class="col-md-1 sticky hidden-xs hidden-sm">-->
+			<!--	<div class="pw-server-widget rounded" data-id="wid-puio7d2l"></div>-->
+			<!--</div>-->
+			<div class="col-md-2 hidden-xs hidden-sm sticky">
+				<div class="blog_article">
+					<div class="row">
+						<h4><i class="fa fa-sitemap"></i> &nbsp; <?php echo phrase('category'); ?></h4>
+						
+						<?php echo widget_sidebarCategory(); ?>
+						
+					
+						
+					</div>
+				</div>
+			</div>
+			<div class="col-md-8 nopadding-xs sticky">
+				<div class="post-singlepage">
+				<div class="col-md-12 text-center">
+					<div class="col-md-3 hidden"> <a href="<?php echo base_url(getUsernameByID($page['contributor'])); ?>" class="ajaxloads hoverCard"><img src="<?php echo base_url('uploads/users/thumbs/' . imageCheck('users', getUserPhoto($page['contributor']), 1)); ?>" alt="" class="img-circle" style="width:100px;height:100px" /></a>
 				<br />
 				<a href="<?php echo base_url(getUsernameByID($page['contributor'])); ?>" class="ajaxloads hoverCard"><b><?php echo getFullNameByID($page['contributor']); ?></b> - <small>@<?php echo getUsernameByID($page['contributor']); ?></small></a>
 				<br />
 				<small><i class="fa fa-newspaper-o"></i> <?php echo (countPosts('posts', $page['contributor']) + countPosts('snapshots', $page['contributor'])); ?> / <i class="fa fa-users"></i> <?php echo getUserFollowers('followers', $page['contributor']); ?></small>
-				<h3 class="nomargin"><?php echo $meta['title']; ?></h3>
+			</div>
+				
+			<div class="col-md-12">
+					<h3 class="nomargin"><?php echo $meta['title']; ?></h3>
 				<p class="meta">
 					<i class="fa fa-info-circle"></i> &nbsp; <?php echo time_since($page['timestamp']); ?>, <?php echo $page['visits_count'] . ' ' . phrase('readers'); ?>
 				</p>
-			</div>
-		</div>
-	</div>
-	<hr />
-	<div class="container">
-		<div class="row">
-			<div class="col-md-1 sticky hidden-xs hidden-sm">
-				<div class="pw-server-widget rounded" data-id="wid-puio7d2l"></div>
-			</div>
-			<div class="col-md-6 nopadding-xs sticky">
-				<div class="text-center-xs">
-					<div class="btn-group btn-group-sm-justified">
-						<a href="javascript:void(0)" class="btn btn-primary btn-sm" style="margin-top:0"><b><i class="fa fa-share"></i> <?php echo phrase('share'); ?></b></a>
-						<?php if($page['contributor'] == $this->session->userdata('userID') || $this->session->userdata('user_level') == 1) { ?>
-							<a href="<?php echo base_url('user/posts/edit/' . $page['postSlug']); ?>" class="btn btn-success btn-sm newPost" style="margin-top:0"><b><i class="fa fa-edit"></i> <?php echo phrase('edit'); ?></b></a>
+				<div class="text-center-xs pull-right">
+					<div class="dropdown">
+    <button type="button" data-toggle="dropdown" class="btn btn-link dropdown-toggle" aria-expanded="true"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></button>
+   <ul class="dropdown-menu">
+    <li>	<a href="javascript:void(0)" class="btn btn-link btn-sm" style="margin-top:0"><b><i class="fa fa-share"></i> <?php echo phrase('share'); ?></b></a></li>
+   <?php if($page['contributor'] == $this->session->userdata('userID') || $this->session->userdata('user_level') == 1) { ?>
+							<li><a href="<?php echo base_url('user/posts/edit/' . $page['postID']); ?>" class="btn btn-link btn-sm newPost" style="margin-top:0"><b><i class="fa fa-edit"></i> <?php echo phrase('edit'); ?></b></a></li>
 						<?php } ?>
-						<a href="javascript:void(0)" class="btn btn-danger btn-sm" style="margin-top:0"><b><i class="fa fa-ban"></i> <?php echo phrase('report'); ?></b></a>
+   
+    <li><a href="javascript:void(0)" class="btn btn-link btn-sm" style="margin-top:0"><b><i class="fa fa-ban"></i> <?php echo phrase('report'); ?></b></a></li>
+  </ul>
+<div class="btn-group btn-group-sm-justified">
+					
+						
+						
 					</div>
+</div>
+					
 				</div>
+			</div>
+			
+			</div>
+				
 				<div class="blog_article image-placeholder-sm">
 					<div class="col-sm-12">
 						<div class="text-justify">
@@ -98,22 +124,10 @@
 					</div>
 					<div class="clearfix"></div>
 				</div>
-			</div>
-			<div class="col-md-2 hidden-xs hidden-sm sticky">
-				<div class="blog_article">
-					<div class="row">
-						<h4><i class="fa fa-sitemap"></i> &nbsp; <?php echo phrase('category'); ?></h4>
-						
-						<?php echo widget_sidebarCategory(); ?>
-						
-						<h4><i class="fa fa-tags"></i> &nbsp; <?php echo phrase('trending'); ?></h4>
-								
-						<?php echo widget_hashTags(true, 10); ?>
-						
-					</div>
 				</div>
 			</div>
-			<div class="col-md-3 hidden-xs hidden-sm sticky">
+			
+			<div class="col-md-2 hidden-xs hidden-sm sticky">
 				<div class="blog_article">
 					<div class="row">
 						<div class="col-sm-12 nomargin">
@@ -126,7 +140,7 @@
 					<br />
 					<div class="row hidden-xs hidden-sm">
 						<div class="col-sm-12">
-							<h4><i class="fa fa-certificate"></i> &nbsp; <?php echo phrase('top_contributors'); ?></h4>
+							<h4><i class="fa fa-certificate"></i> &nbsp; Top Writters</h4>
 						
 							<?php echo widget_topContributors(); ?>
 							

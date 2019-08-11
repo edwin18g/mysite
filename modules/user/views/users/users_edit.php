@@ -7,6 +7,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-6 col-sm-offset-3">
+				
 				<form action="<?php echo current_url(); ?>" method="post" class="form-horizontal submitForm" data-save="<?php echo phrase('update'); ?>" data-saving="<?php echo phrase('updating'); ?>" data-alert="<?php echo phrase('unable_to_update_user_information'); ?>">
 				
 					<?php if($this->input->is_ajax_request() && isset($modal)) { ?>
@@ -17,6 +18,30 @@
 					<?php } ?>
 					
 					<div class="modal-body">
+						
+						<div class="form-group ">
+							<label class="control-label col-sm-4">Role</label>
+							<div class="col-sm-7">
+								<select name="level" class="form-control">
+									<option value="1" <?php echo ($page['level'] == 1)?'selected':'' ?>>Administrator</option>
+									<option value="0"<?php echo ($page['level'] == 0)?'selected':'' ?>>priest</option>
+								
+								</select>
+							</div>
+						</div>
+						<div class="form-group ">
+							<label class="control-label col-sm-4">Type</label>
+							<div class="col-sm-7">
+								<select name="pr_type" class="form-control">
+									<option value="1" <?php echo ($page['pr_type'] == 1)?'selected':'' ?>>Diocesan Priests</option>
+									<option value="2"<?php echo ($page['pr_type'] == 2)?'selected':'' ?>>Priests on Contract</option>
+										<option value="3"<?php echo ($page['pr_type'] == 3)?'selected':'' ?>>Religious Priests</option>
+											<option value="4"<?php echo ($page['pr_type'] == 4)?'selected':'' ?>>Religious Men</option>
+											<option value="5"<?php echo ($page['pr_type'] == 5)?'selected':'' ?>>Other Diocesan Priests Men</option>
+								
+								</select>
+							</div>
+						</div>
 						<div class="form-group">
 							<div class="col-sm-7 col-sm-offset-4">
 								<h4><i class="fa fa-user"></i> <?php echo phrase('basic_information'); ?></h4>
@@ -28,13 +53,81 @@
 								<input type="text" class="form-control" name="full_name" value="<?php echo $page['full_name']; ?>" />
 							</div>
 						</div>
+							<div class="form-group">
+						<label class="control-label col-sm-4">Father Name </label>
+						<div class="col-sm-7">
+							<input type="text" class="form-control" name="pr_father_name" value="<?php echo set_value('pr_father_name', $page['pr_father_name']); ?>" />
+						
+						</div>
+					</div>
 						<div class="form-group">
+						<label class="control-label col-sm-4">Mother Name </label>
+						<div class="col-sm-7">
+							<input type="text" class="form-control" name="pr_mother_name" value="<?php echo set_value('pr_mother_name', $page['pr_mother_name']); ?>" />
+						
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-4">Date of Birth </label>
+						<div class="col-sm-7">
+							<input type="text" class="form-control" name="pr_birth_date" value="<?php echo set_value('pr_birth_date', $page['pr_birth_date']); ?>" />
+						
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-4">Birth  Place</label>
+						<div class="col-sm-7">
+							<input type="text" class="form-control" name="pr_birth_place" value="<?php echo set_value('pr_birth_place', $page['pr_birth_place']); ?>" />
+						
+						</div>
+					</div>
+						<div class="form-group">
+						<label class="control-label col-sm-4">
+						Seminary</label>
+						<div class="col-sm-7">
+							<input type="text" class="form-control" name="pr_seminary" value="<?php echo set_value('pr_seminary', $page['pr_seminary']); ?>" />
+						
+						</div>
+					</div>
+						<div class="form-group">
+						<label class="control-label col-sm-4">
+						Ordination Date</label>
+						<div class="col-sm-7">
+							<input type="text" class="form-control" name="pr_ordination_date" value="<?php echo set_value('pr_ordination_date', $page['pr_ordination_date']); ?>" />
+						
+						</div>
+					</div>
+						<div class="form-group">
+						<label class="control-label col-sm-4">
+						 Place of Ordination</label>
+						<div class="col-sm-7">
+							<input type="text" class="form-control" name="pr_place_ordination" value="<?php echo set_value('pr_place_ordination', $page['pr_place_ordination']); ?>" />
+						
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-4">
+						 Ordination By</label>
+						<div class="col-sm-7">
+							<input type="text" class="form-control" name="pr_ordination_by" value="<?php echo set_value('pr_ordination_by', $page['pr_ordination_by']); ?>" />
+						
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-4">
+						 Parish</label>
+						<div class="col-sm-7">
+							<input type="text" class="form-control" name="pr_parish" value="<?php echo set_value('pr_parish', $page['pr_parish']); ?>" />
+						
+						</div>
+					</div>
+						<div class="form-group hidden">
 							<label class="control-label col-sm-4"><?php echo phrase('gender'); ?></label>
 							<div class="col-sm-7">
 								<select name="gender" class="form-control">
 									<option value=""><?php echo phrase('select_gender'); ?></option>
-									<option value="l"<?php if($page['gender'] == 'l') echo ' selected'; ?>><?php echo phrase('man'); ?></option>
-									<option value="p"<?php if($page['gender'] == 'p') echo ' selected'; ?>><?php echo phrase('woman'); ?></option>
+									<option value="l"<?php  echo ' selected'; ?>>Male</option>
+								
 								</select>
 							</div>
 						</div>

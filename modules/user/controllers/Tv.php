@@ -179,6 +179,7 @@ class Tv extends CI_Controller
 				
 				if(!empty($_FILES['userfile']['name']))
 				{
+					$this->upload_checker();
 					$fields['tvFile']	= $this->upload_data['userfile']['file_name'];
 				}
 				

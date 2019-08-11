@@ -114,8 +114,11 @@ class Actions_model extends CI_Model
 	
 	function createProfile($fields = array(), $username = null, $password = null)
 	{
+		
+		// echo "<pre>";print_r($fields);die;
 		if($this->db->insert('users', $fields))
 		{
+			
 			$this->loginCheck($username, $password);
 			return true;
 		}
@@ -150,19 +153,12 @@ class Actions_model extends CI_Model
 		}
 	}
 	
-	function updatePhoto($type, $filename)
+	function updatePhoto($data, $table)
 	{
-		if($type == 'photo')
-		{
-			$data['photo'] = $filename;
-		}
-		elseif($type == 'cover')
-		{
-			$data['cover'] = $filename;
-		}
+	
 		
-		$this->db->where('userID', $this->session->userdata('userID'));
-		if($this->db->update('users', $data))
+		$this->db->where($table['where_column'], $table['where_data'] );
+		if($this->db->update($table['table'], $data))
 		{
 			return true;
 		}
@@ -172,14 +168,9 @@ class Actions_model extends CI_Model
 		}
 	}
 		
-	function statusUpdate()
+	function statusUpdate($status)
 	{
-		$status = array(
-			'userID' => $this->session->userdata('userID'),
-			'updateContent' => $this->input->post('content'),
-			'visibility' => $this->input->post('visibility'),
-			'timestamp' => time()
-		);
+		
 		
 		if($this->db->insert('updates', $status))
 		{
@@ -188,6 +179,7 @@ class Actions_model extends CI_Model
 		}
 		else
 		{
+		//	echo $this->db->last_query();die;
 			return false;
 		}
 	}

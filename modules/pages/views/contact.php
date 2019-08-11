@@ -40,35 +40,35 @@
 						echo '<div class="row"><div class="col-xs-4" style="padding-bottom:0;">' . phrase('email') . '</div><div class="col-xs-8" style="padding-bottom:0;">' . htmlspecialchars($this->settings['siteEmail']) . '</div></div>';
 					}
 					
-					if(!empty($this->settings['siteYM'])) {
-						if(is_json($this->settings['siteYM']))
-						{
-							echo '<div class="row"><div class="col-xs-4" style="padding-bottom:0;">' . phrase('messenger') . '</div><div class="col-xs-8" style="padding-bottom:0;">';
-							$items = json_decode($this->settings['siteYM'])[0]->YM;
-							$n = 0;
-							foreach($items as $user_data)
-							{
-								$n++;
-								echo '<a href="ymsgr:SendIM?' . htmlspecialchars($user_data) . '"><img src="http://opi.yahoo.com/online?u=' . $user_data . '&amp;m=g&amp;t=1&amp;l=us" border="0" alt="' . htmlspecialchars($user_data) . '"></a> ';
-							}
-							echo '</div></div>';
-						}
-					}
+					// if(!empty($this->settings['siteYM'])) {
+					// 	if(is_json($this->settings['siteYM']))
+					// 	{
+					// 		echo '<div class="row"><div class="col-xs-4" style="padding-bottom:0;">' . phrase('messenger') . '</div><div class="col-xs-8" style="padding-bottom:0;">';
+					// 		$items = json_decode($this->settings['siteYM'])[0]->YM;
+					// 		$n = 0;
+					// 		foreach($items as $user_data)
+					// 		{
+					// 			$n++;
+					// 			echo '<a href="ymsgr:SendIM?' . htmlspecialchars($user_data) . '"><img src="http://opi.yahoo.com/online?u=' . $user_data . '&amp;m=g&amp;t=1&amp;l=us" border="0" alt="' . htmlspecialchars($user_data) . '"></a> ';
+					// 		}
+					// 		echo '</div></div>';
+					// 	}
+					// }
 					
-					if(!empty($this->settings['siteBBM'])) {
-						if(is_json($this->settings['siteBBM']))
-						{
-							echo '<div class="row"><div class="col-xs-4" style="padding-bottom:0;">' . phrase('bbm_pin') . '</div><div class="col-xs-8" style="padding-bottom:0;">';
-							$items = json_decode($this->settings['siteBBM'])[0]->BBM;
-							$n = 0;
-							foreach($items as $user_data)
-							{
-								$n++;
-								echo '<b>' . htmlspecialchars($user_data) . '</b>, ';
-							}
-							echo '</div></div>';
-						}
-					}
+					// if(!empty($this->settings['siteBBM'])) {
+					// 	if(is_json($this->settings['siteBBM']))
+					// 	{
+					// 		echo '<div class="row"><div class="col-xs-4" style="padding-bottom:0;">' . phrase('bbm_pin') . '</div><div class="col-xs-8" style="padding-bottom:0;">';
+					// 		$items = json_decode($this->settings['siteBBM'])[0]->BBM;
+					// 		$n = 0;
+					// 		foreach($items as $user_data)
+					// 		{
+					// 			$n++;
+					// 			echo '<b>' . htmlspecialchars($user_data) . '</b>, ';
+					// 		}
+					// 		echo '</div></div>';
+					// 	}
+					// }
 				?>
 				
 				<div class="row"><div class="col-xs-4"><?php echo phrase('website'); ?></div><div class="col-xs-8"><?php echo base_url(); ?></div></div>

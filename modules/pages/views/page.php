@@ -1,18 +1,17 @@
 
 	<?php foreach($page as $row): ?>
 	
-		<div class="jumbotron text-center">
+		<div class="jumbotron  pages-title card">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-10 col-md-offset-1 text-shadow">
-						<h2><?php echo $row['pageTitle']; ?></h2>
-						<p>
-							<?php echo $row['pageExcerpt']; ?>
-						</p>
+					<div class="col-md-12 ">
+						<span >Pages <i class="fa fa-angle-double-right"></i> <?php echo $row['pageTitle']; ?> </span>
+						
 					</div>
 				</div>
 			</div>
 		</div>
+		<br><br><br>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1">

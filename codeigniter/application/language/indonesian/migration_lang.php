@@ -10,11 +10,11 @@
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$lang['migration_none_found'] = 'Tidak ada migrasi ditemukan.';
-$lang['migration_not_found'] = 'Tidak ada migrasi yang dapat ditemukan dengan nomor versi: %s.';
-$lang['migration_sequence_gap'] = 'Ada kesenjangan dalam urutan migrasi dekat nomor versi: %s.';
-$lang['migration_multiple_version'] = 'Ada beberapa migrasi dengan nomor versi yang sama: %s.';
-$lang['migration_class_doesnt_exist'] = 'Kelas migrasi "%s" tidak dapat ditemukan.';
-$lang['migration_missing_up_method'] = 'Kelas migrasi "%s" kehilangan metode "up".';
-$lang['migration_missing_down_method'] = 'Kelas migrasi "%s" kehilangan metode "down".';
-$lang['migration_invalid_filename'] = 'Migrasi "%s" memiliki nama berkas yang tidak sah.';
+$lang ['migration_none_found'] = 'No migration was found.';
+$lang ['migration_not_found'] = 'No migration can be found with the version number:% s.';
+$lang ['migration_sequence_gap'] = 'There is a gap in the order of migration near the version number:% s.';
+$lang ['migration_multiple_version'] = 'There are several migrations with the same version number:% s.';
+$lang ['migration_class_doesnt_exist'] = 'The migration class "% s" cannot be found.';
+$lang ['migration_missing_up_method'] = 'Migration class "% s" lost method "up".';
+$lang ['migration_missing_down_method'] = 'The migration class "% s" lost the method "down".';
+$lang ['migration_invalid_filename'] = 'Migration "% s" has an invalid file name.';

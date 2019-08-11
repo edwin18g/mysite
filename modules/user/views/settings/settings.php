@@ -1,26 +1,18 @@
 
 	<div class="bg-info">
-		<div class="container first-child">
+		<div class="container-fluid first-child">
 			<div class="row">
-				<div class="col-sm-7 col-sm-offset-1 hidden-xs">
-					<h2><i class="fa fa-cogs"></i> &nbsp; <?php echo phrase('global_settings'); ?></h2>
+				<div class="col-sm-7  hidden-xs">
+					
+				<span class="Page-title">User <i class="fa fa-angle-double-right"></i> <?php echo phrase('global_settings'); ?> <i class="fa fa-angle-double-right"></i></span>
 				</div>
-				<div class="col-sm-3">
-					<form class="form-horizontal" action="<?php echo base_url('users'); ?>" method="post">
-						<div class="input-group">
-							<input type="text" class="form-control input-lg" name="query" placeholder="<?php echo phrase('search_user'); ?>" />
-							<span class="input-group-btn">
-								<button type="submit" class="btn btn-lg btn-success nomargin"><i class="fa fa-search"></i></button>
-							</span>
-						</div>
-					</form>
-				</div>
+				
 			</div>
 		</div>
 	</div>
-	<div class="container">
+	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-3 col-md-offset-1 hidden-xs hidden-sm sticky">
+			<div class="col-md-2 hidden-xs hidden-sm sticky" style="background: #fff;margin: 0px;position: static;">
 			
 				<?php echo ($this->input->is_ajax_request() ? $this->load->view('dashboard_navigation') : $template['partials']['navigation']); ?>
 				
@@ -144,7 +136,7 @@
 							
 							<hr />
 									
-							<div class="form-group">
+							<div class="form-group hidden">
 								<div class="col-sm-12">
 									<h3><?php echo phrase('yahoo_messenger'); ?> <a class="btn btn-sm btn-default pull-right" onclick="ymFunction()"><?php echo phrase('add'); ?></a></h3>
 									</hr />
@@ -167,7 +159,7 @@
 							
 							<hr />
 									
-							<div class="form-group">
+							<div class="form-group hidden">
 								<div class="col-sm-12">
 									<h3><?php echo phrase('bbm_pin'); ?> <a class="btn btn-sm btn-default pull-right" onclick="bbmFunction()"><?php echo phrase('add'); ?></a></h3>
 									</hr />

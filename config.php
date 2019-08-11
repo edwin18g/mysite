@@ -1,6 +1,7 @@
 <?php
 	// Database Connection
 	define('HOSTNAME', 'localhost');
-	define('USERNAME', 'root');
-	define('PASSWORD', 'root');
-	define('DATABASE', 'test_social');
+	define('USERNAME', 'kuzhithuraidioce');
+	define('PASSWORD', 'aakash2014');
+	define('DATABASE', 'kuzhithuraidiocese');
+	
