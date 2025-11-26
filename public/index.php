@@ -13,12 +13,50 @@ if (php_sapi_name() === 'cli-server') {
 // Basic constants
 define('APP_PATH', realpath(__DIR__ . '/../app'));
 
+
 // Load base controller
 require_once APP_PATH . '/core/Controller.php';
+
+// Load routes config if present
+$routes = [];
+$routesFile = APP_PATH . '/config/routes.php';
+if (file_exists($routesFile)) {
+    $routes = include $routesFile;
+    if (!is_array($routes)) {
+        $routes = [];
+    }
+}
 
 // Parse URL
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $uri = trim($uri, '/');
+
+// Apply routes mapping (support exact and simple pattern placeholders (:any, :num))
+if (!empty($routes)) {
+    foreach ($routes as $pattern => $dest) {
+        $pattern = trim($pattern, '/');
+        if ($pattern === $uri) {
+            $uri = trim($dest, '/');
+            break;
+        }
+
+        // Convert placeholders to regex safely by tokenizing before escaping
+        $tokened = str_replace(['(:any)', '(:num)'], ['___ANY___', '___NUM___'], $pattern);
+        $regex = preg_quote($tokened, '#');
+        $regex = str_replace(['___ANY___', '___NUM___'], ['(.+)', '([0-9]+)'], $regex);
+        $regex = '#^' . $regex . '$#i';
+        if (preg_match($regex, $uri, $matches)) {
+            // Replace $1, $2... in destination with captured groups
+            $repl = $dest;
+            for ($i = 1; $i < count($matches); $i++) {
+                $repl = str_replace('$' . $i, $matches[$i], $repl);
+            }
+            $uri = trim($repl, '/');
+            break;
+        }
+    }
+}
+
 $segments = $uri === '' ? [] : explode('/', $uri);
 
 $controllerName = !empty($segments[0]) ? ucfirst($segments[0]) : 'Home';
