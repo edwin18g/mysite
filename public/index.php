@@ -1,8 +1,8 @@
 <?php
-// Root front controller and router (CodeIgniter-like: /controller/method/params)
-// This mirrors `public/index.php` but lives at project root so no `public/` folder is required.
+// Simple front controller and router (CodeIgniter-like: /controller/method/params)
+// Note: For production, add sanitization, autoloading, and better error handling.
 
-// Serve static files when using PHP built-in server
+// Serve static files when using built-in PHP server
 if (php_sapi_name() === 'cli-server') {
     $path = realpath(__DIR__ . parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
     if ($path && is_file($path)) {
@@ -11,7 +11,7 @@ if (php_sapi_name() === 'cli-server') {
 }
 
 // Basic constants
-define('APP_PATH', realpath(__DIR__ . '/app'));
+define('APP_PATH', realpath(__DIR__ . '/../app'));
 
 // Load base controller
 require_once APP_PATH . '/core/Controller.php';

@@ -1,0 +1,5 @@
+archive_*/
+vendor/
+.idea/
+node_modules/
+.env
